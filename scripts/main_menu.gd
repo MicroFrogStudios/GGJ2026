@@ -1,0 +1,15 @@
+extends Control
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+func _on_startbutton_pressed() -> void:
+	print("Start Button Pressed")
+	# get_tree().change_scene("res://scenes/game.tscn")
+
+
+func _on_quitbutton_pressed() -> void:
+	get_tree().quit()
