@@ -4,13 +4,14 @@ extends CharacterBody2D
 @onready var anim : AnimatedSprite2D = $AnimatedSprite2D
 @export var speed := 300.0
 @export var jump_velocity = -400.0
+@export var initial_num_masks := 3
 
 
 signal change_mask(new_mask_number: int)
 
 
 var mask := 0
-var num_masks := 3
+var num_masks := initial_num_masks
 
 
 func _input(event: InputEvent) -> void:
