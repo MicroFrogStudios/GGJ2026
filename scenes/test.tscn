@@ -10,3 +10,4 @@ player = NodePath("../knight")
 
 [node name="knight" parent="." unique_id=614979792 instance=ExtResource("2_iyx0m")]
 position = Vector2(30, 13)
+scale = Vector2(2.25, 2.25)
