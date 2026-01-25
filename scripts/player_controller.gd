@@ -10,11 +10,12 @@ signal change_mask(new_mask_number: int)
 
 
 var mask := 0
+var num_masks := 3
 
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("change_mask"):
-		var new_mask = (mask + 1) % 3
+		var new_mask = (mask + 1) % num_masks
 		mask = new_mask
 		change_mask.emit(new_mask)
 		print("Changing mask", new_mask)
