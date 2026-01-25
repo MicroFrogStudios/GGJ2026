@@ -77,11 +77,16 @@ func _on_mask_pickup_got_mask(mask_number: int) -> void:
 
 
 func _on_crush_hitbox_body_entered(body: Node2D) -> void:
+	# Something entered the player's crush hitbox
+	if body.name == "PlayerCharacter":
+		# Don't trigger it by the player itself
+		return
 	# TODO death logic
-	if body.name != "Knight":
-		print('CRUSHED ', body)
+	print('CRUSHED ', body)
 
 
 func _on_death_plane_body_entered(body: Node2D) -> void:
+	if body.name != "PlayerCharacter":
+		return
 	# TODO death logic
 	print('FELL ', body)

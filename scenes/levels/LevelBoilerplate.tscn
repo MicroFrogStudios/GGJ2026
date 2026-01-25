@@ -12,18 +12,18 @@ distance = -179.0
 
 [node name="MultiMaskedTileMap" type="Node2D" parent="." unique_id=1849164173 node_paths=PackedStringArray("player")]
 script = ExtResource("1_ljsc8")
-player = NodePath("../Knight")
+player = NodePath("../PlayerCharacter")
 
 [node name="ExitDoor" parent="." unique_id=45997899 instance=ExtResource("4_nyalh")]
 position = Vector2(1512, -224)
 
-[node name="Knight" parent="." unique_id=614979792 instance=ExtResource("5_oscf3")]
+[node name="PlayerCharacter" parent="." unique_id=614979792 instance=ExtResource("5_oscf3")]
 position = Vector2(0, -32)
 scale = Vector2(2.25, 2.25)
 
 [node name="CameraFollow" parent="." unique_id=467601528 node_paths=PackedStringArray("following") instance=ExtResource("6_fle77")]
 limit_enabled = false
-following = NodePath("../Knight")
+following = NodePath("../PlayerCharacter")
 follow_speed = 20
 
 [node name="DeathPlane" type="Area2D" parent="." unique_id=20074737]
@@ -31,4 +31,4 @@ follow_speed = 20
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPlane" unique_id=917751410]
 shape = SubResource("WorldBoundaryShape2D_6v23s")
 
-[connection signal="body_entered" from="DeathPlane" to="Knight" method="_on_death_plane_body_entered"]
+[connection signal="body_entered" from="DeathPlane" to="PlayerCharacter" method="_on_death_plane_body_entered"]
