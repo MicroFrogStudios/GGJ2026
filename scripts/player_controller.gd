@@ -1,8 +1,29 @@
+class_name PlayerCharacter
 extends CharacterBody2D
 
 @onready var anim : AnimatedSprite2D = $AnimatedSprite2D
 @export var speed := 300.0
-@export var jump_velocity = -100.0
+@export var jump_velocity = -400.0
+
+
+signal change_mask(new_mask_number: int)
+
+
+var mask := 0
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("change_mask"):
+		var new_mask = (mask + 1) % 3
+		mask = new_mask
+		change_mask.emit(new_mask)
+		print("Changing mask", new_mask)
+
+
+func _ready() -> void:
+	change_mask.emit(mask)
+
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
