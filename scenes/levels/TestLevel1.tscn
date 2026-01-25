@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cj3f35soivqqm"]
 
-[ext_resource type="PackedScene" uid="uid://bw5w60ghi6l4g" path="res://scenes/prefabs/maskedtilesettest.tscn" id="1_bl13t"]
-[ext_resource type="PackedScene" uid="uid://dm6qoe57l87ub" path="res://scenes/prefabs/player.tscn" id="2_iyx0m"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/exitdoor.tscn" id="3_yp2xm"]
+[ext_resource type="PackedScene" uid="uid://bw5w60ghi6l4g" path="res://scenes/prefabs/MaskedTilesetTest.tscn" id="1_bl13t"]
+[ext_resource type="PackedScene" uid="uid://dm6qoe57l87ub" path="res://scenes/prefabs/Player.tscn" id="2_iyx0m"]
+[ext_resource type="PackedScene" uid="uid://bn46343xobuti" path="res://scenes/prefabs/ExitDoor.tscn" id="3_yp2xm"]
 
 [node name="testlevel_1" type="Node2D" unique_id=1288485676]
 

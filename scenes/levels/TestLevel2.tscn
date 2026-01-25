@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://cvgms3bqrev6r"]
 
 [ext_resource type="Script" uid="uid://dvmkjcuu4vlvu" path="res://scripts/multimaskedtilemap.gd" id="1_vo0hr"]
-[ext_resource type="PackedScene" uid="uid://dm6qoe57l87ub" path="res://scenes/prefabs/player.tscn" id="2_ci7an"]
+[ext_resource type="PackedScene" uid="uid://dm6qoe57l87ub" path="res://scenes/prefabs/Player.tscn" id="2_ci7an"]
 [ext_resource type="TileSet" uid="uid://0ri8qrel1dpj" path="res://resources/tilesets/testtileset.tres" id="2_hwjxr"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/exitdoor.tscn" id="3_vo0hr"]
+[ext_resource type="PackedScene" uid="uid://bn46343xobuti" path="res://scenes/prefabs/ExitDoor.tscn" id="3_vo0hr"]
 [ext_resource type="Script" uid="uid://cqfbx47wt6d28" path="res://scripts/masked_layer.gd" id="3_xdmmy"]
 
 [node name="testlevel_2" type="Node2D" unique_id=1288485676]
@@ -32,4 +32,4 @@ scale = Vector2(2.25, 2.25)
 
 [node name="exitdoor" parent="." unique_id=45997899 instance=ExtResource("3_vo0hr")]
 position = Vector2(586, 76)
-next_scene = "res://scenes/levels/levelTutorial.tscn"
+next_scene = "res://scenes/levels/LevelTutorial.tscn"

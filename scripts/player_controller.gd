@@ -11,10 +11,19 @@ signal change_mask(new_mask_number: int)
 
 
 var mask := 0
-var num_masks := initial_num_masks
+var num_masks := 0
+
+
+func _ready() -> void:
+	change_mask.emit(mask)
+	num_masks = initial_num_masks
+	print("Initial num_masks is ", num_masks)
 
 
 func _input(event: InputEvent) -> void:
+	if num_masks == 0:
+		# Only allow changing masks if we have at least 1
+		return
 	var prev_mask = mask
 	if event.is_action_pressed("prev_mask"):
 		var new_mask = (num_masks + 1 + mask - 1) % (num_masks + 1)
@@ -34,10 +43,6 @@ func _input(event: InputEvent) -> void:
 	if prev_mask != mask:
 		print("Mask is ", mask)
 		change_mask.emit(mask)
-
-
-func _ready() -> void:
-	change_mask.emit(mask)
 
 
 func _physics_process(delta: float) -> void:
@@ -63,3 +68,9 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x,0, speed)
 
 	move_and_slide()
+
+
+func _on_mask_pickup_got_mask(mask_number: int) -> void:
+	if mask_number > num_masks:
+		num_masks = mask_number
+		print("Increased num_masks to ", num_masks)

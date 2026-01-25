@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://bnkcypkogkal7"]
 
-[ext_resource type="Texture2D" uid="uid://bsp4v6movp1mx" path="res://assets/sprites/coin.png" id="1_h72c2"]
-[ext_resource type="Script" uid="uid://c28tuc458pf84" path="res://scripts/mask_fragment.gd" id="1_wh3cj"]
+[ext_resource type="Script" uid="uid://c28tuc458pf84" path="res://scripts/mask_fragment.gd" id="1_lwc8p"]
+[ext_resource type="Texture2D" uid="uid://bsp4v6movp1mx" path="res://assets/sprites/coin.png" id="2_wp63b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h72c2"]
 
-[node name="mask_fragment" type="Node2D" unique_id=678487700]
-script = ExtResource("1_wh3cj")
+[node name="MaskPickup" type="Node2D" unique_id=678487700]
+script = ExtResource("1_lwc8p")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1978475531]
-texture = ExtResource("1_h72c2")
+texture = ExtResource("2_wp63b")
 
 [node name="MaskArea2D" type="Area2D" parent="." unique_id=1839701969]
 
