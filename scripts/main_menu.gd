@@ -8,7 +8,7 @@ func _ready() -> void:
 
 func _on_startbutton_pressed() -> void:
 	print("Start Button Pressed")
-	# get_tree().change_scene("res://scenes/game.tscn")
+	get_tree().change_scene_to_packed(load("res://scenes/game.tscn"))
 
 
 func _on_quitbutton_pressed() -> void:
