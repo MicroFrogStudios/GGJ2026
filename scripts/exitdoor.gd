@@ -1,9 +1,6 @@
 extends Node2D
 
 
-@onready var door_area: Area2D = $DoorArea2D
-
-
 func change_scene(next_level_path: String) -> void:
 	get_tree().change_scene_to_file(next_level_path)
 
