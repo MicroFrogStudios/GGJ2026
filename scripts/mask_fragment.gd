@@ -17,7 +17,7 @@ func disable_mask() -> void:
 
 
 func _on_mask_area_2d_body_entered(body: Node2D) -> void:
-	if body.name == "knight":
+	if body.name == "PlayerCharacter":
 		print("Player has gotten mask!")
 		got_mask.emit(mask_number)
 		call_deferred("disable_mask")
