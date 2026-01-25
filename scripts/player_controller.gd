@@ -15,11 +15,25 @@ var num_masks := initial_num_masks
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("change_mask"):
-		var new_mask = (mask + 1) % num_masks
+	var prev_mask = mask
+	if event.is_action_pressed("prev_mask"):
+		var new_mask = (num_masks + 1 + mask - 1) % (num_masks + 1)
 		mask = new_mask
-		change_mask.emit(new_mask)
-		print("Changing mask", new_mask)
+	elif event.is_action_pressed("next_mask"):
+		var new_mask = (mask + 1) % (num_masks + 1)
+		mask = new_mask
+	elif event.is_action_pressed("gotomask1"):
+		mask = 0
+	elif event.is_action_pressed("gotomask2"):
+		mask = 1
+	elif event.is_action_pressed("gotomask3"):
+		mask = 2
+	elif event.is_action_pressed("gotomask4"):
+		mask = 3
+
+	if prev_mask != mask:
+		print("Mask is ", mask)
+		change_mask.emit(mask)
 
 
 func _ready() -> void:
