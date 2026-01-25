@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bsgfe5r7jnoje"]
 
-[ext_resource type="PackedScene" uid="uid://bw5w60ghi6l4g" path="res://scenes/maskedtilesettest.tscn" id="1_bl13t"]
-[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="2_iyx0m"]
+[ext_resource type="PackedScene" uid="uid://bw5w60ghi6l4g" path="res://scenes/prefabs/maskedtilesettest.tscn" id="1_bl13t"]
+[ext_resource type="PackedScene" uid="uid://dm6qoe57l87ub" path="res://scenes/prefabs/player.tscn" id="2_iyx0m"]
 
 [node name="Node2D" type="Node2D" unique_id=1288485676]
 

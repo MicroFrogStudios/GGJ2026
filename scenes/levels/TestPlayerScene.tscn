@@ -1,0 +1,28 @@
+[gd_scene format=4 uid="uid://bfceqpu3e1kkv"]
+
+[ext_resource type="PackedScene" uid="uid://dm6qoe57l87ub" path="res://scenes/prefabs/player.tscn" id="1_8hpay"]
+[ext_resource type="Script" uid="uid://dvmkjcuu4vlvu" path="res://scripts/multimaskedtilemap.gd" id="2_p24t3"]
+[ext_resource type="TileSet" uid="uid://0ri8qrel1dpj" path="res://resources/tilesets/testtileset.tres" id="3_c8i1k"]
+[ext_resource type="Script" uid="uid://cqfbx47wt6d28" path="res://scripts/masked_layer.gd" id="4_pep2f"]
+
+[node name="Game" type="Node2D" unique_id=231682649]
+
+[node name="knight" parent="." unique_id=614979792 instance=ExtResource("1_8hpay")]
+position = Vector2(328, 217)
+scale = Vector2(2.25, 2.25)
+speed = 200.0
+
+[node name="MultiMaskedTileMap" type="Node2D" parent="." unique_id=1934310862 node_paths=PackedStringArray("player")]
+script = ExtResource("2_p24t3")
+player = NodePath("../knight")
+
+[node name="MaskedTileMapLayer" type="TileMapLayer" parent="MultiMaskedTileMap" unique_id=1320710130]
+tile_map_data = PackedByteArray("AAAQABAAAAAAAAAAAAARABAAAAAAAAAAAAASABAAAAAAAAAAAAATABAAAAAAAAAAAAAUABAAAAAAAAAAAAAVABAAAAAAAAAAAAAWABAAAAAAAAAAAAAXABAAAAAAAAAAAAAYABAAAAAAAAAAAAAZABAAAAAAAAAAAAAEABAAAAAAAAAAAAAFABAAAAAAAAAAAAAGABAAAAAAAAAAAAAHABAAAAAAAAAAAAAIABAAAAAAAAAAAAAJABAAAAAAAAAAAAAKABAAAAAAAAAAAAALABAAAAAAAAAAAAAMABAAAAAAAAAAAAANABAAAAAAAAAAAAAOABAAAAAAAAAAAAAPABAAAAAAAAAAAAA=")
+tile_set = ExtResource("3_c8i1k")
+script = ExtResource("4_pep2f")
+
+[node name="MaskedTileMapLayer2" type="TileMapLayer" parent="MultiMaskedTileMap" unique_id=1664963976]
+tile_map_data = PackedByteArray("AAAdAA4AAAABAAAAAAAeAA4AAAABAAAAAAAfAA4AAAABAAAAAAAgAA4AAAABAAAAAAAhAA4AAAABAAAAAAAiAA4AAAABAAAAAAAjAA4AAAABAAAAAAA=")
+tile_set = ExtResource("3_c8i1k")
+script = ExtResource("4_pep2f")
+mask_number = 1
