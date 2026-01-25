@@ -7,12 +7,12 @@
 [node name="testlevel_1" type="Node2D" unique_id=1288485676]
 
 [node name="maskedtileset" parent="." unique_id=1438512080 node_paths=PackedStringArray("player") instance=ExtResource("1_bl13t")]
-player = NodePath("../knight")
+player = NodePath("../Knight")
 
-[node name="knight" parent="." unique_id=614979792 instance=ExtResource("2_iyx0m")]
+[node name="Knight" parent="." unique_id=614979792 instance=ExtResource("2_iyx0m")]
 position = Vector2(30, 13)
 scale = Vector2(2.25, 2.25)
 
-[node name="exitdoor" parent="." unique_id=45997899 instance=ExtResource("3_yp2xm")]
+[node name="ExitDoor" parent="." unique_id=45997899 instance=ExtResource("3_yp2xm")]
 position = Vector2(586, 76)
 next_scene = "res://scenes/levels/testlevel_2.tscn"

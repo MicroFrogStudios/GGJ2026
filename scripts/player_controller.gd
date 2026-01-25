@@ -77,5 +77,11 @@ func _on_mask_pickup_got_mask(mask_number: int) -> void:
 
 
 func _on_crush_hitbox_body_entered(body: Node2D) -> void:
-	if body.name != "knight":
+	# TODO death logic
+	if body.name != "Knight":
 		print('CRUSHED ', body)
+
+
+func _on_death_plane_body_entered(body: Node2D) -> void:
+	# TODO death logic
+	print('FELL ', body)

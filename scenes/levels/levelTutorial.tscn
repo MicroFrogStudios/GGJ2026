@@ -12,7 +12,7 @@
 
 [node name="MultiMaskedTileMap" type="Node2D" parent="." unique_id=1849164173 node_paths=PackedStringArray("player")]
 script = ExtResource("1_hlk2l")
-player = NodePath("../knight")
+player = NodePath("../Knight")
 
 [node name="MaskedTileMapLayer" type="TileMapLayer" parent="MultiMaskedTileMap" unique_id=1132642554]
 position = Vector2(41, -5)
@@ -26,21 +26,21 @@ tile_set = ExtResource("2_72a20")
 script = ExtResource("3_fgnd1")
 mask_number = 1
 
-[node name="exitdoor" parent="." unique_id=45997899 instance=ExtResource("4_njiwr")]
+[node name="ExitDoor" parent="." unique_id=45997899 instance=ExtResource("4_njiwr")]
 position = Vector2(1512, -224)
 next_scene = "res://scenes/levels/TestLevel1.tscn"
 
-[node name="knight" parent="." unique_id=614979792 instance=ExtResource("5_m8ela")]
+[node name="Knight" parent="." unique_id=614979792 instance=ExtResource("5_m8ela")]
 position = Vector2(-63, -54)
 scale = Vector2(2.25, 2.25)
 initial_num_masks = 0
 
 [node name="CameraFollow" parent="." unique_id=467601528 node_paths=PackedStringArray("following") instance=ExtResource("6_86vqt")]
 limit_enabled = false
-following = NodePath("../knight")
+following = NodePath("../Knight")
 follow_speed = 20
 
 [node name="MaskPickup" parent="." unique_id=678487700 instance=ExtResource("7_hlk2l")]
 position = Vector2(577, -52)
 
-[connection signal="got_mask" from="MaskPickup" to="knight" method="_on_mask_pickup_got_mask"]
+[connection signal="got_mask" from="MaskPickup" to="Knight" method="_on_mask_pickup_got_mask"]
