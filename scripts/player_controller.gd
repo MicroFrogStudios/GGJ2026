@@ -2,6 +2,9 @@ class_name PlayerCharacter
 extends CharacterBody2D
 
 @onready var anim : AnimatedSprite2D = $AnimatedSprite2D
+@onready var level: Node2D = get_parent()
+
+
 @export var speed := 300.0
 @export var jump_velocity = -400.0
 @export var initial_num_masks := 3
@@ -14,10 +17,14 @@ var mask := 0
 var num_masks := 0
 
 
+func spawn() -> void:
+	position = level.spawn_position
+
+
 func _ready() -> void:
 	change_mask.emit(mask)
 	num_masks = initial_num_masks
-	print("Initial num_masks is ", num_masks)
+	spawn()
 
 
 func _input(event: InputEvent) -> void:
