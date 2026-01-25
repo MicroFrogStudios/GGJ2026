@@ -74,3 +74,8 @@ func _on_mask_pickup_got_mask(mask_number: int) -> void:
 	if mask_number > num_masks:
 		num_masks = mask_number
 		print("Increased num_masks to ", num_masks)
+
+
+func _on_crush_hitbox_body_entered(body: Node2D) -> void:
+	if body.name != "knight":
+		print('CRUSHED ', body)

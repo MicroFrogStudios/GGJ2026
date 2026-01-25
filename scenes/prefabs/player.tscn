@@ -159,6 +159,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ok4up"]
+radius = 3.1622777
+
 [node name="knight" type="CharacterBody2D" unique_id=614979792]
 script = ExtResource("1_g2els")
 
@@ -170,3 +173,11 @@ shape = SubResource("RectangleShape2D_14u3r")
 sprite_frames = SubResource("SpriteFrames_mvyd6")
 animation = &"run"
 autoplay = "idle"
+
+[node name="CrushHitbox" type="Area2D" parent="." unique_id=1686012330]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CrushHitbox" unique_id=1043633815]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_ok4up")
+
+[connection signal="body_entered" from="CrushHitbox" to="." method="_on_crush_hitbox_body_entered"]
