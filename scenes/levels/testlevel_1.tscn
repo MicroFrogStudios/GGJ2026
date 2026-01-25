@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://bsgfe5r7jnoje"]
+[gd_scene format=3 uid="uid://cj3f35soivqqm"]
 
 [ext_resource type="PackedScene" uid="uid://bw5w60ghi6l4g" path="res://scenes/prefabs/maskedtilesettest.tscn" id="1_bl13t"]
 [ext_resource type="PackedScene" uid="uid://dm6qoe57l87ub" path="res://scenes/prefabs/player.tscn" id="2_iyx0m"]
-[ext_resource type="PackedScene" uid="uid://bn46343xobuti" path="res://scenes/prefabs/exitdoor.tscn" id="3_yp2xm"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/exitdoor.tscn" id="3_yp2xm"]
 
 [node name="testlevel_1" type="Node2D" unique_id=1288485676]
 
@@ -15,3 +15,4 @@ scale = Vector2(2.25, 2.25)
 
 [node name="exitdoor" parent="." unique_id=45997899 instance=ExtResource("3_yp2xm")]
 position = Vector2(586, 76)
+next_scene = "res://scenes/levels/testlevel_2.tscn"
