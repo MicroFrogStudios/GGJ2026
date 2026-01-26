@@ -148,9 +148,9 @@ shader_parameter/radius = 2.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oscf3"]
 shader = ExtResource("9_nyalh")
 shader_parameter/center = Vector2(0.5, 0.5)
-shader_parameter/force = 0.1
+shader_parameter/force = 0.05
 shader_parameter/radius = -0.1
-shader_parameter/atenuation_factor = 8.0
+shader_parameter/atenuation_factor = 0.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6v23s"]
 distance = -192.0
