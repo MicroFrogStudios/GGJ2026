@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://dvmkjcuu4vlvu" path="res://scripts/multimaskedtilemap.gd" id="1_hlk2l"]
 [ext_resource type="TileSet" uid="uid://0ri8qrel1dpj" path="res://resources/tilesets/testtileset.tres" id="2_72a20"]
 [ext_resource type="Script" uid="uid://cqfbx47wt6d28" path="res://scripts/masked_layer.gd" id="3_fgnd1"]
-[ext_resource type="PackedScene" uid="uid://bn46343xobuti" path="res://scenes/prefabs/exitdoor.tscn" id="4_njiwr"]
-[ext_resource type="PackedScene" uid="uid://dm6qoe57l87ub" path="res://scenes/prefabs/player.tscn" id="5_m8ela"]
+[ext_resource type="PackedScene" uid="uid://bn46343xobuti" path="res://scenes/prefabs/ExitDoor.tscn" id="4_njiwr"]
+[ext_resource type="PackedScene" uid="uid://buc8xfo8nwnfy" path="res://scenes/prefabs/player.tscn" id="5_m8ela"]
 [ext_resource type="PackedScene" uid="uid://v0bxw5r7bav0" path="res://scenes/prefabs/CameraFollow.tscn" id="6_86vqt"]
 [ext_resource type="Shader" uid="uid://g2kx26x1mj7r" path="res://shaders/spotlight.gdshader" id="9_xornt"]
 [ext_resource type="Script" uid="uid://b7qtr6cokots2" path="res://scripts/death_spotlight.gd" id="10_ggudt"]
@@ -119,13 +119,6 @@ distance = -192.0
 
 [node name="LevelTutorial" type="Node2D" unique_id=1082980837]
 
-[node name="PlayerCharacter" parent="." unique_id=614979792 instance=ExtResource("5_m8ela")]
-position = Vector2(-232, 16)
-
-[node name="ExitDoor" parent="." unique_id=45997899 instance=ExtResource("4_njiwr")]
-z_index = -1
-position = Vector2(504, -32)
-
 [node name="MultiMaskedTileMap" type="Node2D" parent="." unique_id=1849164173 node_paths=PackedStringArray("player")]
 script = ExtResource("1_hlk2l")
 player = NodePath("../PlayerCharacter")
@@ -140,6 +133,13 @@ tile_map_data = PackedByteArray("AAAvAP7/AgADAAMAAAAvAP//AgACAAMAAAAvAAAAAgADAAI
 tile_set = ExtResource("2_72a20")
 script = ExtResource("3_fgnd1")
 mask_number = 1
+
+[node name="PlayerCharacter" parent="." unique_id=614979792 instance=ExtResource("5_m8ela")]
+position = Vector2(-94, -7)
+
+[node name="ExitDoor" parent="." unique_id=45997899 instance=ExtResource("4_njiwr")]
+z_index = -1
+position = Vector2(504, -32)
 
 [node name="CameraFollow" parent="." unique_id=467601528 node_paths=PackedStringArray("following") instance=ExtResource("6_86vqt")]
 limit_left = -320
