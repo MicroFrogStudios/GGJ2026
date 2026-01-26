@@ -29,6 +29,12 @@ window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 
+[importer_defaults]
+
+animation_library={
+&"animation/fps": 30.0
+}
+
 [input]
 
 prev_mask={

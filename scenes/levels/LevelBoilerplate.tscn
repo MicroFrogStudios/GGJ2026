@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dvmkjcuu4vlvu" path="res://scripts/multimaskedtilemap.gd" id="1_ljsc8"]
 [ext_resource type="Script" uid="uid://cqfbx47wt6d28" path="res://scripts/masked_layer.gd" id="3_nendb"]
 [ext_resource type="Script" uid="uid://b7qtr6cokots2" path="res://scripts/death_spotlight.gd" id="4_nendb"]
-[ext_resource type="PackedScene" uid="uid://bn46343xobuti" path="res://scenes/prefabs/exitdoor.tscn" id="4_nyalh"]
+[ext_resource type="PackedScene" uid="uid://bn46343xobuti" path="res://scenes/prefabs/ExitDoor.tscn" id="4_nyalh"]
 [ext_resource type="PackedScene" uid="uid://4aghjpy7mbvk" path="res://scenes/game_ui.tscn" id="4_oscf3"]
 [ext_resource type="PackedScene" uid="uid://dm6qoe57l87ub" path="res://scenes/prefabs/player.tscn" id="5_oscf3"]
 [ext_resource type="PackedScene" uid="uid://v0bxw5r7bav0" path="res://scenes/prefabs/CameraFollow.tscn" id="6_fle77"]
