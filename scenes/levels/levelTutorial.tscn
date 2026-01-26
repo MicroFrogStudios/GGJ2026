@@ -1,11 +1,10 @@
 [gd_scene format=4 uid="uid://c4cms0dp03rem"]
 
-[ext_resource type="Script" uid="uid://cmne7yfef4ro4" path="res://scripts/level_boilerplate.gd" id="1_72a20"]
 [ext_resource type="Script" uid="uid://dvmkjcuu4vlvu" path="res://scripts/multimaskedtilemap.gd" id="1_hlk2l"]
 [ext_resource type="TileSet" uid="uid://0ri8qrel1dpj" path="res://resources/tilesets/testtileset.tres" id="2_72a20"]
 [ext_resource type="Script" uid="uid://cqfbx47wt6d28" path="res://scripts/masked_layer.gd" id="3_fgnd1"]
-[ext_resource type="PackedScene" uid="uid://bn46343xobuti" path="res://scenes/prefabs/exitdoor.tscn" id="4_njiwr"]
-[ext_resource type="PackedScene" uid="uid://dm6qoe57l87ub" path="res://scenes/prefabs/player.tscn" id="5_m8ela"]
+[ext_resource type="PackedScene" uid="uid://bn46343xobuti" path="res://scenes/prefabs/ExitDoor.tscn" id="4_njiwr"]
+[ext_resource type="PackedScene" uid="uid://dm6qoe57l87ub" path="res://scenes/prefabs/Player.tscn" id="5_m8ela"]
 [ext_resource type="PackedScene" uid="uid://v0bxw5r7bav0" path="res://scenes/prefabs/CameraFollow.tscn" id="6_86vqt"]
 [ext_resource type="PackedScene" uid="uid://bnkcypkogkal7" path="res://scenes/prefabs/MaskPickup.tscn" id="7_hlk2l"]
 [ext_resource type="Shader" uid="uid://g2kx26x1mj7r" path="res://shaders/spotlight.gdshader" id="9_xornt"]
@@ -14,7 +13,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ggudt"]
 shader = ExtResource("9_xornt")
 shader_parameter/center = Vector2(0.5, 0.5)
-shader_parameter/radius = 1.0
+shader_parameter/radius = 2.0
 
 [sub_resource type="Animation" id="Animation_xornt"]
 length = 0.001
@@ -28,11 +27,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [1.0]
+"values": [2.0]
 }
 
 [sub_resource type="Animation" id="Animation_ggudt"]
 resource_name = "spotlight"
+length = 1.1666666
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -40,23 +40,53 @@ tracks/0/path = NodePath(".:material:shader_parameter/radius")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.93333334),
+"times": PackedFloat32Array(0, 0.93333334, 1.2, 1.5333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [2.0, -0.1, -0.1, 2.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%PlayerCharacter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.1666666),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawn"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_12kvg"]
+resource_name = "spotlight_spawn"
+length = 0.33333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333325),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [1.0, -0.1]
+"values": [-0.1, 2.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_12kvg"]
 _data = {
 &"RESET": SubResource("Animation_xornt"),
-&"spotlight": SubResource("Animation_ggudt")
+&"spotlight_death": SubResource("Animation_ggudt"),
+&"spotlight_spawn": SubResource("Animation_12kvg")
 }
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6v23s"]
 distance = -192.0
 
 [node name="LevelTutorial" type="Node2D" unique_id=1082980837]
-script = ExtResource("1_72a20")
 
 [node name="MaskPickup" parent="." unique_id=678487700 instance=ExtResource("7_hlk2l")]
 position = Vector2(536, -48)
@@ -82,13 +112,13 @@ next_scene = "res://scenes/levels/levelTutorial.tscn"
 
 [node name="PlayerCharacter" parent="." unique_id=614979792 instance=ExtResource("5_m8ela")]
 unique_name_in_owner = true
-position = Vector2(-216, -96)
+position = Vector2(-112, -2)
 scale = Vector2(2.25, 2.25)
 initial_num_masks = 0
 
 [node name="CameraFollow" parent="." unique_id=467601528 node_paths=PackedStringArray("following") instance=ExtResource("6_86vqt")]
 limit_left = -157
-limit_bottom = 206
+limit_bottom = 200
 following = NodePath("../PlayerCharacter")
 follow_speed = 20
 
@@ -103,19 +133,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("10_ggudt")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CameraFollow/EffectsLayer/DeathSpotlight" unique_id=528678721]
+[node name="EffectsAnimator" type="AnimationPlayer" parent="CameraFollow/EffectsLayer" unique_id=528678721]
+unique_name_in_owner = true
+root_node = NodePath("../DeathSpotlight")
 libraries/ = SubResource("AnimationLibrary_12kvg")
-autoplay = &"spotlight"
 
 [node name="DeathPlane" type="Area2D" parent="." unique_id=20074737]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPlane" unique_id=917751410]
 shape = SubResource("WorldBoundaryShape2D_6v23s")
 
-[node name="SpawnPosition" type="Node2D" parent="." unique_id=2071889026]
-editor_description = "marks the spawn position of the player
-"
-position = Vector2(-200, -32)
-
 [connection signal="got_mask" from="MaskPickup" to="PlayerCharacter" method="_on_mask_pickup_got_mask"]
+[connection signal="death" from="PlayerCharacter" to="CameraFollow/EffectsLayer/DeathSpotlight" method="_on_player_character_death"]
 [connection signal="body_entered" from="DeathPlane" to="PlayerCharacter" method="_on_death_plane_body_entered"]

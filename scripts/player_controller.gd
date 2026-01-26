@@ -1,8 +1,9 @@
 class_name PlayerCharacter
 extends CharacterBody2D
 
+
 @onready var anim : AnimatedSprite2D = $AnimatedSprite2D
-@onready var level: Node2D = get_parent()
+@onready var EffectsAnimator = %EffectsAnimator
 
 
 @export var speed := 300.0
@@ -11,17 +12,23 @@ extends CharacterBody2D
 
 
 signal change_mask(new_mask_number: int)
+signal death()
 
 
 var mask := 0
 var num_masks := 0
+var spawn_position: Vector2
 
 
 func spawn() -> void:
-	position = level.spawn_position
+	position = spawn_position
+	print("SPAWNING ", spawn_position)
+	print("asdf ", EffectsAnimator)
+	EffectsAnimator.play("spotlight_spawn")
 
 
 func _ready() -> void:
+	spawn_position = position
 	change_mask.emit(mask)
 	num_masks = initial_num_masks
 	spawn()
@@ -88,12 +95,12 @@ func _on_crush_hitbox_body_entered(body: Node2D) -> void:
 	if body.name == "PlayerCharacter":
 		# Don't trigger it by the player itself
 		return
-	# TODO death logic
-	print('CRUSHED ', body)
+	print('CRUSHED ', body, body.name)
+	death.emit()
 
 
 func _on_death_plane_body_entered(body: Node2D) -> void:
 	if body.name != "PlayerCharacter":
 		return
-	# TODO death logic
 	print('FELL ', body)
+	death.emit()

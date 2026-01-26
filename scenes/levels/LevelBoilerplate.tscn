@@ -1,24 +1,91 @@
 [gd_scene format=4 uid="uid://s6jgpvyxe42i"]
 
-[ext_resource type="Script" uid="uid://cmne7yfef4ro4" path="res://scripts/level_boilerplate.gd" id="1_dq2b2"]
 [ext_resource type="Script" uid="uid://dvmkjcuu4vlvu" path="res://scripts/multimaskedtilemap.gd" id="1_ljsc8"]
 [ext_resource type="TileSet" uid="uid://0ri8qrel1dpj" path="res://resources/tilesets/testtileset.tres" id="2_5a7mx"]
 [ext_resource type="Script" uid="uid://cqfbx47wt6d28" path="res://scripts/masked_layer.gd" id="3_nendb"]
-[ext_resource type="PackedScene" uid="uid://bn46343xobuti" path="res://scenes/prefabs/exitdoor.tscn" id="4_nyalh"]
-[ext_resource type="PackedScene" uid="uid://dm6qoe57l87ub" path="res://scenes/prefabs/player.tscn" id="5_oscf3"]
+[ext_resource type="Script" uid="uid://b7qtr6cokots2" path="res://scripts/death_spotlight.gd" id="4_nendb"]
+[ext_resource type="PackedScene" uid="uid://bn46343xobuti" path="res://scenes/prefabs/ExitDoor.tscn" id="4_nyalh"]
+[ext_resource type="PackedScene" uid="uid://dm6qoe57l87ub" path="res://scenes/prefabs/Player.tscn" id="5_oscf3"]
 [ext_resource type="PackedScene" uid="uid://v0bxw5r7bav0" path="res://scenes/prefabs/CameraFollow.tscn" id="6_fle77"]
 [ext_resource type="Shader" uid="uid://g2kx26x1mj7r" path="res://shaders/spotlight.gdshader" id="8_5a7mx"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nendb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5a7mx"]
 shader = ExtResource("8_5a7mx")
 shader_parameter/center = Vector2(0.5, 0.5)
-shader_parameter/radius = 0.06
+shader_parameter/radius = 2.0
+
+[sub_resource type="Animation" id="Animation_xornt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+
+[sub_resource type="Animation" id="Animation_ggudt"]
+resource_name = "spotlight"
+length = 1.1666666
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.93333334, 1.2, 1.5333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [2.0, -0.1, -0.1, 2.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%PlayerCharacter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.1666666),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawn"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_12kvg"]
+resource_name = "spotlight_spawn"
+length = 0.33333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333325),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.1, 2.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nendb"]
+_data = {
+&"RESET": SubResource("Animation_xornt"),
+&"spotlight_death": SubResource("Animation_ggudt"),
+&"spotlight_spawn": SubResource("Animation_12kvg")
+}
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6v23s"]
 distance = -192.0
 
 [node name="LevelBoilerplate" type="Node2D" unique_id=1082980837]
-script = ExtResource("1_dq2b2")
 
 [node name="CameraFollow" parent="." unique_id=467601528 node_paths=PackedStringArray("following") instance=ExtResource("6_fle77")]
 limit_left = -320
@@ -28,15 +95,21 @@ editor_draw_limits = true
 following = NodePath("../PlayerCharacter")
 follow_speed = 20
 
-[node name="EffectsLayer" type="CanvasLayer" parent="CameraFollow" unique_id=704539671]
+[node name="EffectsLayer" type="CanvasLayer" parent="CameraFollow" unique_id=1087320890]
 
-[node name="DeathSpotlight" type="ColorRect" parent="CameraFollow/EffectsLayer" unique_id=514991321]
-material = SubResource("ShaderMaterial_nendb")
+[node name="DeathSpotlight" type="ColorRect" parent="CameraFollow/EffectsLayer" unique_id=1096391294]
+material = SubResource("ShaderMaterial_5a7mx")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("4_nendb")
+
+[node name="EffectsAnimator" type="AnimationPlayer" parent="CameraFollow/EffectsLayer" unique_id=1816478192]
+unique_name_in_owner = true
+root_node = NodePath("../DeathSpotlight")
+libraries/ = SubResource("AnimationLibrary_nendb")
 
 [node name="MultiMaskedTileMap" type="Node2D" parent="." unique_id=1849164173 node_paths=PackedStringArray("player")]
 script = ExtResource("1_ljsc8")
@@ -81,9 +154,5 @@ scale = Vector2(2.25, 2.25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPlane" unique_id=917751410]
 shape = SubResource("WorldBoundaryShape2D_6v23s")
-
-[node name="SpawnPosition" type="Node2D" parent="." unique_id=2071889026]
-editor_description = "marks the spawn position of the player
-"
 
 [connection signal="body_entered" from="DeathPlane" to="PlayerCharacter" method="_on_death_plane_body_entered"]
