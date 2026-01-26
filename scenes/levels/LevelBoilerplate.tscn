@@ -152,7 +152,7 @@ mask_number = 3
 metadata/_custom_type_script = "uid://cqfbx47wt6d28"
 
 [node name="ExitDoor" parent="." unique_id=45997899 instance=ExtResource("4_nyalh")]
-position = Vector2(1512, -224)
+position = Vector2(269, 42)
 
 [node name="DeathPlane" type="Area2D" parent="." unique_id=20074737]
 

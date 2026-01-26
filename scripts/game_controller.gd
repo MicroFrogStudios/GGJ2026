@@ -1,18 +1,32 @@
 extends Node
-var current_scene :LoadedScene
 
 
 @export var editor_scenes :Array[PackedScene]
+
+
+class UnloadedScene:
+	var scene : PackedScene
+	var scene_name : String
+
+
+class LoadedScene:
+	var index : int
+	var scene : Node
+	var scene_name : String
+
+	func _init(scene_to_load :UnloadedScene,i:int) -> void:
+		self.index = i
+		scene_name = scene_to_load.scene_name
+		scene = scene_to_load.scene.instantiate()
+
+
 var unloaded_scenes : Array[UnloadedScene]
+var current_scene : LoadedScene
 
 
 func load_next_scene():
 	print("changing from scene ",current_scene.scene_name, " to ", unloaded_scenes[(current_scene.index+1) % unloaded_scenes.size()].scene_name )
 	load_scene_by_index((current_scene.index+1) % unloaded_scenes.size())
-
-
-func reload_scene():
-	pass
 
 
 func _ready() -> void:
@@ -35,19 +49,3 @@ func load_scene_by_index( i :int):
 		current_scene = null
 	current_scene = LoadedScene.new(unloaded_scenes[i],i)
 	add_sibling.call_deferred(current_scene.scene)
-
-
-class UnloadedScene:
-	var scene : PackedScene
-	var scene_name : String
-
-
-class LoadedScene:
-	var index : int
-	var scene : Node
-	var scene_name : String
-
-	func _init(scene_to_load :UnloadedScene,i:int) -> void:
-		self.index = i
-		scene_name = scene_to_load.scene_name
-		scene = scene_to_load.scene.instantiate()
