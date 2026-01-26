@@ -23,8 +23,6 @@ var spawn_position: Vector2
 
 func spawn() -> void:
 	position = spawn_position
-	print("SPAWNING ", spawn_position)
-	print("asdf ", EffectsAnimator)
 	EffectsAnimator.play("spotlight_spawn")
 
 
