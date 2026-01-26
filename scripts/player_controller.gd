@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 @onready var anim : AnimatedSprite2D = $AnimatedSprite2D
 @onready var EffectsAnimator = %EffectsAnimator
+@onready var PlayerAnimations = $PlayerAnimations
 
 
 @export var speed := 300.0
@@ -25,6 +26,7 @@ var control_disabled := false # If true, player control is disabled
 func spawn() -> void:
 	position = spawn_position
 	control_disabled = false
+	visible = true
 	EffectsAnimator.play("spotlight_spawn")
 
 
@@ -37,7 +39,6 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	# Process mask related inputs
-	# TODO: we may want to move this to a separate script later
 	if num_masks == 0:
 		# Only allow changing masks if we have at least 1
 		return
@@ -98,6 +99,7 @@ func _on_mask_pickup_got_mask(mask_number: int) -> void:
 
 func die() -> void:
 	control_disabled = true
+	visible = false
 	death.emit()
 
 
@@ -117,3 +119,4 @@ func _on_death_plane_body_entered(body: Node2D) -> void:
 
 func _on_exit_door_player_reached_exit() -> void:
 	control_disabled = true
+	PlayerAnimations.play("enter_door")

@@ -122,10 +122,10 @@ distance = -192.0
 [node name="PlayerCharacter" parent="." unique_id=614979792 instance=ExtResource("5_oscf3")]
 unique_name_in_owner = true
 position = Vector2(0, -32)
-scale = Vector2(2.25, 2.25)
 
 [node name="ExitDoor" parent="." unique_id=45997899 instance=ExtResource("4_nyalh")]
-position = Vector2(269, 42)
+z_index = -1
+position = Vector2(269, 49)
 
 [node name="CameraFollow" parent="." unique_id=467601528 node_paths=PackedStringArray("following") instance=ExtResource("6_fle77")]
 limit_left = -320
@@ -191,6 +191,6 @@ metadata/_custom_type_script = "uid://cqfbx47wt6d28"
 shape = SubResource("WorldBoundaryShape2D_6v23s")
 
 [connection signal="death" from="PlayerCharacter" to="CameraFollow/EffectsLayer/DeathSpotlight" method="_on_player_character_death"]
-[connection signal="player_reached_exit" from="ExitDoor" to="CameraFollow/EffectsLayer/DeathSpotlight" method="_on_exit_door_player_reached_exit"]
 [connection signal="player_reached_exit" from="ExitDoor" to="PlayerCharacter" method="_on_exit_door_player_reached_exit"]
+[connection signal="player_reached_exit" from="ExitDoor" to="CameraFollow/EffectsLayer/DeathSpotlight" method="_on_exit_door_player_reached_exit"]
 [connection signal="body_entered" from="DeathPlane" to="PlayerCharacter" method="_on_death_plane_body_entered"]

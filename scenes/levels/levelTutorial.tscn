@@ -113,7 +113,6 @@ position = Vector2(1512, -224)
 [node name="PlayerCharacter" parent="." unique_id=614979792 instance=ExtResource("5_m8ela")]
 unique_name_in_owner = true
 position = Vector2(-112, -2)
-scale = Vector2(2.25, 2.25)
 initial_num_masks = 0
 
 [node name="CameraFollow" parent="." unique_id=467601528 node_paths=PackedStringArray("following") instance=ExtResource("6_86vqt")]
