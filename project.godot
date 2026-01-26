@@ -11,10 +11,14 @@ config_version=5
 [application]
 
 config/name="GGJ2026"
-run/main_scene="uid://c316m6ovwsluh"
+run/main_scene="uid://8p60k8lsrg43"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/show_image=false
 config/icon="res://icon.svg"
+
+[autoload]
+
+gc="*uid://i1uw0ax2u0rb"
 
 [display]
 

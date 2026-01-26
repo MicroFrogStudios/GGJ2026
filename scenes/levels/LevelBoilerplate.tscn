@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://dvmkjcuu4vlvu" path="res://scripts/multimaskedtilemap.gd" id="1_ljsc8"]
 [ext_resource type="TileSet" uid="uid://0ri8qrel1dpj" path="res://resources/tilesets/testtileset.tres" id="2_5a7mx"]
 [ext_resource type="Script" uid="uid://cqfbx47wt6d28" path="res://scripts/masked_layer.gd" id="3_nendb"]
-[ext_resource type="PackedScene" uid="uid://bn46343xobuti" path="res://scenes/prefabs/ExitDoor.tscn" id="4_nyalh"]
-[ext_resource type="PackedScene" uid="uid://dm6qoe57l87ub" path="res://scenes/prefabs/Player.tscn" id="5_oscf3"]
+[ext_resource type="PackedScene" uid="uid://bn46343xobuti" path="res://scenes/prefabs/exitdoor.tscn" id="4_nyalh"]
+[ext_resource type="PackedScene" uid="uid://dm6qoe57l87ub" path="res://scenes/prefabs/player.tscn" id="5_oscf3"]
 [ext_resource type="PackedScene" uid="uid://v0bxw5r7bav0" path="res://scenes/prefabs/CameraFollow.tscn" id="6_fle77"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6v23s"]
@@ -61,5 +61,9 @@ follow_speed = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPlane" unique_id=917751410]
 shape = SubResource("WorldBoundaryShape2D_6v23s")
+
+[node name="SpawnPosition" type="Node2D" parent="." unique_id=2071889026]
+editor_description = "marks the spawn position of the player
+"
 
 [connection signal="body_entered" from="DeathPlane" to="PlayerCharacter" method="_on_death_plane_body_entered"]
