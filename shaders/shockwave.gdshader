@@ -18,8 +18,8 @@ void fragment() {
 	vec2 disp = normalize(scaled_uv - scaled_center) * force * atenuation;
 
 	// Inner & outer rings, we want 1 between them
-	float outer_mask = 1.0 - smoothstep(radius, radius + 0.1, length(dist_to_center));
-	float inner_mask = smoothstep(radius - 0.1, radius, length(dist_to_center));
+	float outer_mask = 1.0 - smoothstep(radius, radius + 0.025, length(dist_to_center));
+	float inner_mask = smoothstep(radius - 0.025, radius, length(dist_to_center));
 	float mask = outer_mask * inner_mask;
 	
 	vec4 new_color = texture(SCREEN_TEXTURE, SCREEN_UV - disp * mask);
