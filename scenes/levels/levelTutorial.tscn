@@ -16,7 +16,7 @@ distance = -192.0
 script = ExtResource("1_72a20")
 
 [node name="MaskPickup" parent="." unique_id=678487700 instance=ExtResource("7_hlk2l")]
-position = Vector2(441, -68)
+position = Vector2(536, -48)
 
 [node name="MultiMaskedTileMap" type="Node2D" parent="." unique_id=1849164173 node_paths=PackedStringArray("player")]
 script = ExtResource("1_hlk2l")
@@ -40,6 +40,7 @@ next_scene = "res://scenes/levels/levelTutorial.tscn"
 [node name="PlayerCharacter" parent="." unique_id=614979792 instance=ExtResource("5_m8ela")]
 position = Vector2(-216, -96)
 scale = Vector2(2.25, 2.25)
+initial_num_masks = 0
 
 [node name="CameraFollow" parent="." unique_id=467601528 node_paths=PackedStringArray("following") instance=ExtResource("6_86vqt")]
 limit_left = -157
@@ -57,4 +58,5 @@ editor_description = "marks the spawn position of the player
 "
 position = Vector2(-200, -32)
 
+[connection signal="got_mask" from="MaskPickup" to="PlayerCharacter" method="_on_mask_pickup_got_mask"]
 [connection signal="body_entered" from="DeathPlane" to="PlayerCharacter" method="_on_death_plane_body_entered"]
