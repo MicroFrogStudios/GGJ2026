@@ -10,7 +10,7 @@
 [ext_resource type="Shader" uid="uid://g2kx26x1mj7r" path="res://shaders/spotlight.gdshader" id="8_5a7mx"]
 [ext_resource type="Shader" uid="uid://bjwbh1c5jyjcy" path="res://shaders/shockwave.gdshader" id="9_nyalh"]
 [ext_resource type="TileSet" uid="uid://d2courmo8ldu5" path="res://resources/tilesets/CarlosTileset.tres" id="10_nyalh"]
-[ext_resource type="Script" uid="uid://cc4bjxe2aebir" path="res://scripts/ripple_layer.gd" id="11_oscf3"]
+[ext_resource type="Script" path="res://scripts/ripple_layer.gd" id="11_oscf3"]
 
 [sub_resource type="Animation" id="Animation_xornt"]
 length = 0.001

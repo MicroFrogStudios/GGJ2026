@@ -11,7 +11,7 @@ extends CharacterBody2D
 @export var jump_velocity = -200.0
 @export var initial_num_masks := 3
 var is_jumping = false
-var deceleration := 100
+var acceleration := 100.0
 signal change_mask(new_mask_number: int)
 signal mask_acquired(acquired_mask_number: int)
 signal death()
@@ -81,7 +81,7 @@ func _physics_process(delta: float) -> void:
 		anim.play("jumping")
 		
 	if Input. is_action_just_released("jump") and is_jumping and velocity.y < 0:
-		velocity.y = clamp(velocity.y + deceleration,jump_velocity,0) 
+		velocity.y = clamp(velocity.y + acceleration,jump_velocity,0) 
 		is_jumping = false
 		
 	## Sideways movement
@@ -89,13 +89,15 @@ func _physics_process(delta: float) -> void:
 	if direction_x and not control_disabled:
 		anim.play("run")
 		anim.flip_h = false
-		if direction_x < 0:
-			anim.flip_h = true
-		velocity.x = direction_x * speed
+		anim.flip_h = direction_x < 0
+		velocity.x = move_toward(velocity.x,direction_x * speed,acceleration/5)
 		anim.speed_scale = velocity.x/100
 	else:
-		anim.play("idle")
-		velocity.x = move_toward(velocity.x,0, speed/2)
+		if velocity.x != 0:
+			#anim.flip_h = direction_x > 0
+			anim.play("braking")
+		else: anim.play("idle")
+		velocity.x = move_toward(velocity.x,0, speed/15)
 
 	move_and_slide()
 
