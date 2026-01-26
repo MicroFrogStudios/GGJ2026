@@ -28,6 +28,8 @@ func spawn() -> void:
 	position = spawn_position
 	control_disabled = false
 	visible = true
+	mask = 0
+	change_mask.emit(mask)
 	EffectsAnimator.play("spotlight_spawn")
 
 

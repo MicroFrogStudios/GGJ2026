@@ -15,8 +15,8 @@ script = ExtResource("1_u001w")
 
 [node name="Masks" type="HBoxContainer" parent="." unique_id=155785698]
 layout_mode = 0
-offset_right = 196.0
-offset_bottom = 46.0
+offset_right = 116.0
+offset_bottom = 25.0
 
 [node name="Mask0" type="TextureRect" parent="Masks" unique_id=1701335884]
 layout_mode = 2
