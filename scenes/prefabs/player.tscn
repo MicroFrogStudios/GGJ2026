@@ -12,6 +12,14 @@ height = 18.0
 atlas = ExtResource("2_n0leu")
 region = Rect2(0, 0, 24, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0leu"]
+atlas = ExtResource("3_n0leu")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtlg4"]
+atlas = ExtResource("3_n0leu")
+region = Rect2(192, 0, 24, 24)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_8cdkg"]
 atlas = ExtResource("3_n0leu")
 region = Rect2(0, 0, 24, 24)
@@ -60,6 +68,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0leu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtlg4")
+}],
+"loop": false,
+"name": &"jumping",
 "speed": 5.0
 }, {
 "frames": [{
@@ -139,6 +158,7 @@ _data = {
 
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=614979792]
 script = ExtResource("1_g2els")
+jump_velocity = -300.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=169026515]
 position = Vector2(0, 2.0000002)
@@ -146,9 +166,9 @@ shape = SubResource("CapsuleShape2D_8cdkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=810608017]
 sprite_frames = SubResource("SpriteFrames_mvyd6")
-animation = &"run"
+animation = &"jumping"
 autoplay = "idle"
-frame = 9
+frame = 1
 frame_progress = 1.0
 
 [node name="CrushHitbox" type="Area2D" parent="." unique_id=1686012330]
