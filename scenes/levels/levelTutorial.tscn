@@ -109,12 +109,12 @@ mask_number = 1
 
 [node name="ExitDoor" parent="." unique_id=45997899 instance=ExtResource("4_njiwr")]
 position = Vector2(1512, -224)
-next_scene = "res://scenes/levels/levelTutorial.tscn"
 
 [node name="PlayerCharacter" parent="." unique_id=614979792 instance=ExtResource("5_m8ela")]
 unique_name_in_owner = true
 position = Vector2(-112, -2)
 scale = Vector2(2.25, 2.25)
+initial_num_masks = 0
 
 [node name="CameraFollow" parent="." unique_id=467601528 node_paths=PackedStringArray("following") instance=ExtResource("6_86vqt")]
 limit_left = -157

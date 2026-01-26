@@ -19,10 +19,12 @@ signal death()
 var mask := 0
 var num_masks := 0
 var spawn_position: Vector2
+var control_disabled := false # If true, player control is disabled
 
 
 func spawn() -> void:
 	position = spawn_position
+	control_disabled = false
 	EffectsAnimator.play("spotlight_spawn")
 
 
@@ -36,6 +38,9 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if num_masks == 0:
 		# Only allow changing masks if we have at least 1
+		return
+	if control_disabled:
+		# Don't allow changing masks during cutscenes
 		return
 	var prev_mask = mask
 	if event.is_action_pressed("prev_mask"):
@@ -59,6 +64,10 @@ func _input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if control_disabled:
+		# Don't allow movement during cutscenes
+		return
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -90,17 +99,24 @@ func _on_mask_pickup_got_mask(mask_number: int) -> void:
 		print("Increased num_masks to ", num_masks)
 
 
+func die() -> void:
+	control_disabled = true
+	death.emit()
+
+
 func _on_crush_hitbox_body_entered(body: Node2D) -> void:
 	# Something entered the player's crush hitbox
 	if body.name == "PlayerCharacter":
 		# Don't trigger it by the player itself
 		return
-	print('CRUSHED ', body, body.name)
-	death.emit()
+	die()
 
 
 func _on_death_plane_body_entered(body: Node2D) -> void:
 	if body.name != "PlayerCharacter":
 		return
-	print('FELL ', body)
-	death.emit()
+	die()
+
+
+func _on_exit_door_player_reached_exit() -> void:
+	control_disabled = true

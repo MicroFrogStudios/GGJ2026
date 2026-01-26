@@ -60,6 +60,36 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_nendb"]
+resource_name = "spotlight_exit"
+length = 1.1666666
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.93333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.0, -0.1]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../../ExitDoor")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.0333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"go_to_next_level"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_12kvg"]
 resource_name = "spotlight_spawn"
 length = 0.33333334
@@ -80,6 +110,7 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_xornt"),
 &"spotlight_death": SubResource("Animation_ggudt"),
+&"spotlight_exit": SubResource("Animation_nendb"),
 &"spotlight_spawn": SubResource("Animation_12kvg")
 }
 
@@ -92,6 +123,9 @@ distance = -192.0
 unique_name_in_owner = true
 position = Vector2(0, -32)
 scale = Vector2(2.25, 2.25)
+
+[node name="ExitDoor" parent="." unique_id=45997899 instance=ExtResource("4_nyalh")]
+position = Vector2(269, 42)
 
 [node name="CameraFollow" parent="." unique_id=467601528 node_paths=PackedStringArray("following") instance=ExtResource("6_fle77")]
 limit_left = -320
@@ -151,13 +185,12 @@ script = ExtResource("3_nendb")
 mask_number = 3
 metadata/_custom_type_script = "uid://cqfbx47wt6d28"
 
-[node name="ExitDoor" parent="." unique_id=45997899 instance=ExtResource("4_nyalh")]
-position = Vector2(269, 42)
-
 [node name="DeathPlane" type="Area2D" parent="." unique_id=20074737]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPlane" unique_id=917751410]
 shape = SubResource("WorldBoundaryShape2D_6v23s")
 
 [connection signal="death" from="PlayerCharacter" to="CameraFollow/EffectsLayer/DeathSpotlight" method="_on_player_character_death"]
+[connection signal="player_reached_exit" from="ExitDoor" to="CameraFollow/EffectsLayer/DeathSpotlight" method="_on_exit_door_player_reached_exit"]
+[connection signal="player_reached_exit" from="ExitDoor" to="PlayerCharacter" method="_on_exit_door_player_reached_exit"]
 [connection signal="body_entered" from="DeathPlane" to="PlayerCharacter" method="_on_death_plane_body_entered"]
