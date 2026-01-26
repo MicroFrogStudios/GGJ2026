@@ -2,7 +2,7 @@ extends ColorRect
 
 
 @onready var Character = %PlayerCharacter
-@onready var EffectsAnimator = get_parent().get_node("EffectsAnimator")
+@onready var EffectsAnimator = %EffectsAnimator
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

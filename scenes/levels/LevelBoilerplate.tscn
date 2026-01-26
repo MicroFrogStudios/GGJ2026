@@ -8,12 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://dm6qoe57l87ub" path="res://scenes/prefabs/player.tscn" id="5_oscf3"]
 [ext_resource type="PackedScene" uid="uid://v0bxw5r7bav0" path="res://scenes/prefabs/CameraFollow.tscn" id="6_fle77"]
 [ext_resource type="Shader" uid="uid://g2kx26x1mj7r" path="res://shaders/spotlight.gdshader" id="8_5a7mx"]
+[ext_resource type="Shader" uid="uid://bjwbh1c5jyjcy" path="res://shaders/shockwave.gdshader" id="9_nyalh"]
 [ext_resource type="TileSet" uid="uid://d2courmo8ldu5" path="res://resources/tilesets/CarlosTileset.tres" id="10_nyalh"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5a7mx"]
-shader = ExtResource("8_5a7mx")
-shader_parameter/center = Vector2(0.5, 0.5)
-shader_parameter/radius = 2.0
+[ext_resource type="Script" uid="uid://cc4bjxe2aebir" path="res://scripts/ripple_layer.gd" id="11_oscf3"]
 
 [sub_resource type="Animation" id="Animation_xornt"]
 length = 0.001
@@ -28,6 +25,34 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [2.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../RippleLayer/Ripple:material:shader_parameter/radius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.1]
+}
+
+[sub_resource type="Animation" id="Animation_fle77"]
+resource_name = "mask_ripple"
+length = 0.46666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../RippleLayer/Ripple:material:shader_parameter/radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.1, 2.0]
 }
 
 [sub_resource type="Animation" id="Animation_ggudt"]
@@ -109,10 +134,23 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nendb"]
 _data = {
 &"RESET": SubResource("Animation_xornt"),
+&"mask_ripple": SubResource("Animation_fle77"),
 &"spotlight_death": SubResource("Animation_ggudt"),
 &"spotlight_exit": SubResource("Animation_nendb"),
 &"spotlight_spawn": SubResource("Animation_12kvg")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5a7mx"]
+shader = ExtResource("8_5a7mx")
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/radius = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oscf3"]
+shader = ExtResource("9_nyalh")
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/force = 0.3
+shader_parameter/radius = -0.1
+shader_parameter/atenuation_factor = 5.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6v23s"]
 distance = -192.0
@@ -130,6 +168,7 @@ script = ExtResource("3_nendb")
 metadata/_custom_type_script = "uid://cqfbx47wt6d28"
 
 [node name="MaskedTileMapLayer1" type="TileMapLayer" parent="MultiMaskedTileMap" unique_id=27111465]
+modulate = Color(0.63573295, 0.48202586, 0.3905727, 1)
 tile_map_data = PackedByteArray("AADg/wwAAgABAAIAAADh/wwAAgABAAIAAADi/wwAAgABAAIAAADj/wwAAgABAAIAAADk/wwAAgABAAIAAADk/w0AAgABAAIAAADj/w0AAgABAAIAAADi/w0AAgABAAIAAADh/w0AAgABAAIAAADg/w0AAgABAAIAAADg/w4AAgABAAIAAADh/w4AAgABAAIAAADi/w4AAgABAAIAAADj/w4AAgABAAIAAADk/w4AAgABAAIAAADl/wwAAgABAAIAAADm/wwAAgABAAIAAADn/wwAAgABAAIAAADo/wwAAgABAAIAAADp/wwAAgABAAIAAADp/w0AAgABAAIAAADp/w4AAgABAAIAAADo/w4AAgABAAIAAADn/w4AAgABAAIAAADm/w4AAgABAAIAAADl/w4AAgABAAIAAADl/w0AAgABAAIAAADm/w0AAgABAAIAAADn/w0AAgABAAIAAADo/w0AAgABAAIAAADf/w0AAgABAAIAAADq/wwAAgABAAIAAADq/w0AAgABAAIAAADf/wwAAgABAAIAAAA=")
 tile_set = ExtResource("10_nyalh")
 script = ExtResource("3_nendb")
@@ -137,6 +176,7 @@ mask_number = 1
 metadata/_custom_type_script = "uid://cqfbx47wt6d28"
 
 [node name="MaskedTileMapLayer2" type="TileMapLayer" parent="MultiMaskedTileMap" unique_id=1067821858]
+modulate = Color(0.22727287, 0.49500114, 0.42790097, 1)
 tile_map_data = PackedByteArray("AADe/xEAAgACAAIAAADf/xEAAgACAAIAAADg/xEAAgACAAIAAADh/xEAAgACAAIAAADi/xEAAgACAAIAAADj/xEAAgACAAIAAADk/xEAAgACAAIAAADl/xEAAgACAAIAAADm/xEAAgACAAIAAADn/xEAAgACAAIAAADo/xEAAgACAAIAAADp/xEAAgACAAIAAADq/xEAAgACAAIAAADr/xEAAgACAAIAAADq/xIAAgACAAIAAADo/xIAAgACAAIAAADm/xIAAgACAAIAAADk/xIAAgACAAIAAADh/xIAAgACAAIAAADf/xIAAgACAAIAAADf/xMAAgAEAAEAAADf/xQAAgAEAAEAAADf/xUAAgAEAAIAAADk/xMAAgAEAAEAAADk/xQAAgAEAAEAAADk/xUAAgAEAAEAAADk/xYAAgAEAAIAAADo/xMAAgAEAAIAAAA=")
 tile_set = ExtResource("10_nyalh")
 script = ExtResource("3_nendb")
@@ -144,6 +184,7 @@ mask_number = 2
 metadata/_custom_type_script = "uid://cqfbx47wt6d28"
 
 [node name="MaskedTileMapLayer3" type="TileMapLayer" parent="MultiMaskedTileMap" unique_id=1735554316]
+modulate = Color(0.6391251, 0.5465034, 0.7185337, 1)
 tile_map_data = PackedByteArray("AADx/wkAAgADAAIAAADy/wkAAgADAAIAAADz/wkAAgADAAIAAAD0/wkAAgADAAIAAAD1/wkAAgADAAIAAAD2/wkAAgADAAIAAAD3/wkAAgADAAIAAAD4/wkAAgADAAIAAAD5/wkAAgADAAIAAAD6/wkAAgADAAIAAAD7/wkAAgADAAIAAAD8/wkAAgADAAIAAAD9/wkAAgADAAIAAAD+/wkAAgADAAIAAAD//wkAAgADAAIAAAAAAAkAAgADAAIAAAABAAkAAgADAAIAAAACAAkAAgADAAIAAAADAAkAAgADAAIAAAAEAAkAAgADAAIAAAAFAAkAAgADAAIAAAAGAAkAAgADAAIAAAAHAAkAAgADAAIAAAAIAAkAAgADAAIAAADx/woAAgADAAIAAADy/woAAgADAAIAAADz/woAAgADAAIAAAD0/woAAgADAAIAAAD1/woAAgADAAIAAAD2/woAAgADAAIAAAD3/woAAgADAAIAAAD4/woAAgADAAIAAAD5/woAAgADAAIAAAD6/woAAgADAAIAAAD7/woAAgADAAIAAAD8/woAAgADAAIAAAD9/woAAgADAAIAAAD+/woAAgADAAIAAAD//woAAgADAAIAAAAAAAoAAgADAAIAAAABAAoAAgADAAIAAAACAAoAAgADAAIAAAADAAoAAgADAAIAAAAEAAoAAgADAAIAAAAFAAoAAgADAAIAAAAGAAoAAgADAAIAAAAHAAoAAgADAAIAAAAIAAoAAgADAAIAAAAJAAkAAgACAAMAAAAJAAoAAgACAAMAAAAKAAkAAgACAAMAAAAKAAoAAgACAAMAAAALAAkAAgACAAMAAAALAAoAAgACAAMAAAAMAAkAAgACAAMAAAAMAAoAAgACAAMAAAANAAkAAgACAAMAAAANAAoAAgACAAMAAAAOAAkAAgACAAMAAAAOAAoAAgACAAMAAAAPAAkAAgACAAMAAAAPAAoAAgACAAMAAAAQAAkAAgACAAMAAAAQAAoAAgACAAMAAAARAAkAAgACAAMAAAARAAoAAgACAAMAAAASAAkAAgACAAMAAAASAAoAAgACAAMAAAATAAkAAgACAAMAAAATAAoAAgACAAMAAAAUAAkAAgACAAMAAAAUAAoAAgACAAMAAAAVAAkAAgACAAMAAAAVAAoAAgACAAMAAAAWAAkAAgACAAMAAAAWAAoAAgACAAMAAAAXAAkAAgACAAMAAAAXAAoAAgACAAMAAAAYAAkAAgACAAMAAAAYAAoAAgACAAMAAAAZAAkAAgACAAMAAAAZAAoAAgACAAMAAAAaAAkAAgACAAMAAAAaAAoAAgACAAMAAAAbAAkAAgACAAMAAAAbAAoAAgACAAMAAAAcAAkAAgACAAMAAAAcAAoAAgACAAMAAAAdAAkAAgACAAMAAAAdAAoAAgACAAMAAAAeAAkAAgACAAMAAAAeAAoAAgACAAMAAAAfAAkAAgACAAMAAAAfAAoAAgACAAMAAAAgAAkAAgACAAMAAAAgAAoAAgACAAMAAAAhAAkAAgACAAMAAAAhAAoAAgACAAMAAAAiAAkAAgACAAMAAAAiAAoAAgACAAMAAAAeAAYAAgACAAMAAAAeAAcAAgACAAMAAAAeAAgAAgACAAMAAAAfAAYAAgACAAMAAAAfAAcAAgACAAMAAAAfAAgAAgACAAMAAAAgAAYAAgACAAMAAAAgAAcAAgACAAMAAAAgAAgAAgACAAMAAAAhAAYAAgACAAMAAAAhAAcAAgACAAMAAAAhAAgAAgACAAMAAAAiAAYAAgACAAMAAAAiAAcAAgACAAMAAAAiAAgAAgACAAMAAADy/wYAAgACAAMAAADy/wcAAgACAAMAAADy/wgAAgACAAMAAADz/wYAAgACAAMAAADz/wcAAgACAAMAAADz/wgAAgACAAMAAAD0/wYAAgACAAMAAAD0/wcAAgACAAMAAAD0/wgAAgACAAMAAAD1/wYAAgACAAMAAAD1/wcAAgACAAMAAAD1/wgAAgACAAMAAAD2/wYAAgACAAMAAAD2/wcAAgACAAMAAAD2/wgAAgACAAMAAAD3/wYAAgACAAMAAAD3/wcAAgACAAMAAAD3/wgAAgACAAMAAAD4/wYAAgACAAMAAAD4/wcAAgACAAMAAAD4/wgAAgACAAMAAAD5/wYAAgACAAMAAAD5/wcAAgACAAMAAAD5/wgAAgACAAMAAAD6/wYAAgACAAMAAAD6/wcAAgACAAMAAAD6/wgAAgACAAMAAAD7/wYAAgACAAMAAAD7/wcAAgACAAMAAAD7/wgAAgACAAMAAAD8/wYAAgACAAMAAAD8/wcAAgACAAMAAAD8/wgAAgACAAMAAAD9/wYAAgACAAMAAAD9/wcAAgACAAMAAAD9/wgAAgACAAMAAAD+/wYAAgACAAMAAAD+/wcAAgACAAMAAAD+/wgAAgACAAMAAAD//wYAAgACAAMAAAD//wcAAgACAAMAAAD//wgAAgACAAMAAAAAAAYAAgACAAMAAAAAAAcAAgACAAMAAAAAAAgAAgACAAMAAAABAAYAAgACAAMAAAABAAcAAgACAAMAAAABAAgAAgACAAMAAAACAAYAAgACAAMAAAACAAcAAgACAAMAAAACAAgAAgACAAMAAAADAAYAAgACAAMAAAADAAcAAgACAAMAAAADAAgAAgACAAMAAAAEAAYAAgACAAMAAAAEAAcAAgACAAMAAAAEAAgAAgACAAMAAAAFAAYAAgACAAMAAAAFAAcAAgACAAMAAAAFAAgAAgACAAMAAAAGAAYAAgACAAMAAAAGAAcAAgACAAMAAAAGAAgAAgACAAMAAAAHAAYAAgACAAMAAAAHAAcAAgACAAMAAAAHAAgAAgACAAMAAAAIAAYAAgACAAMAAAAIAAcAAgACAAMAAAAIAAgAAgACAAMAAAAJAAYAAgACAAMAAAAJAAcAAgACAAMAAAAJAAgAAgACAAMAAAAKAAYAAgACAAMAAAAKAAcAAgACAAMAAAAKAAgAAgACAAMAAAALAAYAAgACAAMAAAALAAcAAgACAAMAAAALAAgAAgACAAMAAAAMAAYAAgACAAMAAAAMAAcAAgACAAMAAAAMAAgAAgACAAMAAAANAAYAAgACAAMAAAANAAcAAgACAAMAAAANAAgAAgACAAMAAAAOAAYAAgACAAMAAAAOAAcAAgACAAMAAAAOAAgAAgACAAMAAAAPAAYAAgACAAMAAAAPAAcAAgACAAMAAAAPAAgAAgACAAMAAAAQAAYAAgACAAMAAAAQAAcAAgACAAMAAAAQAAgAAgACAAMAAAARAAYAAgACAAMAAAARAAcAAgACAAMAAAARAAgAAgACAAMAAAASAAYAAgACAAMAAAASAAcAAgACAAMAAAASAAgAAgACAAMAAAATAAYAAgACAAMAAAATAAcAAgACAAMAAAATAAgAAgACAAMAAAAUAAYAAgACAAMAAAAUAAcAAgACAAMAAAAUAAgAAgACAAMAAAAVAAYAAgACAAMAAAAVAAcAAgACAAMAAAAVAAgAAgACAAMAAAAWAAYAAgACAAMAAAAWAAcAAgACAAMAAAAWAAgAAgACAAMAAAAXAAYAAgACAAMAAAAXAAcAAgACAAMAAAAXAAgAAgACAAMAAAAYAAYAAgACAAMAAAAYAAcAAgACAAMAAAAYAAgAAgACAAMAAAAZAAYAAgACAAMAAAAZAAcAAgACAAMAAAAZAAgAAgACAAMAAAAaAAYAAgACAAMAAAAaAAcAAgACAAMAAAAaAAgAAgACAAMAAAAbAAYAAgACAAMAAAAbAAcAAgACAAMAAAAbAAgAAgACAAMAAAAcAAYAAgACAAMAAAAcAAcAAgACAAMAAAAcAAgAAgACAAMAAAAdAAYAAgACAAMAAAAdAAcAAgACAAMAAAAdAAgAAgACAAMAAADx/wYAAgACAAMAAADx/wcAAgACAAMAAADx/wgAAgACAAMAAAA=")
 tile_set = ExtResource("10_nyalh")
 script = ExtResource("3_nendb")
@@ -167,9 +208,17 @@ editor_draw_limits = true
 following = NodePath("../PlayerCharacter")
 follow_speed = 20
 
-[node name="EffectsLayer" type="CanvasLayer" parent="CameraFollow" unique_id=1087320890]
+[node name="EffectsAnimator" type="AnimationPlayer" parent="CameraFollow" unique_id=1816478192]
+unique_name_in_owner = true
+root_node = NodePath("../SpotlightLayer/DeathSpotlight")
+libraries/ = SubResource("AnimationLibrary_nendb")
 
-[node name="DeathSpotlight" type="ColorRect" parent="CameraFollow/EffectsLayer" unique_id=1096391294]
+[node name="SpotlightLayer" type="CanvasLayer" parent="CameraFollow" unique_id=1087320890]
+
+[node name="GameUi" parent="CameraFollow/SpotlightLayer" unique_id=1129233128 node_paths=PackedStringArray("player_character") instance=ExtResource("4_oscf3")]
+player_character = NodePath("../../../PlayerCharacter")
+
+[node name="DeathSpotlight" type="ColorRect" parent="CameraFollow/SpotlightLayer" unique_id=1096391294]
 material = SubResource("ShaderMaterial_5a7mx")
 anchors_preset = 15
 anchor_right = 1.0
@@ -178,20 +227,23 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_nendb")
 
-[node name="EffectsAnimator" type="AnimationPlayer" parent="CameraFollow/EffectsLayer" unique_id=1816478192]
-unique_name_in_owner = true
-root_node = NodePath("../DeathSpotlight")
-libraries/ = SubResource("AnimationLibrary_nendb")
+[node name="RippleLayer" type="CanvasLayer" parent="CameraFollow" unique_id=1810096008]
 
-[node name="GameUi" parent="CameraFollow/EffectsLayer" unique_id=1129233128 node_paths=PackedStringArray("player_character") instance=ExtResource("4_oscf3")]
-player_character = NodePath("../../../PlayerCharacter")
+[node name="Ripple" type="ColorRect" parent="CameraFollow/RippleLayer" unique_id=1455322373]
+material = SubResource("ShaderMaterial_oscf3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_oscf3")
 
 [node name="DeathPlane" type="Area2D" parent="." unique_id=20074737]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPlane" unique_id=917751410]
 shape = SubResource("WorldBoundaryShape2D_6v23s")
 
-[connection signal="death" from="PlayerCharacter" to="CameraFollow/EffectsLayer/DeathSpotlight" method="_on_player_character_death"]
+[connection signal="death" from="PlayerCharacter" to="CameraFollow/SpotlightLayer/DeathSpotlight" method="_on_player_character_death"]
 [connection signal="player_reached_exit" from="ExitDoor" to="PlayerCharacter" method="_on_exit_door_player_reached_exit"]
-[connection signal="player_reached_exit" from="ExitDoor" to="CameraFollow/EffectsLayer/DeathSpotlight" method="_on_exit_door_player_reached_exit"]
+[connection signal="player_reached_exit" from="ExitDoor" to="CameraFollow/SpotlightLayer/DeathSpotlight" method="_on_exit_door_player_reached_exit"]
 [connection signal="body_entered" from="DeathPlane" to="PlayerCharacter" method="_on_death_plane_body_entered"]
