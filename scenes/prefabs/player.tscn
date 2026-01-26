@@ -10,7 +10,7 @@ height = 18.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_va4sl"]
 atlas = ExtResource("3_n0leu")
-region = Rect2(120, 0, 24, 24)
+region = Rect2(72, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_56dyf"]
 atlas = ExtResource("3_8cdkg")
@@ -240,7 +240,6 @@ _data = {
 
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=614979792]
 script = ExtResource("1_g2els")
-jump_velocity = -300.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=169026515]
 position = Vector2(0, 2.0000002)
@@ -248,9 +247,8 @@ shape = SubResource("CapsuleShape2D_8cdkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=810608017]
 sprite_frames = SubResource("SpriteFrames_mvyd6")
-animation = &"idle"
+animation = &"jumping"
 autoplay = "idle"
-frame_progress = 0.92943394
 
 [node name="CrushHitbox" type="Area2D" parent="." unique_id=1686012330]
 
