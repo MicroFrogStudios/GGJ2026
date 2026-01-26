@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://csp8xl508nvqo" path="res://scripts/player_controller.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://rv64c6a61joj" path="res://assets/sprites/Zanni.png" id="2_n0leu"]
+[ext_resource type="Texture2D" uid="uid://c11fui6hroef7" path="res://assets/sprites/Zanni_walk.png" id="3_n0leu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8cdkg"]
 radius = 4.0
@@ -11,9 +12,45 @@ height = 18.0
 atlas = ExtResource("2_n0leu")
 region = Rect2(0, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tou0u"]
-atlas = ExtResource("2_n0leu")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cdkg"]
+atlas = ExtResource("3_n0leu")
 region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6o77n"]
+atlas = ExtResource("3_n0leu")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6v0jn"]
+atlas = ExtResource("3_n0leu")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r053x"]
+atlas = ExtResource("3_n0leu")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jybep"]
+atlas = ExtResource("3_n0leu")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50rl7"]
+atlas = ExtResource("3_n0leu")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqq3r"]
+atlas = ExtResource("3_n0leu")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lagtt"]
+atlas = ExtResource("3_n0leu")
+region = Rect2(168, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkb8g"]
+atlas = ExtResource("3_n0leu")
+region = Rect2(192, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1k3r"]
+atlas = ExtResource("3_n0leu")
+region = Rect2(216, 0, 24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mvyd6"]
 animations = [{
@@ -27,11 +64,38 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tou0u")
+"texture": SubResource("AtlasTexture_8cdkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6o77n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6v0jn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r053x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jybep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50rl7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqq3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lagtt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkb8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1k3r")
 }],
 "loop": true,
 "name": &"run",
-"speed": 5.0
+"speed": 15.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ok4up"]
@@ -84,6 +148,8 @@ shape = SubResource("CapsuleShape2D_8cdkg")
 sprite_frames = SubResource("SpriteFrames_mvyd6")
 animation = &"run"
 autoplay = "idle"
+frame = 9
+frame_progress = 1.0
 
 [node name="CrushHitbox" type="Area2D" parent="." unique_id=1686012330]
 

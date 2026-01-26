@@ -9,8 +9,9 @@ extends CharacterBody2D
 
 @export var speed := 300.0
 @export var jump_velocity = -400.0
+@export var max_jump_height = 64.0
 @export var initial_num_masks := 3
-
+var is_jumping = false
 
 signal change_mask(new_mask_number: int)
 signal mask_acquired(acquired_mask_number: int)
@@ -74,6 +75,7 @@ func _physics_process(delta: float) -> void:
 	## Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor() and not control_disabled:
 		velocity.y = jump_velocity
+		is_jumping = true
 
 	## Sideways movement
 	var direction_x :=Input.get_axis("move_left", "move_right")
