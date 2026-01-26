@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://c4cms0dp03rem"]
 
+[ext_resource type="Script" uid="uid://cmne7yfef4ro4" path="res://scripts/level_boilerplate.gd" id="1_72a20"]
 [ext_resource type="Script" uid="uid://dvmkjcuu4vlvu" path="res://scripts/multimaskedtilemap.gd" id="1_hlk2l"]
 [ext_resource type="TileSet" uid="uid://0ri8qrel1dpj" path="res://resources/tilesets/testtileset.tres" id="2_72a20"]
 [ext_resource type="Script" uid="uid://cqfbx47wt6d28" path="res://scripts/masked_layer.gd" id="3_fgnd1"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bnkcypkogkal7" path="res://scenes/prefabs/MaskPickup.tscn" id="7_hlk2l"]
 
 [node name="LevelTutorial" type="Node2D" unique_id=1082980837]
+script = ExtResource("1_72a20")
 
 [node name="MultiMaskedTileMap" type="Node2D" parent="." unique_id=1849164173 node_paths=PackedStringArray("player")]
 script = ExtResource("1_hlk2l")
