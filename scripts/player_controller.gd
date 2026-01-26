@@ -36,6 +36,8 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
+	# Process mask related inputs
+	# TODO: we may want to move this to a separate script later
 	if num_masks == 0:
 		# Only allow changing masks if we have at least 1
 		return
@@ -64,22 +66,17 @@ func _input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if control_disabled:
-		# Don't allow movement during cutscenes
-		return
-
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
 	## Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor() and not control_disabled:
 		velocity.y = jump_velocity
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+	## Sideways movement
 	var direction_x :=Input.get_axis("move_left", "move_right")
-	if direction_x:
+	if direction_x and not control_disabled:
 		anim.play("run")
 		anim.flip_h = false
 		if direction_x < 0:
