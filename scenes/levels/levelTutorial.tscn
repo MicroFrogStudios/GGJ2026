@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bnkcypkogkal7" path="res://scenes/prefabs/MaskPickup.tscn" id="7_hlk2l"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6v23s"]
-distance = -179.0
+distance = -192.0
 
 [node name="LevelTutorial" type="Node2D" unique_id=1082980837]
 script = ExtResource("1_72a20")
@@ -42,7 +42,8 @@ position = Vector2(-216, -96)
 scale = Vector2(2.25, 2.25)
 
 [node name="CameraFollow" parent="." unique_id=467601528 node_paths=PackedStringArray("following") instance=ExtResource("6_86vqt")]
-limit_enabled = false
+limit_left = -157
+limit_bottom = 206
 following = NodePath("../PlayerCharacter")
 follow_speed = 20
 

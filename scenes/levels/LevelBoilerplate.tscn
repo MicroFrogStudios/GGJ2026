@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://v0bxw5r7bav0" path="res://scenes/prefabs/CameraFollow.tscn" id="6_fle77"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6v23s"]
-distance = -179.0
+distance = -192.0
 
 [node name="LevelBoilerplate" type="Node2D" unique_id=1082980837]
 script = ExtResource("1_dq2b2")
@@ -53,7 +53,10 @@ position = Vector2(0, -32)
 scale = Vector2(2.25, 2.25)
 
 [node name="CameraFollow" parent="." unique_id=467601528 node_paths=PackedStringArray("following") instance=ExtResource("6_fle77")]
-limit_enabled = false
+limit_left = -320
+limit_bottom = 193
+limit_smoothed = true
+editor_draw_limits = true
 following = NodePath("../PlayerCharacter")
 follow_speed = 20
 
