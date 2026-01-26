@@ -7,12 +7,36 @@
 [ext_resource type="PackedScene" uid="uid://bn46343xobuti" path="res://scenes/prefabs/exitdoor.tscn" id="4_nyalh"]
 [ext_resource type="PackedScene" uid="uid://dm6qoe57l87ub" path="res://scenes/prefabs/player.tscn" id="5_oscf3"]
 [ext_resource type="PackedScene" uid="uid://v0bxw5r7bav0" path="res://scenes/prefabs/CameraFollow.tscn" id="6_fle77"]
+[ext_resource type="Shader" uid="uid://g2kx26x1mj7r" path="res://shaders/spotlight.gdshader" id="8_5a7mx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nendb"]
+shader = ExtResource("8_5a7mx")
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/radius = 0.06
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6v23s"]
 distance = -192.0
 
 [node name="LevelBoilerplate" type="Node2D" unique_id=1082980837]
 script = ExtResource("1_dq2b2")
+
+[node name="CameraFollow" parent="." unique_id=467601528 node_paths=PackedStringArray("following") instance=ExtResource("6_fle77")]
+limit_left = -320
+limit_bottom = 193
+limit_smoothed = true
+editor_draw_limits = true
+following = NodePath("../PlayerCharacter")
+follow_speed = 20
+
+[node name="EffectsLayer" type="CanvasLayer" parent="CameraFollow" unique_id=704539671]
+
+[node name="DeathSpotlight" type="ColorRect" parent="CameraFollow/EffectsLayer" unique_id=514991321]
+material = SubResource("ShaderMaterial_nendb")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MultiMaskedTileMap" type="Node2D" parent="." unique_id=1849164173 node_paths=PackedStringArray("player")]
 script = ExtResource("1_ljsc8")
@@ -49,16 +73,9 @@ metadata/_custom_type_script = "uid://cqfbx47wt6d28"
 position = Vector2(1512, -224)
 
 [node name="PlayerCharacter" parent="." unique_id=614979792 instance=ExtResource("5_oscf3")]
+unique_name_in_owner = true
 position = Vector2(0, -32)
 scale = Vector2(2.25, 2.25)
-
-[node name="CameraFollow" parent="." unique_id=467601528 node_paths=PackedStringArray("following") instance=ExtResource("6_fle77")]
-limit_left = -320
-limit_bottom = 193
-limit_smoothed = true
-editor_draw_limits = true
-following = NodePath("../PlayerCharacter")
-follow_speed = 20
 
 [node name="DeathPlane" type="Area2D" parent="." unique_id=20074737]
 
