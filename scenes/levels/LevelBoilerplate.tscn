@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://cqfbx47wt6d28" path="res://scripts/masked_layer.gd" id="3_nendb"]
 [ext_resource type="Script" uid="uid://b7qtr6cokots2" path="res://scripts/death_spotlight.gd" id="4_nendb"]
 [ext_resource type="PackedScene" uid="uid://bn46343xobuti" path="res://scenes/prefabs/ExitDoor.tscn" id="4_nyalh"]
+[ext_resource type="PackedScene" uid="uid://4aghjpy7mbvk" path="res://scenes/game_ui.tscn" id="4_oscf3"]
 [ext_resource type="PackedScene" uid="uid://dm6qoe57l87ub" path="res://scenes/prefabs/Player.tscn" id="5_oscf3"]
 [ext_resource type="PackedScene" uid="uid://v0bxw5r7bav0" path="res://scenes/prefabs/CameraFollow.tscn" id="6_fle77"]
 [ext_resource type="Shader" uid="uid://g2kx26x1mj7r" path="res://shaders/spotlight.gdshader" id="8_5a7mx"]
@@ -110,6 +111,9 @@ script = ExtResource("4_nendb")
 unique_name_in_owner = true
 root_node = NodePath("../DeathSpotlight")
 libraries/ = SubResource("AnimationLibrary_nendb")
+
+[node name="GameUi" parent="CameraFollow/EffectsLayer" unique_id=1129233128 node_paths=PackedStringArray("player_character") instance=ExtResource("4_oscf3")]
+player_character = NodePath("../../../PlayerCharacter")
 
 [node name="MultiMaskedTileMap" type="Node2D" parent="." unique_id=1849164173 node_paths=PackedStringArray("player")]
 script = ExtResource("1_ljsc8")

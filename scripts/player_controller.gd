@@ -12,6 +12,7 @@ extends CharacterBody2D
 
 
 signal change_mask(new_mask_number: int)
+signal mask_acquired(acquired_mask_number: int)
 signal death()
 
 
@@ -87,6 +88,7 @@ func _physics_process(delta: float) -> void:
 func _on_mask_pickup_got_mask(mask_number: int) -> void:
 	if mask_number > num_masks:
 		num_masks = mask_number
+		mask_acquired.emit(mask_number)
 		print("Increased num_masks to ", num_masks)
 
 

@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://4aghjpy7mbvk"]
+
+[ext_resource type="Texture2D" uid="uid://5rgt04odieiv" path="res://assets/sprites/mask_placeholder.png" id="1_rns2u"]
+[ext_resource type="Script" uid="uid://ddpj14k1f6tku" path="res://scripts/game_ui.gd" id="1_u001w"]
+[ext_resource type="Script" uid="uid://b4k5qjcktxfvh" path="res://scripts/ui_mask.gd" id="2_u001w"]
+
+[node name="GameUi" type="Control" unique_id=1129233128]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u001w")
+
+[node name="Masks" type="HBoxContainer" parent="." unique_id=155785698]
+layout_mode = 0
+offset_right = 196.0
+offset_bottom = 46.0
+
+[node name="Mask0" type="TextureRect" parent="Masks" unique_id=1701335884]
+layout_mode = 2
+texture = ExtResource("1_rns2u")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("2_u001w")
+
+[node name="Mask1" type="TextureRect" parent="Masks" unique_id=820064628]
+layout_mode = 2
+texture = ExtResource("1_rns2u")
+expand_mode = 2
+stretch_mode = 4
+script = ExtResource("2_u001w")
+mask_number = 1
+
+[node name="Mask2" type="TextureRect" parent="Masks" unique_id=1531412400]
+layout_mode = 2
+texture = ExtResource("1_rns2u")
+expand_mode = 2
+script = ExtResource("2_u001w")
+mask_number = 2
+
+[node name="Mask3" type="TextureRect" parent="Masks" unique_id=1543417927]
+layout_mode = 2
+texture = ExtResource("1_rns2u")
+expand_mode = 2
+script = ExtResource("2_u001w")
+mask_number = 3

@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://c4cms0dp03rem"]
 
+[ext_resource type="PackedScene" uid="uid://4aghjpy7mbvk" path="res://scenes/game_ui.tscn" id="1_ggudt"]
 [ext_resource type="Script" uid="uid://dvmkjcuu4vlvu" path="res://scripts/multimaskedtilemap.gd" id="1_hlk2l"]
 [ext_resource type="TileSet" uid="uid://0ri8qrel1dpj" path="res://resources/tilesets/testtileset.tres" id="2_72a20"]
 [ext_resource type="Script" uid="uid://cqfbx47wt6d28" path="res://scripts/masked_layer.gd" id="3_fgnd1"]
@@ -114,7 +115,6 @@ next_scene = "res://scenes/levels/levelTutorial.tscn"
 unique_name_in_owner = true
 position = Vector2(-112, -2)
 scale = Vector2(2.25, 2.25)
-initial_num_masks = 0
 
 [node name="CameraFollow" parent="." unique_id=467601528 node_paths=PackedStringArray("following") instance=ExtResource("6_86vqt")]
 limit_left = -157
@@ -137,6 +137,9 @@ script = ExtResource("10_ggudt")
 unique_name_in_owner = true
 root_node = NodePath("../DeathSpotlight")
 libraries/ = SubResource("AnimationLibrary_12kvg")
+
+[node name="GameUi" parent="CameraFollow/EffectsLayer" unique_id=1129233128 node_paths=PackedStringArray("player_character") instance=ExtResource("1_ggudt")]
+player_character = NodePath("../../../PlayerCharacter")
 
 [node name="DeathPlane" type="Area2D" parent="." unique_id=20074737]
 
