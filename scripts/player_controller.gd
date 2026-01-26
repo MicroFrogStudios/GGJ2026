@@ -78,7 +78,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor() and not control_disabled:
 		is_jumping = true
 		velocity.y = jump_velocity
-		anim.play("jump")
+		anim.play("jumping")
 		
 	if Input. is_action_just_released("jump") and is_jumping and velocity.y < 0:
 		velocity.y = clamp(velocity.y + deceleration,jump_velocity,0) 
@@ -95,7 +95,7 @@ func _physics_process(delta: float) -> void:
 		anim.speed_scale = velocity.x/100
 	else:
 		anim.play("idle")
-		velocity.x = move_toward(velocity.x,0, speed)
+		velocity.x = move_toward(velocity.x,0, speed/2)
 
 	move_and_slide()
 
