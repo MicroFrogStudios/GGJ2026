@@ -16,6 +16,7 @@ func on_state_transition(state_name : String):
 	_connect()
 	current_state.Enter()
 
+
 func _ready() -> void:
 	current_state = initial_state	
 	_connect()
@@ -23,16 +24,17 @@ func _ready() -> void:
 	for child in get_children():
 		if child is State:
 			states[child.Name()] = child
-		
-	
+
 
 func _process(delta: float) -> void:
 	if current_state:
 		current_state.Update(delta)
-		
+
+
 func _physics_process(delta: float) -> void:
 	if current_state:
 		current_state.Physics_Update(delta)
+
 
 func _connect():
 	if not current_state.transitioned.is_connected(on_state_transition):
@@ -40,7 +42,7 @@ func _connect():
 	current_state.context = self
 	current_state.player = self.parent
 
+
 func _disconnect():
 	if current_state.transitioned.is_connected(on_state_transition):
 		current_state.transitioned.disconnect(on_state_transition)
-	

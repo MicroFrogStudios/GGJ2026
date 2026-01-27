@@ -5,14 +5,19 @@ class_name RunState
 static func Name() -> String:
 	return "run"
 
+
 func Enter():
 	player.anim.play("run")
 
+
 func Exit():
 	pass
-	
+
+
 func Update(_delta: float):
 	pass
+
+
 func Physics_Update(_delta: float):
 	player.anim.speed_scale = player.velocity.x/100
 	if player.velocity.x == 0:
