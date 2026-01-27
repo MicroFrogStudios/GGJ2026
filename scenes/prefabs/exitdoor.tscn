@@ -1,23 +1,23 @@
 [gd_scene format=3 uid="uid://bn46343xobuti"]
 
 [ext_resource type="Script" uid="uid://dvc6an3r1r7iq" path="res://scripts/exitdoor.gd" id="1_3kbto"]
-[ext_resource type="Texture2D" uid="uid://h0nb7jk7xp6p" path="res://assets/sprites/door.png" id="2_kumri"]
+[ext_resource type="Texture2D" uid="uid://b34ceboewtvl6" path="res://assets/sprites/door_curtains.png" id="2_3kbto"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bqlck"]
-size = Vector2(26, 41)
+size = Vector2(30, 21)
 
 [node name="exitdoor" type="Node2D" unique_id=45997899]
 script = ExtResource("1_3kbto")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2097140117]
-position = Vector2(-0.50000143, -29.499998)
+position = Vector2(0, -20)
 scale = Vector2(0.73134327, 0.84285706)
-texture = ExtResource("2_kumri")
+texture = ExtResource("2_3kbto")
 
 [node name="DoorArea2D" type="Area2D" parent="." unique_id=1855754933]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea2D" unique_id=1673315075]
-position = Vector2(0, -20.5)
+position = Vector2(0, -10.5)
 shape = SubResource("RectangleShape2D_bqlck")
 
 [connection signal="body_entered" from="DoorArea2D" to="." method="_on_door_area_2d_body_entered"]
