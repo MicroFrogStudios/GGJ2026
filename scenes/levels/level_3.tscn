@@ -8,7 +8,7 @@
 initial_num_masks = 1
 
 [node name="ExitDoor" parent="." index="2" unique_id=45997899]
-position = Vector2(234, -168)
+position = Vector2(254, -285)
 
 [node name="MaskedTileMapLayer0" parent="MultiMaskedTileMap" parent_id_path=PackedInt32Array(2080479599) index="0" unique_id=1921039142]
 position = Vector2(17, -117)
