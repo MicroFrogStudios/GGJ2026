@@ -10,6 +10,7 @@
 [ext_resource type="TileSet" uid="uid://0ri8qrel1dpj" path="res://resources/tilesets/testtileset.tres" id="8_7d7pp"]
 [ext_resource type="Script" uid="uid://cqfbx47wt6d28" path="res://scripts/masked_layer.gd" id="9_njy47"]
 [ext_resource type="PackedScene" uid="uid://dw8udwgqo5y5a" path="res://scenes/prefabs/MaskPickupArlecchino.tscn" id="10_e5nfq"]
+[ext_resource type="PackedScene" uid="uid://bblb7m455o2uf" path="res://scenes/prefabs/character_mask.tscn" id="11_lha2r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5a7mx"]
 shader = ExtResource("4_6owa4")
@@ -193,6 +194,9 @@ shape = SubResource("WorldBoundaryShape2D_6v23s")
 
 [node name="MaskPickupArlecchino" parent="." unique_id=678487700 instance=ExtResource("10_e5nfq")]
 position = Vector2(269, -20)
+
+[node name="CharacterMask" parent="." unique_id=2087027964 node_paths=PackedStringArray("player") instance=ExtResource("11_lha2r")]
+player = NodePath("../PlayerCharacter")
 
 [connection signal="death" from="PlayerCharacter" to="CameraFollow/EffectsLayer/DeathSpotlight" method="_on_player_character_death"]
 [connection signal="player_reached_exit" from="ExitDoor" to="PlayerCharacter" method="_on_exit_door_player_reached_exit"]
