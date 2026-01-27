@@ -20,3 +20,4 @@ func _on_mask_changed(new_mask_number: int) -> void:
 func _ready() -> void:
 	if player.has_signal("change_mask"):
 		player.connect("change_mask", Callable(self, "_on_mask_changed"))
+		call_deferred("_on_mask_changed",player.mask)
