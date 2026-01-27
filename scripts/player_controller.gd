@@ -10,17 +10,18 @@ extends CharacterBody2D
 @export var speed := 150.0
 @export var jump_velocity = -300.0
 @export var initial_num_masks := 3
-var is_jumping = false
 @export var jump_deccel := 100.0
 @export var braking_speed = 15
 @export var start_accel = 10
+
 
 
 signal change_mask(new_mask_number: int)
 signal mask_acquired(acquired_mask_number: int)
 signal death()
 
-
+var is_jumping = false
+var previous_frame_on_floor :bool
 var mask := 0
 var num_masks := 0
 var spawn_position: Vector2
@@ -41,7 +42,10 @@ func _ready() -> void:
 	change_mask.emit(mask)
 	num_masks = initial_num_masks
 	spawn()
+	anim.animation_finished.connect(on_animation_finish)
 
+func on_animation_finish():
+	pass
 
 func _input(event: InputEvent) -> void:
 	# Process mask related inputs
@@ -76,13 +80,13 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-		anim.play("jumping")
-
+	else: is_jumping = false
+	
 	## Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor() and not control_disabled:
-		is_jumping = true
-		velocity.y = jump_velocity
-		anim.play("jumping")
+	#if Input.is_action_just_pressed("jump") and is_on_floor() and not control_disabled:
+		#is_jumping = true
+		#velocity.y = jump_velocity
+
 		
 	if Input. is_action_just_released("jump") and is_jumping and velocity.y < 0:
 		velocity.y = clamp(velocity.y + jump_deccel,jump_velocity,0) 
@@ -91,19 +95,18 @@ func _physics_process(delta: float) -> void:
 	## Sideways movement
 	var direction_x :=Input.get_axis("move_left", "move_right")
 	if direction_x and not control_disabled:
-		anim.play("run")
-		anim.flip_h = false
-		anim.flip_h = direction_x < 0
 		velocity.x = move_toward(velocity.x,direction_x * speed, start_accel)
-		anim.speed_scale = velocity.x/100
+		anim.flip_h = velocity.x < 0
+
 	else:
-		if velocity.x != 0:
-			anim.play("braking")
-		else: anim.play("idle")
 		velocity.x = move_toward(velocity.x,0, braking_speed)
 
 	move_and_slide()
 
+
+
+
+	
 
 func _on_mask_pickup_got_mask(mask_number: int) -> void:
 	if mask_number > num_masks:

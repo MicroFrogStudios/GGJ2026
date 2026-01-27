@@ -6,9 +6,6 @@
 [ext_resource type="Script" uid="uid://bidl02ph1kjag" path="res://scripts/animStates/run_state.gd" id="4_6o77n"]
 [ext_resource type="Script" uid="uid://b5yb4buqnvbhp" path="res://scripts/animStates/idle_state.gd" id="4_56dyf"]
 [ext_resource type="Script" uid="uid://c0uoxcnvkmi8j" path="res://scripts/animStates/fall_state.gd" id="5_6o77n"]
-[ext_resource type="Script" uid="uid://dewund8rpfgtb" path="res://scripts/animStates/land_state.gd" id="6_jybep"]
-[ext_resource type="Script" uid="uid://berep5kp3fknt" path="res://scripts/animStates/turn_state.gd" id="7_50rl7"]
-[ext_resource type="Script" uid="uid://b6mrerfusb52y" path="res://scripts/animStates/jump_state.gd" id="8_oqq3r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8cdkg"]
 radius = 4.0
@@ -152,6 +149,79 @@ _data = {
 &"toLanding": SubResource("Animation_56dyf")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tou0u"]
+animation = &"goFalling"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6o77n"]
+animation = &"goIdle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6v0jn"]
+animation = &"goRun"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n0leu"]
+animation = &"goTurning"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r053x"]
+animation = &"startJump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8cdkg"]
+animation = &"toLanding"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jybep"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_56dyf"]
+advance_mode = 2
+advance_expression = "velocity.x != 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6o77n"]
+advance_mode = 2
+advance_expression = "is_jumping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6v0jn"]
+advance_mode = 2
+advance_expression = "velocity.x == 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r053x"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_50rl7"]
+advance_mode = 2
+advance_expression = "self.previous_frame_on_floor"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oqq3r"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lagtt"]
+advance_mode = 2
+advance_expression = "direction_x * velocity.x < 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gkb8g"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tou0u"]
+advance_mode = 2
+advance_expression = "is_jumping"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_50rl7"]
+states/Start/position = Vector2(324, 100)
+states/goFalling/node = SubResource("AnimationNodeAnimation_tou0u")
+states/goFalling/position = Vector2(539, 255)
+states/goIdle/node = SubResource("AnimationNodeAnimation_6o77n")
+states/goIdle/position = Vector2(463, 100)
+states/goRun/node = SubResource("AnimationNodeAnimation_6v0jn")
+states/goRun/position = Vector2(616, 100)
+states/goTurning/node = SubResource("AnimationNodeAnimation_n0leu")
+states/goTurning/position = Vector2(539, 18)
+states/startJump/node = SubResource("AnimationNodeAnimation_r053x")
+states/startJump/position = Vector2(616, 184)
+states/toLanding/node = SubResource("AnimationNodeAnimation_8cdkg")
+states/toLanding/position = Vector2(463, 184)
+transitions = ["Start", "goIdle", SubResource("AnimationNodeStateMachineTransition_jybep"), "goIdle", "goRun", SubResource("AnimationNodeStateMachineTransition_56dyf"), "goRun", "startJump", SubResource("AnimationNodeStateMachineTransition_6o77n"), "goRun", "goIdle", SubResource("AnimationNodeStateMachineTransition_6v0jn"), "startJump", "goFalling", SubResource("AnimationNodeStateMachineTransition_r053x"), "goFalling", "toLanding", SubResource("AnimationNodeStateMachineTransition_50rl7"), "toLanding", "goIdle", SubResource("AnimationNodeStateMachineTransition_oqq3r"), "goRun", "goTurning", SubResource("AnimationNodeStateMachineTransition_lagtt"), "goTurning", "goIdle", SubResource("AnimationNodeStateMachineTransition_gkb8g"), "goIdle", "startJump", SubResource("AnimationNodeStateMachineTransition_tou0u")]
+graph_offset = Vector2(-267, -81)
+
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=614979792]
 script = ExtResource("1_g2els")
 
@@ -171,16 +241,16 @@ metadata/_custom_type_script = "uid://vy31el0p8pfe"
 script = ExtResource("5_6o77n")
 metadata/_custom_type_script = "uid://vy31el0p8pfe"
 
-[node name="land" type="Node" parent="State_Machine" unique_id=1306869520]
-script = ExtResource("6_jybep")
+[node name="run3" type="Node" parent="State_Machine" unique_id=1306869520]
+script = ExtResource("4_6o77n")
 metadata/_custom_type_script = "uid://vy31el0p8pfe"
 
-[node name="turn" type="Node" parent="State_Machine" unique_id=816466812]
-script = ExtResource("7_50rl7")
+[node name="run4" type="Node" parent="State_Machine" unique_id=816466812]
+script = ExtResource("4_6o77n")
 metadata/_custom_type_script = "uid://vy31el0p8pfe"
 
-[node name="jump" type="Node" parent="State_Machine" unique_id=516404932]
-script = ExtResource("8_oqq3r")
+[node name="run5" type="Node" parent="State_Machine" unique_id=516404932]
+script = ExtResource("4_6o77n")
 metadata/_custom_type_script = "uid://vy31el0p8pfe"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=169026515]
@@ -189,10 +259,8 @@ shape = SubResource("CapsuleShape2D_8cdkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=810608017]
 sprite_frames = ExtResource("2_tou0u")
-animation = &"landing"
+animation = &"going_up_air"
 autoplay = "idle"
-frame = 4
-frame_progress = 1.0
 
 [node name="CrushHitbox" type="Area2D" parent="." unique_id=1686012330]
 
@@ -202,5 +270,11 @@ shape = SubResource("CircleShape2D_ok4up")
 
 [node name="PlayerAnimations" type="AnimationPlayer" parent="." unique_id=1271726712]
 libraries/ = SubResource("AnimationLibrary_dnu5j")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=14341621]
+active = false
+tree_root = SubResource("AnimationNodeStateMachine_50rl7")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../PlayerAnimations")
 
 [connection signal="body_entered" from="CrushHitbox" to="." method="_on_crush_hitbox_body_entered"]
