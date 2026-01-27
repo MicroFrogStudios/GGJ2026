@@ -11,7 +11,10 @@ func Enter():
 	player.anim.animation_finished.connect(on_anim_finished)
 func Exit():
 	player.anim.animation_finished.disconnect(on_anim_finished)
-	player.velocity.y = player.jump_velocity
+	if Input.is_action_pressed("jump"):
+		player.velocity.y = player.jump_velocity
+	else:
+		player.velocity.y = player.jump_velocity*.75
 	player.is_jumping = true
 	
 func Update(_delta: float):
