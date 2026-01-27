@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://7q706o0s7il2" path="res://assets/sprites/zanni_animations/Zanni_air-fall.png" id="1_kvc4d"]
 [ext_resource type="Texture2D" uid="uid://d00vsjr2bjys1" path="res://assets/sprites/zanni_animations/Zanni_Jump.png" id="2_sm032"]
 [ext_resource type="Texture2D" uid="uid://d1y4coimx23ek" path="res://assets/sprites/zanni_animations/Zanni_idle.png" id="3_8cn1u"]
-[ext_resource type="Texture2D" uid="uid://dl0spurito0pe" path="res://assets/sprites/zanni_animations/Zanni_land.png" id="4_t4o3o"]
+[ext_resource type="Texture2D" uid="uid://rsefxlhyoyhe" path="res://assets/sprites/zanni_animations/Zanni_land-02.png" id="4_kvc4d"]
 [ext_resource type="Texture2D" uid="uid://c11fui6hroef7" path="res://assets/sprites/zanni_animations/Zanni_walk.png" id="5_un16n"]
 [ext_resource type="Texture2D" uid="uid://dxryqrhwhykf2" path="res://assets/sprites/zanni_animations/Zanni_turn.png" id="6_qeyt5"]
 
@@ -75,16 +75,24 @@ region = Rect2(0, 0, 24, 24)
 atlas = ExtResource("2_sm032")
 region = Rect2(24, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b6qm8"]
-atlas = ExtResource("4_t4o3o")
+[sub_resource type="AtlasTexture" id="AtlasTexture_7aqcq"]
+atlas = ExtResource("4_kvc4d")
 region = Rect2(0, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nh1rk"]
-atlas = ExtResource("4_t4o3o")
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1kau"]
+atlas = ExtResource("4_kvc4d")
 region = Rect2(24, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2l2tq"]
-atlas = ExtResource("4_t4o3o")
+[sub_resource type="AtlasTexture" id="AtlasTexture_35knj"]
+atlas = ExtResource("4_kvc4d")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqebk"]
+atlas = ExtResource("4_kvc4d")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6qm8"]
+atlas = ExtResource("4_kvc4d")
 region = Rect2(96, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8cdkg"]
@@ -218,13 +226,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_7aqcq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1kau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35knj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqebk")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_b6qm8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nh1rk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2l2tq")
 }],
 "loop": false,
 "name": &"landing",
