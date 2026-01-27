@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dvmkjcuu4vlvu" path="res://scripts/multimaskedtilemap.gd" id="1_ljsc8"]
 [ext_resource type="Script" uid="uid://cqfbx47wt6d28" path="res://scripts/masked_layer.gd" id="3_nendb"]
 [ext_resource type="Script" uid="uid://b7qtr6cokots2" path="res://scripts/death_spotlight.gd" id="4_nendb"]
-[ext_resource type="PackedScene" uid="uid://bn46343xobuti" path="res://scenes/prefabs/exitdoor.tscn" id="4_nyalh"]
+[ext_resource type="PackedScene" uid="uid://br8vdgnj8vei8" path="res://scenes/prefabs/exitdoor.tscn" id="4_nyalh"]
 [ext_resource type="PackedScene" uid="uid://4aghjpy7mbvk" path="res://scenes/game_ui.tscn" id="4_oscf3"]
 [ext_resource type="PackedScene" uid="uid://bblb7m455o2uf" path="res://scenes/prefabs/character_mask.tscn" id="5_fle77"]
 [ext_resource type="PackedScene" uid="uid://dm6qoe57l87ub" path="res://scenes/prefabs/player.tscn" id="5_oscf3"]
@@ -13,7 +13,7 @@
 [ext_resource type="TileSet" uid="uid://d2courmo8ldu5" path="res://resources/tilesets/CarlosTileset.tres" id="10_nyalh"]
 [ext_resource type="Script" uid="uid://cc4bjxe2aebir" path="res://scripts/ripple_layer.gd" id="11_oscf3"]
 [ext_resource type="Texture2D" uid="uid://c8y6eybm104ks" path="res://assets/sprites/rhombus1.png" id="13_8g1bm"]
-[ext_resource type="Shader" path="res://shaders/background.gdshader" id="14_blw4j"]
+[ext_resource type="Shader" uid="uid://fv4s56mmwbu0" path="res://shaders/background.gdshader" id="14_blw4j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t3n0d"]
 shader = ExtResource("14_blw4j")
@@ -189,11 +189,11 @@ shader_parameter/atenuation_factor = 0.0
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6v23s"]
 distance = -192.0
 
-[node name="LevelBoilerplate" type="Node2D" unique_id=1082980837]
+[node name="LevelBoilerplate2" type="Node2D" unique_id=1082980837]
 
 [node name="PlayerCharacter" parent="." unique_id=614979792 instance=ExtResource("5_oscf3")]
 unique_name_in_owner = true
-position = Vector2(-232, 16)
+position = Vector2(-223, -112)
 slide_on_ceiling = false
 
 [node name="CharacterMask" parent="." unique_id=2087027964 node_paths=PackedStringArray("player") instance=ExtResource("5_fle77")]
@@ -202,11 +202,11 @@ player = NodePath("../PlayerCharacter")
 
 [node name="ExitDoor" parent="." unique_id=45997899 instance=ExtResource("4_nyalh")]
 z_index = -1
-position = Vector2(-171, 40)
+position = Vector2(-129, -94)
 
 [node name="CameraFollow" parent="." unique_id=467601528 node_paths=PackedStringArray("following") instance=ExtResource("6_fle77")]
 limit_left = -284
-limit_bottom = 194
+limit_bottom = 0
 limit_smoothed = true
 editor_draw_limits = true
 following = NodePath("../PlayerCharacter")
