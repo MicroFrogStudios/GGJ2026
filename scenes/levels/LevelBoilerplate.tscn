@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dvmkjcuu4vlvu" path="res://scripts/multimaskedtilemap.gd" id="1_ljsc8"]
 [ext_resource type="Script" uid="uid://cqfbx47wt6d28" path="res://scripts/masked_layer.gd" id="3_nendb"]
 [ext_resource type="Script" uid="uid://b7qtr6cokots2" path="res://scripts/death_spotlight.gd" id="4_nendb"]
-[ext_resource type="PackedScene" uid="uid://bn46343xobuti" path="res://scenes/prefabs/exitdoor.tscn" id="4_nyalh"]
+[ext_resource type="PackedScene" uid="uid://bn46343xobuti" path="res://scenes/prefabs/ExitDoor.tscn" id="4_nyalh"]
 [ext_resource type="PackedScene" uid="uid://4aghjpy7mbvk" path="res://scenes/game_ui.tscn" id="4_oscf3"]
 [ext_resource type="PackedScene" uid="uid://bblb7m455o2uf" path="res://scenes/prefabs/character_mask.tscn" id="5_fle77"]
 [ext_resource type="PackedScene" uid="uid://dm6qoe57l87ub" path="res://scenes/prefabs/player.tscn" id="5_oscf3"]
@@ -12,6 +12,15 @@
 [ext_resource type="Shader" uid="uid://bjwbh1c5jyjcy" path="res://shaders/shockwave.gdshader" id="9_nyalh"]
 [ext_resource type="TileSet" uid="uid://d2courmo8ldu5" path="res://resources/tilesets/CarlosTileset.tres" id="10_nyalh"]
 [ext_resource type="Script" uid="uid://cc4bjxe2aebir" path="res://scripts/ripple_layer.gd" id="11_oscf3"]
+[ext_resource type="Texture2D" uid="uid://c8y6eybm104ks" path="res://assets/sprites/rhombus1.png" id="13_8g1bm"]
+[ext_resource type="Shader" uid="uid://fv4s56mmwbu0" path="res://shaders/background.gdshader" id="14_blw4j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t3n0d"]
+shader = ExtResource("14_blw4j")
+shader_parameter/pattern = ExtResource("13_8g1bm")
+shader_parameter/size = 8.0
+shader_parameter/direction = Vector2(-1, -1)
+shader_parameter/speed = 0.2
 
 [sub_resource type="Animation" id="Animation_xornt"]
 length = 0.001
@@ -39,6 +48,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [-0.1]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../RippleLayer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_fle77"]
 resource_name = "mask_ripple"
@@ -54,6 +75,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [-0.1, 2.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../RippleLayer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.46666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_ggudt"]
@@ -157,6 +190,7 @@ shader_parameter/atenuation_factor = 0.0
 distance = -192.0
 
 [node name="LevelBoilerplate" type="Node2D" unique_id=1082980837]
+position = Vector2(-1, -191)
 
 [node name="MultiMaskedTileMap" type="Node2D" parent="." unique_id=1849164173 node_paths=PackedStringArray("player")]
 script = ExtResource("1_ljsc8")
@@ -207,11 +241,19 @@ position = Vector2(269, 49)
 
 [node name="CameraFollow" parent="." unique_id=467601528 node_paths=PackedStringArray("following") instance=ExtResource("6_fle77")]
 limit_left = -320
-limit_bottom = 193
+limit_bottom = 0
 limit_smoothed = true
 editor_draw_limits = true
 following = NodePath("../PlayerCharacter")
 follow_speed = 20
+
+[node name="Background" type="ColorRect" parent="CameraFollow" unique_id=1804315535]
+z_index = -5
+material = SubResource("ShaderMaterial_t3n0d")
+offset_left = -684.0
+offset_top = -538.0
+offset_right = 867.0
+offset_bottom = 228.0
 
 [node name="EffectsAnimator" type="AnimationPlayer" parent="CameraFollow" unique_id=1816478192]
 unique_name_in_owner = true
