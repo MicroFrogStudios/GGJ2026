@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://5rgt04odieiv" path="res://assets/sprites/mask_placeholder.png" id="1_rns2u"]
 [ext_resource type="Script" uid="uid://ddpj14k1f6tku" path="res://scripts/game_ui.gd" id="1_u001w"]
 [ext_resource type="Script" uid="uid://b4k5qjcktxfvh" path="res://scripts/ui_mask.gd" id="2_u001w"]
+[ext_resource type="Texture2D" uid="uid://dmt8qv2hqf0x0" path="res://assets/sprites/UI_masks/arlecchino_UI.png" id="4_djwj0"]
+[ext_resource type="Texture2D" uid="uid://ur46slv8x2d6" path="res://assets/sprites/UI_masks/pantaloon_ui.png" id="5_e0pfi"]
+[ext_resource type="Texture2D" uid="uid://clb34ncy0y127" path="res://assets/sprites/UI_masks/spavento_ui.png" id="6_o3bws"]
 
 [node name="GameUi" type="Control" unique_id=1129233128]
 layout_mode = 3
@@ -27,7 +30,7 @@ script = ExtResource("2_u001w")
 
 [node name="Mask1" type="TextureRect" parent="Masks" unique_id=820064628]
 layout_mode = 2
-texture = ExtResource("1_rns2u")
+texture = ExtResource("4_djwj0")
 expand_mode = 2
 stretch_mode = 4
 script = ExtResource("2_u001w")
@@ -35,14 +38,14 @@ mask_number = 1
 
 [node name="Mask2" type="TextureRect" parent="Masks" unique_id=1531412400]
 layout_mode = 2
-texture = ExtResource("1_rns2u")
+texture = ExtResource("5_e0pfi")
 expand_mode = 2
 script = ExtResource("2_u001w")
 mask_number = 2
 
 [node name="Mask3" type="TextureRect" parent="Masks" unique_id=1543417927]
 layout_mode = 2
-texture = ExtResource("1_rns2u")
+texture = ExtResource("6_o3bws")
 expand_mode = 2
 script = ExtResource("2_u001w")
 mask_number = 3
