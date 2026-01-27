@@ -13,7 +13,7 @@ extends CharacterBody2D
 @export var jump_deccel := 100.0
 @export var braking_speed = 15
 @export var start_accel = 10
-
+@export var initial_mask : int = 0
 
 
 signal change_mask(new_mask_number: int)
@@ -32,7 +32,7 @@ func spawn() -> void:
 	position = spawn_position
 	control_disabled = false
 	visible = true
-	mask = 0
+	mask = initial_mask
 	change_mask.emit(mask)
 	EffectsAnimator.stop() # Clear any possible effects
 	EffectsAnimator.play("spotlight_spawn")
