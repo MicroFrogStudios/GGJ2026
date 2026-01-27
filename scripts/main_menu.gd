@@ -3,12 +3,13 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	$startbutton.grab_focus.call_deferred()
+	pass
 
 
 func _on_startbutton_pressed() -> void:
 	print("Start Button Pressed")
-	get_tree().change_scene_to_packed(load("res://scenes/game.tscn"))
+	gc.load_next_scene()
 
 
 func _on_quitbutton_pressed() -> void:
