@@ -34,6 +34,7 @@ func spawn() -> void:
 	visible = true
 	mask = 0
 	change_mask.emit(mask)
+	EffectsAnimator.stop() # Clear any possible effects
 	EffectsAnimator.play("spotlight_spawn")
 
 
