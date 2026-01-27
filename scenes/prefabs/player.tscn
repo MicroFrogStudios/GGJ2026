@@ -189,7 +189,7 @@ shape = SubResource("CapsuleShape2D_8cdkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=810608017]
 sprite_frames = ExtResource("2_tou0u")
-animation = &"idle"
+animation = &"jumping"
 autoplay = "idle"
 
 [node name="CrushHitbox" type="Area2D" parent="." unique_id=1686012330]

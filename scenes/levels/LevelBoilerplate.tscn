@@ -1,16 +1,19 @@
-[gd_scene format=3 uid="uid://s6jgpvyxe42i"]
+[gd_scene format=4 uid="uid://s6jgpvyxe42i"]
 
+[ext_resource type="Script" uid="uid://dvmkjcuu4vlvu" path="res://scripts/multimaskedtilemap.gd" id="1_ljsc8"]
+[ext_resource type="Script" uid="uid://cqfbx47wt6d28" path="res://scripts/masked_layer.gd" id="3_nendb"]
 [ext_resource type="Script" uid="uid://b7qtr6cokots2" path="res://scripts/death_spotlight.gd" id="4_nendb"]
-[ext_resource type="PackedScene" uid="uid://bn46343xobuti" path="res://scenes/prefabs/ExitDoor.tscn" id="4_nyalh"]
+[ext_resource type="PackedScene" uid="uid://bn46343xobuti" path="res://scenes/prefabs/exitdoor.tscn" id="4_nyalh"]
 [ext_resource type="PackedScene" uid="uid://4aghjpy7mbvk" path="res://scenes/game_ui.tscn" id="4_oscf3"]
 [ext_resource type="PackedScene" uid="uid://bblb7m455o2uf" path="res://scenes/prefabs/character_mask.tscn" id="5_fle77"]
 [ext_resource type="PackedScene" uid="uid://dm6qoe57l87ub" path="res://scenes/prefabs/player.tscn" id="5_oscf3"]
 [ext_resource type="PackedScene" uid="uid://v0bxw5r7bav0" path="res://scenes/prefabs/CameraFollow.tscn" id="6_fle77"]
 [ext_resource type="Shader" uid="uid://g2kx26x1mj7r" path="res://shaders/spotlight.gdshader" id="8_5a7mx"]
 [ext_resource type="Shader" uid="uid://bjwbh1c5jyjcy" path="res://shaders/shockwave.gdshader" id="9_nyalh"]
+[ext_resource type="TileSet" uid="uid://d2courmo8ldu5" path="res://resources/tilesets/CarlosTileset.tres" id="10_nyalh"]
 [ext_resource type="Script" uid="uid://cc4bjxe2aebir" path="res://scripts/ripple_layer.gd" id="11_oscf3"]
 [ext_resource type="Texture2D" uid="uid://c8y6eybm104ks" path="res://assets/sprites/rhombus1.png" id="13_8g1bm"]
-[ext_resource type="Shader" uid="uid://fv4s56mmwbu0" path="res://shaders/background.gdshader" id="14_blw4j"]
+[ext_resource type="Shader" path="res://shaders/background.gdshader" id="14_blw4j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t3n0d"]
 shader = ExtResource("14_blw4j")
@@ -199,11 +202,11 @@ player = NodePath("../PlayerCharacter")
 
 [node name="ExitDoor" parent="." unique_id=45997899 instance=ExtResource("4_nyalh")]
 z_index = -1
-position = Vector2(269, 49)
+position = Vector2(-171, 40)
 
 [node name="CameraFollow" parent="." unique_id=467601528 node_paths=PackedStringArray("following") instance=ExtResource("6_fle77")]
-limit_left = -320
-limit_bottom = 0
+limit_left = -284
+limit_bottom = 194
 limit_smoothed = true
 editor_draw_limits = true
 following = NodePath("../PlayerCharacter")
@@ -251,6 +254,39 @@ script = ExtResource("11_oscf3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPlane" unique_id=917751410]
 shape = SubResource("WorldBoundaryShape2D_6v23s")
+
+[node name="MultiMaskedTileMap" type="Node2D" parent="." unique_id=2080479599]
+script = ExtResource("1_ljsc8")
+
+[node name="MaskedTileMapLayer0" type="TileMapLayer" parent="MultiMaskedTileMap" unique_id=1921039142]
+tile_map_data = PackedByteArray("AADe/wUAAgAAAAAAAADf/wUAAgAAAAAAAADg/wUAAgAAAAAAAADh/wUAAgAAAAAAAADi/wUAAgAAAAAAAADj/wUAAgAAAAAAAADk/wUAAgAAAAAAAADl/wUAAgAAAAAAAADm/wUAAgAAAAAAAADn/wUAAgAAAAAAAADo/wUAAgAAAAAAAADp/wUAAgAAAAAAAADq/wUAAgAAAAAAAADr/wUAAgAAAAAAAADs/wUAAgAAAAAAAADt/wUAAgAAAAAAAAA=")
+tile_set = ExtResource("10_nyalh")
+script = ExtResource("3_nendb")
+metadata/_custom_type_script = "uid://cqfbx47wt6d28"
+
+[node name="MaskedTileMapLayer1" type="TileMapLayer" parent="MultiMaskedTileMap" unique_id=1601078793]
+modulate = Color(0.63573295, 0.48202586, 0.3905727, 1)
+tile_map_data = PackedByteArray("AADe/wcAAgAAAAAAAADf/wcAAgAAAAAAAADg/wcAAgAAAAAAAADh/wcAAgAAAAAAAADi/wcAAgAAAAAAAADj/wcAAgAAAAAAAADk/wcAAgAAAAAAAADl/wcAAgAAAAAAAADm/wcAAgAAAAAAAADn/wcAAgAAAAAAAADo/wcAAgAAAAAAAADp/wcAAgAAAAAAAADq/wcAAgAAAAAAAADr/wcAAgAAAAAAAADs/wcAAgAAAAAAAADt/wcAAgAAAAAAAAA=")
+tile_set = ExtResource("10_nyalh")
+script = ExtResource("3_nendb")
+mask_number = 1
+metadata/_custom_type_script = "uid://cqfbx47wt6d28"
+
+[node name="MaskedTileMapLayer2" type="TileMapLayer" parent="MultiMaskedTileMap" unique_id=1632574672]
+modulate = Color(0.22727287, 0.49500114, 0.42790097, 1)
+tile_map_data = PackedByteArray("AADe/wkAAgAAAAAAAADf/wkAAgAAAAAAAADg/wkAAgAAAAAAAADh/wkAAgAAAAAAAADi/wkAAgAAAAAAAADj/wkAAgAAAAAAAADk/wkAAgAAAAAAAADl/wkAAgAAAAAAAADm/wkAAgAAAAAAAADn/wkAAgAAAAAAAADo/wkAAgAAAAAAAADp/wkAAgAAAAAAAADq/wkAAgAAAAAAAADr/wkAAgAAAAAAAADs/wkAAgAAAAAAAADt/wkAAgAAAAAAAAA=")
+tile_set = ExtResource("10_nyalh")
+script = ExtResource("3_nendb")
+mask_number = 2
+metadata/_custom_type_script = "uid://cqfbx47wt6d28"
+
+[node name="MaskedTileMapLayer3" type="TileMapLayer" parent="MultiMaskedTileMap" unique_id=1646331872]
+modulate = Color(0.6391251, 0.5465034, 0.7185337, 1)
+tile_map_data = PackedByteArray("AADe/wsAAgAAAAAAAADf/wsAAgAAAAAAAADg/wsAAgAAAAAAAADh/wsAAgAAAAAAAADi/wsAAgAAAAAAAADj/wsAAgAAAAAAAADk/wsAAgAAAAAAAADl/wsAAgAAAAAAAADm/wsAAgAAAAAAAADn/wsAAgAAAAAAAADo/wsAAgAAAAAAAADp/wsAAgAAAAAAAADq/wsAAgAAAAAAAADr/wsAAgAAAAAAAADs/wsAAgAAAAAAAADt/wsAAgAAAAAAAAA=")
+tile_set = ExtResource("10_nyalh")
+script = ExtResource("3_nendb")
+mask_number = 3
+metadata/_custom_type_script = "uid://cqfbx47wt6d28"
 
 [connection signal="death" from="PlayerCharacter" to="CameraFollow/SpotlightLayer/DeathSpotlight" method="_on_player_character_death"]
 [connection signal="player_reached_exit" from="ExitDoor" to="PlayerCharacter" method="_on_exit_door_player_reached_exit"]

@@ -105,10 +105,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-
-
-	
-
 func _on_mask_pickup_got_mask(mask_number: int) -> void:
 	if mask_number > num_masks:
 		num_masks = mask_number

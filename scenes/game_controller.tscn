@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://i1uw0ax2u0rb"]
 
 [ext_resource type="Script" uid="uid://c55farr3o28fc" path="res://scripts/game_controller.gd" id="1_78s5d"]
-[ext_resource type="PackedScene" uid="uid://cgwwu53l1qhxa" path="res://scenes/levels/level4.tscn" id="2_rc0pn"]
+[ext_resource type="PackedScene" uid="uid://s6jgpvyxe42i" path="res://scenes/levels/LevelBoilerplate.tscn" id="2_h843c"]
+[ext_resource type="PackedScene" uid="uid://vakyfysbi8es" path="res://scenes/levels/Level1.tscn" id="3_ts4rt"]
 
 [node name="GameController" type="Node" unique_id=2034097526]
 script = ExtResource("1_78s5d")
-editor_scenes = Array[PackedScene]([ExtResource("2_rc0pn")])
+editor_scenes = Array[PackedScene]([ExtResource("2_h843c"), ExtResource("3_ts4rt")])

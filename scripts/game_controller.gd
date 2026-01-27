@@ -2,7 +2,7 @@ extends Node
 
 
 @export var editor_scenes :Array[PackedScene]
-
+var player : PlayerCharacter
 
 class UnloadedScene:
 	var scene : PackedScene
