@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1y4coimx23ek"
-path="res://.godot/imported/Zanni_idle.png-3a70d43f4978a9067a36b4926b4d48b2.ctex"
+uid="uid://c11fui6hroef7"
+path="res://.godot/imported/Zanni_walk.png-22cb48148040d1219a83eae8bf07824d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Zanni_idle.png"
-dest_files=["res://.godot/imported/Zanni_idle.png-3a70d43f4978a9067a36b4926b4d48b2.ctex"]
+source_file="res://assets/sprites/zanni_animations/Zanni_walk.png"
+dest_files=["res://.godot/imported/Zanni_walk.png-22cb48148040d1219a83eae8bf07824d.ctex"]
 
 [params]
 

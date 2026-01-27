@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bnkcypkogkal7"]
+
+[ext_resource type="Script" uid="uid://c28tuc458pf84" path="res://scripts/mask_fragment.gd" id="1_g1vc7"]
+[ext_resource type="Texture2D" uid="uid://dbe4ogblo666n" path="res://assets/sprites/item_masks/spavento_item.png" id="2_sewwj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h72c2"]
+
+[node name="MaskPickupSpavento" type="Node2D" unique_id=678487700]
+script = ExtResource("1_g1vc7")
+mask_number = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=177090069]
+texture = ExtResource("2_sewwj")
+
+[node name="MaskArea2D" type="Area2D" parent="." unique_id=1839701969]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MaskArea2D" unique_id=134209605]
+shape = SubResource("CircleShape2D_h72c2")
+
+[connection signal="body_entered" from="MaskArea2D" to="." method="_on_mask_area_2d_body_entered"]

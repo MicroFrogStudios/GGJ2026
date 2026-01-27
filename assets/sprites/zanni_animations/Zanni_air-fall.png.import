@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://7q706o0s7il2"
-path="res://.godot/imported/Zanni_air-fall.png-f79f202d13eb20065567fbaf137aa948.ctex"
+path="res://.godot/imported/Zanni_air-fall.png-309f34fd6a685f0665e8725b7a855e89.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Zanni_air-fall.png"
-dest_files=["res://.godot/imported/Zanni_air-fall.png-f79f202d13eb20065567fbaf137aa948.ctex"]
+source_file="res://assets/sprites/zanni_animations/Zanni_air-fall.png"
+dest_files=["res://.godot/imported/Zanni_air-fall.png-309f34fd6a685f0665e8725b7a855e89.ctex"]
 
 [params]
 

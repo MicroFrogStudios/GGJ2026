@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c11fui6hroef7"
-path="res://.godot/imported/Zanni_walk.png-8062d5015691ef768c8c59460e92eef5.ctex"
+uid="uid://dmt8qv2hqf0x0"
+path="res://.godot/imported/arlecchino_UI.png-44bf389beb585db6e20c5c5d6cad9ee9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Zanni_walk.png"
-dest_files=["res://.godot/imported/Zanni_walk.png-8062d5015691ef768c8c59460e92eef5.ctex"]
+source_file="res://assets/sprites/UI_masks/arlecchino_UI.png"
+dest_files=["res://.godot/imported/arlecchino_UI.png-44bf389beb585db6e20c5c5d6cad9ee9.ctex"]
 
 [params]
 

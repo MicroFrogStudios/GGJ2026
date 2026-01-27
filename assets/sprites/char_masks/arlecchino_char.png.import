@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl0spurito0pe"
-path="res://.godot/imported/Zanni_land.png-3d16091307a89ba55eb5257d036ee443.ctex"
+uid="uid://r05mq8a7xha1"
+path="res://.godot/imported/arlecchino_char.png-aeb042a8906d7972d45a78cc668567ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Zanni_land.png"
-dest_files=["res://.godot/imported/Zanni_land.png-3d16091307a89ba55eb5257d036ee443.ctex"]
+source_file="res://assets/sprites/char_masks/arlecchino_char.png"
+dest_files=["res://.godot/imported/arlecchino_char.png-aeb042a8906d7972d45a78cc668567ef.ctex"]
 
 [params]
 

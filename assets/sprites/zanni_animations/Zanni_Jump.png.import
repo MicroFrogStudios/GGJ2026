@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxryqrhwhykf2"
-path="res://.godot/imported/Zanni_turn.png-61486a35aa45ebe51e6878692da5b28d.ctex"
+uid="uid://d00vsjr2bjys1"
+path="res://.godot/imported/Zanni_Jump.png-2956b96527ad221ae3016616ef9bd9de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Zanni_turn.png"
-dest_files=["res://.godot/imported/Zanni_turn.png-61486a35aa45ebe51e6878692da5b28d.ctex"]
+source_file="res://assets/sprites/zanni_animations/Zanni_Jump.png"
+dest_files=["res://.godot/imported/Zanni_Jump.png-2956b96527ad221ae3016616ef9bd9de.ctex"]
 
 [params]
 
