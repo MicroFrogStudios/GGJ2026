@@ -251,6 +251,7 @@ grow_vertical = 2
 script = ExtResource("11_oscf3")
 
 [node name="DeathPlane" type="Area2D" parent="." unique_id=20074737]
+position = Vector2(0, -143)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPlane" unique_id=917751410]
 shape = SubResource("WorldBoundaryShape2D_6v23s")
