@@ -16,11 +16,14 @@ extends CharacterBody2D
 @export var braking_speed = 15
 @export var start_accel = 10
 @export var initial_mask : int = 0
+@export var mask_radius := 100.0 # Radius around player where layers are visible
+@export var is_changing_mask := false # True during the mask change shockwave
 
 
 signal change_mask(new_mask_number: int)
 signal mask_acquired(acquired_mask_number: int)
 signal death()
+
 
 var is_jumping = false
 var previous_frame_on_floor :bool
@@ -77,6 +80,8 @@ func _input(event: InputEvent) -> void:
 
 	if prev_mask != mask:
 		print("Mask is ", mask)
+		PlayerAnimations.stop()
+		PlayerAnimations.play("mask_change_radius_expansion")
 		change_mask.emit(mask)
 
 

@@ -33,6 +33,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:mask_radius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [300.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:is_changing_mask")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_8anb8"]
 resource_name = "enter_door"
@@ -112,6 +136,34 @@ tracks/0/keys = {
 "values": [&"braking"]
 }
 
+[sub_resource type="Animation" id="Animation_oqq3r"]
+resource_name = "mask_change_radius_expansion"
+length = 1.2666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:mask_radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1000.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:is_changing_mask")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.2666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="Animation" id="Animation_tou0u"]
 resource_name = "startJump"
 tracks/0/type = "value"
@@ -151,12 +203,15 @@ _data = {
 &"goIdle": SubResource("Animation_n0leu"),
 &"goRun": SubResource("Animation_8cdkg"),
 &"goTurning": SubResource("Animation_6o77n"),
+&"mask_change_radius_expansion": SubResource("Animation_oqq3r"),
 &"startJump": SubResource("Animation_tou0u"),
 &"toLanding": SubResource("Animation_56dyf")
 }
 
 [node name="PlayerCharacter" type="CharacterBody2D" unique_id=614979792]
+z_index = 1
 script = ExtResource("1_g2els")
+mask_radius = 300.0
 
 [node name="State_Machine" type="Node" parent="." unique_id=322624247 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_8cdkg")
