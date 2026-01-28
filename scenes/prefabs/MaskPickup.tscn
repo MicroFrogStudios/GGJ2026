@@ -1,16 +1,15 @@
-[gd_scene format=3 uid="uid://b7xfmtrq7udoh"]
+[gd_scene format=3 uid="uid://dw8udwgqo5y5a"]
 
-[ext_resource type="Script" uid="uid://c28tuc458pf84" path="res://scripts/mask_fragment.gd" id="1_gxt20"]
-[ext_resource type="Texture2D" uid="uid://br0qgxm6g7hvp" path="res://assets/sprites/item_masks/pantaloon_item.png" id="2_gxt20"]
+[ext_resource type="Script" uid="uid://c28tuc458pf84" path="res://scripts/mask_fragment.gd" id="1_lwc8p"]
+[ext_resource type="Script" uid="uid://cds3n16xr0j2x" path="res://scripts/mask_sprite.gd" id="2_wp63b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h72c2"]
 
-[node name="MaskPickupPantaloon" type="Node2D" unique_id=678487700]
-script = ExtResource("1_gxt20")
-mask_number = 2
+[node name="MaskPickupArlecchino" type="Node2D" unique_id=678487700]
+script = ExtResource("1_lwc8p")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=177090069]
-texture = ExtResource("2_gxt20")
+script = ExtResource("2_wp63b")
 
 [node name="MaskArea2D" type="Area2D" parent="." unique_id=1839701969]
 
