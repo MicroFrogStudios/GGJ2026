@@ -16,7 +16,8 @@ signal got_mask(mask_number: int)
 
 func _ready() -> void:
 	initial_position = position
-
+	$Sprite2D.texture = mask_texture
+	$Sprite2D/SpriteAura.texture = mask_texture
 
 func disable_mask() -> void:
 	visible = false
