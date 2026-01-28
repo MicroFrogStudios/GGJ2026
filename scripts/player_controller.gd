@@ -26,6 +26,7 @@ var mask := 0
 var num_masks := 0
 var spawn_position: Vector2
 var control_disabled := false # If true, player control is disabled
+var going_into_door := false
 
 
 func spawn() -> void:
@@ -133,4 +134,5 @@ func _on_death_plane_body_entered(body: Node2D) -> void:
 
 func _on_exit_door_player_reached_exit() -> void:
 	control_disabled = true
+	going_into_door = true
 	PlayerAnimations.play("enter_door")
