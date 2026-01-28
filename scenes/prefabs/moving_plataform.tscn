@@ -13,8 +13,20 @@ size = Vector2(16, 8)
 [node name="MovingPlataform" type="AnimatableBody2D" unique_id=193119630]
 script = ExtResource("1_um5hb")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1470867921]
+[node name="Sprite1" type="Sprite2D" parent="." unique_id=1470867921]
+modulate = Color(0.63529414, 0.48235294, 0.39215687, 1)
+position = Vector2(-8, 0)
 texture = SubResource("AtlasTexture_ait0e")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=668452606]
+[node name="Sprite2" type="Sprite2D" parent="." unique_id=1702323611]
+modulate = Color(0.22745098, 0.49411765, 0.42745098, 1)
+position = Vector2(8, 0)
+texture = SubResource("AtlasTexture_ait0e")
+
+[node name="CollisionShape1" type="CollisionShape2D" parent="." unique_id=668452606]
+position = Vector2(-8, 0)
+shape = SubResource("RectangleShape2D_6f7bj")
+
+[node name="CollisionShape2" type="CollisionShape2D" parent="." unique_id=1810032336]
+position = Vector2(8, 0)
 shape = SubResource("RectangleShape2D_6f7bj")

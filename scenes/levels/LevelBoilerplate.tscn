@@ -13,7 +13,7 @@
 [ext_resource type="TileSet" uid="uid://d2courmo8ldu5" path="res://resources/tilesets/CarlosTileset.tres" id="10_nyalh"]
 [ext_resource type="Script" uid="uid://cc4bjxe2aebir" path="res://scripts/ripple_layer.gd" id="11_oscf3"]
 [ext_resource type="Texture2D" uid="uid://c8y6eybm104ks" path="res://assets/sprites/rhombus1.png" id="13_8g1bm"]
-[ext_resource type="Shader" uid="uid://fv4s56mmwbu0" path="res://shaders/background.gdshader" id="14_blw4j"]
+[ext_resource type="Shader" path="res://shaders/background.gdshader" id="14_blw4j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t3n0d"]
 shader = ExtResource("14_blw4j")
