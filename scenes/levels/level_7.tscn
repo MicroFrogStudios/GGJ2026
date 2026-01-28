@@ -5,6 +5,9 @@
 
 [node name="Level7" unique_id=1082980837 instance=ExtResource("1_ntash")]
 
+[node name="PlayerCharacter" parent="." index="0" unique_id=614979792]
+initial_num_masks = 2
+
 [node name="ExitDoor" parent="." index="2" unique_id=45997899]
 position = Vector2(384, -88)
 
