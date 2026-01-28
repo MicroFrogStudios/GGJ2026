@@ -8,7 +8,6 @@ func _ready() -> void:
 	var player :PlayerCharacter = %PlayerCharacter
 	player.change_mask.connect(on_mask_change)
 	call_deferred("on_mask_change",player.mask)
-	pass
 
 
 func on_mask_change(mask_num :int):

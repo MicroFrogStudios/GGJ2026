@@ -4,12 +4,9 @@ extends Node2D
 @export var mask_number = 1
 @export var mask_texture : Texture2D
 
-
 @onready var mask_collision_shape: CollisionShape2D = $MaskArea2D/CollisionShape2D
 
-
 var initial_position: Vector2
-
 
 signal got_mask(mask_number: int)
 
@@ -18,6 +15,7 @@ func _ready() -> void:
 	initial_position = position
 	$Sprite2D.texture = mask_texture
 	$Sprite2D/SpriteAura.texture = mask_texture
+
 
 func disable_mask() -> void:
 	visible = false
