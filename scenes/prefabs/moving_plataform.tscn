@@ -1,14 +1,21 @@
 [gd_scene format=3 uid="uid://h36cd4pnngpt"]
 
 [ext_resource type="Script" uid="uid://dliok3okwvyu4" path="res://scripts/moving_plataform.gd" id="1_um5hb"]
-[ext_resource type="Texture2D" uid="uid://bfvwqohtmo1ct" path="res://assets/sprites/spritescarlos.png" id="2_lytmx"]
+[ext_resource type="Texture2D" uid="uid://bquqro0e71jtc" path="res://assets/sprites/sprites_madera.png" id="2_um5hb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ait0e"]
-atlas = ExtResource("2_lytmx")
-region = Rect2(40, 0, 16, 8)
+atlas = ExtResource("2_um5hb")
+region = Rect2(8, 8, 24, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lytmx"]
+atlas = ExtResource("2_um5hb")
+region = Rect2(40, 8, 24, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6f7bj"]
-size = Vector2(16, 8)
+size = Vector2(24, 3.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ait0e"]
+size = Vector2(24, 3.375)
 
 [sub_resource type="Animation" id="Animation_um5hb"]
 length = 0.001
@@ -55,21 +62,21 @@ script = ExtResource("1_um5hb")
 
 [node name="Sprite1" type="Sprite2D" parent="MovingPlataformBody" unique_id=1470867921]
 modulate = Color(0.63529414, 0.48235294, 0.39215687, 1)
-position = Vector2(-8, 0)
+position = Vector2(-12, 0)
 texture = SubResource("AtlasTexture_ait0e")
 
 [node name="Sprite2" type="Sprite2D" parent="MovingPlataformBody" unique_id=1702323611]
 modulate = Color(0.22745098, 0.49411765, 0.42745098, 1)
-position = Vector2(8, 0)
-texture = SubResource("AtlasTexture_ait0e")
+position = Vector2(12, 0)
+texture = SubResource("AtlasTexture_lytmx")
 
 [node name="CollisionShape1" type="CollisionShape2D" parent="MovingPlataformBody" unique_id=668452606]
-position = Vector2(-8, 0)
+position = Vector2(-12, -0.375)
 shape = SubResource("RectangleShape2D_6f7bj")
 
 [node name="CollisionShape2" type="CollisionShape2D" parent="MovingPlataformBody" unique_id=1810032336]
-position = Vector2(8, 0)
-shape = SubResource("RectangleShape2D_6f7bj")
+position = Vector2(12, -0.3125)
+shape = SubResource("RectangleShape2D_ait0e")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MovingPlataformBody" unique_id=2059857812]
 libraries/ = SubResource("AnimationLibrary_ait0e")
