@@ -1,5 +1,15 @@
-[gd_scene format=3 uid="uid://c264l4iy48t0k"]
+[gd_scene format=4 uid="uid://c264l4iy48t0k"]
 
 [ext_resource type="PackedScene" uid="uid://s6jgpvyxe42i" path="res://scenes/levels/LevelBoilerplate.tscn" id="1_ntash"]
+[ext_resource type="PackedScene" uid="uid://h36cd4pnngpt" path="res://scenes/prefabs/moving_plataform.tscn" id="2_07ctq"]
 
 [node name="Level7" unique_id=1082980837 instance=ExtResource("1_ntash")]
+
+[node name="ExitDoor" parent="." index="2" unique_id=45997899]
+position = Vector2(384, -88)
+
+[node name="MaskedTileMapLayer0" parent="MultiMaskedTileMap" parent_id_path=PackedInt32Array(2080479599) index="0" unique_id=1921039142]
+tile_map_data = PackedByteArray("AADg//T/AgAGAAIAAADh//T/AgABAAAAAADi//T/AgAAAAAAAADi//X/AgAAAAMAACDi//b/AgAAAAIAAADi//f/AgAAAAIAAADi//j/AgAAAAIAAADi//n/AgAAAAEAAADi//r/AgAAAAIAAADi//v/AgAAAAEAAADi//z/AgAAAAIAAADi//3/AgAAAAIAAADi//7/AgAAAAIAAADi////AgAAAAMAAADj//T/AgAAAAAAAADk//T/AgAAAAAAAADl//T/AgABAAAAAADl//X/AgAAAAMAACDl//b/AgAAAAIAAADl//f/AgAAAAEAAADl//j/AgAAAAIAAADl//n/AgAAAAEAAADl//r/AgAAAAEAAADl//v/AgAAAAEAAADl//z/AgAAAAEAAADl//3/AgAAAAEAAADl//7/AgAAAAIAAADl////AgAAAAMAAADm//T/AgAAAAAAAADn//T/AgAHAAIAAAA=")
+
+[node name="MovingPlataform" parent="." index="6" unique_id=193119630 instance=ExtResource("2_07ctq")]
+position = Vector2(-136, -112)

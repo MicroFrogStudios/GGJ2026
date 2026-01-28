@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dvc6an3r1r7iq" path="res://scripts/exitdoor.gd" id="1_3kbto"]
 [ext_resource type="Texture2D" uid="uid://b34ceboewtvl6" path="res://assets/sprites/door_curtains.png" id="2_3kbto"]
+[ext_resource type="PackedScene" uid="uid://g0kose2svtmw" path="res://scenes/prefabs/victory_particles.tscn" id="3_gccf4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bqlck"]
 size = Vector2(20, 17)
@@ -19,5 +20,12 @@ texture = ExtResource("2_3kbto")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea2D" unique_id=1673315075]
 position = Vector2(0, -13)
 shape = SubResource("RectangleShape2D_bqlck")
+
+[node name="victory_particles" parent="." unique_id=1058596925 instance=ExtResource("3_gccf4")]
+position = Vector2(7, 0)
+
+[node name="victory_particles2" parent="." unique_id=1291479091 instance=ExtResource("3_gccf4")]
+position = Vector2(-6, 0)
+scale = Vector2(-1, 1)
 
 [connection signal="body_entered" from="DoorArea2D" to="." method="_on_door_area_2d_body_entered"]

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://g0kose2svtmw"]
+
+[sub_resource type="CurveTexture" id="CurveTexture_mgi7g"]
+
+[sub_resource type="Gradient" id="Gradient_df67d"]
+offsets = PackedFloat32Array(0.04121864, 0.09856631, 0.49103943, 1)
+colors = PackedColorArray(0.30122113, 0.5867393, 0.6701819, 1, 0.64371186, 0.5191593, 7.70092e-07, 1, 0.620129, 0.14090699, 0.822915, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_irgq2"]
+gradient = SubResource("Gradient_df67d")
+
+[sub_resource type="Gradient" id="Gradient_uarqj"]
+offsets = PackedFloat32Array(0.15591398, 0.38709676, 0.6111111, 0.99103945)
+colors = PackedColorArray(0.1866594, 0.6029002, 0.41749856, 1, 0.58307785, 0.688832, 0.5899459, 1, 0.9672043, 0.77209926, 0.7570461, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7c7sj"]
+gradient = SubResource("Gradient_uarqj")
+
+[sub_resource type="CurveTexture" id="CurveTexture_3agqo"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mgi7g"]
+lifetime_randomness = 0.15
+particle_flag_disable_z = true
+angle_min = -43.99999
+angle_max = 185.20001
+direction = Vector3(6.09, -10, 0)
+spread = 33.972
+initial_velocity_min = 65.92
+initial_velocity_max = 65.92
+gravity = Vector3(0, 70, 0)
+color_ramp = SubResource("GradientTexture1D_7c7sj")
+color_initial_ramp = SubResource("GradientTexture1D_irgq2")
+alpha_curve = SubResource("CurveTexture_mgi7g")
+emission_curve = SubResource("CurveTexture_3agqo")
+
+[node name="victory_particles" type="GPUParticles2D" unique_id=1058596925]
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 0.82
+process_material = SubResource("ParticleProcessMaterial_mgi7g")
