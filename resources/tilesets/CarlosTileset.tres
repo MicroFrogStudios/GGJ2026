@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://bfvwqohtmo1ct" path="res://assets/sprites/spritescarlos.png" id="2_hcsfu"]
 
-[sub_resource type="TileMapPattern" id="TileMapPattern_bsabd"]
-tile_data = PackedInt32Array(0, 393218, 805306372, 65536, 327682, 1610612742, 131072, 393218, 1342177284, 1, 327682, 6, 65537, 262146, 3, 131073, 327682, 805306374, 2, 393218, 1610612740, 65538, 327682, 1342177286, 131074, 393218, 4)
-
 [sub_resource type="TileMapPattern" id="TileMapPattern_rnbsa"]
 tile_data = PackedInt32Array(0, 393218, 2, 1, 65538, 0, 2, 2, 0, 65538, 2, 536870915, 131074, 2, 2, 196610, 2, 2, 262146, 2, 2, 327682, 2, 1, 393218, 2, 2, 458754, 2, 1, 524290, 2, 2, 589826, 2, 2, 655362, 2, 2, 720898, 2, 3, 3, 2, 0, 4, 2, 0, 5, 65538, 0, 65541, 2, 536870915, 131077, 2, 2, 196613, 2, 1, 262149, 2, 2, 327685, 2, 1, 393221, 2, 1, 458757, 2, 1, 524293, 2, 1, 589829, 2, 1, 655365, 2, 2, 720901, 2, 3, 6, 2, 0, 7, 458754, 2)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_bsabd"]
+tile_data = PackedInt32Array(0, 458754, 805306372, 65536, 458754, 1342177284, 1, 458754, 1610612740, 65537, 458754, 4)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f0e6r"]
 texture = ExtResource("2_hcsfu")
@@ -78,5 +78,5 @@ texture_region_size = Vector2i(8, 8)
 tile_size = Vector2i(8, 8)
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_f0e6r")
-pattern_0 = SubResource("TileMapPattern_bsabd")
-pattern_1 = SubResource("TileMapPattern_rnbsa")
+pattern_0 = SubResource("TileMapPattern_rnbsa")
+pattern_1 = SubResource("TileMapPattern_bsabd")
