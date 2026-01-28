@@ -23,7 +23,6 @@ class LoadedScene:
 var unloaded_scenes : Array[UnloadedScene]
 var current_scene : LoadedScene
 
-
 func load_next_scene():
 	print("changing from scene ",current_scene.scene_name, " to ", unloaded_scenes[(current_scene.index+1) % unloaded_scenes.size()].scene_name )
 	load_scene_by_index((current_scene.index+1) % unloaded_scenes.size())

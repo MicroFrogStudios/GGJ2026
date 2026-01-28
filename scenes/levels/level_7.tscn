@@ -6,10 +6,11 @@
 [node name="Level7" unique_id=1082980837 instance=ExtResource("1_ntash")]
 
 [node name="PlayerCharacter" parent="." index="0" unique_id=614979792]
+z_index = 0
 initial_num_masks = 2
 
 [node name="ExitDoor" parent="." index="2" unique_id=45997899]
-position = Vector2(384, -88)
+position = Vector2(66, -96)
 
 [node name="CameraFollow" parent="." index="3" unique_id=467601528]
 position_smoothing_enabled = true

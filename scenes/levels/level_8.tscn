@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://h60ubf6gvt4d"]
 
-[ext_resource type="PackedScene" uid="uid://s6jgpvyxe42i" path="res://scenes/levels/LevelBoilerplate.tscn" id="1_t18vl"]
+[ext_resource type="PackedScene" uid="uid://s6jgpvyxe42i" path="res://scenes/levels/LevelBoilerplate.tscn" id="1_aq65u"]
 
-[node name="LevelBoilerplate" unique_id=1082980837 instance=ExtResource("1_t18vl")]
+[node name="Level8" unique_id=1082980837 instance=ExtResource("1_aq65u")]
 
 [node name="PlayerCharacter" parent="." index="0" unique_id=614979792]
 position = Vector2(-72, -43)
