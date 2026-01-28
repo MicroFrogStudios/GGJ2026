@@ -1,0 +1,18 @@
+[gd_scene format=4 uid="uid://n2p8c2jqrwxd"]
+
+[ext_resource type="PackedScene" uid="uid://s6jgpvyxe42i" path="res://scenes/levels/LevelBoilerplate.tscn" id="1_06474"]
+
+[node name="Level4" unique_id=1082980837 instance=ExtResource("1_06474")]
+
+[node name="PlayerCharacter" parent="." index="0" unique_id=614979792]
+initial_num_masks = 1
+initial_mask = 1
+
+[node name="ExitDoor" parent="." index="2" unique_id=45997899]
+position = Vector2(151, -98)
+
+[node name="MaskedTileMapLayer0" parent="MultiMaskedTileMap" parent_id_path=PackedInt32Array(2080479599) index="0" unique_id=1921039142]
+tile_map_data = PackedByteArray("AADh//T/AgABAAAAAADi//T/AgAAAAAAAADj//T/AgAAAAAAAADk//T/AgAAAAAAAADl//T/AgABAAAAAADm//T/AgAAAAAAAADi//X/AgAAAAMAACDi//b/AgAAAAIAAADi//f/AgAAAAIAAADi//j/AgAAAAIAAADi//n/AgAAAAEAAADi//r/AgAAAAIAAADi//v/AgAAAAEAAADi//z/AgAAAAIAAADi//3/AgAAAAIAAADi//7/AgAAAAIAAADi////AgAAAAMAAADl//X/AgAAAAMAACDl//b/AgAAAAIAAADl//f/AgAAAAEAAADl//j/AgAAAAIAAADl//n/AgAAAAEAAADl//r/AgAAAAEAAADl//v/AgAAAAEAAADl//z/AgAAAAEAAADl//3/AgAAAAEAAADl//7/AgAAAAIAAADl////AgAAAAMAAADg//T/AgAGAAIAAADn//T/AgAHAAIAAAA=")
+
+[node name="MaskedTileMapLayer1" parent="MultiMaskedTileMap" parent_id_path=PackedInt32Array(2080479599) index="1" unique_id=1601078793]
+tile_map_data = PackedByteArray("AADr/+//AgACAAAAAADs/+//AgACAAAAAADt/+//AgABAAAAAADu/+//AgABAAAAAADv/+//AgABAAAAAADw/+//AgABAAAAAADx/+//AgABAAAAAADy/+//AgAAAAAAAADq/+//AgAGAAIAAADz/+//AgAGAAUAAADz/+r/AgAAAAAAAFDz/+v/AgABAAAAAFDz/+z/AgABAAAAAFDz/+3/AgAAAAAAAFDz/+7/AgAAAAAAAFDz/+b/AgABAAAAAFDz/+f/AgACAAAAAFDz/+j/AgACAAAAAFDz/+n/AgABAAAAAFDz/+X/AgAGAAIAAFA=")

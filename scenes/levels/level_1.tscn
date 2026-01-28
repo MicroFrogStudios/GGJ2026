@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://vakyfysbi8es"]
+[gd_scene format=4 uid="uid://bnyqo0t2ts02n"]
 
 [ext_resource type="PackedScene" uid="uid://s6jgpvyxe42i" path="res://scenes/levels/LevelBoilerplate.tscn" id="1_1pwbc"]
 [ext_resource type="Texture2D" uid="uid://61jggxma6pgd" path="res://assets/sprites/item_masks/arlecchino_item.png" id="3_x4si1"]
