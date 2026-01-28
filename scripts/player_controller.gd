@@ -5,6 +5,8 @@ extends CharacterBody2D
 @onready var anim : AnimatedSprite2D = $AnimatedSprite2D
 @onready var EffectsAnimator = %EffectsAnimator
 @onready var PlayerAnimations = $PlayerAnimations
+@onready var VictoryPlayer = $VictoryPlayer
+@onready var DeathPlayer = $DeathPlayer
 
 
 @export var speed := 150.0
@@ -112,6 +114,7 @@ func _on_mask_pickup_got_mask(mask_number: int) -> void:
 func die() -> void:
 	control_disabled = true
 	visible = false
+	DeathPlayer.play()
 	death.emit()
 
 
@@ -135,4 +138,5 @@ func _on_death_plane_body_entered(body: Node2D) -> void:
 func _on_exit_door_player_reached_exit() -> void:
 	control_disabled = true
 	going_into_door = true
+	VictoryPlayer.play()
 	PlayerAnimations.play("enter_door")
