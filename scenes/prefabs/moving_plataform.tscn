@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://h36cd4pnngpt"]
+
+[ext_resource type="Script" uid="uid://dliok3okwvyu4" path="res://scripts/moving_plataform.gd" id="1_um5hb"]
+[ext_resource type="Texture2D" uid="uid://bfvwqohtmo1ct" path="res://assets/sprites/spritescarlos.png" id="2_lytmx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ait0e"]
+atlas = ExtResource("2_lytmx")
+region = Rect2(40, 0, 16, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6f7bj"]
+size = Vector2(16, 8)
+
+[node name="MovingPlataform" type="AnimatableBody2D" unique_id=193119630]
+script = ExtResource("1_um5hb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1470867921]
+texture = SubResource("AtlasTexture_ait0e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=668452606]
+shape = SubResource("RectangleShape2D_6f7bj")
