@@ -15,7 +15,7 @@ var states : Dictionary = {}
 func on_state_transition(state_name : String):
 	_disconnect()
 	current_state.Exit()
-	print("transition from " + current_state.Name() + " to " + state_name)
+	print("transition from " + current_state.GetClassString() + " to " + state_name)
 	current_state = states[state_name]
 	_connect()
 	current_state.Enter()
