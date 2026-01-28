@@ -119,7 +119,10 @@ func _on_crush_hitbox_body_entered(body: Node2D) -> void:
 	if body.name == "PlayerCharacter":
 		# Don't trigger it by the player itself
 		return
-	die()
+	var launch_vector = position - body.position
+	velocity = -velocity.normalized() * 10
+	#die()
+	
 
 
 func _on_death_plane_body_entered(body: Node2D) -> void:
