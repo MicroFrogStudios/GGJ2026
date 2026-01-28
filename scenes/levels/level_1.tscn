@@ -1,18 +1,20 @@
 [gd_scene format=4 uid="uid://bnyqo0t2ts02n"]
 
 [ext_resource type="PackedScene" uid="uid://s6jgpvyxe42i" path="res://scenes/levels/LevelBoilerplate.tscn" id="1_1pwbc"]
+[ext_resource type="Texture2D" uid="uid://61jggxma6pgd" path="res://assets/sprites/item_masks/arlecchino_item.png" id="3_nsrm0"]
 [ext_resource type="PackedScene" uid="uid://dw8udwgqo5y5a" path="res://scenes/prefabs/MaskPickup.tscn" id="10_e5nfq"]
 
 [node name="Level1" unique_id=1082980837 instance=ExtResource("1_1pwbc")]
 
 [node name="PlayerCharacter" parent="." index="0" unique_id=614979792]
-initial_num_masks = 2
+initial_num_masks = 0
 
 [node name="ExitDoor" parent="." index="2" unique_id=45997899]
 position = Vector2(374, -134)
 
 [node name="MaskPickup" parent="." index="3" unique_id=678487700 instance=ExtResource("10_e5nfq")]
 position = Vector2(58, -88)
+mask_texture = ExtResource("3_nsrm0")
 
 [node name="MaskedTileMapLayer0" parent="MultiMaskedTileMap" parent_id_path=PackedInt32Array(2080479599) index="0" unique_id=1921039142]
 position = Vector2(5, -110)
