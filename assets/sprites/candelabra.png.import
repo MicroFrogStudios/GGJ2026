@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dero6wkwqcrjj"
-path="res://.godot/imported/fruit.png-3735163b668af10c2b35b52cba81b68a.ctex"
+uid="uid://3i480f6d7uq3"
+path="res://.godot/imported/candelabra.png-1ce41a66505ac3428d23fecb6046ee41.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/fruit.png"
-dest_files=["res://.godot/imported/fruit.png-3735163b668af10c2b35b52cba81b68a.ctex"]
+source_file="res://assets/sprites/candelabra.png"
+dest_files=["res://.godot/imported/candelabra.png-1ce41a66505ac3428d23fecb6046ee41.ctex"]
 
 [params]
 

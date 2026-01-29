@@ -272,6 +272,9 @@ position = Vector2(0, -143)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPlane" unique_id=917751410]
 shape = SubResource("WorldBoundaryShape2D_6v23s")
 
+[node name="propsTileLayer" type="TileMapLayer" parent="." unique_id=1700114595]
+tile_set = ExtResource("10_nyalh")
+
 [node name="MultiMaskedTileMap" type="Node2D" parent="." unique_id=2080479599]
 script = ExtResource("1_ljsc8")
 

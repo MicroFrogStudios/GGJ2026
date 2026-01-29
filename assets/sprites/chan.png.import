@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3rp0xt40cfci"
-path="res://.godot/imported/door_curtains_old.png-0fd7dbd6f61b5558fa33caf49f83cd09.ctex"
+uid="uid://cm6sv7sf1kbfc"
+path="res://.godot/imported/chan.png-3104da43f13941d3e49bf45a8affb16a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/door_curtains_old.png"
-dest_files=["res://.godot/imported/door_curtains_old.png-0fd7dbd6f61b5558fa33caf49f83cd09.ctex"]
+source_file="res://assets/sprites/chan.png"
+dest_files=["res://.godot/imported/chan.png-3104da43f13941d3e49bf45a8affb16a.ctex"]
 
 [params]
 
