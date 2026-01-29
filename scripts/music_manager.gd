@@ -32,4 +32,13 @@ func play_music(scene_name : String):
 		return # already playing
 	current_track = track
 	player.stream = track
+	player.bus = "Music"
+	set_music_volume(0.4)
 	player.play()
+	
+
+func set_music_volume(value: float):
+	# value should be 0.0 - 1.0 (from a slider)
+	var db = linear_to_db(value)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"),
+	db)
