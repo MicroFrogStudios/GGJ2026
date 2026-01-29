@@ -40,6 +40,7 @@ func spawn() -> void:
 	control_disabled = false
 	visible = true
 	mask = initial_mask
+	prev_mask = initial_mask
 	change_mask.emit(mask)
 	EffectsAnimator.play("RESET") # Clear any possible effects
 	EffectsAnimator.play("spotlight_spawn")
@@ -131,6 +132,8 @@ func _on_mask_pickup_got_mask(mask_number: int) -> void:
 func die() -> void:
 	control_disabled = true
 	visible = false
+	mask = initial_mask
+	prev_mask = initial_mask
 	DeathPlayer.play()
 	death.emit()
 
