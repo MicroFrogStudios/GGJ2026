@@ -1,19 +1,28 @@
 extends Node2D
 
-@export var mask_layer :int = 0
 
-@onready var collision :CollisionShape2D = $AnimatableBody2D/CollisionShape2D
-@onready var sprite: TileMapLayer = $AnimatableBody2D/TileMapLayer
-@onready var player :PlayerCharacter = %PlayerCharacter
+@export var mask_layer : int = 0
+
+
+@onready var collision : CollisionShape2D = $CharacterBody2D/CollisionShape2D
+@onready var sprite : Sprite2D = $CharacterBody2D/Sprite2D
+@onready var player : PlayerCharacter = %PlayerCharacter
+
+var initial_y_position : float = 0.0
+
 
 func _ready() -> void:
+	initial_y_position = collision.position.y
 	if mask_layer != 0:
 		player.change_mask.connect(on_mask_change)
-		call_deferred("on_mask_change",player.mask)
+		call_deferred("on_mask_change", player.mask)
 	
+
 func on_mask_change(mask:int):
-	
-	
 	sprite.enabled = mask == mask_layer
 	collision.call_deferred("set_disabled", not sprite.enabled)
-	
+
+
+func _physics_process(_delta: float) -> void:
+	collision.position.y = initial_y_position + sin(Time.get_ticks_msec() / 500.0) * 10.0
+	sprite.position.y = collision.position.y - 15.0

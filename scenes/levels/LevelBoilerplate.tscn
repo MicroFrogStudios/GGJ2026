@@ -272,7 +272,12 @@ position = Vector2(0, -143)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPlane" unique_id=917751410]
 shape = SubResource("WorldBoundaryShape2D_6v23s")
 
-[node name="propsTileLayer" type="TileMapLayer" parent="." unique_id=1700114595]
+[node name="BackgroundPropsLayer" type="TileMapLayer" parent="." unique_id=1700114595]
+z_index = -2
+tile_set = ExtResource("10_nyalh")
+
+[node name="PropsLayer" type="TileMapLayer" parent="." unique_id=445946976]
+z_index = 1
 tile_set = ExtResource("10_nyalh")
 
 [node name="MultiMaskedTileMap" type="Node2D" parent="." unique_id=2080479599]

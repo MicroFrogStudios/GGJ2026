@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buf4l1p05m1nr"
-path="res://.godot/imported/sprites_alfombras.png-75449c0673e452a481c5c030afd11b2f.ctex"
+uid="uid://c3gpqnrxo28ai"
+path="res://.godot/imported/cuerdasn.png-f647b95ece94923e70842e54b8140394.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/sprites_alfombras.png"
-dest_files=["res://.godot/imported/sprites_alfombras.png-75449c0673e452a481c5c030afd11b2f.ctex"]
+source_file="res://assets/sprites/props/cuerdasn.png"
+dest_files=["res://.godot/imported/cuerdasn.png-f647b95ece94923e70842e54b8140394.ctex"]
 
 [params]
 

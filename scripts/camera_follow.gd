@@ -7,4 +7,4 @@ extends Camera2D
 
 func _physics_process(delta: float) -> void:
 	if following.position.y < 100:
-		position = position.lerp(following.position - Vector2(0, 10), follow_speed*delta).round()
+		position = position.lerp(following.position - Vector2(0, 10), follow_speed*delta)
