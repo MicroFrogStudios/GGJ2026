@@ -11,6 +11,15 @@
 [ext_resource type="Script" uid="uid://b6mrerfusb52y" path="res://scripts/animStates/jump_state.gd" id="8_oqq3r"]
 [ext_resource type="AudioStream" uid="uid://xa6gidqhxsb5" path="res://assets/sounds/victory.mp3" id="10_50rl7"]
 [ext_resource type="AudioStream" uid="uid://bsrsnh8a4ladg" path="res://assets/sounds/lose.mp3" id="11_oqq3r"]
+[ext_resource type="AudioStream" uid="uid://dmpk02mcfojmh" path="res://assets/sounds/mask change 1.mp3" id="12_1a8bf"]
+[ext_resource type="AudioStream" uid="uid://brosep8cptod8" path="res://assets/sounds/mask change 2.mp3" id="13_gsvhg"]
+[ext_resource type="Script" uid="uid://cnwivit233jd6" path="res://scripts/mask_change_player.gd" id="14_c1k3r"]
+[ext_resource type="AudioStream" uid="uid://47qo2nhunofn" path="res://assets/sounds/mask change 3.mp3" id="14_gx6q2"]
+[ext_resource type="AudioStream" uid="uid://cmvsqc2a03osg" path="res://assets/sounds/mask change 4.mp3" id="15_mgyw5"]
+[ext_resource type="AudioStream" uid="uid://c7rfnoby1agaw" path="res://assets/sounds/mask change 5.mp3" id="16_ajr3h"]
+[ext_resource type="AudioStream" uid="uid://bhv4weyd5kvth" path="res://assets/sounds/mask change 6.mp3" id="17_gqqm3"]
+[ext_resource type="AudioStream" uid="uid://b4bo5bdbvr1jr" path="res://assets/sounds/mask change 7.mp3" id="18_oqywh"]
+[ext_resource type="AudioStream" uid="uid://ciatt0s5lqn5f" path="res://assets/sounds/mask change 8.mp3" id="19_sutpr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8cdkg"]
 radius = 3.0
@@ -256,6 +265,13 @@ stream = ExtResource("10_50rl7")
 stream = ExtResource("11_oqq3r")
 max_distance = 4096.0
 attenuation = 0.0
+
+[node name="MaskChangePlayer" type="AudioStreamPlayer" parent="." unique_id=1943040110]
+stream = ExtResource("12_1a8bf")
+volume_db = -6.0
+max_polyphony = 3
+script = ExtResource("14_c1k3r")
+notes = Array[AudioStreamMP3]([ExtResource("12_1a8bf"), ExtResource("13_gsvhg"), ExtResource("14_gx6q2"), ExtResource("15_mgyw5"), ExtResource("16_ajr3h"), ExtResource("17_gqqm3"), ExtResource("18_oqywh"), ExtResource("19_sutpr")])
 
 [connection signal="body_entered" from="CrushHitbox" to="." method="_on_crush_hitbox_body_entered"]
 [connection signal="animation_finished" from="PlayerAnimations" to="." method="_on_player_animations_animation_finished"]

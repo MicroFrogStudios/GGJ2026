@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var PlayerAnimations = $PlayerAnimations
 @onready var VictoryPlayer = $VictoryPlayer
 @onready var DeathPlayer = $DeathPlayer
-
+@onready var MaskChangePlayer = $MaskChangePlayer
 
 @export var speed := 150.0
 @export var jump_velocity = -300.0
@@ -41,8 +41,9 @@ func spawn() -> void:
 	visible = true
 	mask = initial_mask
 	change_mask.emit(mask)
-	EffectsAnimator.stop() # Clear any possible effects
+	EffectsAnimator.play("RESET") # Clear any possible effects
 	EffectsAnimator.play("spotlight_spawn")
+	
 
 
 func _ready() -> void:
@@ -87,6 +88,7 @@ func _input(event: InputEvent) -> void:
 		prev_mask = local_prev_mask
 		PlayerAnimations.stop()
 		PlayerAnimations.play("mask_change_radius_expansion")
+		MaskChangePlayer.play_next()
 		change_mask.emit(mask)
 
 
