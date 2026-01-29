@@ -5,20 +5,20 @@
 [ext_resource type="PackedScene" uid="uid://g0kose2svtmw" path="res://scenes/prefabs/victory_particles.tscn" id="3_gccf4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bqlck"]
-size = Vector2(20, 17)
+size = Vector2(8, 15.5)
 
 [node name="exitdoor" type="Node2D" unique_id=45997899]
 script = ExtResource("1_3kbto")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2097140117]
-position = Vector2(0, -20)
+position = Vector2(0, -17.000002)
 scale = Vector2(0.73134327, 0.84285706)
 texture = ExtResource("2_3kbto")
 
 [node name="DoorArea2D" type="Area2D" parent="." unique_id=1855754933]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea2D" unique_id=1673315075]
-position = Vector2(0, -13)
+position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_bqlck")
 
 [node name="victory_particles" parent="." unique_id=1058596925 instance=ExtResource("3_gccf4")]

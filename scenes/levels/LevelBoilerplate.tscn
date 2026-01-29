@@ -216,10 +216,10 @@ editor_draw_limits = true
 following = NodePath("../PlayerCharacter")
 follow_speed = 10
 
-[node name="CanvasLayer" type="CanvasLayer" parent="CameraFollow" unique_id=910592158]
+[node name="BackgroundSolid" type="CanvasLayer" parent="CameraFollow" unique_id=910592158]
 layer = -5
 
-[node name="ColorRect" type="ColorRect" parent="CameraFollow/CanvasLayer" unique_id=743532276]
+[node name="ColorRect" type="ColorRect" parent="CameraFollow/BackgroundSolid" unique_id=743532276]
 z_index = -100
 anchors_preset = 15
 anchor_right = 1.0

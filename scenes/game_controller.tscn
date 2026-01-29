@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://mwl77uh3vdis" path="res://scenes/levels/level_2.tscn" id="2_rc0pn"]
 [ext_resource type="PackedScene" uid="uid://dgcoayaa3hlp" path="res://scenes/levels/level_3.tscn" id="3_burlk"]
 [ext_resource type="PackedScene" uid="uid://bnyqo0t2ts02n" path="res://scenes/levels/level_1.tscn" id="3_ts4rt"]
-[ext_resource type="PackedScene" uid="uid://h60ubf6gvt4d" path="res://scenes/levels/level_8.tscn" id="5_h843c"]
+[ext_resource type="PackedScene" uid="uid://c1phwwong6hwj" path="res://scenes/levels/level_8.tscn" id="5_h843c"]
 [ext_resource type="PackedScene" uid="uid://n2p8c2jqrwxd" path="res://scenes/levels/level_4.tscn" id="6_h0hye"]
 
 [node name="GameController" type="Node" unique_id=2034097526]
