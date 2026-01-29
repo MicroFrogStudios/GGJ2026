@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cm6sv7sf1kbfc"
-path="res://.godot/imported/chan.png-3104da43f13941d3e49bf45a8affb16a.ctex"
+uid="uid://b3lxin200qtbv"
+path="res://.godot/imported/oval.png-f216a33a38bac8af934997aa8ab5547c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/chan.png"
-dest_files=["res://.godot/imported/chan.png-3104da43f13941d3e49bf45a8affb16a.ctex"]
+source_file="res://assets/sprites/props/oval.png"
+dest_files=["res://.godot/imported/oval.png-f216a33a38bac8af934997aa8ab5547c.ctex"]
 
 [params]
 

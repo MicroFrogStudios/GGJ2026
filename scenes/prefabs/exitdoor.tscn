@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://br8vdgnj8vei8"]
 
 [ext_resource type="Script" uid="uid://dvc6an3r1r7iq" path="res://scripts/exitdoor.gd" id="1_3kbto"]
-[ext_resource type="Texture2D" uid="uid://b34ceboewtvl6" path="res://assets/sprites/door_curtains.png" id="2_3kbto"]
+[ext_resource type="Texture2D" uid="uid://b34ceboewtvl6" path="res://assets/sprites/props/door_curtains.png" id="2_3kbto"]
 [ext_resource type="PackedScene" uid="uid://g0kose2svtmw" path="res://scenes/prefabs/victory_particles.tscn" id="3_gccf4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bqlck"]

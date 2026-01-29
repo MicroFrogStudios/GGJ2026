@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b34ceboewtvl6"
-path="res://.godot/imported/door_curtains.png-87a458d812686bac240a29462b890be3.ctex"
+uid="uid://dkfhi0peu8be8"
+path="res://.godot/imported/rectangle.png-4252068dd96aa48b735c8aca9d59ecc1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/door_curtains.png"
-dest_files=["res://.godot/imported/door_curtains.png-87a458d812686bac240a29462b890be3.ctex"]
+source_file="res://assets/sprites/props/rectangle.png"
+dest_files=["res://.godot/imported/rectangle.png-4252068dd96aa48b735c8aca9d59ecc1.ctex"]
 
 [params]
 

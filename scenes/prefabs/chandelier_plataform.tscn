@@ -1,10 +1,10 @@
 [gd_scene format=4 uid="uid://cj3hfmdn46hsh"]
 
-[ext_resource type="Texture2D" uid="uid://cm6sv7sf1kbfc" path="res://assets/sprites/chan.png" id="1_5m1xq"]
+[ext_resource type="Texture2D" uid="uid://cm6sv7sf1kbfc" path="res://assets/sprites/props/chan.png" id="1_5m1xq"]
 [ext_resource type="Script" uid="uid://cpx1p3nera8lg" path="res://scripts/chandelier_plataform.gd" id="1_10b5b"]
 [ext_resource type="Texture2D" uid="uid://bquqro0e71jtc" path="res://assets/sprites/sprites_madera.png" id="3_n5o1l"]
 [ext_resource type="Texture2D" uid="uid://bfvwqohtmo1ct" path="res://assets/sprites/spritescarlos.png" id="4_vyvae"]
-[ext_resource type="Texture2D" uid="uid://3i480f6d7uq3" path="res://assets/sprites/candelabra.png" id="5_swevj"]
+[ext_resource type="Texture2D" uid="uid://3i480f6d7uq3" path="res://assets/sprites/props/candelabra.png" id="5_swevj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y75lc"]
 size = Vector2(48, 4)

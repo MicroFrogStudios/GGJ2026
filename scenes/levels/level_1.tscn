@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://s6jgpvyxe42i" path="res://scenes/levels/LevelBoilerplate.tscn" id="1_1pwbc"]
 [ext_resource type="Texture2D" uid="uid://61jggxma6pgd" path="res://assets/sprites/item_masks/arlecchino_item.png" id="3_nsrm0"]
 [ext_resource type="PackedScene" uid="uid://cj3hfmdn46hsh" path="res://scenes/prefabs/chandelier_plataform.tscn" id="4_6761a"]
-[ext_resource type="Texture2D" uid="uid://3i480f6d7uq3" path="res://assets/sprites/candelabra.png" id="4_x42e6"]
+[ext_resource type="Texture2D" uid="uid://3i480f6d7uq3" path="res://assets/sprites/props/candelabra.png" id="4_x42e6"]
 [ext_resource type="PackedScene" uid="uid://dw8udwgqo5y5a" path="res://scenes/prefabs/MaskPickup.tscn" id="10_e5nfq"]
 
 [node name="Level1" unique_id=1082980837 instance=ExtResource("1_1pwbc")]
