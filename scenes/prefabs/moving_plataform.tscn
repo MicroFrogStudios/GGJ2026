@@ -12,10 +12,10 @@ atlas = ExtResource("2_um5hb")
 region = Rect2(40, 8, 24, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6f7bj"]
-size = Vector2(24, 3.25)
+size = Vector2(24, 3.625)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ait0e"]
-size = Vector2(24, 3.375)
+size = Vector2(24, 3.6875)
 
 [sub_resource type="Animation" id="Animation_um5hb"]
 length = 0.001
@@ -71,11 +71,11 @@ position = Vector2(12, 0)
 texture = SubResource("AtlasTexture_lytmx")
 
 [node name="CollisionShape1" type="CollisionShape2D" parent="MovingPlataformBody" unique_id=668452606]
-position = Vector2(-12, -0.375)
+position = Vector2(-12, -2.1875)
 shape = SubResource("RectangleShape2D_6f7bj")
 
 [node name="CollisionShape2" type="CollisionShape2D" parent="MovingPlataformBody" unique_id=1810032336]
-position = Vector2(12, -0.3125)
+position = Vector2(12, -2.15625)
 shape = SubResource("RectangleShape2D_ait0e")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MovingPlataformBody" unique_id=2059857812]
