@@ -145,7 +145,8 @@ func _on_crush_hitbox_body_entered(body: Node2D) -> void:
 	if body.name == "PlayerCharacter":
 		# Don't trigger it by the player itself
 		return
-	velocity = -velocity.normalized() * 10
+	if velocity.y > 0:
+		velocity = -velocity.normalized() * 10
 
 
 func _on_death_plane_body_entered(body: Node2D) -> void:
