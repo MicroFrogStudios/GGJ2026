@@ -269,21 +269,18 @@ script = ExtResource("3_nendb")
 metadata/_custom_type_script = "uid://cqfbx47wt6d28"
 
 [node name="MaskedTileMapLayer1" type="TileMapLayer" parent="MultiMaskedTileMap" unique_id=1601078793]
-modulate = Color(0.63573295, 0.48202586, 0.3905727, 1)
 tile_set = ExtResource("10_nyalh")
 script = ExtResource("3_nendb")
 mask_number = 1
 metadata/_custom_type_script = "uid://cqfbx47wt6d28"
 
 [node name="MaskedTileMapLayer2" type="TileMapLayer" parent="MultiMaskedTileMap" unique_id=1632574672]
-modulate = Color(0.22727287, 0.49500114, 0.42790097, 1)
 tile_set = ExtResource("10_nyalh")
 script = ExtResource("3_nendb")
 mask_number = 2
 metadata/_custom_type_script = "uid://cqfbx47wt6d28"
 
 [node name="MaskedTileMapLayer3" type="TileMapLayer" parent="MultiMaskedTileMap" unique_id=1646331872]
-modulate = Color(0.6391251, 0.5465034, 0.7185337, 1)
 tile_set = ExtResource("10_nyalh")
 script = ExtResource("3_nendb")
 mask_number = 3

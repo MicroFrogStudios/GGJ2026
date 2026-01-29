@@ -13,8 +13,8 @@ func is_masked_layer(child: Node) -> bool:
 func _on_mask_changed(new_mask_number: int) -> void:
 	for layer in layers:
 		if layer.mask_number != 0:
-			layer.visible = (new_mask_number == layer.mask_number)
-			layer.collision_enabled = layer.visible
+			layer.collision_enabled = (new_mask_number == layer.mask_number)
+			#layer.visible = (new_mask_number == layer.mask_number)
 
 
 func _ready() -> void:

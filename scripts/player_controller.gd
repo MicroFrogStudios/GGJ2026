@@ -17,7 +17,6 @@ extends CharacterBody2D
 @export var start_accel = 10
 @export var initial_mask : int = 0
 @export var mask_radius := 100.0 # Radius around player where layers are visible
-@export var is_changing_mask := false # True during the mask change shockwave
 
 
 signal change_mask(new_mask_number: int)
@@ -32,6 +31,8 @@ var num_masks := 0
 var spawn_position: Vector2
 var control_disabled := false # If true, player control is disabled
 var going_into_door := false
+var is_changing_mask := false # True during the mask change shockwave
+var prev_mask := 0
 
 
 func spawn() -> void:
@@ -51,8 +52,10 @@ func _ready() -> void:
 	spawn()
 	anim.animation_finished.connect(on_animation_finish)
 
+
 func on_animation_finish():
 	pass
+
 
 func _input(event: InputEvent) -> void:
 	# Process mask related inputs
@@ -62,7 +65,7 @@ func _input(event: InputEvent) -> void:
 	if control_disabled:
 		# Don't allow changing masks during cutscenes
 		return
-	var prev_mask = mask
+	var local_prev_mask = mask
 	if event.is_action_pressed("prev_mask"):
 		var new_mask = (num_masks + 1 + mask - 1) % (num_masks + 1)
 		mask = new_mask
@@ -78,11 +81,18 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("gotomask4"):
 		mask = 3
 
-	if prev_mask != mask:
+	if local_prev_mask != mask:
 		print("Mask is ", mask)
+		is_changing_mask = true
+		prev_mask = local_prev_mask
 		PlayerAnimations.stop()
 		PlayerAnimations.play("mask_change_radius_expansion")
 		change_mask.emit(mask)
+
+
+func finish_mask_change() -> void:
+	is_changing_mask = false
+	prev_mask = mask
 
 
 func _physics_process(delta: float) -> void:
@@ -128,10 +138,7 @@ func _on_crush_hitbox_body_entered(body: Node2D) -> void:
 	if body.name == "PlayerCharacter":
 		# Don't trigger it by the player itself
 		return
-	#var launch_vector = position - body.position
 	velocity = -velocity.normalized() * 10
-	#die()
-	
 
 
 func _on_death_plane_body_entered(body: Node2D) -> void:
