@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://4aghjpy7mbvk" path="res://scenes/game_ui.tscn" id="4_oscf3"]
 [ext_resource type="PackedScene" uid="uid://bblb7m455o2uf" path="res://scenes/prefabs/character_mask.tscn" id="5_fle77"]
 [ext_resource type="PackedScene" uid="uid://dm6qoe57l87ub" path="res://scenes/prefabs/player.tscn" id="5_oscf3"]
+[ext_resource type="PackedScene" uid="uid://pysk2b504qjr" path="res://scenes/mask_message.tscn" id="5_t3n0d"]
 [ext_resource type="Texture2D" uid="uid://ds1qav1ujcvw5" path="res://assets/sprites/stars.png" id="6_8g1bm"]
 [ext_resource type="PackedScene" uid="uid://v0bxw5r7bav0" path="res://scenes/prefabs/CameraFollow.tscn" id="6_fle77"]
 [ext_resource type="Shader" uid="uid://g2kx26x1mj7r" path="res://shaders/spotlight.gdshader" id="8_5a7mx"]
@@ -266,6 +267,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("11_oscf3")
+
+[node name="MessageBox" parent="CameraFollow" unique_id=2079103419 instance=ExtResource("5_t3n0d")]
+unique_name_in_owner = true
+visible = false
+z_index = 500
 
 [node name="DeathPlane" type="Area2D" parent="." unique_id=20074737]
 position = Vector2(0, -143)
