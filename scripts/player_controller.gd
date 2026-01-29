@@ -41,6 +41,7 @@ func spawn() -> void:
 	visible = true
 	mask = initial_mask
 	prev_mask = initial_mask
+	is_changing_mask = true
 	change_mask.emit(mask)
 	EffectsAnimator.play("RESET") # Clear any possible effects
 	EffectsAnimator.play("spotlight_spawn")
@@ -144,7 +145,8 @@ func _on_crush_hitbox_body_entered(body: Node2D) -> void:
 	if body.name == "PlayerCharacter":
 		# Don't trigger it by the player itself
 		return
-	velocity = -velocity.normalized() * 10
+	if velocity.y > 0:
+		velocity = -velocity.normalized() * 10
 
 
 func _on_death_plane_body_entered(body: Node2D) -> void:
