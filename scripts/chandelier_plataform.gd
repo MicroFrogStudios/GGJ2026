@@ -20,8 +20,8 @@ func _ready() -> void:
 	
 
 func on_mask_change(mask:int):
-	sprite.enabled = mask == mask_layer
-	collision.call_deferred("set_disabled", not sprite.enabled)
+	sprite.visible = mask == mask_layer
+	collision.call_deferred("set_disabled", not sprite.visible)
 
 
 func _physics_process(_delta: float) -> void:
