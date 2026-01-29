@@ -282,6 +282,7 @@ z_index = 1
 tile_set = ExtResource("10_nyalh")
 
 [node name="ForegroundPropsLayer" type="TileMapLayer" parent="." unique_id=291062855]
+z_index = 200
 tile_set = ExtResource("10_nyalh")
 
 [node name="WaterLayer" type="TileMapLayer" parent="." unique_id=87187731]
