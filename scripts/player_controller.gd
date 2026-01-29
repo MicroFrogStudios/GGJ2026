@@ -124,7 +124,7 @@ func _should_crush(prev_pos: Array, curr_pos: Vector2, prev_vel: Array, vel: Vec
 
 
 func _physics_process(delta: float) -> void:
-	if visible == false:
+	if visible == false or Engine.time_scale == 0.0:
 		return
 	# We check if it's moving fast in a direction and still not moving much (Manu's method)
 	if previous_pos.distance_to(position) < min_displacement and not is_on_floor():
