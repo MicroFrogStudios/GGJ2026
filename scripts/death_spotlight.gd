@@ -20,8 +20,10 @@ func _process(_delta: float) -> void:
 
 
 func _on_player_character_death() -> void:
+	EffectsAnimator.stop()
 	EffectsAnimator.play("spotlight_death")
 
 
 func _on_exit_door_player_reached_exit() -> void:
+	EffectsAnimator.stop()
 	EffectsAnimator.play("spotlight_exit")

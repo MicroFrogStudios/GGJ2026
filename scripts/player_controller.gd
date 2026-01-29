@@ -134,6 +134,7 @@ func die() -> void:
 	visible = false
 	mask = initial_mask
 	prev_mask = initial_mask
+	change_mask.emit(mask)
 	DeathPlayer.play()
 	death.emit()
 
