@@ -13,7 +13,6 @@ extends TileMapLayer
 
 func _ready() -> void:
 	if mask_number != 0:
-		visible = false
 		collision_enabled = false
 
 
@@ -34,21 +33,40 @@ func _use_tile_data_runtime_update(_coords: Vector2i) -> bool:
 
 # Starting from the player and for the exported radius, hide tiles beyond it
 func _tile_data_runtime_update(coords: Vector2i, tile_data: TileData) -> void:
-	if not PlayerChar.is_changing_mask:
-		return
 	var player_pos = PlayerChar.position
 	var tilemap_pos = Vector2i(multimask.position.x, multimask.position.y)
 	var global_coords = tilemap_pos + coords * tile_set.tile_size
 	var distance = player_pos.distance_to(global_coords)
-	if distance > PlayerChar.mask_radius:
-		tile_data.modulate.a = 0.0
-	else:
+
+	if mask_number == 0:
+		# Always visible
 		tile_data.modulate.a = 1.0
+		return
+
+	if mask_number == PlayerChar.mask:
+		if distance < PlayerChar.mask_radius:
+			# Turn visible if close enough
+			tile_data.modulate.a = 1.0
+		else:
+			# Turn invisible if too far
+			tile_data.modulate.a = 0.0
+		return
+
+	if mask_number == PlayerChar.prev_mask:
+		# Turn invisible if not the current mask
+		if distance > PlayerChar.mask_radius:
+			# Turn visible if too far
+			tile_data.modulate.a = 1.0
+		else:
+			# Turn invisible if close enough
+			tile_data.modulate.a = 0.0
+		return
+
+	tile_data.modulate.a = 0.0
+
 
 func _process(_delta: float) -> void:
 	if mask_number == 0:
-		return
-	if mask_number != PlayerChar.mask:
 		return
 	if not PlayerChar.is_changing_mask:
 		return
