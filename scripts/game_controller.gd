@@ -48,3 +48,4 @@ func load_scene_by_index( i :int):
 		current_scene = null
 	current_scene = LoadedScene.new(unloaded_scenes[i],i)
 	add_sibling.call_deferred(current_scene.scene)
+	music_manager.play_music(current_scene.scene_name)

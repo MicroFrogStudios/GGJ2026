@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 gc="*uid://i1uw0ax2u0rb"
+music_manager="*uid://t35y2p1iqs80"
 
 [debug]
 
