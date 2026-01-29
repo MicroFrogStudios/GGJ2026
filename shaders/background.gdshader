@@ -3,7 +3,7 @@ shader_type canvas_item;
 uniform sampler2D pattern: filter_linear, repeat_enable;
 uniform float size = 6.;
 uniform vec2 direction = vec2(-1.);
-uniform float speed = 1.;
+uniform float speed = 0.1;
 
 void fragment() {
   COLOR = texture(pattern, 
