@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://h36cd4pnngpt"]
 
-[ext_resource type="Script" uid="uid://dliok3okwvyu4" path="res://scripts/moving_plataform.gd" id="1_um5hb"]
-[ext_resource type="Texture2D" uid="uid://bquqro0e71jtc" path="res://assets/sprites/sprites_madera.png" id="2_um5hb"]
+[ext_resource type="Script" uid="uid://dliok3okwvyu4" path="res://scripts/dual_plataform.gd" id="1_15qc4"]
+[ext_resource type="Texture2D" uid="uid://bquqro0e71jtc" path="res://assets/sprites/sprites_madera.png" id="2_12t42"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ait0e"]
-atlas = ExtResource("2_um5hb")
+atlas = ExtResource("2_12t42")
 region = Rect2(8, 8, 24, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lytmx"]
-atlas = ExtResource("2_um5hb")
+atlas = ExtResource("2_12t42")
 region = Rect2(40, 8, 24, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6f7bj"]
@@ -55,8 +55,8 @@ _data = {
 &"platform_hor_move": SubResource("Animation_lytmx")
 }
 
-[node name="MovingPlataform" type="Node2D" unique_id=594339065]
-script = ExtResource("1_um5hb")
+[node name="DualPlataform" type="Node2D" unique_id=594339065]
+script = ExtResource("1_15qc4")
 
 [node name="MovingPlataformBody" type="AnimatableBody2D" parent="." unique_id=193119630]
 

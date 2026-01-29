@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://c264l4iy48t0k"]
 
 [ext_resource type="PackedScene" uid="uid://s6jgpvyxe42i" path="res://scenes/levels/LevelBoilerplate.tscn" id="1_ntash"]
-[ext_resource type="PackedScene" uid="uid://h36cd4pnngpt" path="res://scenes/prefabs/moving_plataform.tscn" id="2_07ctq"]
+[ext_resource type="PackedScene" uid="uid://h36cd4pnngpt" path="res://scenes/prefabs/dual_plataform.tscn" id="2_07ctq"]
 
 [node name="Level7" unique_id=1082980837 instance=ExtResource("1_ntash")]
 
