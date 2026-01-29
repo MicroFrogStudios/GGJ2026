@@ -33,6 +33,11 @@ var control_disabled := false # If true, player control is disabled
 var going_into_door := false
 var is_changing_mask := false # True during the mask change shockwave
 var prev_mask := 0
+var previous_positions := [] # Position for past 5 frames
+var previous_velocities := [] # Velocity for past 5 frames
+var previous_pos := Vector2.ZERO
+var min_displacement := 1.0
+var death_toll := 0
 
 
 func spawn() -> void:
@@ -99,7 +104,44 @@ func finish_mask_change() -> void:
 	prev_mask = mask
 
 
+func _should_crush(prev_pos: Array, curr_pos: Vector2, prev_vel: Array, vel: Vector2) -> bool:
+	if prev_pos.size() < 5:
+		return false
+	if vel.y < 200:
+		# Not falling fast enough
+		return false
+
+	if vel.y > 200:
+		# Falling fast
+		for index in prev_vel.size():
+			if prev_vel[index].y <= 150:
+				# Not fast enough
+				return false
+		for index in prev_pos.size():
+			if prev_pos[index].y <= curr_pos.y - 5:
+				return false
+	return true
+
+
 func _physics_process(delta: float) -> void:
+	if visible == false:
+		return
+	# We check if it's moving fast in a direction and still not moving much (Manu's method)
+	if previous_pos.distance_to(position) < min_displacement and not is_on_floor():
+		death_toll+=1
+	else:
+		death_toll = 0
+	if death_toll > 10:
+		print('manu death')
+		die()
+		return
+	previous_pos = position
+	# Check crushes (Marah's method)
+	if not is_on_floor() and _should_crush(previous_positions, position, previous_velocities, velocity):
+		die()
+		print('marah death')
+		return
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta 
@@ -112,7 +154,7 @@ func _physics_process(delta: float) -> void:
 		is_jumping = false
 		
 	## Sideways movement
-	var direction_x :=Input.get_axis("move_left", "move_right")
+	var direction_x := Input.get_axis("move_left", "move_right")
 	if direction_x and not control_disabled:
 		velocity.x = move_toward(velocity.x,direction_x * speed, start_accel)
 		anim.flip_h = velocity.x < 0
@@ -120,6 +162,11 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x,0, braking_speed)
 
+	previous_positions.append(position)
+	previous_velocities.append(velocity)
+	if previous_positions.size() > 5:
+		previous_positions.pop_front()
+		previous_velocities.pop_front()
 	move_and_slide()
 
 
@@ -133,20 +180,10 @@ func _on_mask_pickup_got_mask(mask_number: int) -> void:
 func die() -> void:
 	control_disabled = true
 	visible = false
-	mask = initial_mask
-	prev_mask = initial_mask
-	change_mask.emit(mask)
+	previous_positions.clear()
+	previous_velocities.clear()
 	DeathPlayer.play()
 	death.emit()
-
-
-func _on_crush_hitbox_body_entered(body: Node2D) -> void:
-	# Something entered the player's crush hitbox
-	if body.name == "PlayerCharacter":
-		# Don't trigger it by the player itself
-		return
-	if velocity.y > 0:
-		velocity = -velocity.normalized() * 10
 
 
 func _on_death_plane_body_entered(body: Node2D) -> void:
@@ -160,3 +197,14 @@ func _on_exit_door_player_reached_exit() -> void:
 	going_into_door = true
 	VictoryPlayer.play()
 	PlayerAnimations.play("enter_door")
+
+# DISABLED
+# func _on_crush_hitbox_body_entered(body: Node2D) -> void:
+# 	print('hola!', body)
+# 	# Something entered the player's crush hitbox
+# 	if body.name == "PlayerCharacter":
+# 		# Don't trigger it by the player itself
+# 		return
+# 	die()
+# 	if velocity.y > 0:
+# 		velocity = -velocity.normalized() * 10
