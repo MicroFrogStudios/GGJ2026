@@ -7,44 +7,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y75lc"]
 size = Vector2(48, 4)
 
-[sub_resource type="Animation" id="Animation_n5o1l"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_vyvae"]
-resource_name = "move_ver"
-length = 6.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3, 6),
-"transitions": PackedFloat32Array(0.81225175, 0.81225175, 0.81225175),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, -100), Vector2(0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_swevj"]
-_data = {
-&"RESET": SubResource("Animation_n5o1l"),
-&"move_ver": SubResource("Animation_vyvae")
-}
-
 [node name="chandelier_plataform" type="Node2D" unique_id=1203841537]
 script = ExtResource("1_10b5b")
 
@@ -54,10 +16,6 @@ platform_on_leave = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1671157542]
 position = Vector2(0, 15)
 shape = SubResource("RectangleShape2D_y75lc")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D" unique_id=1483430162]
-root_node = NodePath("")
-libraries/ = SubResource("AnimationLibrary_swevj")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1060747868]
 texture = ExtResource("1_5m1xq")
