@@ -7,6 +7,7 @@ signal player_reached_exit()
 func _on_door_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "PlayerCharacter":
 		player_reached_exit.emit()
+		music_manager.stop_music()
 		$victory_particles.emitting = true
 		$victory_particles2.emitting = true
 

@@ -31,11 +31,13 @@ func _on_mask_area_2d_body_entered(body: Node2D) -> void:
 		call_deferred("disable_mask")
 		body.control_disabled = true
 		Engine.time_scale = 0.0   # freeze the game
+		music_manager.stop_music()
 		MaskPickupPlayer.play()
 		await MaskPickupPlayer.finished        # wait for the sound
 		Engine.time_scale = 1.0   # resume game
 		body.control_disabled = false
 		queue_free()
+		music_manager.resume_music()
 		
 		
 func _physics_process(_delta: float) -> void:
