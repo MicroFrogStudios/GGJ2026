@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://cj3hfmdn46hsh"]
+[gd_scene format=4 uid="uid://cj3hfmdn46hsh"]
 
 [ext_resource type="Texture2D" uid="uid://cm6sv7sf1kbfc" path="res://assets/sprites/props/chan.png" id="1_5m1xq"]
 [ext_resource type="Script" uid="uid://cpx1p3nera8lg" path="res://scripts/chandelier_plataform.gd" id="1_10b5b"]
+[ext_resource type="TileSet" uid="uid://d2courmo8ldu5" path="res://resources/tilesets/CarlosTileset.tres" id="3_wkhw6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y75lc"]
 size = Vector2(48, 4)
@@ -60,3 +61,7 @@ libraries/ = SubResource("AnimationLibrary_swevj")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1060747868]
 texture = ExtResource("1_5m1xq")
+
+[node name="Chain" type="TileMapLayer" parent="CharacterBody2D" unique_id=353958779]
+tile_map_data = PackedByteArray("AAD///n/AAADAAAAAAD///r/AAADAAEAAAD///v/AAADAAIAAAD///b/AAADAAIAAAD///f/AAADAAEAAAD///j/AAADAAIAAAD///T/AAADAAAAAAD///X/AAADAAEAAAD///H/AAADAAIAAAD///L/AAADAAEAAAD///P/AAADAAIAAAD//+//AAADAAAAAAD///D/AAADAAEAAAD//+z/AAADAAIAAAD//+3/AAADAAEAAAD//+7/AAADAAIAAAD//+r/AAADAAAAAAD//+v/AAADAAEAAAD//+f/AAADAAAAAAD//+j/AAADAAEAAAD//+n/AAADAAIAAAD//+T/AAADAAIAAAD//+X/AAADAAEAAAD//+b/AAADAAIAAAD//+L/AAADAAAAAAD//+P/AAADAAEAAAD//9//AAADAAAAAAD//+D/AAADAAEAAAD//+H/AAADAAIAAAD//9z/AAADAAAAAAD//93/AAADAAEAAAD//97/AAADAAIAAAD//9n/AAADAAAAAAD//9r/AAADAAEAAAD//9v/AAADAAIAAAD//9b/AAADAAAAAAD//9f/AAADAAEAAAD//9j/AAADAAIAAAD//9P/AAADAAAAAAD//9T/AAADAAEAAAD//9X/AAADAAIAAAD//9D/AAADAAAAAAD//9H/AAADAAEAAAD//9L/AAADAAIAAAD//83/AAADAAAAAAD//87/AAADAAEAAAD//8//AAADAAIAAAD//8r/AAADAAAAAAD//8v/AAADAAEAAAD//8z/AAADAAIAAAD//8f/AAADAAAAAAD//8j/AAADAAEAAAD//8n/AAADAAIAAAD//8T/AAADAAAAAAD//8X/AAADAAEAAAD//8b/AAADAAIAAAD//8H/AAADAAAAAAD//8L/AAADAAEAAAD//8P/AAADAAIAAAD//77/AAADAAAAAAD//7//AAADAAEAAAD//8D/AAADAAIAAAD//7v/AAADAAAAAAD//7z/AAADAAEAAAD//73/AAADAAIAAAD//7j/AAADAAAAAAD//7n/AAADAAEAAAD//7r/AAADAAIAAAD//7X/AAADAAAAAAD//7b/AAADAAEAAAD//7f/AAADAAIAAAD//7L/AAADAAIAAAD//7P/AAADAAEAAAD//7T/AAADAAIAAAD//7D/AAADAAAAAAD//7H/AAADAAEAAAD//63/AAADAAAAAAD//67/AAADAAEAAAD//6//AAADAAIAAAD//6r/AAADAAAAAAD//6v/AAADAAEAAAD//6z/AAADAAIAAAA=")
+tile_set = ExtResource("3_wkhw6")
