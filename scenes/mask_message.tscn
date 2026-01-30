@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cpqsf676koj24" path="res://assets/sprites/ui/menu_box1.png" id="1_ccwuy"]
 [ext_resource type="Texture2D" uid="uid://dmt8qv2hqf0x0" path="res://assets/sprites/UI_masks/arlecchino_UI.png" id="2_tk13p"]
 [ext_resource type="FontFile" uid="uid://f5p44atdrh28" path="res://assets/fonts/PixelifySans-Bold.ttf" id="3_b85bk"]
+[ext_resource type="Texture2D" uid="uid://ur46slv8x2d6" path="res://assets/sprites/UI_masks/pantaloon_ui.png" id="3_ntkir"]
+[ext_resource type="Texture2D" uid="uid://clb34ncy0y127" path="res://assets/sprites/UI_masks/spavento_ui.png" id="4_mfk27"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ccwuy"]
 font = ExtResource("3_b85bk")
@@ -22,6 +24,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8afvg")
+mask_textures = Dictionary[int, CompressedTexture2D]({
+1: ExtResource("2_tk13p"),
+2: ExtResource("3_ntkir"),
+3: ExtResource("4_mfk27")
+})
+mask_names = Dictionary[int, String]({
+1: "Arlecchino",
+2: "Pantaloon",
+3: "Spavento"
+})
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1070127086]
 layout_mode = 1

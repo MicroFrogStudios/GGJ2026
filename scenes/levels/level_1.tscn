@@ -58,4 +58,6 @@ tile_map_data = PackedByteArray("AADe/wUAAQAHAAgAAADf/wYAAQAEAAMAAADf/wcAAQAKAAE
 position = Vector2(5, -110)
 tile_map_data = PackedByteArray("AAAXAAAAAQADAAEAAAAWAAAAAQACAAEAAAAYAAAAAQAEAAEAAAAZAAAAAQAFAAEAAAAaAAAAAQAGAAEAAAAVAP//AQABAAAAAAAVAAAAAQABAAEAAAAWAP//AQACAAAAAAAXAP//AQADAAAAAAAYAP//AQAEAAAAAAAZAP//AQAFAAAAAAAaAP//AQAGAAAAAAAbAP//AQAHAAAAAAAbAAAAAQAHAAEAAAA=")
 
+[connection signal="finished_pickup" from="MaskPickup" to="CameraFollow/MessageBox" method="_on_mask_pickup_finished_pickup"]
 [connection signal="got_mask" from="MaskPickup" to="PlayerCharacter" method="_on_mask_pickup_got_mask"]
+[connection signal="got_mask" from="MaskPickup" to="CameraFollow/MessageBox" method="_on_mask_pickup_got_mask"]

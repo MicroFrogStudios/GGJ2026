@@ -6,11 +6,11 @@ extends Node2D
 
 @onready var mask_collision_shape: CollisionShape2D = $MaskArea2D/CollisionShape2D
 @onready var MaskPickupPlayer = $MaskPickupPlayer
-@onready var MessageBox = %MessageBox
 
 var initial_position: Vector2
 
 signal got_mask(mask_number: int)
+signal finished_pickup
 
 
 func _ready() -> void:
@@ -31,14 +31,13 @@ func _on_mask_area_2d_body_entered(body: Node2D) -> void:
 		got_mask.emit(mask_number)
 		call_deferred("disable_mask")
 		body.control_disabled = true
-		MessageBox.visible = true
 		Engine.time_scale = 0.0   # freeze the game
 		music_manager.stop_music()
 		MaskPickupPlayer.play()
 		await MaskPickupPlayer.finished        # wait for the sound
 		Engine.time_scale = 1.0   # resume game
 		body.control_disabled = false
-		MessageBox.visible = false
+		finished_pickup.emit()
 		queue_free()
 		music_manager.resume_music()
 		
