@@ -90,6 +90,9 @@ func _input(event: InputEvent) -> void:
 		mask = 2
 	elif event.is_action_pressed("gotomask4"):
 		mask = 3
+		
+	if event.is_action_pressed("gotosettings"):
+		gc.load_scene_by_name("Settings")
 
 	if local_prev_mask != mask:
 		print("Mask is ", mask)

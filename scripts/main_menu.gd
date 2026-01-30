@@ -14,3 +14,7 @@ func _on_startbutton_pressed() -> void:
 
 func _on_quitbutton_pressed() -> void:
 	get_tree().quit()
+	
+func _on_settingsbutton_pressed() -> void:
+	gc.load_scene_by_name('Settings')
+	print('to settings!')

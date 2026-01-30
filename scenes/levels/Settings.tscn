@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://jt1o2s1tdh17"]
+
+[ext_resource type="Script" uid="uid://cgymwu5efhc8x" path="res://scripts/settings.gd" id="1_11g0c"]
+[ext_resource type="Texture2D" uid="uid://dl0pf8iothpf3" path="res://assets/sprites/placeholder_bk.png" id="2_vijft"]
+[ext_resource type="StyleBox" uid="uid://ded5p2rkypovp" path="res://resources/UI/style_wacky.tres" id="3_qmc1g"]
+[ext_resource type="FontFile" uid="uid://bns1jbsems433" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="4_oaagr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekxnf"]
+texture = ExtResource("2_vijft")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alora"]
+bg_color = Color(0.93761474, 0.8472896, 0.8027698, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 1
+shadow_color = Color(0.29494292, 0.025984976, 0.026091356, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, -2.205)
+
+[node name="Settings" type="Control" unique_id=1798618166]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+script = ExtResource("1_11g0c")
+
+[node name="background" type="Panel" parent="." unique_id=636931330]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ekxnf")
+
+[node name="title" type="Label" parent="." unique_id=430926020]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_top = 8.0
+offset_right = 152.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("4_oaagr")
+theme_override_font_sizes/font_size = 9
+text = "Zanni's 
+Last 
+Performance"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="." unique_id=1452380222]
+layout_mode = 0
+offset_left = 111.0
+offset_top = 79.0
+offset_right = 204.0
+offset_bottom = 99.0
+focus_neighbor_right = NodePath("../CheckBox")
+
+[node name="CheckBox" type="CheckBox" parent="." unique_id=1489560551]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 106.0
+offset_right = 213.0
+offset_bottom = 137.0
+focus_neighbor_left = NodePath("../OptionButton")
+text = "Windowed"
+
+[node name="quitbutton" type="Button" parent="." unique_id=1658256264]
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.0
+offset_top = -33.0
+offset_right = 26.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../CheckBox")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = ExtResource("3_qmc1g")
+theme_override_styles/pressed = ExtResource("3_qmc1g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_alora")
+theme_override_styles/focus = ExtResource("3_qmc1g")
+action_mode = 0
+text = "BACK"
+
+[node name="HSlider" type="HSlider" parent="." unique_id=582861036]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 35.0
+offset_right = 124.0
+offset_bottom = 51.0
+value = 100.0
+
+[connection signal="item_selected" from="OptionButton" to="." method="_on_OptionButton_item_selected"]
+[connection signal="toggled" from="CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="pressed" from="quitbutton" to="." method="_on_quitbutton_pressed"]
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
