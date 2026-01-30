@@ -65,6 +65,7 @@ func load_scene_by_name(scene_name : String):
 
 func open_in_game_menu():
 	if in_game_menu_instance != null:
+		in_game_menu_instance.grab_focus.call_deferred()
 		in_game_menu_instance.visible = true
 		Engine.time_scale = 0.0
 		player.control_disabled = true
