@@ -72,7 +72,7 @@ text = "Volume"
 
 [node name="HSlider" type="HSlider" parent="volume" unique_id=582861036]
 layout_mode = 2
-value = 50.0
+value = 20.0
 
 [node name="resolution" type="BoxContainer" parent="." unique_id=1344724774]
 layout_mode = 0
