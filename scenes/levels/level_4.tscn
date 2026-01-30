@@ -7,7 +7,7 @@
 [node name="Level4" unique_id=1082980837 instance=ExtResource("1_06474")]
 
 [node name="PlayerCharacter" parent="." index="0" unique_id=614979792]
-position = Vector2(-226, -132)
+position = Vector2(-229, -64)
 initial_num_masks = 1
 initial_mask = 1
 
