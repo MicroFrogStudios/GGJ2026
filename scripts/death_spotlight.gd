@@ -8,15 +8,13 @@ extends ColorRect
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	# Get normalized char position & set center
-	var player_transform: Transform2D = Character.get_global_transform_with_canvas()
-	var player_viewport_pos = player_transform.origin
-	var viewport_size: Vector2 = get_viewport().size
-	var normalized_char_pos: Vector2 = Vector2(
-		4 * player_viewport_pos.x / viewport_size.x,
-		4 * player_viewport_pos.y / viewport_size.y,
-	)
-	if normalized_char_pos.y < 1.0:
-		material.set_shader_parameter("center", normalized_char_pos)
+	var vp := get_viewport()
+	var player_canvas_pos: Vector2 = Character.get_global_transform_with_canvas().origin
+	var viewport_rect: Rect2 = vp.get_visible_rect()
+	var center := (player_canvas_pos - viewport_rect.position) / viewport_rect.size	
+	
+	if center.y < 1.0:
+		material.set_shader_parameter("center", center)
 
 
 func _on_player_character_death() -> void:
