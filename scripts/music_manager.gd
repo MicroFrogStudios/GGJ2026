@@ -40,7 +40,7 @@ func play_music(scene_name : String):
 func set_music_volume(value: float):
 	# value should be 0.0 - 1.0 
 	var linear = max(value, 0.001)
-	var db = linear_to_db(value)
+	var db = linear_to_db(linear)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"),
 	db)
 	

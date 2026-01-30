@@ -6,6 +6,9 @@ extends Node
 
 var player : PlayerCharacter
 var camera: Camera2D
+var unloaded_scenes : Array[UnloadedScene]
+var scene_stack: Array[int] = []
+var current_scene : LoadedScene
 
 class UnloadedScene:
 	var scene : PackedScene
@@ -23,9 +26,7 @@ class LoadedScene:
 		scene = scene_to_load.scene.instantiate()
 
 
-var unloaded_scenes : Array[UnloadedScene]
-var scene_stack: Array[int] = []
-var current_scene : LoadedScene
+
 
 
 func load_next_scene():
