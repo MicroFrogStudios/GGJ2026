@@ -4,7 +4,7 @@ extends Node
 @export var level_scenes :Array[PackedScene]
 
 @export var main_menu: PackedScene
-@export var in_game_menu :PackedScene
+
 
 var player : PlayerCharacter
 var camera: Camera2D
@@ -29,7 +29,7 @@ class LoadedScene:
 var unloaded_scenes : Array[UnloadedScene]
 var scene_stack: Array[int] = []
 var current_scene : LoadedScene
-var in_game_menu_instance : Control = null
+var in_game_menu_instance : Control
 
 func load_next_scene():
 	print("changing from scene ",current_scene.scene_name, " to ", unloaded_scenes[(current_scene.index+1) % unloaded_scenes.size()].scene_name )
@@ -64,18 +64,17 @@ func load_scene_by_name(scene_name : String):
 
 
 func open_in_game_menu():
-	if in_game_menu_instance == null:
-		in_game_menu_instance = in_game_menu.instantiate()
-		add_child(in_game_menu_instance)
-	in_game_menu_instance.visible = true
-	Engine.time_scale = 0.0
-	player.control_disabled = true
+	if in_game_menu_instance != null:
+		in_game_menu_instance.visible = true
+		Engine.time_scale = 0.0
+		player.control_disabled = true
 	
 	
 func close_in_game_menu():
 	if in_game_menu_instance != null:
 		in_game_menu_instance.visible = false
-	
+		Engine.time_scale = 1.0
+		player.control_disabled = false
 
 func load_main_menu():
 	var menu = UnloadedScene.new()

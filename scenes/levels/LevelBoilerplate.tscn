@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://cqrqlox711lqp" path="res://scripts/water_layer.gd" id="13_blw4j"]
 [ext_resource type="Shader" uid="uid://fv4s56mmwbu0" path="res://shaders/background.gdshader" id="14_blw4j"]
 [ext_resource type="Script" uid="uid://f4kp6uffnpjw" path="res://scripts/ParallaxedSprite2D.gd" id="14_kmyen"]
+[ext_resource type="PackedScene" uid="uid://chwpqvvn2qen8" path="res://scenes/in_game_menu.tscn" id="18_yvj1e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t3n0d"]
 shader = ExtResource("14_blw4j")
@@ -273,6 +274,12 @@ script = ExtResource("11_oscf3")
 unique_name_in_owner = true
 visible = false
 z_index = 500
+
+[node name="menuLayer" type="CanvasLayer" parent="CameraFollow" unique_id=308349710]
+
+[node name="InGameMenu" parent="CameraFollow/menuLayer" unique_id=2065837970 instance=ExtResource("18_yvj1e")]
+visible = false
+z_index = -5
 
 [node name="DeathPlane" type="Area2D" parent="." unique_id=20074737]
 position = Vector2(0, -143)

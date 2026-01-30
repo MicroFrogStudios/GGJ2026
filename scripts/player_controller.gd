@@ -69,6 +69,10 @@ func on_animation_finish():
 
 func _input(event: InputEvent) -> void:
 	# Process mask related inputs
+	
+	if event.is_action_pressed("gotosettings"):
+		print("menu")
+		gc.open_in_game_menu()
 	if num_masks == 0:
 		# Only allow changing masks if we have at least 1
 		return
@@ -90,10 +94,6 @@ func _input(event: InputEvent) -> void:
 		mask = 2
 	elif event.is_action_pressed("gotomask4"):
 		mask = 3
-		
-	if event.is_action_pressed("gotosettings"):
-		print("menu")
-		gc.open_in_game_menu()
 
 	if local_prev_mask != mask:
 		print("Mask is ", mask)
