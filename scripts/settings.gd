@@ -1,5 +1,6 @@
 extends Node
 
+
 var resolutions = [
 	Vector2i(3440, 1440),
 	Vector2i(2560, 1440),
@@ -25,7 +26,7 @@ func _on_OptionButton_item_selected(index: int) -> void:
 	print("Resolution changed to %s x %s" % [new_resolution.x, new_resolution.y])
 	
 
-func _on_check_box_toggled(toggled_on: bool) -> void:
+func _on_check_box_toggled(_toggled_on: bool) -> void:
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:

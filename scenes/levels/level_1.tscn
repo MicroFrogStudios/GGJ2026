@@ -8,16 +8,17 @@
 
 [node name="Level1" unique_id=1082980837 instance=ExtResource("1_1pwbc")]
 
-[node name="PlayerCharacter" parent="." index="0" unique_id=614979792]
+[node name="MaskPickup" parent="." index="0" unique_id=678487700 instance=ExtResource("10_e5nfq")]
+unique_name_in_owner = true
+position = Vector2(40, -96)
+mask_texture = ExtResource("3_nsrm0")
+
+[node name="PlayerCharacter" parent="." index="1" unique_id=614979792]
 position = Vector2(-240, -87)
 initial_num_masks = 0
 
-[node name="ExitDoor" parent="." index="2" unique_id=45997899]
+[node name="ExitDoor" parent="." index="3" unique_id=45997899]
 position = Vector2(374, -134)
-
-[node name="MaskPickup" parent="." index="3" unique_id=678487700 instance=ExtResource("10_e5nfq")]
-position = Vector2(40, -96)
-mask_texture = ExtResource("3_nsrm0")
 
 [node name="CameraFollow" parent="." index="4" unique_id=467601528]
 limit_left = -283

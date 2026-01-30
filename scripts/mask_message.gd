@@ -6,7 +6,7 @@ extends Control
 
 
 func _on_mask_pickup_got_mask(mask_number: int) -> void:
-	$Label2.text = mask_names[mask_number]
+	$Label.text = "You got " + mask_names[mask_number] + "'s mask!\n Use J and K to reveal\nwhat is hidden."
 	$TextureRect2.texture = mask_textures[mask_number]
 	visible = true
 

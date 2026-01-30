@@ -68,7 +68,7 @@ _data = {
 &"mask_pulse": SubResource("Animation_lwc8p")
 }
 
-[node name="MaskPickupArlecchino" type="Node2D" unique_id=678487700]
+[node name="MaskPickup" type="Node2D" unique_id=678487700]
 script = ExtResource("1_lwc8p")
 mask_texture = ExtResource("2_xppft")
 
