@@ -26,9 +26,6 @@ class LoadedScene:
 		scene = scene_to_load.scene.instantiate()
 
 
-
-
-
 func load_next_scene():
 	print("changing from scene ",current_scene.scene_name, " to ", unloaded_scenes[(current_scene.index+1) % unloaded_scenes.size()].scene_name )
 	load_scene_by_index((current_scene.index+1) % unloaded_scenes.size())
