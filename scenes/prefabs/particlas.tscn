@@ -15,8 +15,6 @@ emission_sphere_radius = 5.25
 angular_velocity_min = -100.000015
 angular_velocity_max = 99.999985
 gravity = Vector3(0, 0, 0)
-scale_min = 0.79999995
-scale_max = 0.79999995
 color_ramp = SubResource("GradientTexture1D_52kju")
 
 [node name="Particlas" type="Node2D" unique_id=1221077897]

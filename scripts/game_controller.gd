@@ -5,7 +5,7 @@ extends Node
 
 
 var player : PlayerCharacter
-
+var camera: Camera2D
 
 class UnloadedScene:
 	var scene : PackedScene

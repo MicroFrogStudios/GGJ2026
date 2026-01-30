@@ -202,14 +202,3 @@ func _on_exit_door_player_reached_exit() -> void:
 	going_into_door = true
 	VictoryPlayer.play()
 	PlayerAnimations.play("enter_door")
-
-# DISABLED
-# func _on_crush_hitbox_body_entered(body: Node2D) -> void:
-# 	print('hola!', body)
-# 	# Something entered the player's crush hitbox
-# 	if body.name == "PlayerCharacter":
-# 		# Don't trigger it by the player itself
-# 		return
-# 	die()
-# 	if velocity.y > 0:
-# 		velocity = -velocity.normalized() * 10
