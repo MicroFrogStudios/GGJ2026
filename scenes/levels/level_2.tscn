@@ -40,4 +40,4 @@ z_index = -300
 position = Vector2(38, -232)
 texture = ExtResource("2_g2h2n")
 script = ExtResource("3_ra442")
-parallax_factor = Vector2(0.15, 0.1)
+parallax_factor = Vector2(0.15, 0.15)
