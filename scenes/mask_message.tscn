@@ -8,13 +8,18 @@
 [ext_resource type="Texture2D" uid="uid://clb34ncy0y127" path="res://assets/sprites/UI_masks/spavento_ui.png" id="4_mfk27"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ccwuy"]
+line_spacing = 1.0
 font = ExtResource("3_b85bk")
-font_size = 6
+font_size = 8
 font_color = Color(0.24705882, 0.24705882, 0.45490196, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_tk13p"]
 font = ExtResource("3_b85bk")
-font_size = 9
+font_size = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_ntkir"]
+font = ExtResource("3_b85bk")
+font_size = 7
 
 [node name="Control" type="Control" unique_id=2079103419]
 layout_mode = 3
@@ -42,10 +47,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -80.75
-offset_top = -73.0
-offset_right = 80.75
-offset_bottom = 110.5
+offset_left = -77.875
+offset_top = -80.0
+offset_right = 77.875
+offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_ccwuy")
@@ -59,14 +64,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -37.0
-offset_top = 15.0
-offset_right = 32.0
-offset_bottom = 47.0
+offset_left = -57.0
+offset_top = 10.5
+offset_right = 56.0
+offset_bottom = 45.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "You got a new mask!
-Use J and K to activate it"
+text = "You got Arlecchino's mask!
+Use J and K to reveal
+what is hidden"
 label_settings = SubResource("LabelSettings_ccwuy")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -80,9 +86,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -18.0
-offset_top = -39.0
+offset_top = -48.0
 offset_right = 18.0
-offset_bottom = -2.0
+offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_tk13p")
@@ -95,12 +101,30 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -28.0
-offset_top = -70.0
+offset_top = -83.0
 offset_right = 25.0
-offset_bottom = -47.0
+offset_bottom = -60.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Arlecchino"
+text = "New mask"
 label_settings = SubResource("LabelSettings_tk13p")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="." unique_id=2029949946]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = 57.0
+offset_right = 26.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press key"
+label_settings = SubResource("LabelSettings_ntkir")
 horizontal_alignment = 1
 vertical_alignment = 1
