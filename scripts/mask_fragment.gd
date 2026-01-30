@@ -35,12 +35,12 @@ func _input(event: InputEvent) -> void:
 	or event.is_action_pressed("gotomask2") \
 	or event.is_action_pressed("gotomask3") \
 	or event.is_action_pressed("gotomask4"):
-		textbox_up = false
-		Engine.time_scale = 1.0   # resume game
 		%PlayerCharacter.control_disabled = false
 		finished_pickup.emit()
 		queue_free()
 		music_manager.resume_music()
+		Engine.time_scale = 1.0   # resume game
+		textbox_up = false
 
 
 func _on_mask_area_2d_body_entered(body: Node2D) -> void:

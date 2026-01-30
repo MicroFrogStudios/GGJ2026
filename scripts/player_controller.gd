@@ -72,6 +72,9 @@ func _input(event: InputEvent) -> void:
 	if num_masks == 0:
 		# Only allow changing masks if we have at least 1
 		return
+	if Engine.time_scale == 0.0:
+		# Don't allow changing masks when game is paused
+		return
 	if control_disabled:
 		# Don't allow changing masks during cutscenes
 		return
