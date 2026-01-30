@@ -8,12 +8,12 @@ var context : StateMachine
 var player : PlayerCharacter
 
 
-static func _Name() -> String:
+static func Name() -> String:
 	return "base_state"
 
 
 func GetClassString() -> String:
-	return _Name()
+	return Name()
 	
 func Enter():
 	pass
