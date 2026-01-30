@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cj3hfmdn46hsh"]
 
 [ext_resource type="Texture2D" uid="uid://cm6sv7sf1kbfc" path="res://assets/sprites/props/chan.png" id="1_5m1xq"]
-[ext_resource type="Script" uid="uid://cpx1p3nera8lg" path="res://scripts/chandelier_plataform.gd" id="1_10b5b"]
+[ext_resource type="Script" uid="uid://cpx1p3nera8lg" path="res://scripts/vertical_moving_plataform.gd" id="1_10b5b"]
 [ext_resource type="TileSet" uid="uid://d2courmo8ldu5" path="res://resources/tilesets/CarlosTileset.tres" id="3_wkhw6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y75lc"]
