@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cn1dbrp036avb"]
+
+[ext_resource type="Script" uid="uid://m2fmg53lmr3f" path="res://scripts/particlas.gd" id="1_52kju"]
+
+[sub_resource type="Gradient" id="Gradient_sg3cd"]
+colors = PackedColorArray(0.56078434, 0.53333336, 1, 1, 0.56078434, 0.53333336, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_52kju"]
+gradient = SubResource("Gradient_sg3cd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sg3cd"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 5.25
+angular_velocity_min = -100.000015
+angular_velocity_max = 99.999985
+gravity = Vector3(0, 0, 0)
+scale_min = 0.79999995
+scale_max = 0.79999995
+color_ramp = SubResource("GradientTexture1D_52kju")
+
+[node name="Particlas" type="Node2D" unique_id=1221077897]
+script = ExtResource("1_52kju")
+mask_layer = 1
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="." unique_id=1234568892]
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_sg3cd")

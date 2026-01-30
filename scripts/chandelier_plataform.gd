@@ -21,6 +21,7 @@ func _ready() -> void:
 
 func on_mask_change(mask:int):
 	sprite.visible = mask == mask_layer
+	chain.visible = sprite.visible
 	collision.call_deferred("set_disabled", not sprite.visible)
 
 
