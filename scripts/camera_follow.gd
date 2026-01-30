@@ -10,6 +10,7 @@ var initial_center : Vector2
 
 func _ready() -> void:
 	initial_center = get_screen_center_position()
+	gc.camera = self
 
 
 func _physics_process(delta: float) -> void:
