@@ -92,7 +92,8 @@ func _input(event: InputEvent) -> void:
 		mask = 3
 		
 	if event.is_action_pressed("gotosettings"):
-		gc.load_scene_by_name("Settings")
+		print("menu")
+		gc.open_in_game_menu()
 
 	if local_prev_mask != mask:
 		print("Mask is ", mask)

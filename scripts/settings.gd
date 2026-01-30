@@ -7,10 +7,10 @@ var resolutions = [
 	Vector2i(1280, 720),
 	Vector2i(800, 600)
 ]
-
+@onready var option_button =$resolution/OptionButton
 
 func _ready() -> void:
-	var option_button = $OptionButton
+	
 	option_button.clear()
 	for res in resolutions:
 		option_button.add_item("%d x %d" % [res.x, res.y])
@@ -32,8 +32,7 @@ func _on_check_box_toggled(toggled_on: bool) -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 
-func _on_quitbutton_pressed() -> void:
-	gc.go_back()
+
 
 
 func _on_h_slider_value_changed(value: float) -> void:

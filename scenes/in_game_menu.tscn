@@ -1,0 +1,258 @@
+[gd_scene format=3 uid="uid://chwpqvvn2qen8"]
+
+[ext_resource type="StyleBox" uid="uid://ded5p2rkypovp" path="res://resources/UI/style_wacky.tres" id="1_0cve7"]
+[ext_resource type="Script" uid="uid://c5pb26ftarrse" path="res://scripts/in_game_menu.gd" id="1_0rq4b"]
+[ext_resource type="Script" uid="uid://cgymwu5efhc8x" path="res://scripts/settings.gd" id="2_q5csu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5csu"]
+bg_color = Color(0.8777911, 0.8662518, 0.8478691, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 1
+shadow_color = Color(0.29494292, 0.025984976, 0.026091356, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, -2.205)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0rq4b"]
+bg_color = Color(0.61540085, 0.93510807, 0.9334907, 0.5176471)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 1
+shadow_color = Color(0.29494292, 0.025984976, 0.026091356, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, -2.205)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efgmv"]
+bg_color = Color(0.93761474, 0.8472896, 0.8027698, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 1
+shadow_color = Color(0.29494292, 0.025984976, 0.026091356, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, -2.205)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alora"]
+bg_color = Color(0.93761474, 0.8472896, 0.8027698, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 1
+shadow_color = Color(0.29494292, 0.025984976, 0.026091356, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, -2.205)
+
+[node name="InGameMenu" type="Control" unique_id=2065837970]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0rq4b")
+
+[node name="Panel" type="Panel" parent="." unique_id=1066101114]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 96.0
+offset_top = 24.0
+offset_right = -109.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Main" type="Control" parent="Panel" unique_id=1585117541]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ContinueButton" type="Button" parent="Panel/Main" unique_id=1060757947 node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = 2.0
+offset_right = 78.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+focus_neighbor_bottom = NodePath("../settingsbutton")
+shortcut_context = NodePath(".")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = ExtResource("1_0cve7")
+theme_override_styles/pressed = ExtResource("1_0cve7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q5csu")
+theme_override_styles/focus = SubResource("StyleBoxFlat_0rq4b")
+text = "CONTINUE"
+
+[node name="quitbutton" type="Button" parent="Panel/Main" unique_id=1715284687]
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -11.0
+offset_top = 64.0
+offset_right = 86.0
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../ContinueButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../ContinueButton")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = ExtResource("1_0cve7")
+theme_override_styles/pressed = ExtResource("1_0cve7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_efgmv")
+theme_override_styles/focus = ExtResource("1_0cve7")
+text = "QUIT TO MENU"
+
+[node name="settingsbutton" type="Button" parent="Panel/Main" unique_id=1859999454]
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 23.0
+offset_right = 73.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../ContinueButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../quitbutton")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = ExtResource("1_0cve7")
+theme_override_styles/pressed = ExtResource("1_0cve7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_efgmv")
+theme_override_styles/focus = ExtResource("1_0cve7")
+text = "SETTINGS"
+
+[node name="Settings" type="Control" parent="Panel" unique_id=1798618166]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -23.0
+offset_right = -96.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+script = ExtResource("2_q5csu")
+
+[node name="quitbutton" type="Button" parent="Panel/Settings" unique_id=1658256264]
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 66.5
+offset_top = -9.0
+offset_right = 125.5
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../resolution/CheckBox")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = ExtResource("1_0cve7")
+theme_override_styles/pressed = ExtResource("1_0cve7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_alora")
+theme_override_styles/focus = ExtResource("1_0cve7")
+action_mode = 0
+text = "BACK"
+
+[node name="volume" type="BoxContainer" parent="Panel/Settings" unique_id=1076168030]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 132.0
+offset_top = 34.999996
+offset_right = 76.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.595, 0.595)
+vertical = true
+
+[node name="Label" type="Label" parent="Panel/Settings/volume" unique_id=1547593861]
+layout_mode = 2
+text = "Volume"
+
+[node name="HSlider" type="HSlider" parent="Panel/Settings/volume" unique_id=582861036]
+layout_mode = 2
+value = 50.0
+
+[node name="resolution" type="BoxContainer" parent="Panel/Settings" unique_id=1344724774]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 66.0
+offset_right = 237.0
+offset_bottom = 148.0
+scale = Vector2(0.6, 0.6)
+alignment = 1
+vertical = true
+
+[node name="resolution_label" type="Label" parent="Panel/Settings/resolution" unique_id=867502084]
+layout_mode = 2
+text = "resolution"
+
+[node name="OptionButton" type="OptionButton" parent="Panel/Settings/resolution" unique_id=1452380222]
+layout_mode = 2
+focus_neighbor_right = NodePath("../CheckBox")
+
+[node name="CheckBox" type="CheckBox" parent="Panel/Settings/resolution" unique_id=1489560551]
+layout_mode = 2
+focus_neighbor_left = NodePath("../OptionButton")
+text = "Windowed"
+
+[connection signal="pressed" from="Panel/Main/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="Panel/Main/quitbutton" to="." method="_on_quitbutton_pressed"]
+[connection signal="pressed" from="Panel/Main/settingsbutton" to="." method="_on_settingsbutton_pressed"]
+[connection signal="pressed" from="Panel/Settings/quitbutton" to="." method="_on_quit_settings_pressed"]
+[connection signal="value_changed" from="Panel/Settings/volume/HSlider" to="Panel/Settings" method="_on_h_slider_value_changed"]
+[connection signal="item_selected" from="Panel/Settings/resolution/OptionButton" to="Panel/Settings" method="_on_OptionButton_item_selected"]
+[connection signal="toggled" from="Panel/Settings/resolution/CheckBox" to="Panel/Settings" method="_on_check_box_toggled"]

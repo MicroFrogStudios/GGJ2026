@@ -4,6 +4,8 @@
 [ext_resource type="FontFile" uid="uid://bns1jbsems433" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://dl0pf8iothpf3" path="res://assets/sprites/placeholder_bk.png" id="2_hyrlu"]
 [ext_resource type="StyleBox" uid="uid://ded5p2rkypovp" path="res://resources/UI/style_wacky.tres" id="3_agb1x"]
+[ext_resource type="Script" uid="uid://cgymwu5efhc8x" path="res://scripts/settings.gd" id="6_7rblo"]
+[ext_resource type="FontFile" uid="uid://c4g6ehyj6nv4k" path="res://assets/fonts/PixelifySans-Medium.ttf" id="6_ov3pg"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekxnf"]
 texture = ExtResource("2_hyrlu")
@@ -41,6 +43,20 @@ shadow_color = Color(0.29494292, 0.025984976, 0.026091356, 0.6)
 shadow_size = 5
 shadow_offset = Vector2(0, -2.205)
 
+[sub_resource type="Theme" id="Theme_81rgk"]
+default_font = ExtResource("6_ov3pg")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alora"]
+bg_color = Color(0.93761474, 0.8472896, 0.8027698, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 1
+shadow_color = Color(0.29494292, 0.025984976, 0.026091356, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, -2.205)
+
 [node name="MainMenu" type="Control" unique_id=1798618166]
 layout_mode = 3
 anchors_preset = 15
@@ -62,17 +78,24 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_ekxnf")
 
-[node name="startbutton" type="Button" parent="." unique_id=1181570988 node_paths=PackedStringArray("shortcut_context")]
+[node name="menu" type="Control" parent="." unique_id=535861192]
+anchors_preset = 0
+offset_left = 224.0
+offset_top = 104.0
+offset_right = 264.0
+offset_bottom = 144.0
+
+[node name="startbutton" type="Button" parent="menu" unique_id=814977984 node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 24.0
-offset_top = -16.0
-offset_right = 98.0
-offset_bottom = 9.0
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 14.0
+offset_bottom = -35.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
@@ -89,7 +112,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ue4lf")
 theme_override_styles/focus = SubResource("StyleBoxFlat_agb1x")
 text = "START"
 
-[node name="quitbutton" type="Button" parent="." unique_id=1537832820]
+[node name="quitbutton" type="Button" parent="menu" unique_id=1078697102]
 z_index = 1
 layout_mode = 1
 anchors_preset = 7
@@ -97,10 +120,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 31.0
-offset_top = -34.0
-offset_right = 90.0
-offset_bottom = -16.0
+offset_left = -53.0
+offset_top = -8.0
+offset_right = 6.0
+offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 3
@@ -119,7 +142,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_7rblo")
 theme_override_styles/focus = ExtResource("3_agb1x")
 text = "QUIT"
 
-[node name="settingsbutton" type="Button" parent="." unique_id=861062294]
+[node name="settingsbutton" type="Button" parent="menu" unique_id=444169655]
 z_index = 1
 layout_mode = 1
 anchors_preset = 7
@@ -127,10 +150,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 27.0
-offset_top = -70.0
-offset_right = 97.0
-offset_bottom = -47.0
+offset_left = -57.0
+offset_top = -44.0
+offset_right = 13.0
+offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 3
@@ -149,15 +172,15 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_7rblo")
 theme_override_styles/focus = ExtResource("3_agb1x")
 text = "SETTINGS"
 
-[node name="title" type="Label" parent="." unique_id=430926020]
+[node name="title" type="Label" parent="menu" unique_id=430926020]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -24.0
-offset_top = 8.0
-offset_right = 152.0
-offset_bottom = 80.0
+offset_left = -108.0
+offset_top = -104.0
+offset_right = 68.0
+offset_bottom = -32.0
 grow_horizontal = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 5
@@ -170,6 +193,95 @@ Performance"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="startbutton" to="." method="_on_startbutton_pressed"]
-[connection signal="pressed" from="quitbutton" to="." method="_on_quitbutton_pressed"]
-[connection signal="pressed" from="settingsbutton" to="." method="_on_settingsbutton_pressed"]
+[node name="Settings" type="Control" parent="." unique_id=1589153331]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+theme = SubResource("Theme_81rgk")
+script = ExtResource("6_7rblo")
+
+[node name="quitbutton" type="Button" parent="Settings" unique_id=1658256264]
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = -44.0
+offset_right = 107.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../resolution/CheckBox")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = ExtResource("3_agb1x")
+theme_override_styles/pressed = ExtResource("3_agb1x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_alora")
+theme_override_styles/focus = ExtResource("3_agb1x")
+action_mode = 0
+text = "BACK"
+
+[node name="volume" type="BoxContainer" parent="Settings" unique_id=1076168030]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 199.99998
+offset_top = 24.0
+offset_right = -40.460022
+offset_bottom = -113.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.595, 0.595)
+vertical = true
+
+[node name="Label" type="Label" parent="Settings/volume" unique_id=1547593861]
+layout_mode = 2
+text = "Volume"
+
+[node name="HSlider" type="HSlider" parent="Settings/volume" unique_id=582861036]
+layout_mode = 2
+value = 50.0
+
+[node name="resolution" type="BoxContainer" parent="Settings" unique_id=1344724774]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 64.0
+offset_right = 308.0
+offset_bottom = 146.0
+scale = Vector2(0.6, 0.6)
+alignment = 1
+vertical = true
+
+[node name="resolution_label" type="Label" parent="Settings/resolution" unique_id=867502084]
+layout_mode = 2
+text = "resolution"
+
+[node name="OptionButton" type="OptionButton" parent="Settings/resolution" unique_id=1452380222]
+layout_mode = 2
+focus_neighbor_right = NodePath("../CheckBox")
+
+[node name="CheckBox" type="CheckBox" parent="Settings/resolution" unique_id=1489560551]
+layout_mode = 2
+focus_neighbor_left = NodePath("../OptionButton")
+text = "Windowed"
+
+[connection signal="pressed" from="menu/startbutton" to="." method="_on_startbutton_pressed"]
+[connection signal="pressed" from="menu/quitbutton" to="." method="_on_quitbutton_pressed"]
+[connection signal="pressed" from="menu/settingsbutton" to="." method="_on_settingsbutton_pressed"]
+[connection signal="pressed" from="Settings/quitbutton" to="." method="_on_quit_settings_button_pressed"]
+[connection signal="value_changed" from="Settings/volume/HSlider" to="Settings" method="_on_h_slider_value_changed"]
+[connection signal="item_selected" from="Settings/resolution/OptionButton" to="Settings" method="_on_OptionButton_item_selected"]
+[connection signal="toggled" from="Settings/resolution/CheckBox" to="Settings" method="_on_check_box_toggled"]
