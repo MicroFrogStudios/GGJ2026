@@ -59,6 +59,7 @@ func _ready() -> void:
 	num_masks = initial_num_masks
 	spawn()
 	anim.animation_finished.connect(on_animation_finish)
+	gc.player = self
 
 
 func on_animation_finish():
