@@ -9,6 +9,7 @@ extends CharacterBody2D
 @onready var DeathPlayer = $DeathPlayer
 @onready var MaskChangePlayer = $MaskChangePlayer
 
+
 @export var speed := 150.0
 @export var jump_velocity = -300.0
 @export var initial_num_masks := 3
