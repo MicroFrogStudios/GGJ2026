@@ -12,7 +12,10 @@ initial_num_masks = 1
 [node name="ExitDoor" parent="." index="2" unique_id=45997899]
 position = Vector2(397, -129)
 
-[node name="BackgroundStars" parent="CameraFollow" parent_id_path=PackedInt32Array(467601528) index="1" unique_id=1804315535]
+[node name="CameraFollow" parent="." index="3" unique_id=467601528]
+unique_name_in_owner = true
+
+[node name="BackgroundStars" parent="CameraFollow" index="1" unique_id=1804315535]
 offset_top = -547.0
 offset_bottom = 219.0
 
@@ -37,4 +40,4 @@ z_index = -300
 position = Vector2(38, -232)
 texture = ExtResource("2_g2h2n")
 script = ExtResource("3_ra442")
-parallax_factor = Vector2(0.1, 0.1)
+parallax_factor = Vector2(0.15, 0.1)
