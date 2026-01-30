@@ -13,4 +13,4 @@
 
 [node name="GameController" type="Node" unique_id=2034097526]
 script = ExtResource("1_78s5d")
-editor_scenes = Array[PackedScene]([ExtResource("2_e85df"), ExtResource("3_ts4rt"), ExtResource("2_rc0pn"), ExtResource("3_burlk"), ExtResource("6_h0hye"), ExtResource("2_d6ul8"), ExtResource("2_qtg6w"), ExtResource("2_1awvl"), ExtResource("5_h843c")])
+editor_scenes = Array[PackedScene]([ExtResource("6_h0hye"), ExtResource("2_rc0pn"), ExtResource("2_e85df"), ExtResource("3_ts4rt"), ExtResource("3_burlk"), ExtResource("2_d6ul8"), ExtResource("2_qtg6w"), ExtResource("2_1awvl"), ExtResource("5_h843c")])
