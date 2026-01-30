@@ -6,7 +6,7 @@ extends Node2D
 
 @onready var collision : CollisionShape2D = $CharacterBody2D/CollisionShape2D
 @onready var sprite : Sprite2D = $CharacterBody2D/CollisionShape2D/Sprite2D
-@onready var player : PlayerCharacter = %PlayerCharacter
+@onready var player : PlayerCharacter = gc.player
 @onready var chain : TileMapLayer = $CharacterBody2D/CollisionShape2D/Chain
 
 var initial_y_position : float = 0.0
