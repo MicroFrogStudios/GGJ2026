@@ -1,52 +1,29 @@
 [gd_scene format=3 uid="uid://chwpqvvn2qen8"]
 
-[ext_resource type="StyleBox" uid="uid://ded5p2rkypovp" path="res://resources/UI/style_wacky.tres" id="1_0cve7"]
 [ext_resource type="Script" uid="uid://c5pb26ftarrse" path="res://scripts/in_game_menu.gd" id="1_0rq4b"]
+[ext_resource type="Texture2D" uid="uid://c2tj0mn2oc8u7" path="res://assets/sprites/pause_menu.png" id="2_diwu4"]
 [ext_resource type="Script" uid="uid://cgymwu5efhc8x" path="res://scripts/settings.gd" id="2_q5csu"]
+[ext_resource type="StyleBox" uid="uid://kwnck02bs6kc" path="res://resources/UI/button_texture.tres" id="2_r4chg"]
+[ext_resource type="StyleBox" path="res://resources/UI/button_hover_texture.tres" id="3_diwu4"]
+[ext_resource type="FontFile" uid="uid://b7v3dl24ymbhe" path="res://assets/fonts/PixelifySans-Regular.ttf" id="3_vaaqd"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5csu"]
-bg_color = Color(0.8777911, 0.8662518, 0.8478691, 1)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-corner_detail = 1
-shadow_color = Color(0.29494292, 0.025984976, 0.026091356, 0.6)
-shadow_size = 5
-shadow_offset = Vector2(0, -2.205)
+[sub_resource type="Theme" id="Theme_igyd0"]
+default_font = ExtResource("3_vaaqd")
+default_font_size = 11
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0rq4b"]
-bg_color = Color(0.61540085, 0.93510807, 0.9334907, 0.5176471)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-corner_detail = 1
-shadow_color = Color(0.29494292, 0.025984976, 0.026091356, 0.6)
-shadow_size = 5
-shadow_offset = Vector2(0, -2.205)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3nht0"]
+load_path = "res://.godot/imported/button_unselected.png-3103f9543bca6f789e2bd61d85cd90cb.ctex"
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efgmv"]
-bg_color = Color(0.93761474, 0.8472896, 0.8027698, 1)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-corner_detail = 1
-shadow_color = Color(0.29494292, 0.025984976, 0.026091356, 0.6)
-shadow_size = 5
-shadow_offset = Vector2(0, -2.205)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_diwu4"]
+content_margin_left = 18.0
+content_margin_top = 1.0
+texture = SubResource("CompressedTexture2D_3nht0")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alora"]
-bg_color = Color(0.93761474, 0.8472896, 0.8027698, 1)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-corner_detail = 1
-shadow_color = Color(0.29494292, 0.025984976, 0.026091356, 0.6)
-shadow_size = 5
-shadow_offset = Vector2(0, -2.205)
+[sub_resource type="Theme" id="Theme_diwu4"]
+default_font = ExtResource("3_vaaqd")
+
+[sub_resource type="Theme" id="Theme_vaaqd"]
+default_font = ExtResource("3_vaaqd")
 
 [node name="InGameMenu" type="Control" unique_id=2065837970]
 z_index = 4
@@ -56,23 +33,46 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0rq4b")
 
-[node name="Panel" type="Panel" parent="." unique_id=1066101114]
+[node name="Panel" type="TextureRect" parent="." unique_id=659385453]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -59.5
+offset_left = -60.0
 offset_top = -68.0
-offset_right = 59.5
+offset_right = 60.0
 offset_bottom = 68.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_diwu4")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="PauseTitle" type="Label" parent="Panel" unique_id=27035733]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.5
+offset_top = -72.0
+offset_right = 25.5
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_igyd0")
+text = "PAUSE"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Main" type="Control" parent="Panel" unique_id=1585117541]
+visible = false
 anchors_preset = 0
-offset_right = 40.0
+offset_left = 0.5
+offset_right = 40.5
 offset_bottom = 40.0
 
 [node name="ContinueButton" type="Button" parent="Panel/Main" unique_id=1060757947 node_paths=PackedStringArray("shortcut_context")]
@@ -82,98 +82,106 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = 2.0
-offset_right = 78.0
-offset_bottom = 27.0
+offset_left = -19.5
+offset_top = -41.0
+offset_right = 93.5
+offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../quitbutton")
+focus_neighbor_top = NodePath("../QuitButton")
 focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../settingsbutton")
+focus_neighbor_bottom = NodePath("../SettingsButton")
 shortcut_context = NodePath(".")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_vaaqd")
 theme_override_font_sizes/font_size = 10
-theme_override_styles/normal = ExtResource("1_0cve7")
-theme_override_styles/pressed = ExtResource("1_0cve7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_q5csu")
-theme_override_styles/focus = SubResource("StyleBoxFlat_0rq4b")
+theme_override_styles/normal = ExtResource("2_r4chg")
+theme_override_styles/pressed = ExtResource("3_diwu4")
+theme_override_styles/hover = ExtResource("3_diwu4")
+theme_override_styles/disabled = ExtResource("3_diwu4")
+theme_override_styles/focus = ExtResource("3_diwu4")
 text = "CONTINUE"
+alignment = 0
 
-[node name="settingsbutton" type="Button" parent="Panel/Main" unique_id=1859999454]
-z_index = 1
+[node name="SettingsButton" type="Button" parent="Panel/Main" unique_id=331253443 node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = 23.0
-offset_right = 73.0
-offset_bottom = 46.0
+anchor_bottom = 0.5
+offset_left = -19.5
+offset_top = -11.0
+offset_right = 93.5
+offset_bottom = 94.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 size_flags_vertical = 3
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../ContinueButton")
 focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../quitbutton")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+focus_neighbor_bottom = NodePath("../QuitButton")
+shortcut_context = NodePath(".")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_vaaqd")
 theme_override_font_sizes/font_size = 10
-theme_override_styles/normal = ExtResource("1_0cve7")
-theme_override_styles/pressed = ExtResource("1_0cve7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_efgmv")
-theme_override_styles/focus = ExtResource("1_0cve7")
+theme_override_styles/normal = ExtResource("2_r4chg")
+theme_override_styles/pressed = ExtResource("3_diwu4")
+theme_override_styles/hover = ExtResource("3_diwu4")
+theme_override_styles/disabled = ExtResource("3_diwu4")
+theme_override_styles/focus = ExtResource("3_diwu4")
 text = "SETTINGS"
+alignment = 0
 
-[node name="quitbutton" type="Button" parent="Panel/Main" unique_id=1715284687]
-z_index = 1
+[node name="QuitButton" type="Button" parent="Panel/Main" unique_id=835786121 node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -11.0
-offset_top = 64.0
-offset_right = 86.0
-offset_bottom = 82.0
+anchor_bottom = 0.5
+offset_left = -19.5
+offset_top = 18.0
+offset_right = 93.5
+offset_bottom = 123.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 size_flags_vertical = 3
 focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../settingsbutton")
+focus_neighbor_top = NodePath("../SettingsButton")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../ContinueButton")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+shortcut_context = NodePath(".")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_vaaqd")
 theme_override_font_sizes/font_size = 10
-theme_override_styles/normal = ExtResource("1_0cve7")
-theme_override_styles/pressed = ExtResource("1_0cve7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_efgmv")
-theme_override_styles/focus = ExtResource("1_0cve7")
+theme_override_styles/normal = ExtResource("2_r4chg")
+theme_override_styles/pressed = ExtResource("3_diwu4")
+theme_override_styles/hover = ExtResource("3_diwu4")
+theme_override_styles/disabled = ExtResource("3_diwu4")
+theme_override_styles/focus = ExtResource("3_diwu4")
 text = "QUIT TO MENU"
+alignment = 0
 
 [node name="Settings" type="Control" parent="Panel" unique_id=1798618166]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -96.0
+offset_left = -95.5
 offset_top = -23.0
-offset_right = -96.0
+offset_right = -95.5
 offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -189,9 +197,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = 66.5
-offset_top = -9.0
+offset_top = -44.0
 offset_right = 125.5
-offset_bottom = 9.0
+offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 3
@@ -199,38 +207,49 @@ focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../resolution/CheckBox")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../volume/HSlider")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 10
-theme_override_styles/normal = ExtResource("1_0cve7")
-theme_override_styles/pressed = ExtResource("1_0cve7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_alora")
-theme_override_styles/focus = ExtResource("1_0cve7")
+theme_override_fonts/font = ExtResource("3_vaaqd")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxTexture_diwu4")
+theme_override_styles/pressed = ExtResource("3_diwu4")
+theme_override_styles/hover = ExtResource("3_diwu4")
+theme_override_styles/disabled = ExtResource("3_diwu4")
+theme_override_styles/focus = ExtResource("3_diwu4")
 action_mode = 0
 text = "BACK"
+alignment = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Settings" unique_id=2099408664]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="volume" type="BoxContainer" parent="Panel/Settings" unique_id=1076168030]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 132.0
-offset_top = 34.999996
-offset_right = 76.0
-offset_bottom = -60.0
+offset_left = 111.5
+offset_top = 42.000004
+offset_right = 137.71848
+offset_bottom = -52.999992
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.595, 0.595)
-vertical = true
 
 [node name="Label" type="Label" parent="Panel/Settings/volume" unique_id=1547593861]
 layout_mode = 2
+theme = SubResource("Theme_diwu4")
+theme_override_font_sizes/font_size = 14
 text = "Volume"
 
 [node name="HSlider" type="HSlider" parent="Panel/Settings/volume" unique_id=582861036]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../../quitbutton")
 focus_neighbor_right = NodePath(".")
@@ -239,17 +258,20 @@ value = 20.0
 
 [node name="resolution" type="BoxContainer" parent="Panel/Settings" unique_id=1344724774]
 layout_mode = 0
-offset_left = 121.0
-offset_top = 66.0
-offset_right = 237.0
-offset_bottom = 148.0
+offset_left = 111.5
+offset_top = 61.0
+offset_right = 256.5
+offset_bottom = 143.0
 scale = Vector2(0.6, 0.6)
+theme_override_constants/separation = 2
 alignment = 1
 vertical = true
 
 [node name="resolution_label" type="Label" parent="Panel/Settings/resolution" unique_id=867502084]
 layout_mode = 2
-text = "resolution"
+theme_override_fonts/font = ExtResource("3_vaaqd")
+theme_override_font_sizes/font_size = 14
+text = "Resolution"
 
 [node name="OptionButton" type="OptionButton" parent="Panel/Settings/resolution" unique_id=1452380222]
 layout_mode = 2
@@ -264,11 +286,12 @@ focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../OptionButton")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../../quitbutton")
+theme = SubResource("Theme_vaaqd")
 text = "Windowed"
 
 [connection signal="pressed" from="Panel/Main/ContinueButton" to="." method="_on_continue_button_pressed"]
-[connection signal="pressed" from="Panel/Main/settingsbutton" to="." method="_on_settingsbutton_pressed"]
-[connection signal="pressed" from="Panel/Main/quitbutton" to="." method="_on_quitbutton_pressed"]
+[connection signal="pressed" from="Panel/Main/SettingsButton" to="." method="_on_settingsbutton_pressed"]
+[connection signal="pressed" from="Panel/Main/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="Panel/Settings/quitbutton" to="." method="_on_quit_settings_pressed"]
 [connection signal="value_changed" from="Panel/Settings/volume/HSlider" to="Panel/Settings" method="_on_h_slider_value_changed"]
 [connection signal="item_selected" from="Panel/Settings/resolution/OptionButton" to="Panel/Settings" method="_on_OptionButton_item_selected"]

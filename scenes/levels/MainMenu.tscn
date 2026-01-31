@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://cjt67v6p6myp7" path="res://scripts/main_menu.gd" id="1_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://w1m7nig1pxpr" path="res://assets/sprites/ui/ticke_background_main.png" id="2_7rblo"]
-[ext_resource type="StyleBox" uid="uid://dcnm8vt6525qd" path="res://resources/UI/button_texture.tres" id="3_orblh"]
+[ext_resource type="StyleBox" uid="uid://ded5p2rkypovp" path="res://resources/UI/style_wacky.tres" id="3_agb1x"]
+[ext_resource type="StyleBox" uid="uid://kwnck02bs6kc" path="res://resources/UI/button_texture.tres" id="3_orblh"]
 [ext_resource type="FontFile" uid="uid://b7v3dl24ymbhe" path="res://assets/fonts/PixelifySans-Regular.ttf" id="3_u4trl"]
-[ext_resource type="StyleBox" uid="uid://djo0dh72sq5xq" path="res://resources/UI/button_hover_texture.tres" id="4_u4trl"]
+[ext_resource type="StyleBox" path="res://resources/UI/button_hover_texture.tres" id="4_u4trl"]
 [ext_resource type="Script" uid="uid://cgymwu5efhc8x" path="res://scripts/settings.gd" id="6_7rblo"]
 [ext_resource type="Texture2D" uid="uid://415ws56bm4n4" path="res://assets/sprites/ui/zanni_logo_circle.png" id="6_81rgk"]
 [ext_resource type="FontFile" uid="uid://c4g6ehyj6nv4k" path="res://assets/fonts/PixelifySans-Medium.ttf" id="6_ov3pg"]
