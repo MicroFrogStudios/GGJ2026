@@ -33,7 +33,5 @@ func on_mask_change(mask:int):
 
 func _physics_process(_delta: float) -> void:
 	time_count+= _delta
-	 #collision.position.y = initial_y_position + sin((Time.get_ticks_msec()- pause_offset) / 500.0 + movement_offset ) * 10.0
-	print(time_count)
 	collision.position.y = initial_y_position + sin(time_count*2 + movement_offset ) * 10.0
 	sprite.position.y = collision.position.y + coll_sprite_diff
