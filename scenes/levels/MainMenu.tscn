@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c316m6ovwsluh"]
 
 [ext_resource type="Script" uid="uid://cjt67v6p6myp7" path="res://scripts/main_menu.gd" id="1_bqqt6"]
+[ext_resource type="Shader" uid="uid://b143h52c056mq" path="res://shaders/mainmenubg.gdshader" id="2_4oe1x"]
 [ext_resource type="Texture2D" uid="uid://w1m7nig1pxpr" path="res://assets/sprites/ui/ticke_background_main.png" id="2_7rblo"]
 [ext_resource type="StyleBox" uid="uid://kwnck02bs6kc" path="res://resources/UI/button_texture.tres" id="3_orblh"]
 [ext_resource type="FontFile" uid="uid://b7v3dl24ymbhe" path="res://assets/fonts/PixelifySans-Regular.ttf" id="3_u4trl"]
@@ -12,6 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://e0hfqpx5pxvf" path="res://assets/sprites/ui/zanni_logo_band.png" id="8_orblh"]
 [ext_resource type="Texture2D" uid="uid://c7yy16lrd7app" path="res://assets/sprites/ui/ticket_shade.png" id="12_4oe1x"]
 [ext_resource type="Texture2D" uid="uid://css1qblbva2in" path="res://assets/sprites/ui/ticket.png" id="13_rm5il"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rm5il"]
+shader = ExtResource("2_4oe1x")
+shader_parameter/scroll_speed = Vector2(0.1, 0)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekxnf"]
 texture = ExtResource("2_7rblo")
@@ -53,6 +58,7 @@ offset_bottom = 180.0
 border_color = Color(1, 1, 1, 1)
 
 [node name="background" type="Panel" parent="." unique_id=636931330]
+material = SubResource("ShaderMaterial_rm5il")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
