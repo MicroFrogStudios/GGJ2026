@@ -1,0 +1,8 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://djo0dh72sq5xq"]
+
+[ext_resource type="Texture2D" uid="uid://brwoqqoa67b8i" path="res://assets/sprites/ui/button_selected.png" id="1_cda1e"]
+
+[resource]
+content_margin_left = 30.0
+content_margin_top = 1.0
+texture = ExtResource("1_cda1e")

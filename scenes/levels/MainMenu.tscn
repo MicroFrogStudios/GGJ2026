@@ -1,47 +1,19 @@
 [gd_scene format=3 uid="uid://c316m6ovwsluh"]
 
 [ext_resource type="Script" uid="uid://cjt67v6p6myp7" path="res://scripts/main_menu.gd" id="1_bqqt6"]
-[ext_resource type="FontFile" uid="uid://bns1jbsems433" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_ekxnf"]
-[ext_resource type="Texture2D" uid="uid://dl0pf8iothpf3" path="res://assets/sprites/placeholder_bk.png" id="2_hyrlu"]
+[ext_resource type="Texture2D" uid="uid://w1m7nig1pxpr" path="res://assets/sprites/ui/ticke_background_main.png" id="2_7rblo"]
 [ext_resource type="StyleBox" uid="uid://ded5p2rkypovp" path="res://resources/UI/style_wacky.tres" id="3_agb1x"]
+[ext_resource type="StyleBox" uid="uid://dcnm8vt6525qd" path="res://resources/UI/button_texture.tres" id="3_orblh"]
+[ext_resource type="FontFile" uid="uid://b7v3dl24ymbhe" path="res://assets/fonts/PixelifySans-Regular.ttf" id="3_u4trl"]
+[ext_resource type="StyleBox" uid="uid://djo0dh72sq5xq" path="res://resources/UI/button_hover_texture.tres" id="4_u4trl"]
 [ext_resource type="Script" uid="uid://cgymwu5efhc8x" path="res://scripts/settings.gd" id="6_7rblo"]
+[ext_resource type="Texture2D" uid="uid://415ws56bm4n4" path="res://assets/sprites/ui/zanni_logo_circle.png" id="6_81rgk"]
 [ext_resource type="FontFile" uid="uid://c4g6ehyj6nv4k" path="res://assets/fonts/PixelifySans-Medium.ttf" id="6_ov3pg"]
+[ext_resource type="SpriteFrames" uid="uid://5ug0cmtd2htl" path="res://resources/animations/zanni_animations.tres" id="7_a6001"]
+[ext_resource type="Texture2D" uid="uid://e0hfqpx5pxvf" path="res://assets/sprites/ui/zanni_logo_band.png" id="8_orblh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekxnf"]
-texture = ExtResource("2_hyrlu")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ue4lf"]
-bg_color = Color(0.8777911, 0.8662518, 0.8478691, 1)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-corner_detail = 1
-shadow_color = Color(0.29494292, 0.025984976, 0.026091356, 0.6)
-shadow_size = 5
-shadow_offset = Vector2(0, -2.205)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_agb1x"]
-bg_color = Color(0.61540085, 0.93510807, 0.9334907, 0.5176471)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-corner_detail = 1
-shadow_color = Color(0.29494292, 0.025984976, 0.026091356, 0.6)
-shadow_size = 5
-shadow_offset = Vector2(0, -2.205)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7rblo"]
-bg_color = Color(0.93761474, 0.8472896, 0.8027698, 1)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-corner_detail = 1
-shadow_color = Color(0.29494292, 0.025984976, 0.026091356, 0.6)
-shadow_size = 5
-shadow_offset = Vector2(0, -2.205)
+texture = ExtResource("2_7rblo")
 
 [sub_resource type="Theme" id="Theme_81rgk"]
 default_font = ExtResource("6_ov3pg")
@@ -67,23 +39,34 @@ grow_vertical = 2
 focus_mode = 2
 script = ExtResource("1_bqqt6")
 
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=1044005413]
+top_level = true
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+border_color = Color(1, 1, 1, 1)
+
 [node name="background" type="Panel" parent="." unique_id=636931330]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -2.0
-offset_bottom = -2.0
+offset_left = -31.999998
+offset_top = -112.0
+offset_right = -32.0
+offset_bottom = -112.0
 grow_horizontal = 2
 grow_vertical = 2
+rotation = 0.25830874
+scale = Vector2(1.565, 1.565)
 theme_override_styles/panel = SubResource("StyleBoxTexture_ekxnf")
 
 [node name="menu" type="Control" parent="." unique_id=535861192]
 anchors_preset = 0
-offset_left = 224.0
-offset_top = 104.0
-offset_right = 264.0
-offset_bottom = 144.0
+offset_left = 248.0
+offset_top = 113.0
+offset_right = 288.0
+offset_bottom = 153.0
 
 [node name="startbutton" type="Button" parent="menu" unique_id=814977984 node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 1
@@ -92,25 +75,28 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 14.0
-offset_bottom = -35.0
+offset_left = -68.0
+offset_top = -97.0
+offset_right = 32.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../quitbutton")
+focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../settingsbutton")
 shortcut_context = NodePath(".")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 10
-theme_override_styles/normal = ExtResource("3_agb1x")
-theme_override_styles/pressed = ExtResource("3_agb1x")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ue4lf")
-theme_override_styles/focus = SubResource("StyleBoxFlat_agb1x")
+theme_override_fonts/font = ExtResource("3_u4trl")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = ExtResource("3_orblh")
+theme_override_styles/pressed = ExtResource("4_u4trl")
+theme_override_styles/hover = ExtResource("4_u4trl")
+theme_override_styles/focus = ExtResource("4_u4trl")
 text = "START"
+alignment = 0
 
 [node name="quitbutton" type="Button" parent="menu" unique_id=1078697102]
 z_index = 1
@@ -120,27 +106,27 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -53.0
-offset_top = -8.0
-offset_right = 6.0
-offset_bottom = 10.0
+offset_left = -64.0
+offset_top = -53.0
+offset_right = 36.0
+offset_bottom = 47.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 3
 focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../startbutton")
+focus_neighbor_top = NodePath("../settingsbutton")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../startbutton")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 10
-theme_override_styles/normal = ExtResource("3_agb1x")
-theme_override_styles/pressed = ExtResource("3_agb1x")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7rblo")
-theme_override_styles/focus = ExtResource("3_agb1x")
+theme_override_fonts/font = ExtResource("3_u4trl")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = ExtResource("3_orblh")
+theme_override_styles/pressed = ExtResource("4_u4trl")
+theme_override_styles/hover = ExtResource("4_u4trl")
+theme_override_styles/focus = ExtResource("4_u4trl")
 text = "QUIT"
+alignment = 0
 
 [node name="settingsbutton" type="Button" parent="menu" unique_id=444169655]
 z_index = 1
@@ -150,10 +136,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -57.0
-offset_top = -44.0
-offset_right = 13.0
-offset_bottom = -21.0
+offset_left = -68.0
+offset_top = -86.0
+offset_right = 32.0
+offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 3
@@ -161,37 +147,16 @@ focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../startbutton")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../quitbutton")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 10
-theme_override_styles/normal = ExtResource("3_agb1x")
-theme_override_styles/pressed = ExtResource("3_agb1x")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7rblo")
-theme_override_styles/focus = ExtResource("3_agb1x")
+theme_override_fonts/font = ExtResource("3_u4trl")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = ExtResource("3_orblh")
+theme_override_styles/pressed = ExtResource("4_u4trl")
+theme_override_styles/hover = ExtResource("4_u4trl")
+theme_override_styles/focus = ExtResource("4_u4trl")
 text = "SETTINGS"
-
-[node name="title" type="Label" parent="menu" unique_id=430926020]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -108.0
-offset_top = -104.0
-offset_right = 68.0
-offset_bottom = -32.0
-grow_horizontal = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 5
-theme_override_constants/shadow_offset_y = 5
-theme_override_fonts/font = ExtResource("2_ekxnf")
-theme_override_font_sizes/font_size = 9
-text = "Zanni's 
-Last 
-Performance"
-horizontal_alignment = 1
-vertical_alignment = 1
+alignment = 0
 
 [node name="Settings" type="Control" parent="." unique_id=1589153331]
 visible = false
@@ -287,6 +252,38 @@ focus_neighbor_bottom = NodePath("../CheckBox")
 layout_mode = 2
 focus_neighbor_left = NodePath("../OptionButton")
 text = "Windowed"
+
+[node name="titleUi" type="Control" parent="." unique_id=360951835]
+anchors_preset = 0
+offset_left = 228.0
+offset_top = 16.0
+offset_right = 268.0
+offset_bottom = 56.0
+
+[node name="TextureRect" type="TextureRect" parent="titleUi" unique_id=3396774]
+layout_mode = 0
+offset_left = -8.0
+offset_right = 116.0
+offset_bottom = 96.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_81rgk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="titleUi" unique_id=121649651]
+position = Vector2(22, 16)
+rotation = 3.1415927
+scale = Vector2(2.1, -2.1)
+sprite_frames = ExtResource("7_a6001")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="title" type="TextureRect" parent="titleUi" unique_id=1491564161]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 24.0
+offset_right = 160.0
+offset_bottom = 78.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_orblh")
 
 [connection signal="pressed" from="menu/startbutton" to="." method="_on_startbutton_pressed"]
 [connection signal="pressed" from="menu/quitbutton" to="." method="_on_quitbutton_pressed"]
