@@ -7,7 +7,7 @@
 [node name="Level8" unique_id=1082980837 instance=ExtResource("1_aq65u")]
 
 [node name="PlayerCharacter" parent="." index="0" unique_id=614979792]
-position = Vector2(-20, -309)
+position = Vector2(39, -60)
 initial_num_masks = 2
 
 [node name="ExitDoor" parent="." index="2" unique_id=45997899]
