@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cjt67v6p6myp7" path="res://scripts/main_menu.gd" id="1_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://w1m7nig1pxpr" path="res://assets/sprites/ui/ticke_background_main.png" id="2_7rblo"]
-[ext_resource type="StyleBox" uid="uid://ded5p2rkypovp" path="res://resources/UI/style_wacky.tres" id="3_agb1x"]
 [ext_resource type="StyleBox" uid="uid://kwnck02bs6kc" path="res://resources/UI/button_texture.tres" id="3_orblh"]
 [ext_resource type="FontFile" uid="uid://b7v3dl24ymbhe" path="res://assets/fonts/PixelifySans-Regular.ttf" id="3_u4trl"]
 [ext_resource type="StyleBox" path="res://resources/UI/button_hover_texture.tres" id="4_u4trl"]
@@ -69,7 +68,9 @@ scale = Vector2(1.565, 1.565)
 theme_override_styles/panel = SubResource("StyleBoxTexture_ekxnf")
 
 [node name="menu" type="Control" parent="." unique_id=535861192]
+visible = false
 layout_mode = 1
+anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -171,8 +172,8 @@ text = "SETTINGS"
 alignment = 0
 
 [node name="Settings" type="Control" parent="." unique_id=1589153331]
-visible = false
 layout_mode = 1
+anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -205,7 +206,7 @@ focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../resolution/CheckBox")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../volume/HSlider")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
@@ -230,7 +231,6 @@ offset_bottom = -64.99999
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.595, 0.595)
-vertical = true
 
 [node name="Label" type="Label" parent="Settings/volume" unique_id=1547593861]
 layout_mode = 2
@@ -238,6 +238,8 @@ text = "Volume"
 
 [node name="HSlider" type="HSlider" parent="Settings/volume" unique_id=582861036]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../../quitbutton")
 focus_neighbor_right = NodePath(".")
@@ -258,7 +260,7 @@ vertical = true
 
 [node name="resolution_label" type="Label" parent="Settings/resolution" unique_id=867502084]
 layout_mode = 2
-text = "resolution"
+text = "Resolution"
 
 [node name="OptionButton" type="OptionButton" parent="Settings/resolution" unique_id=1452380222]
 layout_mode = 2
@@ -270,10 +272,12 @@ focus_neighbor_bottom = NodePath("../CheckBox")
 [node name="CheckBox" type="CheckBox" parent="Settings/resolution" unique_id=1489560551]
 layout_mode = 2
 focus_neighbor_left = NodePath("../OptionButton")
+button_pressed = true
 text = "Windowed"
 
 [node name="titleUi" type="Control" parent="." unique_id=360951835]
 layout_mode = 1
+anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
