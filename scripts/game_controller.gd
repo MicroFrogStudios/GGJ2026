@@ -4,7 +4,6 @@ extends Node
 @export var level_scenes :Array[PackedScene]
 @export var main_menu: PackedScene
 
-
 var player : PlayerCharacter
 var camera: Camera2D
 var menu_disabled : bool
@@ -33,7 +32,7 @@ var in_game_menu_instance : Control
 func load_next_scene():
 	print("changing from scene ",current_scene.scene_name, " to ", unloaded_scenes[(current_scene.index+1) % unloaded_scenes.size()].scene_name )
 	load_scene_by_index((current_scene.index+1) % unloaded_scenes.size())
-	
+
 	
 func start_game():
 	load_scene_by_index(0)
@@ -93,6 +92,9 @@ func load_main_menu():
 	add_sibling.call_deferred(current_scene.scene)
 	music_manager.play_music(current_scene.scene_name)
 
+
+	
+	
 func load_scene_by_index( i :int):
 	if current_scene != null:
 		if scene_stack.is_empty() or scene_stack.back() != current_scene.index:
