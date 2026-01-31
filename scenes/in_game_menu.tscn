@@ -255,7 +255,7 @@ focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../../quitbutton")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../../resolution/OptionButton")
-value = 20.0
+value = 40.0
 
 [node name="resolution" type="BoxContainer" parent="Panel/Settings" unique_id=1344724774]
 layout_mode = 0
@@ -293,7 +293,8 @@ text = "Windowed"
 
 [node name="ChangePlayer" type="AudioStreamPlayer2D" parent="." unique_id=367823715]
 stream = ExtResource("7_vaaqd")
-volume_db = 8.0
+volume_db = 18.0
+bus = &"Music"
 
 [connection signal="focus_entered" from="Panel/Main/ContinueButton" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="Panel/Main/ContinueButton" to="." method="_on_continue_button_pressed"]

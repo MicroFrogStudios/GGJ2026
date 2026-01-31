@@ -49,7 +49,6 @@ func _on_mask_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "PlayerCharacter":
 		got_mask.emit(mask_number)
 		gc.menu_disabled = true
-		gc.camera.effects.stop()
 		call_deferred("disable_mask")
 		body.control_disabled = true
 		Engine.time_scale = 0.0   # freeze the game

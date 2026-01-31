@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://c7rfnoby1agaw" path="res://assets/sounds/mask change 5.mp3" id="16_ajr3h"]
 [ext_resource type="AudioStream" uid="uid://bhv4weyd5kvth" path="res://assets/sounds/mask change 6.mp3" id="17_gqqm3"]
 [ext_resource type="AudioStream" uid="uid://b4bo5bdbvr1jr" path="res://assets/sounds/mask change 7.mp3" id="18_oqywh"]
+[ext_resource type="AudioStream" uid="uid://pvxi1h3cwwig" path="res://assets/sounds/jump.mp3" id="20_gsvhg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8cdkg"]
 radius = 3.0
@@ -239,6 +240,12 @@ metadata/_custom_type_script = "uid://vy31el0p8pfe"
 script = ExtResource("8_oqq3r")
 metadata/_custom_type_script = "uid://vy31el0p8pfe"
 
+[node name="JumpPlayer" type="AudioStreamPlayer2D" parent="State_Machine/jump" unique_id=934147147]
+stream = ExtResource("20_gsvhg")
+volume_db = 16.0
+pitch_scale = 1.4
+bus = &"Music"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=169026515]
 position = Vector2(0, 2.0000002)
 shape = SubResource("CapsuleShape2D_8cdkg")
@@ -259,16 +266,21 @@ libraries/ = SubResource("AnimationLibrary_dnu5j")
 
 [node name="VictoryPlayer" type="AudioStreamPlayer2D" parent="." unique_id=379118905]
 stream = ExtResource("10_50rl7")
+volume_db = 8.0
+bus = &"Music"
 
 [node name="DeathPlayer" type="AudioStreamPlayer2D" parent="." unique_id=521816316]
 stream = ExtResource("11_oqq3r")
+volume_db = 8.0
 max_distance = 4096.0
 attenuation = 0.0
+bus = &"Music"
 
 [node name="MaskChangePlayer" type="AudioStreamPlayer" parent="." unique_id=1943040110]
 stream = ExtResource("12_1a8bf")
-volume_db = -6.0
+volume_db = 3.0
 max_polyphony = 3
+bus = &"Music"
 script = ExtResource("14_c1k3r")
 notes = Array[AudioStreamMP3]([ExtResource("12_1a8bf"), ExtResource("13_gsvhg"), ExtResource("14_gx6q2"), ExtResource("15_mgyw5"), ExtResource("16_ajr3h"), ExtResource("17_gqqm3"), ExtResource("18_oqywh")])
 
