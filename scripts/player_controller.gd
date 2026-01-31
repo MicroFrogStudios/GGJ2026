@@ -131,6 +131,8 @@ func _should_crush(prev_pos: Array, curr_pos: Vector2, prev_vel: Array, vel: Vec
 				return false
 	return true
 
+func jump_action():
+	return Input.is_action_just_pressed("jump") and is_on_floor() and not control_disabled
 
 func _physics_process(delta: float) -> void:
 	if visible == false or Engine.time_scale == 0.0:

@@ -180,9 +180,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -80.0
-offset_right = 80.0
-offset_bottom = 40.0
+offset_left = -62.0
+offset_top = 19.0
+offset_right = 60.0
+offset_bottom = 59.0
 grow_horizontal = 2
 vertical = true
 
@@ -239,10 +240,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -80.0
-offset_top = -20.0
-offset_right = 80.0
-offset_bottom = 20.0
+offset_left = -54.0
+offset_top = -8.0
+offset_right = 48.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 vertical = true
@@ -260,6 +261,7 @@ horizontal_alignment = 1
 
 [node name="BoxContainer2" type="BoxContainer" parent="Panel/Art" unique_id=2080959120]
 layout_mode = 2
+alignment = 1
 
 [node name="credits Title2" type="RichTextLabel" parent="Panel/Art/BoxContainer2" unique_id=718826339]
 layout_mode = 2
@@ -301,8 +303,7 @@ custom_minimum_size = Vector2(30.53, 0)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("9_ccjqj")
 theme_override_font_sizes/normal_font_size = 12
-text = "Music
-"
+text = "Music & Sounds"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
@@ -372,5 +373,22 @@ theme_override_styles/hover = ExtResource("6_wvvnq")
 theme_override_styles/focus = ExtResource("6_wvvnq")
 text = "QUIT"
 alignment = 0
+
+[node name="credits Title2" type="RichTextLabel" parent="menu" unique_id=1989206284]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -41.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("9_ccjqj")
+text = "Thanks for Playing!!"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
 
 [connection signal="pressed" from="menu/quitbutton" to="." method="_on_quitbutton_pressed"]

@@ -19,6 +19,9 @@ var is_descending := false
 func _ready() -> void:
 	initial_y_position = position.y
 	sprite.mask_number = mask_layer
+	var round_x = round(position.x)
+	var round_y = round(position.y)
+	sprite.parent_offset = Vector2i(round_x, round_y)
 	if mask_layer != 0:
 		player.change_mask.connect(on_mask_change)
 		call_deferred("on_mask_change", player.mask)
