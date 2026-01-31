@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cbi44b43tt4dx" path="res://scripts/trampolin.gd" id="1_71052"]
 [ext_resource type="Texture2D" uid="uid://btuc73lfcwkf0" path="res://assets/sprites/trampolin.png" id="1_ss4nn"]
+[ext_resource type="AudioStream" uid="uid://4c5yomwdxinn" path="res://assets/sounds/trampolin.mp3" id="3_8ac0p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ss4nn"]
 size = Vector2(17, 13)
@@ -26,6 +27,11 @@ shape = SubResource("RectangleShape2D_ss4nn")
 [node name="LargeSpeedHitbox" type="CollisionShape2D" parent="SpeedyHitbox" unique_id=629898442]
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_71052")
+
+[node name="TrampolinPlayer" type="AudioStreamPlayer2D" parent="." unique_id=749020614]
+stream = ExtResource("3_8ac0p")
+volume_db = 7.87
+bus = &"Music"
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_entered" from="SpeedyHitbox" to="." method="_on_speedy_hitbox_body_entered"]
