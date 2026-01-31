@@ -1,11 +1,13 @@
 extends State
 class_name JumpState
 
+@onready var JumpPlayer = $JumpPlayer
 
 static func Name() -> String:
 	return "jump"
 
 func Enter():
+	JumpPlayer.play()
 	player.anim.speed_scale = 1
 	player.anim.play("jumping")
 	player.anim.animation_finished.connect(on_anim_finished)

@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://c7rfnoby1agaw" path="res://assets/sounds/mask change 5.mp3" id="16_ajr3h"]
 [ext_resource type="AudioStream" uid="uid://bhv4weyd5kvth" path="res://assets/sounds/mask change 6.mp3" id="17_gqqm3"]
 [ext_resource type="AudioStream" uid="uid://b4bo5bdbvr1jr" path="res://assets/sounds/mask change 7.mp3" id="18_oqywh"]
+[ext_resource type="AudioStream" uid="uid://pvxi1h3cwwig" path="res://assets/sounds/jump.mp3" id="20_gsvhg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8cdkg"]
 radius = 3.0
@@ -238,6 +239,11 @@ metadata/_custom_type_script = "uid://vy31el0p8pfe"
 [node name="jump" type="Node" parent="State_Machine" unique_id=516404932]
 script = ExtResource("8_oqq3r")
 metadata/_custom_type_script = "uid://vy31el0p8pfe"
+
+[node name="JumpPlayer" type="AudioStreamPlayer2D" parent="State_Machine/jump" unique_id=934147147]
+stream = ExtResource("20_gsvhg")
+volume_db = 8.0
+pitch_scale = 1.2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=169026515]
 position = Vector2(0, 2.0000002)
