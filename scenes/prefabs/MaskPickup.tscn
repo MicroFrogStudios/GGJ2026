@@ -91,5 +91,6 @@ autoplay = &"mask_pulse"
 
 [node name="MaskPickupPlayer" type="AudioStreamPlayer2D" parent="." unique_id=673430754]
 stream = ExtResource("3_wp63b")
+bus = &"Music"
 
 [connection signal="body_entered" from="MaskArea2D" to="." method="_on_mask_area_2d_body_entered"]

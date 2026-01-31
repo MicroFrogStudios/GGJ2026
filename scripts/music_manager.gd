@@ -30,6 +30,8 @@ func play_music(scene_name : String):
 		track = load(scene_music[scene_name])
 		print(track)
 	if current_track == track:
+		stop_music()
+		resume_music()
 		return # already playing
 	current_track = track
 	player.stream = track
