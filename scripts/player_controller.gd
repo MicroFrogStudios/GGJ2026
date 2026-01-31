@@ -91,11 +91,11 @@ func _input(event: InputEvent) -> void:
 		mask = new_mask
 	elif event.is_action_pressed("gotomask1"):
 		mask = 0
-	elif event.is_action_pressed("gotomask2"):
+	elif event.is_action_pressed("gotomask2") and num_masks >= 1:
 		mask = 1
-	elif event.is_action_pressed("gotomask3"):
+	elif event.is_action_pressed("gotomask3") and num_masks >= 2:
 		mask = 2
-	elif event.is_action_pressed("gotomask4"):
+	elif event.is_action_pressed("gotomask4") and num_masks >= 3:
 		mask = 3
 
 	if local_prev_mask != mask:
