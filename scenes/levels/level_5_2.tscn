@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ckmw8vdbylbty" path="res://scenes/prefabs/giratronchos.tscn" id="4_r5n2q"]
 [ext_resource type="Texture2D" uid="uid://c76r58vt3xmf0" path="res://assets/sprites/props/hand.png" id="5_1b06o"]
 [ext_resource type="Script" uid="uid://bjgcyy86u5jw8" path="res://scripts/secret_nook.gd" id="5_qvloo"]
-[ext_resource type="Script" path="res://scripts/hand.gd" id="6_1b06o"]
+[ext_resource type="Script" uid="uid://bunnoml5mv1cc" path="res://scripts/hand.gd" id="6_1b06o"]
 [ext_resource type="Texture2D" uid="uid://ca2t7ns6220hf" path="res://assets/sprites/props/mano2.png" id="7_mjsmt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r5n2q"]
@@ -18,8 +18,8 @@ position = Vector2(318, -98)
 initial_num_masks = 1
 
 [node name="ExitDoor" parent="." index="2" unique_id=45997899]
-z_index = 400
-position = Vector2(-139, -310)
+z_index = 9
+position = Vector2(-139, -313)
 
 [node name="CameraFollow" parent="." index="3" unique_id=467601528]
 limit_left = -208
