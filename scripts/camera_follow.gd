@@ -3,7 +3,7 @@ extends Camera2D
 
 @export var following :Node2D
 @export var follow_speed := 5 
-
+@export var effects : AnimationPlayer
 
 var initial_center : Vector2
 

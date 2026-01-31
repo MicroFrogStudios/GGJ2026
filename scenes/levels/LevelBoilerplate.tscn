@@ -208,7 +208,7 @@ player = NodePath("../PlayerCharacter")
 z_index = -1
 position = Vector2(-129, -94)
 
-[node name="CameraFollow" parent="." unique_id=467601528 node_paths=PackedStringArray("following") instance=ExtResource("6_fle77")]
+[node name="CameraFollow" parent="." unique_id=467601528 node_paths=PackedStringArray("following", "effects") instance=ExtResource("6_fle77")]
 limit_left = -284
 limit_bottom = 0
 limit_smoothed = true
@@ -219,6 +219,7 @@ drag_bottom_margin = 0.1
 editor_draw_limits = true
 following = NodePath("../PlayerCharacter")
 follow_speed = 10
+effects = NodePath("EffectsAnimator")
 
 [node name="BackgroundSolid" type="CanvasLayer" parent="CameraFollow" unique_id=910592158]
 layer = -5

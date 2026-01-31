@@ -2,7 +2,6 @@ extends Node
 
 
 @export var level_scenes :Array[PackedScene]
-
 @export var main_menu: PackedScene
 
 
