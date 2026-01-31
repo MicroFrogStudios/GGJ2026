@@ -73,6 +73,8 @@ text = "Volume"
 [node name="HSlider" type="HSlider" parent="volume" unique_id=582861036]
 layout_mode = 2
 value = 20.0
+tick_count = 10
+ticks_on_borders = true
 
 [node name="resolution" type="BoxContainer" parent="." unique_id=1344724774]
 layout_mode = 0

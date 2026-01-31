@@ -20,9 +20,11 @@ func Update(_delta: float):
 
 
 func Physics_Update(_delta: float):
-	if player.velocity.x != 0:
-		transitioned.emit(RunState.Name())
 	if player.jump_action():
 		transitioned.emit(JumpState.Name())
+		return
+	if player.velocity.x != 0:
+		transitioned.emit(RunState.Name())
+	
 	if not player.is_on_floor():
 		transitioned.emit(FallState.Name())

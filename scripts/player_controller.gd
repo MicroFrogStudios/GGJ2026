@@ -14,7 +14,7 @@ extends CharacterBody2D
 @export var jump_velocity = -300.0
 @export var initial_num_masks := 3
 @export var jump_deccel := 100.0
-@export var braking_speed = 15
+@export var braking_speed = 30
 @export var start_accel = 10
 @export var initial_mask : int = 0
 @export var mask_radius := 100.0 # Radius around player where layers are visible
@@ -132,7 +132,9 @@ func _should_crush(prev_pos: Array, curr_pos: Vector2, prev_vel: Array, vel: Vec
 	return true
 
 func jump_action():
-	return Input.is_action_just_pressed("jump") and is_on_floor() and not control_disabled
+	var jumping := Input.is_action_just_pressed("jump") and is_on_floor() and not control_disabled
+	if jumping: print("should_jump ", Time.get_ticks_msec())
+	return jumping
 
 func _physics_process(delta: float) -> void:
 	if visible == false or Engine.time_scale == 0.0:

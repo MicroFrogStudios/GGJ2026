@@ -19,10 +19,12 @@ func Update(_delta: float):
 
 
 func Physics_Update(_delta: float):
+	if player.jump_action():
+		transitioned.emit(JumpState.Name())
+		return
 	if player.velocity.x == 0:
 		transitioned.emit(IdleState.Name())
-	if Input.is_action_pressed("jump") and player.is_on_floor() and not player.control_disabled:
-		transitioned.emit(JumpState.Name())
+	
 	var direction_x :=Input.get_axis("move_left", "move_right")
 	if direction_x * player.velocity.x > 0:
 		transitioned.emit((RunState.Name()))
