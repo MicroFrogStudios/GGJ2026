@@ -8,6 +8,7 @@ static func Name() -> String:
 
 func Enter():
 	JumpPlayer.play()
+	JumpPlayer.pitch_scale = randf_range(0.95, 1.25)
 	player.anim.speed_scale = 1
 	player.anim.play("jumping")
 	player.anim.animation_finished.connect(on_anim_finished)

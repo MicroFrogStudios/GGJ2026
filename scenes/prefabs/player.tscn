@@ -242,8 +242,7 @@ metadata/_custom_type_script = "uid://vy31el0p8pfe"
 
 [node name="JumpPlayer" type="AudioStreamPlayer2D" parent="State_Machine/jump" unique_id=934147147]
 stream = ExtResource("20_gsvhg")
-volume_db = 16.0
-pitch_scale = 1.4
+volume_db = 2.0
 bus = &"Music"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=169026515]
