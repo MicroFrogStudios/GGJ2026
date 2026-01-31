@@ -4,6 +4,7 @@ extends TileMapLayer
 
 ## Layer 0 is always visible
 @export var mask_number: int = 0
+@export var parent_offset: Vector2i = Vector2.ZERO
 
 
 @onready var PlayerChar = gc.player
@@ -35,7 +36,7 @@ func _use_tile_data_runtime_update(_coords: Vector2i) -> bool:
 func _tile_data_runtime_update(coords: Vector2i, tile_data: TileData) -> void:
 	var player_pos = PlayerChar.position
 	var tilemap_pos = Vector2i(multimask.position.x, multimask.position.y)
-	var global_coords = tilemap_pos + coords * tile_set.tile_size
+	var global_coords = tilemap_pos + coords * tile_set.tile_size + parent_offset
 	var distance = player_pos.distance_to(global_coords)
 
 	if mask_number == 0:
