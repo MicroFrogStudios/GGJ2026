@@ -22,7 +22,7 @@ func Update(_delta: float):
 func Physics_Update(_delta: float):
 	if player.velocity.x != 0:
 		transitioned.emit(RunState.Name())
-	if Input.is_action_pressed("jump") and player.is_on_floor() and not player.control_disabled:
+	if player.jump_action():
 		transitioned.emit(JumpState.Name())
 	if not player.is_on_floor():
 		transitioned.emit(FallState.Name())
