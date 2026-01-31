@@ -278,7 +278,10 @@ focus_neighbor_bottom = NodePath("../CheckBox")
 
 [node name="CheckBox" type="CheckBox" parent="Settings/resolution" unique_id=1489560551]
 layout_mode = 2
-focus_neighbor_left = NodePath("../OptionButton")
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../OptionButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../../quitbutton")
 button_pressed = true
 text = "Windowed"
 
