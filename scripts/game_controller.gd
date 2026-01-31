@@ -21,7 +21,6 @@ class LoadedScene:
 		self.index = i
 		scene_name = scene_to_load.scene_name
 		scene = scene_to_load.scene.instantiate()
-		
 
 
 var unloaded_scenes : Array[UnloadedScene]
