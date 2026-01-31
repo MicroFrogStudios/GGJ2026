@@ -8,7 +8,7 @@ uniform float atenuation_factor = 5.0;
 
 void fragment() {
 	// Normalize & scale UVs to be a square space
-	const float aspect_ratio = SCREEN_PIXEL_SIZE.y / SCREEN_PIXEL_SIZE.x;
+	float aspect_ratio = SCREEN_PIXEL_SIZE.y / SCREEN_PIXEL_SIZE.x;
 	vec2 scaled_uv = (SCREEN_UV - vec2(0.5, 0.0)) * vec2(aspect_ratio, 1.0) + vec2(0.5, 0.0);
 	vec2 scaled_center = (center - vec2(0.5, 0.0)) * vec2(aspect_ratio, 1.0) + vec2(0.5, 0.0);
 
