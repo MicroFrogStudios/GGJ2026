@@ -3,6 +3,7 @@ extends Node2D
 @export var mask_layer : int = 0
 
 @onready var collision : CollisionShape2D = $Hitbox/CollisionShape2D
+@onready var TrampolinPlayer = $TrampolinPlayer
 @onready var player : PlayerCharacter = gc.player
 
 
@@ -24,11 +25,16 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 	print("Trampolin hit ", body.velocity.y, " ")
 	if body.velocity.y > 0 and body.velocity.y < 400:
 		body.velocity.y = clamp(-800, -body.velocity.y * 0.8,  0)
+		TrampolinPlayer.play()
+		TrampolinPlayer.pitch_scale = randf_range(0.95, 1.05)
+
 
 
 func _on_speedy_hitbox_body_entered(body: Node2D) -> void:
 	if body.name != "PlayerCharacter":
 		return
 	print("Trampolin hit ", body.velocity.y, " ")
-	if body.velocity.y > 400:
+	if body.velocity.y > 400 and not TrampolinPlayer.playing:
+		TrampolinPlayer.play()
+		TrampolinPlayer.pitch_scale = randf_range(1.20, 1.30)	
 		body.velocity.y = clamp(-800, -body.velocity.y * 0.8,  0)
