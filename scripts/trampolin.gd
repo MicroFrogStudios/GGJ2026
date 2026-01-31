@@ -23,12 +23,11 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.name != "PlayerCharacter":
 		return
 	print("Trampolin hit ", body.velocity.y, " ")
-	if body.velocity.y > 150 and body.velocity.y < 400 and not TrampolinPlayer.playing:
-		body.velocity.y = clamp(-800, -body.velocity.y * 0.8,  0)
-		TrampolinPlayer.play()
-		TrampolinPlayer.pitch_scale = randf_range(0.95, 1.05)	
 	if body.velocity.y > 0 and body.velocity.y < 400:
 		body.velocity.y = clamp(-800, -body.velocity.y * 0.8,  0)
+		TrampolinPlayer.play()
+		TrampolinPlayer.pitch_scale = randf_range(0.95, 1.05)
+
 
 
 func _on_speedy_hitbox_body_entered(body: Node2D) -> void:
