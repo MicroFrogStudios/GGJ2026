@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/show_image=false
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://bb85kmw5dp22p"
+
 [autoload]
 
 gc="*uid://i1uw0ax2u0rb"

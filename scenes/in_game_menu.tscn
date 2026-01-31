@@ -293,7 +293,8 @@ text = "Windowed"
 
 [node name="ChangePlayer" type="AudioStreamPlayer2D" parent="." unique_id=367823715]
 stream = ExtResource("7_vaaqd")
-volume_db = 8.0
+volume_db = 18.0
+bus = &"Music"
 
 [connection signal="focus_entered" from="Panel/Main/ContinueButton" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="Panel/Main/ContinueButton" to="." method="_on_continue_button_pressed"]

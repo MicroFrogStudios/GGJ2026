@@ -8,12 +8,12 @@ var scene_music = {
 	"MainMenu": "res://assets/music/Welcome to the masquerade.ogg",
 	"Level1": "res://assets/music/Zenni's theme (ambient 2).ogg",
 	"Level2": "res://assets/music/Intermezzo 1.ogg",
-	"Level_jaula": "res://assets/music/vibing.ogg",
-	"Level4": "res://assets/music/Intermezzo 1.ogg",
-	"Level5": "res://assets/music/Zenni's theme (ambient 2).ogg",
+	"Level3": "res://assets/music/vibing.ogg",
+	"Level4": "res://assets/music/Zenni's theme (ambient 2).ogg",
+	"Level5": "res://assets/music/Intermezzo 1.ogg",
 	"Level6": "res://assets/music/vibing.ogg",
-	"Level7": "res://assets/music/Zenni's theme (ambient 2).ogg",
-	"Level8": "res://assets/music/Intermezzo 1.ogg",
+	"Level7": "res://assets/music/Ballroom dance (Boss fight).ogg",
+	"Level8": "res://assets/music/Ballroom dance (Boss fight).ogg",
 }
 
 
@@ -22,7 +22,7 @@ func _init():
 	player = AudioStreamPlayer.new()
 	player.autoplay = false
 	add_child(player)
-	set_music_volume(0.2)
+	set_music_volume(0.4)
 
 func play_music(scene_name : String):
 	var track = null

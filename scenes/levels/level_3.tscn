@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://q36ty3m2nmdf" path="res://assets/sprites/Nube02.png" id="2_44gv1"]
 [ext_resource type="PackedScene" uid="uid://b1lcbr0youxog" path="res://scenes/prefabs/cagePlataform.tscn" id="3_0ljxa"]
 
-[node name="Level_jaula" unique_id=1082980837 instance=ExtResource("1_yyq07")]
+[node name="Level3" unique_id=1082980837 instance=ExtResource("1_yyq07")]
 
 [node name="PlayerCharacter" parent="." index="0" unique_id=614979792]
 position = Vector2(-198, -130)

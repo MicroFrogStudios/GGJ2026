@@ -1,14 +1,14 @@
 [gd_scene format=4 uid="uid://b1swc7w3i6rtn"]
 
-[ext_resource type="PackedScene" uid="uid://s6jgpvyxe42i" path="res://scenes/levels/LevelBoilerplate.tscn" id="1_ntash"]
-[ext_resource type="PackedScene" uid="uid://cj3hfmdn46hsh" path="res://scenes/prefabs/ChandelierPlatform.tscn" id="2_07ctq"]
-[ext_resource type="PackedScene" uid="uid://b1lcbr0youxog" path="res://scenes/prefabs/cagePlataform.tscn" id="2_bl61q"]
-[ext_resource type="Texture2D" uid="uid://3crh04gq6usq" path="res://assets/sprites/props/door_large.png" id="2_jmkws"]
-[ext_resource type="PackedScene" uid="uid://br2krxjtxj6yf" path="res://scenes/prefabs/falling_platform.tscn" id="5_hj5q1"]
-[ext_resource type="Texture2D" uid="uid://pnbd1xdu56eo" path="res://assets/sprites/Nube01.png" id="5_jmkws"]
-[ext_resource type="Texture2D" uid="uid://q36ty3m2nmdf" path="res://assets/sprites/Nube02.png" id="7_crrib"]
+[ext_resource type="PackedScene" uid="uid://s6jgpvyxe42i" path="res://scenes/levels/LevelBoilerplate.tscn" id="1_ene4w"]
+[ext_resource type="Texture2D" uid="uid://3crh04gq6usq" path="res://assets/sprites/props/door_large.png" id="2_h6r4t"]
+[ext_resource type="PackedScene" uid="uid://b1lcbr0youxog" path="res://scenes/prefabs/cagePlataform.tscn" id="3_w2i51"]
+[ext_resource type="PackedScene" uid="uid://cj3hfmdn46hsh" path="res://scenes/prefabs/ChandelierPlatform.tscn" id="4_xsrpe"]
+[ext_resource type="PackedScene" uid="uid://br2krxjtxj6yf" path="res://scenes/prefabs/falling_platform.tscn" id="5_0kxia"]
+[ext_resource type="Texture2D" uid="uid://pnbd1xdu56eo" path="res://assets/sprites/Nube01.png" id="6_5umh1"]
+[ext_resource type="Texture2D" uid="uid://q36ty3m2nmdf" path="res://assets/sprites/Nube02.png" id="7_v7ucw"]
 
-[node name="Level7" unique_id=1082980837 instance=ExtResource("1_ntash")]
+[node name="Level8" unique_id=1082980837 instance=ExtResource("1_ene4w")]
 
 [node name="PlayerCharacter" parent="." index="0" unique_id=614979792]
 position = Vector2(-251, -109)
@@ -20,7 +20,7 @@ position = Vector2(1301, -1000)
 [node name="DoorLargeSprite" type="Sprite2D" parent="ExitDoor" index="4" unique_id=1772713705]
 z_index = 2
 position = Vector2(0, -22)
-texture = ExtResource("2_jmkws")
+texture = ExtResource("2_h6r4t")
 
 [node name="CameraFollow" parent="." index="3" unique_id=467601528]
 limit_right = 1370
@@ -47,42 +47,42 @@ tile_map_data = PackedByteArray("AAAaAL//FwAAAAEAAAAaAMD/FwAAAAIAAAAbAL//FwABAAE
 [node name="MaskedTileMapLayer2" parent="MultiMaskedTileMap" parent_id_path=PackedInt32Array(2080479599) index="2" unique_id=1632574672]
 tile_map_data = PackedByteArray("AAAoAL3/FwAAAAEAAAAoAL7/FwAAAAIAAAApAL3/FwABAAEAAAApAL7/FwABAAIAAAAqAL3/FwACAAEAAAAqAL7/FwACAAIAAAArAL3/FwADAAEAAAArAL7/FwADAAIAAAAsAL3/FwAEAAEAAAAsAL7/FwAEAAIAAAAtAL3/FwAFAAEAAAAtAL7/FwAFAAIAAAAuAL3/FwAGAAEAAAAuAL7/FwAGAAIAAAAvAL3/FwAHAAEAAAAvAL7/FwAHAAIAAABSALf/FwAAAAEAAABSALj/FwAAAAIAAABTALf/FwABAAEAAABTALj/FwABAAIAAABUALf/FwACAAEAAABUALj/FwACAAIAAABVALf/FwADAAEAAABVALj/FwADAAIAAABWALf/FwAEAAEAAABWALj/FwAEAAIAAABXALf/FwAFAAEAAABXALj/FwAFAAIAAABYALf/FwAGAAEAAABYALj/FwAGAAIAAABZALf/FwAHAAEAAABZALj/FwAHAAIAAAA=")
 
-[node name="cage_plataform" parent="." index="12" unique_id=1203841537 instance=ExtResource("2_bl61q")]
+[node name="cage_plataform" parent="." index="12" unique_id=1203841537 instance=ExtResource("3_w2i51")]
 position = Vector2(-197, -329)
 mask_layer = 2
 
-[node name="cage_plataform2" parent="." index="13" unique_id=589277814 instance=ExtResource("2_bl61q")]
+[node name="cage_plataform2" parent="." index="13" unique_id=589277814 instance=ExtResource("3_w2i51")]
 position = Vector2(-34, -416)
 mask_layer = 2
 
-[node name="chandelier_plataform" parent="." index="14" unique_id=1278525405 instance=ExtResource("2_07ctq")]
+[node name="chandelier_plataform" parent="." index="14" unique_id=1278525405 instance=ExtResource("4_xsrpe")]
 z_index = -4
 position = Vector2(-128, -130)
 
-[node name="chandelier_plataform2" parent="." index="15" unique_id=504748674 instance=ExtResource("2_07ctq")]
+[node name="chandelier_plataform2" parent="." index="15" unique_id=504748674 instance=ExtResource("4_xsrpe")]
 position = Vector2(-31, -189)
 mask_layer = 1
 movement_offset = 60
 
-[node name="chandelier_plataform5" parent="." index="16" unique_id=1173523644 instance=ExtResource("2_07ctq")]
+[node name="chandelier_plataform5" parent="." index="16" unique_id=1173523644 instance=ExtResource("4_xsrpe")]
 position = Vector2(-115, -409)
 mask_layer = 1
 movement_offset = 60
 
-[node name="chandelier_plataform6" parent="." index="17" unique_id=733292581 instance=ExtResource("2_07ctq")]
+[node name="chandelier_plataform6" parent="." index="17" unique_id=733292581 instance=ExtResource("4_xsrpe")]
 position = Vector2(26, -494)
 mask_layer = 1
 movement_offset = 60
 
-[node name="chandelier_plataform4" parent="." index="18" unique_id=1370729128 instance=ExtResource("2_07ctq")]
+[node name="chandelier_plataform4" parent="." index="18" unique_id=1370729128 instance=ExtResource("4_xsrpe")]
 position = Vector2(-31, -266)
 mask_layer = 1
 movement_offset = 60
 
-[node name="chandelier_plataform3" parent="." index="19" unique_id=1721791698 instance=ExtResource("2_07ctq")]
+[node name="chandelier_plataform3" parent="." index="19" unique_id=1721791698 instance=ExtResource("4_xsrpe")]
 position = Vector2(58, -219)
 
-[node name="UpPlatform" parent="." index="20" unique_id=226129687 instance=ExtResource("5_hj5q1")]
+[node name="UpPlatform" parent="." index="20" unique_id=226129687 instance=ExtResource("5_0kxia")]
 position = Vector2(800, -600)
 up_speed = 30.0
 max_descent = 350.0
@@ -91,10 +91,10 @@ ascending = true
 [node name="LargeCloud1" type="Sprite2D" parent="." index="21" unique_id=856655120]
 position = Vector2(1246, -1075)
 rotation = 3.1415927
-texture = ExtResource("5_jmkws")
+texture = ExtResource("6_5umh1")
 
 [node name="LargeCloud2" type="Sprite2D" parent="." index="22" unique_id=1896197029]
 z_index = 3
 position = Vector2(1249, -979)
 scale = Vector2(-1, 1)
-texture = ExtResource("7_crrib")
+texture = ExtResource("7_v7ucw")

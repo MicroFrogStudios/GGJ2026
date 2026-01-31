@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://br2krxjtxj6yf" path="res://scenes/prefabs/falling_platform.tscn" id="2_y2agi"]
 [ext_resource type="PackedScene" uid="uid://irneoprycv0" path="res://scenes/prefabs/trampolin.tscn" id="3_g44gb"]
 
-[node name="Level8" unique_id=1082980837 instance=ExtResource("1_aq65u")]
+[node name="Level7" unique_id=1082980837 instance=ExtResource("1_aq65u")]
 
 [node name="PlayerCharacter" parent="." index="0" unique_id=614979792]
 position = Vector2(39, -60)
@@ -18,12 +18,6 @@ offset_left = -680.0
 offset_top = -539.0
 offset_right = 871.0
 offset_bottom = 227.0
-
-[node name="InGameMenu" parent="CameraFollow/menuLayer" parent_id_path=PackedInt32Array(308349710) index="0" unique_id=2065837970]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
 
 [node name="BkParallaxLayer" parent="." index="5" unique_id=1000589127]
 position = Vector2(110, 0)
