@@ -220,7 +220,10 @@ offset_bottom = -26.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 3
+focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../resolution/CheckBox")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../volume/HSlider")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -253,7 +256,11 @@ text = "Volume"
 
 [node name="HSlider" type="HSlider" parent="Settings/volume" unique_id=582861036]
 layout_mode = 2
-value = 50.0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../quitbutton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../../resolution/OptionButton")
+value = 20.0
 
 [node name="resolution" type="BoxContainer" parent="Settings" unique_id=1344724774]
 layout_mode = 0
@@ -271,7 +278,10 @@ text = "resolution"
 
 [node name="OptionButton" type="OptionButton" parent="Settings/resolution" unique_id=1452380222]
 layout_mode = 2
-focus_neighbor_right = NodePath("../CheckBox")
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../volume/HSlider")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../CheckBox")
 
 [node name="CheckBox" type="CheckBox" parent="Settings/resolution" unique_id=1489560551]
 layout_mode = 2

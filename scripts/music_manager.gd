@@ -22,7 +22,7 @@ func _init():
 	player = AudioStreamPlayer.new()
 	player.autoplay = false
 	add_child(player)
-
+	set_music_volume(0.2)
 
 func play_music(scene_name : String):
 	var track = null
