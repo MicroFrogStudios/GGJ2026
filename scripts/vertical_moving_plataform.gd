@@ -27,4 +27,3 @@ func on_mask_change(mask:int):
 
 func _physics_process(_delta: float) -> void:
 	collision.position.y = initial_y_position + sin(Time.get_ticks_msec() / 500.0 + movement_offset) * 10.0
-	

@@ -2,7 +2,7 @@ class_name MultiMaskedTileMap
 extends Node2D
 
 
-@onready var player: PlayerCharacter = get_parent().get_node("PlayerCharacter")
+@onready var player: PlayerCharacter = gc.player
 @onready var layers: Array[Node] = get_children().filter(is_masked_layer)
 
 

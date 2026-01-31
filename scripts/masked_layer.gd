@@ -6,7 +6,7 @@ extends TileMapLayer
 @export var mask_number: int = 0
 
 
-@onready var PlayerChar = %PlayerCharacter
+@onready var PlayerChar = gc.player
 @onready var tileset = tile_set
 @onready var multimask = get_parent()
 

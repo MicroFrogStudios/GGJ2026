@@ -280,6 +280,7 @@ z_index = 500
 [node name="InGameMenu" parent="CameraFollow/menuLayer" unique_id=2065837970 instance=ExtResource("18_yvj1e")]
 visible = false
 z_index = -5
+anchors_preset = 8
 
 [node name="DeathPlane" type="Area2D" parent="." unique_id=20074737]
 position = Vector2(0, -143)
@@ -347,10 +348,6 @@ tile_set = ExtResource("10_nyalh")
 script = ExtResource("3_nendb")
 mask_number = 3
 metadata/_custom_type_script = "uid://cqfbx47wt6d28"
-
-[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=492747460]
-visible = false
-color = Color(0.70796657, 0.7079665, 0.7079665, 1)
 
 [connection signal="death" from="PlayerCharacter" to="CameraFollow/SpotlightLayer/DeathSpotlight" method="_on_player_character_death"]
 [connection signal="player_reached_exit" from="ExitDoor" to="PlayerCharacter" method="_on_exit_door_player_reached_exit"]
