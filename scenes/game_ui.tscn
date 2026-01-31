@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://ddpj14k1f6tku" path="res://scripts/game_ui.gd" id="1_u001w"]
 [ext_resource type="Texture2D" uid="uid://dsnwkrsgkyrih" path="res://assets/sprites/UI_masks/mask_hud.png" id="2_e0pfi"]
 [ext_resource type="Script" uid="uid://b4k5qjcktxfvh" path="res://scripts/ui_mask.gd" id="2_u001w"]
+[ext_resource type="Texture2D" uid="uid://cbptwer0rm2jr" path="res://assets/sprites/UI_masks/mask_hud_selector.png" id="3_o3bws"]
 [ext_resource type="Texture2D" uid="uid://dmt8qv2hqf0x0" path="res://assets/sprites/UI_masks/arlecchino_UI.png" id="4_djwj0"]
 [ext_resource type="Texture2D" uid="uid://ur46slv8x2d6" path="res://assets/sprites/UI_masks/pantaloon_ui.png" id="5_e0pfi"]
 [ext_resource type="Texture2D" uid="uid://clb34ncy0y127" path="res://assets/sprites/UI_masks/spavento_ui.png" id="6_o3bws"]
@@ -16,36 +17,42 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u001w")
+ui_mask_pos = Array[float]([-0.685, 27.315, 55.315])
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=2007747449]
+[node name="main_hud" type="TextureRect" parent="." unique_id=2007747449]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -76.00001
+anchors_preset = -1
+offset_top = 13.999992
 offset_right = 224.0
-offset_bottom = 35.999992
+offset_bottom = 125.99999
 grow_vertical = 2
-scale = Vector2(0.425, 0.425)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_e0pfi")
+
+[node name="mask_selector" type="TextureRect" parent="." unique_id=1106186296]
+layout_mode = 1
+anchors_preset = -1
+offset_left = -1.0
+offset_top = 14.0
+offset_right = 223.0
+offset_bottom = 127.41382
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_o3bws")
 
 [node name="Masks" type="Control" parent="." unique_id=32670493]
 layout_mode = 1
-anchor_left = 0.021875
-anchor_top = 0.06666667
-anchor_right = 0.25625
-anchor_bottom = 0.16212502
-offset_right = 25.0
-offset_bottom = 5.727499
+offset_left = 11.0
+offset_top = 13.000001
+offset_right = 111.0
+offset_bottom = 35.910004
 scale = Vector2(0.75, 0.75)
 metadata/_edit_use_anchors_ = true
 
 [node name="Mask0" type="TextureRect" parent="Masks" unique_id=1701335884]
 layout_mode = 0
-offset_left = -1.3333334
-offset_top = -1.3333347
-offset_right = 20.666666
-offset_bottom = 20.666666
+offset_left = -2.6666667
+offset_right = 19.333334
+offset_bottom = 21.999998
 texture = ExtResource("1_rns2u")
 expand_mode = 2
 stretch_mode = 5
@@ -53,9 +60,9 @@ script = ExtResource("2_u001w")
 
 [node name="Mask1" type="TextureRect" parent="Masks" unique_id=820064628]
 layout_mode = 0
-offset_left = 30.666668
+offset_left = 34.666668
 offset_top = 2.6666656
-offset_right = 52.666668
+offset_right = 56.666668
 offset_bottom = 24.666666
 texture = ExtResource("4_djwj0")
 expand_mode = 2
@@ -65,9 +72,9 @@ mask_number = 1
 
 [node name="Mask2" type="TextureRect" parent="Masks" unique_id=1531412400]
 layout_mode = 0
-offset_left = 62.666668
+offset_left = 70.66667
 offset_top = 6.6666656
-offset_right = 84.66667
+offset_right = 92.66667
 offset_bottom = 28.666666
 texture = ExtResource("5_e0pfi")
 expand_mode = 2
@@ -76,10 +83,10 @@ mask_number = 2
 
 [node name="Mask3" type="TextureRect" parent="Masks" unique_id=1543417927]
 layout_mode = 0
-offset_left = 30.666664
-offset_top = 34.666668
-offset_right = 52.666664
-offset_bottom = 56.666668
+offset_left = 36.0
+offset_top = -20.000002
+offset_right = 58.0
+offset_bottom = 1.9999981
 texture = ExtResource("6_o3bws")
 expand_mode = 2
 script = ExtResource("2_u001w")
