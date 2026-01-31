@@ -2,15 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://s6jgpvyxe42i" path="res://scenes/levels/LevelBoilerplate.tscn" id="1_ckvfi"]
 [ext_resource type="PackedScene" uid="uid://irneoprycv0" path="res://scenes/prefabs/trampolin.tscn" id="2_i2ply"]
+[ext_resource type="AudioStream" uid="uid://b3y6vwd34vasi" path="res://assets/sounds/secret.mp3" id="4_a1sre"]
 [ext_resource type="PackedScene" uid="uid://ckmw8vdbylbty" path="res://scenes/prefabs/giratronchos.tscn" id="4_r5n2q"]
 [ext_resource type="Texture2D" uid="uid://c76r58vt3xmf0" path="res://assets/sprites/props/hand.png" id="5_1b06o"]
 [ext_resource type="Script" uid="uid://bjgcyy86u5jw8" path="res://scripts/secret_nook.gd" id="5_qvloo"]
-[ext_resource type="Script" uid="uid://bunnoml5mv1cc" path="res://scripts/hand.gd" id="6_1b06o"]
+[ext_resource type="Script" path="res://scripts/hand.gd" id="6_1b06o"]
 [ext_resource type="Texture2D" uid="uid://ca2t7ns6220hf" path="res://assets/sprites/props/mano2.png" id="7_mjsmt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r5n2q"]
 
-[node name="level_5_2" unique_id=1082980837 instance=ExtResource("1_ckvfi")]
+[node name="Level5_2" unique_id=1082980837 instance=ExtResource("1_ckvfi")]
 
 [node name="PlayerCharacter" parent="." index="0" unique_id=614979792]
 position = Vector2(318, -98)
@@ -53,6 +54,12 @@ script = ExtResource("5_qvloo")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SecretNook" index="0" unique_id=84424807]
 position = Vector2(-174, -116)
 shape = SubResource("RectangleShape2D_r5n2q")
+
+[node name="SecretFoundPlayer" type="AudioStreamPlayer2D" parent="SecretNook" index="1" unique_id=1098308011]
+stream = ExtResource("4_a1sre")
+volume_db = 24.0
+pitch_scale = 1.2
+bus = &"Music"
 
 [node name="Giratronchos" parent="." index="14" unique_id=12882964 instance=ExtResource("4_r5n2q")]
 position = Vector2(0, -383)

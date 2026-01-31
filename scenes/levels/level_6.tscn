@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://r05mq8a7xha1" path="res://assets/sprites/char_masks/arlecchino_char.png" id="3_i0fhw"]
 [ext_resource type="Texture2D" uid="uid://dupfssp2ehj2x" path="res://assets/sprites/char_masks/pantaloon_char.png" id="4_5wshb"]
 [ext_resource type="Texture2D" uid="uid://cyfn0rmsqsn02" path="res://assets/sprites/Barco-bg.png" id="6_7x7cx"]
-[ext_resource type="Script" path="res://scripts/moving_ship.gd" id="7_7x7cx"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/giratronchos.tscn" id="7_b6i88"]
+[ext_resource type="Script" uid="uid://beiulsjesqx5n" path="res://scripts/moving_ship.gd" id="7_7x7cx"]
+[ext_resource type="PackedScene" uid="uid://ckmw8vdbylbty" path="res://scenes/prefabs/giratronchos.tscn" id="7_b6i88"]
 
 [node name="Level6" unique_id=1082980837 instance=ExtResource("1_aq65u")]
 

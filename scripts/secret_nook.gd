@@ -2,10 +2,12 @@ extends Area2D
 
 
 @onready var camera = gc.camera
+@onready var SecretFoundPlayer = $SecretFoundPlayer
 
 var found_time := 0
 var was_already_triggerd := false
 var starting_camera_left := 0
+var secret_played := false
 
 
 func _ready() -> void:
@@ -13,6 +15,9 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
+	if secret_played == false:
+		SecretFoundPlayer.play()
+		secret_played = true
 	if body.name != "PlayerCharacter" or was_already_triggerd:
 		return
 	print("NOOK ", camera.limit_left)

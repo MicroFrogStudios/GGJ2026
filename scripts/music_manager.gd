@@ -10,10 +10,12 @@ var scene_music = {
 	"Level2": "res://assets/music/Intermezzo 1.ogg",
 	"Level3": "res://assets/music/vibing.ogg",
 	"Level4": "res://assets/music/Zenni's theme (ambient 2).ogg",
-	"Level5": "res://assets/music/Intermezzo 1.ogg",
-	"Level6": "res://assets/music/vibing.ogg",
+	"Level5_2": "res://assets/music/vibing.ogg",
+	"Level5": "res://assets/music/Zenni's theme (ambient 2).ogg",
+	"Level6": "res://assets/music/Intermezzo 1.ogg",
 	"Level7": "res://assets/music/Ballroom dance (Boss fight).ogg",
 	"Level8": "res://assets/music/Ballroom dance (Boss fight).ogg",
+	"Credits": "res://assets/music/Welcome to the masquerade.ogg"
 }
 
 
