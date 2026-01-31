@@ -14,13 +14,14 @@ func _ready() -> void:
 	if player_character.num_masks == 0:
 		visible= false
 
-func on_mask_accquired(acquired_mask_number:int):
-	visible=true
+
+func on_mask_accquired(_acquired_mask_number:int):
+	visible = true
+
 
 func _on_mask_changed(mask : int):
 	_current_mask = mask
 	
-func _process(delta: float) -> void:
-	
-	selector.position.x = move_toward(selector.position.x,ui_mask_pos[_current_mask],5)
-	
+
+func _process(_delta: float) -> void:
+	selector.position.x = move_toward(selector.position.x, ui_mask_pos[_current_mask],5)
