@@ -72,7 +72,7 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("gotosettings"):
 		print("menu")
-		gc.open_in_game_menu()
+		gc.toggle_game_menu()
 	if num_masks == 0:
 		# Only allow changing masks if we have at least 1
 		return

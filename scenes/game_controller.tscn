@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://c55farr3o28fc" path="res://scripts/game_controller.gd" id="1_78s5d"]
 [ext_resource type="PackedScene" uid="uid://bhu7jh0k5wr7n" path="res://scenes/levels/level_5.tscn" id="2_d6ul8"]
 [ext_resource type="PackedScene" uid="uid://c316m6ovwsluh" path="res://scenes/levels/MainMenu.tscn" id="2_e85df"]
-[ext_resource type="PackedScene" uid="uid://cxhe6n6jytwvg" path="res://scenes/levels/level_7.tscn" id="2_qtg6w"]
+[ext_resource type="PackedScene" uid="uid://c1phwwong6hwj" path="res://scenes/levels/level_7.tscn" id="2_qtg6w"]
 [ext_resource type="PackedScene" uid="uid://mwl77uh3vdis" path="res://scenes/levels/level_2.tscn" id="2_rc0pn"]
 [ext_resource type="PackedScene" uid="uid://dgcoayaa3hlp" path="res://scenes/levels/level_3.tscn" id="3_burlk"]
 [ext_resource type="PackedScene" uid="uid://bnyqo0t2ts02n" path="res://scenes/levels/level_1.tscn" id="3_ts4rt"]
-[ext_resource type="PackedScene" uid="uid://c1phwwong6hwj" path="res://scenes/levels/level_6.tscn" id="5_h843c"]
+[ext_resource type="PackedScene" uid="uid://cxhe6n6jytwvg" path="res://scenes/levels/level_6.tscn" id="5_h843c"]
 [ext_resource type="PackedScene" uid="uid://n2p8c2jqrwxd" path="res://scenes/levels/level_4.tscn" id="6_h0hye"]
 [ext_resource type="PackedScene" uid="uid://b1swc7w3i6rtn" path="res://scenes/levels/level_last.tscn" id="9_1awvl"]
 

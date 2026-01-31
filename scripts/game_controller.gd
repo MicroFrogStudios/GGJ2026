@@ -63,19 +63,25 @@ func load_scene_by_name(scene_name : String):
 	load_scene_by_index(my_index)
 
 
-func open_in_game_menu():
+func toggle_game_menu():
 	if in_game_menu_instance != null:
-		in_game_menu_instance.gain_focus()
-		in_game_menu_instance.visible = true
-		Engine.time_scale = 0.0
-		player.control_disabled = true
+		if in_game_menu_instance.visible:
+			close_in_game_menu()
+			return
+		open_in_game_menu()
+
+
+func open_in_game_menu():
+	in_game_menu_instance.gain_focus()
+	in_game_menu_instance.visible = true
+	Engine.time_scale = 0.0
+	player.control_disabled = true
 	
 	
 func close_in_game_menu():
-	if in_game_menu_instance != null:
-		in_game_menu_instance.visible = false
-		Engine.time_scale = 1.0
-		player.control_disabled = false
+	in_game_menu_instance.visible = false
+	Engine.time_scale = 1.0
+	player.control_disabled = false
 
 func load_main_menu():
 	var menu = UnloadedScene.new()
