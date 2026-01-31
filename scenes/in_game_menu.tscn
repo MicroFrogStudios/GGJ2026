@@ -12,6 +12,14 @@
 default_font = ExtResource("3_vaaqd")
 default_font_size = 11
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3nht0"]
+load_path = "res://.godot/imported/button_unselected.png-3103f9543bca6f789e2bd61d85cd90cb.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_diwu4"]
+content_margin_left = 18.0
+content_margin_top = 1.0
+texture = SubResource("CompressedTexture2D_3nht0")
+
 [sub_resource type="Theme" id="Theme_diwu4"]
 default_font = ExtResource("3_vaaqd")
 
@@ -62,6 +70,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Main" type="Control" parent="Panel" unique_id=1585117541]
+visible = false
 anchors_preset = 0
 offset_left = 0.5
 offset_right = 40.5
@@ -167,7 +176,6 @@ text = "QUIT TO MENU"
 alignment = 0
 
 [node name="Settings" type="Control" parent="Panel" unique_id=1798618166]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -201,13 +209,16 @@ focus_neighbor_top = NodePath("../resolution/CheckBox")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../volume/HSlider")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_vaaqd")
 theme_override_font_sizes/font_size = 9
-theme_override_styles/normal = ExtResource("7_igyd0")
-theme_override_styles/pressed = ExtResource("8_qn6pv")
-theme_override_styles/hover = ExtResource("8_qn6pv")
-theme_override_styles/disabled = ExtResource("7_igyd0")
-theme_override_styles/focus = ExtResource("8_qn6pv")
+theme_override_styles/normal = SubResource("StyleBoxTexture_diwu4")
+theme_override_styles/pressed = ExtResource("3_diwu4")
+theme_override_styles/hover = ExtResource("3_diwu4")
+theme_override_styles/disabled = ExtResource("3_diwu4")
+theme_override_styles/focus = ExtResource("3_diwu4")
 action_mode = 0
 text = "BACK"
 alignment = 0

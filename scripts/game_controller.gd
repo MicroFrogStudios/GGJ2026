@@ -8,7 +8,7 @@ extends Node
 
 var player : PlayerCharacter
 var camera: Camera2D
-
+var menu_disabled : bool
 class UnloadedScene:
 	var scene : PackedScene
 	var scene_name : String
@@ -64,7 +64,8 @@ func load_scene_by_name(scene_name : String):
 
 
 func toggle_game_menu():
-	if in_game_menu_instance != null:
+	
+	if in_game_menu_instance != null and not menu_disabled:
 		if in_game_menu_instance.visible:
 			close_in_game_menu()
 			return
