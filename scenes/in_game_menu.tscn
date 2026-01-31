@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c2tj0mn2oc8u7" path="res://assets/sprites/pause_menu.png" id="2_diwu4"]
 [ext_resource type="Script" uid="uid://cgymwu5efhc8x" path="res://scripts/settings.gd" id="2_q5csu"]
 [ext_resource type="StyleBox" uid="uid://kwnck02bs6kc" path="res://resources/UI/button_texture.tres" id="2_r4chg"]
-[ext_resource type="StyleBox" uid="uid://djo0dh72sq5xq" path="res://resources/UI/button_hover_texture.tres" id="3_diwu4"]
+[ext_resource type="StyleBox" uid="uid://cpve10neqqcwg" path="res://resources/UI/button_hover_texture.tres" id="3_diwu4"]
 [ext_resource type="FontFile" uid="uid://b7v3dl24ymbhe" path="res://assets/fonts/PixelifySans-Regular.ttf" id="3_vaaqd"]
 [ext_resource type="AudioStream" uid="uid://bn5v1oeifgel4" path="res://assets/sounds/Menu change maybe.mp3" id="7_vaaqd"]
 
@@ -33,6 +33,13 @@ anchors_preset = 0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0rq4b")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=1818720537]
+layout_mode = 0
+offset_left = -87.0
+offset_top = -86.0
+offset_right = 89.0
+offset_bottom = 66.0
 
 [node name="Panel" type="TextureRect" parent="." unique_id=659385453]
 layout_mode = 1
@@ -70,7 +77,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Main" type="Control" parent="Panel" unique_id=1585117541]
-visible = false
 anchors_preset = 0
 offset_left = 0.5
 offset_right = 40.5
@@ -94,6 +100,7 @@ focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../QuitButton")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../SettingsButton")
+mouse_filter = 2
 shortcut_context = NodePath(".")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
@@ -127,6 +134,7 @@ focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../ContinueButton")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../QuitButton")
+mouse_filter = 2
 shortcut_context = NodePath(".")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
@@ -160,6 +168,7 @@ focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../SettingsButton")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../ContinueButton")
+mouse_filter = 2
 shortcut_context = NodePath(".")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
@@ -176,6 +185,7 @@ text = "QUIT TO MENU"
 alignment = 0
 
 [node name="Settings" type="Control" parent="Panel" unique_id=1798618166]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -208,6 +218,7 @@ focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../resolution/CheckBox")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../volume/HSlider")
+mouse_filter = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -255,6 +266,8 @@ focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../../quitbutton")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../../resolution/OptionButton")
+mouse_filter = 2
+step = 10.0
 value = 40.0
 
 [node name="resolution" type="BoxContainer" parent="Panel/Settings" unique_id=1344724774]
@@ -280,6 +293,7 @@ focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../../volume/HSlider")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../CheckBox")
+mouse_filter = 2
 
 [node name="CheckBox" type="CheckBox" parent="Panel/Settings/resolution" unique_id=1489560551]
 layout_mode = 2
@@ -287,6 +301,7 @@ focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../OptionButton")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../../quitbutton")
+mouse_filter = 2
 theme = SubResource("Theme_vaaqd")
 button_pressed = true
 text = "Windowed"

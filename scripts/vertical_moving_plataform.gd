@@ -11,7 +11,7 @@ extends Node2D
 
 var initial_y_position : float = 0.0
 var coll_sprite_diff : float = 0.0
-
+var time_count : float = 0
 
 func _ready() -> void:
 	initial_y_position = collision.position.y
@@ -32,5 +32,6 @@ func on_mask_change(mask:int):
 
 
 func _physics_process(_delta: float) -> void:
-	collision.position.y = initial_y_position + sin(Time.get_ticks_msec() / 500.0 + movement_offset) * 10.0
+	time_count+= _delta
+	collision.position.y = initial_y_position + sin(time_count*2 + movement_offset ) * 10.0
 	sprite.position.y = collision.position.y + coll_sprite_diff
