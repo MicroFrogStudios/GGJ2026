@@ -25,7 +25,8 @@ signal mask_acquired(acquired_mask_number: int)
 signal death()
 
 
-var is_jumping = false
+var is_jumping := false
+var just_jumped := false
 var previous_frame_on_floor :bool
 var mask := 0
 var num_masks := 0
@@ -132,8 +133,10 @@ func _should_crush(prev_pos: Array, curr_pos: Vector2, prev_vel: Array, vel: Vec
 	return true
 
 func jump_action():
-	var jumping := Input.is_action_just_pressed("jump") and is_on_floor() and not control_disabled
-	if jumping: print("should_jump ", Time.get_ticks_msec())
+	var jumping := Input.is_action_pressed("jump") and is_on_floor() and not control_disabled and not just_jumped
+	if jumping: 
+		just_jumped = true
+		print("should_jump ", Time.get_ticks_msec())
 	return jumping
 
 func _physics_process(delta: float) -> void:
@@ -162,9 +165,12 @@ func _physics_process(delta: float) -> void:
 	else: is_jumping = false
 
 		
-	if Input. is_action_just_released("jump") and is_jumping and velocity.y < 0:
-		velocity.y = clamp(velocity.y + jump_deccel,jump_velocity,0) 
-		is_jumping = false
+	if Input. is_action_just_released("jump"):
+		just_jumped = false
+		if is_jumping and velocity.y < 0:
+			velocity.y = clamp(velocity.y + jump_deccel,jump_velocity,0) 
+			is_jumping = false
+		
 		
 	## Sideways movement
 	var direction_x := Input.get_axis("move_left", "move_right")
