@@ -51,24 +51,14 @@ shadow_offset = Vector2(0, -2.205)
 [node name="InGameMenu" type="Control" unique_id=2065837970]
 z_index = 4
 layout_mode = 3
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -61.0
-offset_top = -70.0
-offset_right = -61.0
-offset_bottom = -70.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0rq4b")
 
 [node name="Panel" type="Panel" parent="." unique_id=1066101114]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 2.0
-offset_right = 133.0
-offset_bottom = 138.0
+offset_right = 119.0
+offset_bottom = 136.0
 
 [node name="Main" type="Control" parent="Panel" unique_id=1585117541]
 anchors_preset = 0
