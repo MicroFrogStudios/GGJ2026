@@ -278,9 +278,12 @@ z_index = 500
 [node name="menuLayer" type="CanvasLayer" parent="CameraFollow" unique_id=308349710]
 
 [node name="InGameMenu" parent="CameraFollow/menuLayer" unique_id=2065837970 instance=ExtResource("18_yvj1e")]
-visible = false
 z_index = -5
 anchors_preset = 8
+offset_left = -68.0
+offset_top = -75.0
+offset_right = -68.0
+offset_bottom = -75.0
 
 [node name="DeathPlane" type="Area2D" parent="." unique_id=20074737]
 position = Vector2(0, -143)
