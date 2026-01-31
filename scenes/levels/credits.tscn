@@ -1,0 +1,376 @@
+[gd_scene format=3 uid="uid://dm6ro40n32qn2"]
+
+[ext_resource type="Script" uid="uid://cjt67v6p6myp7" path="res://scripts/main_menu.gd" id="1_ccjqj"]
+[ext_resource type="Shader" path="res://shaders/mainmenubg.gdshader" id="2_3hkv2"]
+[ext_resource type="Texture2D" uid="uid://di1coru0cuwbw" path="res://assets/sprites/ui/ticke_background_credits.png" id="3_kljwr"]
+[ext_resource type="FontFile" uid="uid://b7v3dl24ymbhe" path="res://assets/fonts/PixelifySans-Regular.ttf" id="4_is8mj"]
+[ext_resource type="StyleBox" uid="uid://kwnck02bs6kc" path="res://resources/UI/button_texture.tres" id="5_jt0ba"]
+[ext_resource type="StyleBox" uid="uid://djo0dh72sq5xq" path="res://resources/UI/button_hover_texture.tres" id="6_wvvnq"]
+[ext_resource type="Texture2D" uid="uid://415ws56bm4n4" path="res://assets/sprites/ui/zanni_logo_circle.png" id="9_3ufgy"]
+[ext_resource type="FontFile" uid="uid://f5p44atdrh28" path="res://assets/fonts/PixelifySans-Bold.ttf" id="9_ccjqj"]
+[ext_resource type="SpriteFrames" uid="uid://5ug0cmtd2htl" path="res://resources/animations/zanni_animations.tres" id="10_ewvb2"]
+[ext_resource type="Texture2D" uid="uid://e0hfqpx5pxvf" path="res://assets/sprites/ui/zanni_logo_band.png" id="11_nqrw0"]
+[ext_resource type="Texture2D" uid="uid://c7yy16lrd7app" path="res://assets/sprites/ui/ticket_shade.png" id="12_6kicy"]
+[ext_resource type="Texture2D" uid="uid://css1qblbva2in" path="res://assets/sprites/ui/ticket.png" id="13_ouwk8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rm5il"]
+shader = ExtResource("2_3hkv2")
+shader_parameter/scroll_speed = Vector2(0.1, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekxnf"]
+texture = ExtResource("3_kljwr")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3hkv2"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.2901961, 0.16862746, 0.31764707, 0.58431375)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 1
+
+[node name="MainMenu" type="Control" unique_id=1798618166]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+script = ExtResource("1_ccjqj")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=1044005413]
+top_level = true
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+border_color = Color(1, 1, 1, 1)
+
+[node name="background" type="Panel" parent="." unique_id=636931330]
+material = SubResource("ShaderMaterial_rm5il")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -31.999998
+offset_top = -112.0
+offset_right = -32.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.25830874
+scale = Vector2(1.565, 1.565)
+theme_override_styles/panel = SubResource("StyleBoxTexture_ekxnf")
+
+[node name="titleUi" type="Control" parent="." unique_id=360951835]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = -74.0
+offset_right = -52.0
+offset_bottom = -34.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="titleUi" unique_id=3396774]
+layout_mode = 0
+offset_left = -8.0
+offset_right = 116.0
+offset_bottom = 96.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_3ufgy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="titleUi" unique_id=121649651]
+position = Vector2(22, 16)
+rotation = 3.1415927
+scale = Vector2(2.1, -2.1)
+sprite_frames = ExtResource("10_ewvb2")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="title" type="TextureRect" parent="titleUi" unique_id=1491564161]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 24.0
+offset_right = 160.0
+offset_bottom = 78.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_nqrw0")
+
+[node name="Control" type="Control" parent="." unique_id=191778650]
+visible = false
+anchors_preset = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 64.0
+offset_bottom = 64.0
+
+[node name="ticket2shadow" type="TextureRect" parent="Control" unique_id=275843282]
+modulate = Color(1, 1, 1, 0.56078434)
+layout_mode = 0
+offset_left = 62.449997
+offset_top = 51.0
+offset_right = 398.45
+offset_bottom = 261.0
+rotation = 0.5235988
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("12_6kicy")
+
+[node name="ticket2" type="TextureRect" parent="Control" unique_id=377322007]
+layout_mode = 0
+offset_left = 62.449997
+offset_top = 50.0
+offset_right = 398.45
+offset_bottom = 260.0
+rotation = 0.5235988
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("13_ouwk8")
+
+[node name="Control2" type="Control" parent="." unique_id=498186052]
+visible = false
+anchors_preset = 0
+offset_left = 8.0
+offset_top = -8.0
+offset_right = 48.0
+offset_bottom = 32.0
+
+[node name="ticketshadow" type="TextureRect" parent="Control2" unique_id=1031389623]
+modulate = Color(1, 1, 1, 0.6627451)
+layout_mode = 0
+offset_left = 70.45
+offset_top = 58.5
+offset_right = 406.45
+offset_bottom = 268.5
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("12_6kicy")
+
+[node name="ticket" type="TextureRect" parent="Control2" unique_id=619283797]
+layout_mode = 0
+offset_left = 70.45
+offset_top = 58.0
+offset_right = 406.45
+offset_bottom = 268.0
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("13_ouwk8")
+
+[node name="Panel" type="Panel" parent="." unique_id=824397324]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -58.0
+offset_right = 20.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3hkv2")
+
+[node name="prog" type="BoxContainer" parent="Panel" unique_id=846666278]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_right = 80.0
+offset_bottom = 40.0
+grow_horizontal = 2
+vertical = true
+
+[node name="credits Title Pog" type="RichTextLabel" parent="Panel/prog" unique_id=1086653794]
+custom_minimum_size = Vector2(86.53, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/normal_font = ExtResource("9_ccjqj")
+theme_override_font_sizes/normal_font_size = 12
+text = "Programmers"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="BoxContainer2" type="BoxContainer" parent="Panel/prog" unique_id=817267210]
+layout_mode = 2
+
+[node name="credits Title2" type="RichTextLabel" parent="Panel/prog/BoxContainer2" unique_id=463964307]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("9_ccjqj")
+theme_override_font_sizes/normal_font_size = 7
+text = "Marah"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="credits Title3" type="RichTextLabel" parent="Panel/prog/BoxContainer2" unique_id=464765240]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("9_ccjqj")
+theme_override_font_sizes/normal_font_size = 7
+text = "Axarth
+"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="credits Title4" type="RichTextLabel" parent="Panel/prog/BoxContainer2" unique_id=1361262112]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("9_ccjqj")
+theme_override_font_sizes/normal_font_size = 7
+text = "Microfrog
+"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="Art" type="BoxContainer" parent="Panel" unique_id=1606984491]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -20.0
+offset_right = 80.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical = true
+
+[node name="credits Title Pog" type="RichTextLabel" parent="Panel/Art" unique_id=1252175057]
+custom_minimum_size = Vector2(30.53, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/normal_font = ExtResource("9_ccjqj")
+theme_override_font_sizes/normal_font_size = 12
+text = "Art"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="BoxContainer2" type="BoxContainer" parent="Panel/Art" unique_id=2080959120]
+layout_mode = 2
+
+[node name="credits Title2" type="RichTextLabel" parent="Panel/Art/BoxContainer2" unique_id=718826339]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("9_ccjqj")
+theme_override_font_sizes/normal_font_size = 7
+text = "Omnomnado"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="credits Title3" type="RichTextLabel" parent="Panel/Art/BoxContainer2" unique_id=1129198321]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("9_ccjqj")
+theme_override_font_sizes/normal_font_size = 7
+text = "Ferguriz
+"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="Music" type="BoxContainer" parent="Panel" unique_id=1328890205]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -40.0
+offset_right = 80.0
+grow_horizontal = 2
+grow_vertical = 0
+vertical = true
+
+[node name="credits Title music" type="RichTextLabel" parent="Panel/Music" unique_id=1305326966]
+custom_minimum_size = Vector2(30.53, 0)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("9_ccjqj")
+theme_override_font_sizes/normal_font_size = 12
+text = "Music
+"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="BoxContainer2" type="BoxContainer" parent="Panel/Music" unique_id=1486356606]
+layout_mode = 2
+
+[node name="credits Title2" type="RichTextLabel" parent="Panel/Music/BoxContainer2" unique_id=551696937]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("9_ccjqj")
+theme_override_font_sizes/normal_font_size = 7
+text = "Axarth"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="credits Title" type="RichTextLabel" parent="." unique_id=238846368]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 112.0
+offset_bottom = 48.0
+theme_override_fonts/normal_font = ExtResource("9_ccjqj")
+text = "CREDITS"
+fit_content = true
+scroll_active = false
+
+[node name="menu" type="Control" parent="." unique_id=535861192]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = 23.0
+offset_right = -32.0
+offset_bottom = 63.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="quitbutton" type="Button" parent="menu" unique_id=1078697102]
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -49.0
+offset_right = 36.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_is8mj")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = ExtResource("5_jt0ba")
+theme_override_styles/pressed = ExtResource("6_wvvnq")
+theme_override_styles/hover = ExtResource("6_wvvnq")
+theme_override_styles/focus = ExtResource("6_wvvnq")
+text = "QUIT"
+alignment = 0
+
+[connection signal="pressed" from="menu/quitbutton" to="." method="_on_quitbutton_pressed"]
