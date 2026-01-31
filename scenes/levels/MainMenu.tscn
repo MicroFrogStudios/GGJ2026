@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://w1m7nig1pxpr" path="res://assets/sprites/ui/ticke_background_main.png" id="2_7rblo"]
 [ext_resource type="StyleBox" uid="uid://kwnck02bs6kc" path="res://resources/UI/button_texture.tres" id="3_orblh"]
 [ext_resource type="FontFile" uid="uid://b7v3dl24ymbhe" path="res://assets/fonts/PixelifySans-Regular.ttf" id="3_u4trl"]
-[ext_resource type="StyleBox" path="res://resources/UI/button_hover_texture.tres" id="4_u4trl"]
+[ext_resource type="StyleBox" uid="uid://djo0dh72sq5xq" path="res://resources/UI/button_hover_texture.tres" id="4_u4trl"]
 [ext_resource type="Script" uid="uid://cgymwu5efhc8x" path="res://scripts/settings.gd" id="6_7rblo"]
 [ext_resource type="Texture2D" uid="uid://415ws56bm4n4" path="res://assets/sprites/ui/zanni_logo_circle.png" id="6_81rgk"]
 [ext_resource type="FontFile" uid="uid://c4g6ehyj6nv4k" path="res://assets/fonts/PixelifySans-Medium.ttf" id="6_ov3pg"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://e0hfqpx5pxvf" path="res://assets/sprites/ui/zanni_logo_band.png" id="8_orblh"]
 [ext_resource type="Texture2D" uid="uid://c7yy16lrd7app" path="res://assets/sprites/ui/ticket_shade.png" id="12_4oe1x"]
 [ext_resource type="Texture2D" uid="uid://css1qblbva2in" path="res://assets/sprites/ui/ticket.png" id="13_rm5il"]
+[ext_resource type="AudioStream" uid="uid://bn5v1oeifgel4" path="res://assets/sounds/Menu change maybe.mp3" id="14_rm5il"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rm5il"]
 shader = ExtResource("2_4oe1x")
@@ -278,7 +279,7 @@ focus_neighbor_bottom = NodePath("../CheckBox")
 
 [node name="CheckBox" type="CheckBox" parent="Settings/resolution" unique_id=1489560551]
 layout_mode = 2
-focus_neighbor_left = NodePath("../OptionButton")
+focus_neighbor_top = NodePath("../OptionButton")
 button_pressed = true
 text = "Windowed"
 
@@ -361,10 +362,22 @@ offset_bottom = 268.0
 scale = Vector2(0.29, 0.29)
 texture = ExtResource("13_rm5il")
 
+[node name="ChangeOptionPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1576629998]
+stream = ExtResource("14_rm5il")
+volume_db = 18.0
+pitch_scale = 1.2
+
+[connection signal="focus_entered" from="menu/startbutton" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="menu/startbutton" to="." method="_on_startbutton_pressed"]
+[connection signal="focus_entered" from="menu/quitbutton" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="menu/quitbutton" to="." method="_on_quitbutton_pressed"]
+[connection signal="focus_entered" from="menu/settingsbutton" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="menu/settingsbutton" to="." method="_on_settingsbutton_pressed"]
+[connection signal="focus_entered" from="Settings/quitbutton" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="Settings/quitbutton" to="." method="_on_quit_settings_button_pressed"]
+[connection signal="focus_entered" from="Settings/volume/HSlider" to="." method="_on_focus_entered"]
 [connection signal="value_changed" from="Settings/volume/HSlider" to="Settings" method="_on_h_slider_value_changed"]
+[connection signal="focus_entered" from="Settings/resolution/OptionButton" to="." method="_on_focus_entered"]
 [connection signal="item_selected" from="Settings/resolution/OptionButton" to="Settings" method="_on_OptionButton_item_selected"]
+[connection signal="focus_entered" from="Settings/resolution/CheckBox" to="." method="_on_focus_entered"]
 [connection signal="toggled" from="Settings/resolution/CheckBox" to="Settings" method="_on_check_box_toggled"]

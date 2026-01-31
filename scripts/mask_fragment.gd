@@ -5,7 +5,7 @@ extends Node2D
 @export var mask_texture : Texture2D
 
 @onready var mask_collision_shape: CollisionShape2D = $MaskArea2D/CollisionShape2D
-@onready var MaskPickupPlayer = $MaskPickupPlayer
+@onready var mask_pickup_player = $MaskPickupPlayer
 
 var initial_position: Vector2
 var textbox_up := false
@@ -50,7 +50,7 @@ func _on_mask_area_2d_body_entered(body: Node2D) -> void:
 		body.control_disabled = true
 		Engine.time_scale = 0.0   # freeze the game
 		music_manager.stop_music()
-		MaskPickupPlayer.play()
+		mask_pickup_player.play()
 		textbox_up = true
 
 

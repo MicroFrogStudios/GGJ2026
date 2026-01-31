@@ -70,7 +70,7 @@ func on_animation_finish():
 func _input(event: InputEvent) -> void:
 	# Process mask related inputs
 	
-	if event.is_action_pressed("gotosettings"):
+	if event.is_action_pressed("gotoingamemenu"):
 		print("menu")
 		gc.toggle_game_menu()
 	if num_masks == 0:
