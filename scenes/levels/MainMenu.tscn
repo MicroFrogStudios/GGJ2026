@@ -367,8 +367,7 @@ texture = ExtResource("13_rm5il")
 
 [node name="ChangeOptionPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1576629998]
 stream = ExtResource("14_rm5il")
-volume_db = 18.0
-pitch_scale = 1.2
+volume_db = 8.0
 
 [connection signal="focus_entered" from="menu/startbutton" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="menu/startbutton" to="." method="_on_startbutton_pressed"]
