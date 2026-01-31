@@ -68,7 +68,6 @@ scale = Vector2(1.565, 1.565)
 theme_override_styles/panel = SubResource("StyleBoxTexture_ekxnf")
 
 [node name="menu" type="Control" parent="." unique_id=535861192]
-visible = false
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -80,6 +79,7 @@ offset_top = 23.0
 offset_right = -32.0
 offset_bottom = 63.0
 grow_horizontal = 0
+grow_vertical = 2
 
 [node name="startbutton" type="Button" parent="menu" unique_id=814977984 node_paths=PackedStringArray("shortcut_context")]
 layout_mode = 1
@@ -172,6 +172,7 @@ text = "SETTINGS"
 alignment = 0
 
 [node name="Settings" type="Control" parent="." unique_id=1589153331]
+visible = false
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -287,6 +288,7 @@ offset_top = -74.0
 offset_right = -52.0
 offset_bottom = -34.0
 grow_horizontal = 0
+grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="titleUi" unique_id=3396774]
 layout_mode = 0
