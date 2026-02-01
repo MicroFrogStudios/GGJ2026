@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c316m6ovwsluh"]
 
 [ext_resource type="Script" uid="uid://cjt67v6p6myp7" path="res://scripts/main_menu.gd" id="1_bqqt6"]
-[ext_resource type="Shader" path="res://shaders/mainmenubg.gdshader" id="2_4oe1x"]
+[ext_resource type="Shader" uid="uid://b143h52c056mq" path="res://shaders/mainmenubg.gdshader" id="2_4oe1x"]
 [ext_resource type="Texture2D" uid="uid://w1m7nig1pxpr" path="res://assets/sprites/ui/ticke_background_main.png" id="2_7rblo"]
 [ext_resource type="StyleBox" uid="uid://kwnck02bs6kc" path="res://resources/UI/button_texture.tres" id="3_orblh"]
 [ext_resource type="FontFile" uid="uid://b7v3dl24ymbhe" path="res://assets/fonts/PixelifySans-Regular.ttf" id="3_u4trl"]

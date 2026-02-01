@@ -7,6 +7,8 @@ extends Node
 var player : PlayerCharacter
 var camera: Camera2D
 var menu_disabled : bool
+
+
 class UnloadedScene:
 	var scene : PackedScene
 	var scene_name : String
@@ -28,6 +30,7 @@ var scene_stack: Array[int] = []
 var current_scene : LoadedScene
 var in_game_menu_instance : Control
 
+
 func load_next_scene():
 	print("changing from scene ",current_scene.scene_name, " to ", unloaded_scenes[(current_scene.index+1) % unloaded_scenes.size()].scene_name )
 	load_scene_by_index((current_scene.index+1) % unloaded_scenes.size())
@@ -35,7 +38,6 @@ func load_next_scene():
 	
 func start_game():
 	load_scene_by_index(0)
-
 
 
 func go_back():
@@ -61,7 +63,6 @@ func load_scene_by_name(scene_name : String):
 
 
 func toggle_game_menu():
-	
 	if in_game_menu_instance != null and not menu_disabled:
 		if in_game_menu_instance.visible:
 			close_in_game_menu()
@@ -74,12 +75,13 @@ func open_in_game_menu():
 	in_game_menu_instance.visible = true
 	Engine.time_scale = 0.0
 	player.control_disabled = true
-	
-	
+
+
 func close_in_game_menu():
 	in_game_menu_instance.visible = false
 	Engine.time_scale = 1.0
 	player.control_disabled = false
+
 
 func load_main_menu():
 	var menu = UnloadedScene.new()
@@ -92,8 +94,6 @@ func load_main_menu():
 	music_manager.play_music(current_scene.scene_name)
 
 
-	
-	
 func load_scene_by_index( i :int):
 	if current_scene != null:
 		if scene_stack.is_empty() or scene_stack.back() != current_scene.index:
@@ -103,4 +103,3 @@ func load_scene_by_index( i :int):
 	current_scene = LoadedScene.new(unloaded_scenes[i],i)
 	add_sibling.call_deferred(current_scene.scene)
 	music_manager.play_music(current_scene.scene_name)
-	
