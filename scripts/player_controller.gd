@@ -43,7 +43,9 @@ var death_toll := 0
 
 
 func spawn() -> void:
+	
 	position = spawn_position
+	previous_pos = position
 	control_disabled = false
 	visible = true
 	mask = initial_mask
@@ -115,7 +117,7 @@ func finish_mask_change() -> void:
 
 
 func _should_crush(prev_pos: Array, curr_pos: Vector2, prev_vel: Array, vel: Vector2) -> bool:
-	if prev_pos.size() < 5:
+	if prev_pos.size() < 5 or previous_pos.x > 10000 or previous_pos.x < 10000:
 		return false
 	if vel.y < 200:
 		# Not falling fast enough
@@ -139,9 +141,9 @@ func jump_action():
 		print("should_jump ", Time.get_ticks_msec())
 	return jumping
 
-func _physics_process(delta: float) -> void:
-	if visible == false or Engine.time_scale == 0.0:
-		return
+
+func check_crushing():
+	
 	# We check if it's moving fast in a direction and still not moving much (Manu's method)
 	if previous_pos.distance_to(position) < min_displacement and not is_on_floor():
 		death_toll+=1
@@ -149,15 +151,24 @@ func _physics_process(delta: float) -> void:
 		death_toll = 0
 	if death_toll > 10:
 		print('manu death')
-		die()
-		return
+		return true
+		
 	previous_pos = position
 	# Check crushes (Marah's method)
 	if not is_on_floor() and _should_crush(previous_positions, position, previous_velocities, velocity):
-		die()
+		
 		print('marah death')
-		return
+		return true
+	return false
 
+func _physics_process(delta: float) -> void:
+	if visible == false or Engine.time_scale == 0.0:
+		return
+	if not control_disabled and check_crushing():
+		print("??")
+		die()
+		return
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta 
@@ -199,6 +210,7 @@ func _on_mask_pickup_got_mask(mask_number: int) -> void:
 func die() -> void:
 	control_disabled = true
 	visible = false
+	velocity = Vector2.ZERO
 	previous_positions.clear()
 	previous_velocities.clear()
 	DeathPlayer.play()
