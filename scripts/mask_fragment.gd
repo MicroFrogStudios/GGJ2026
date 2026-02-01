@@ -6,6 +6,7 @@ extends Node2D
 
 @onready var mask_collision_shape: CollisionShape2D = $MaskArea2D/CollisionShape2D
 @onready var mask_pickup_player = $MaskPickupPlayer
+@onready var EffectsAnimator = %EffectsAnimator
 
 var initial_position: Vector2
 var textbox_up := false
@@ -47,6 +48,7 @@ func _input(event: InputEvent) -> void:
 
 func _on_mask_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "PlayerCharacter":
+		EffectsAnimator.stop()
 		got_mask.emit(mask_number)
 		gc.menu_disabled = true
 		call_deferred("disable_mask")
