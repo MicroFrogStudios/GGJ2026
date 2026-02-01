@@ -7,6 +7,7 @@ extends Node
 var player : PlayerCharacter
 var camera: Camera2D
 var menu_disabled : bool
+var game_start_time: float
 
 
 class UnloadedScene:
@@ -37,6 +38,7 @@ func load_next_scene():
 
 	
 func start_game():
+	game_start_time = Time.get_ticks_msec() / 1000.0
 	load_scene_by_index(0)
 
 

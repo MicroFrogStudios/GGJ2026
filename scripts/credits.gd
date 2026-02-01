@@ -10,7 +10,7 @@ func _on_quitbutton_pressed() -> void:
 
 
 func _ready() -> void:
-	var time_secs = Time.get_ticks_msec() / 1000.0
+	var time_secs = Time.get_ticks_msec() / 1000.0 - gc.game_start_time
 	if time_secs < 59*60:
 		var minutes = int(time_secs) / 60
 		var seconds = int(time_secs) % 60
