@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var VictoryPlayer = $VictoryPlayer
 @onready var DeathPlayer = $DeathPlayer
 @onready var MaskChangePlayer = $MaskChangePlayer
+@onready var state_machine: StateMachine = $State_Machine
 
 
 @export var speed := 150.0
@@ -216,6 +217,6 @@ func _on_death_plane_body_entered(body: Node2D) -> void:
 
 func _on_exit_door_player_reached_exit() -> void:
 	control_disabled = true
-	going_into_door = true
+	state_machine.on_state_transition(BowState.Name())
 	VictoryPlayer.play()
-	PlayerAnimations.play("enter_door")
+	

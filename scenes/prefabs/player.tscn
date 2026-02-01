@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://berep5kp3fknt" path="res://scripts/animStates/turn_state.gd" id="7_50rl7"]
 [ext_resource type="Script" uid="uid://bd0mlvbn2uc4j" path="res://scripts/animStates/look_up_state.gd" id="8_gx6q2"]
 [ext_resource type="Script" uid="uid://b6mrerfusb52y" path="res://scripts/animStates/jump_state.gd" id="8_oqq3r"]
+[ext_resource type="Script" uid="uid://c4a8536ly6b4n" path="res://scripts/animStates/bow_state.gd" id="9_mgyw5"]
 [ext_resource type="AudioStream" uid="uid://xa6gidqhxsb5" path="res://assets/sounds/victory.mp3" id="10_50rl7"]
 [ext_resource type="AudioStream" uid="uid://bsrsnh8a4ladg" path="res://assets/sounds/lose.mp3" id="11_oqq3r"]
 [ext_resource type="AudioStream" uid="uid://dmpk02mcfojmh" path="res://assets/sounds/mask change 1.mp3" id="12_1a8bf"]
@@ -241,6 +242,10 @@ metadata/_custom_type_script = "uid://vy31el0p8pfe"
 script = ExtResource("8_gx6q2")
 metadata/_custom_type_script = "uid://vy31el0p8pfe"
 
+[node name="bow" type="Node" parent="State_Machine" unique_id=825803056]
+script = ExtResource("9_mgyw5")
+metadata/_custom_type_script = "uid://vy31el0p8pfe"
+
 [node name="jump" type="Node" parent="State_Machine" unique_id=516404932]
 script = ExtResource("8_oqq3r")
 metadata/_custom_type_script = "uid://vy31el0p8pfe"
@@ -256,7 +261,7 @@ shape = SubResource("CapsuleShape2D_8cdkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=810608017]
 sprite_frames = ExtResource("2_tou0u")
-animation = &"idle"
+animation = &"bow"
 autoplay = "idle"
 
 [node name="CrushHitbox" type="Area2D" parent="." unique_id=1686012330]
