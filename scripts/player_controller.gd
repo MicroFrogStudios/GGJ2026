@@ -40,7 +40,7 @@ var previous_velocities := [] # Velocity for past 5 frames
 var previous_pos := Vector2.ZERO
 var min_displacement := 1.0
 var death_toll := 0
-
+var pausing_enabled = true
 
 func spawn() -> void:
 	
@@ -73,7 +73,7 @@ func on_animation_finish():
 func _input(event: InputEvent) -> void:
 	# Process mask related inputs
 	
-	if event.is_action_pressed("gotoingamemenu"):
+	if event.is_action_pressed("gotoingamemenu") and pausing_enabled:
 		print("menu")
 		gc.toggle_game_menu()
 	if num_masks == 0:

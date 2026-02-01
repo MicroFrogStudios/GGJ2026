@@ -103,7 +103,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../settingsbutton")
+focus_neighbor_top = NodePath("../quitbutton")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../settingsbutton")
 shortcut_context = NodePath(".")
@@ -119,7 +119,6 @@ text = "START"
 alignment = 0
 
 [node name="quitbutton" type="Button" parent="menu" unique_id=1078697102]
-visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 7
@@ -167,7 +166,7 @@ size_flags_vertical = 3
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../startbutton")
 focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../startbutton")
+focus_neighbor_bottom = NodePath("../quitbutton")
 theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_u4trl")

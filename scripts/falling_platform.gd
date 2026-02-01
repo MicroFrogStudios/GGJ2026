@@ -48,9 +48,10 @@ func _physics_process(delta: float) -> void:
 func _on_area_2d_body_entered(_body: Node2D) -> void:
 	if _body.name == "PlayerCharacter":
 		is_descending = true
-
+		player.pausing_enabled = false
 
 
 func _on_area_2d_body_exited(_body: Node2D) -> void:
 	if _body.name == "PlayerCharacter":
 		is_descending = false
+		player.pausing_enabled = true
