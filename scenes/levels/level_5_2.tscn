@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://s6jgpvyxe42i" path="res://scenes/levels/LevelBoilerplate.tscn" id="1_ckvfi"]
 [ext_resource type="PackedScene" uid="uid://irneoprycv0" path="res://scenes/prefabs/trampolin.tscn" id="2_i2ply"]
 [ext_resource type="AudioStream" uid="uid://b3y6vwd34vasi" path="res://assets/sounds/secret.mp3" id="4_a1sre"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/giratronchos.tscn" id="4_r5n2q"]
+[ext_resource type="PackedScene" uid="uid://ckmw8vdbylbty" path="res://scenes/prefabs/giratronchos.tscn" id="4_r5n2q"]
 [ext_resource type="Texture2D" uid="uid://c76r58vt3xmf0" path="res://assets/sprites/props/hand.png" id="5_1b06o"]
 [ext_resource type="Script" uid="uid://bjgcyy86u5jw8" path="res://scripts/secret_nook.gd" id="5_qvloo"]
-[ext_resource type="Script" path="res://scripts/hand.gd" id="6_1b06o"]
+[ext_resource type="Script" uid="uid://bunnoml5mv1cc" path="res://scripts/hand.gd" id="6_1b06o"]
 [ext_resource type="Texture2D" uid="uid://ca2t7ns6220hf" path="res://assets/sprites/props/mano2.png" id="7_mjsmt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r5n2q"]
@@ -18,7 +18,7 @@ position = Vector2(318, -98)
 initial_num_masks = 1
 
 [node name="ExitDoor" parent="." index="2" unique_id=45997899]
-z_index = 9
+z_index = 6
 position = Vector2(-139, -313)
 
 [node name="CameraFollow" parent="." index="3" unique_id=467601528]
