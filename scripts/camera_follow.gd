@@ -6,7 +6,7 @@ extends Camera2D
 @export var effects : AnimationPlayer
 
 var initial_center : Vector2
-
+var look_offset := 0.0
 
 func _ready() -> void:
 	initial_center = get_screen_center_position()
@@ -15,4 +15,4 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if following.position.y < 100:
-		position = position.lerp(following.position - Vector2(0, 10), follow_speed*delta)
+		position = position.lerp(following.position - Vector2(0, 10 + look_offset ), follow_speed*delta)

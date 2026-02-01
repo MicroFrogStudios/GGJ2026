@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://c0uoxcnvkmi8j" path="res://scripts/animStates/fall_state.gd" id="5_6o77n"]
 [ext_resource type="Script" uid="uid://dewund8rpfgtb" path="res://scripts/animStates/land_state.gd" id="6_jybep"]
 [ext_resource type="Script" uid="uid://berep5kp3fknt" path="res://scripts/animStates/turn_state.gd" id="7_50rl7"]
+[ext_resource type="Script" uid="uid://bd0mlvbn2uc4j" path="res://scripts/animStates/look_up_state.gd" id="8_gx6q2"]
 [ext_resource type="Script" uid="uid://b6mrerfusb52y" path="res://scripts/animStates/jump_state.gd" id="8_oqq3r"]
 [ext_resource type="AudioStream" uid="uid://xa6gidqhxsb5" path="res://assets/sounds/victory.mp3" id="10_50rl7"]
 [ext_resource type="AudioStream" uid="uid://bsrsnh8a4ladg" path="res://assets/sounds/lose.mp3" id="11_oqq3r"]
@@ -234,6 +235,10 @@ metadata/_custom_type_script = "uid://vy31el0p8pfe"
 
 [node name="turn" type="Node" parent="State_Machine" unique_id=816466812]
 script = ExtResource("7_50rl7")
+metadata/_custom_type_script = "uid://vy31el0p8pfe"
+
+[node name="look_up" type="Node" parent="State_Machine" unique_id=13162350]
+script = ExtResource("8_gx6q2")
 metadata/_custom_type_script = "uid://vy31el0p8pfe"
 
 [node name="jump" type="Node" parent="State_Machine" unique_id=516404932]

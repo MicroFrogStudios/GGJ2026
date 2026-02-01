@@ -98,3 +98,15 @@ z_index = 3
 position = Vector2(1249, -979)
 scale = Vector2(-1, 1)
 texture = ExtResource("7_v7ucw")
+
+[node name="LargeCloud4" type="Sprite2D" parent="." index="23" unique_id=1652352840]
+z_index = 3
+position = Vector2(1246, -1253)
+scale = Vector2(-1, 1)
+texture = ExtResource("7_v7ucw")
+
+[node name="LargeCloud3" type="Sprite2D" parent="." index="24" unique_id=1203097666]
+z_index = 3
+position = Vector2(1249, -799)
+scale = Vector2(-1, -1)
+texture = ExtResource("7_v7ucw")
