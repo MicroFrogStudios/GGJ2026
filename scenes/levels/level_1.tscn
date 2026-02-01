@@ -14,7 +14,7 @@ position = Vector2(40, -96)
 mask_texture = ExtResource("3_nsrm0")
 
 [node name="PlayerCharacter" parent="." index="1" unique_id=614979792]
-position = Vector2(-240, -87)
+position = Vector2(-246, -77)
 initial_num_masks = 0
 
 [node name="ExitDoor" parent="." index="3" unique_id=45997899]
