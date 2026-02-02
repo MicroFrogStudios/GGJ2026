@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://cc4bjxe2aebir" path="res://scripts/ripple_layer.gd" id="11_oscf3"]
 [ext_resource type="Script" uid="uid://cqrqlox711lqp" path="res://scripts/water_layer.gd" id="13_blw4j"]
 [ext_resource type="Shader" uid="uid://fv4s56mmwbu0" path="res://shaders/background.gdshader" id="14_blw4j"]
+[ext_resource type="PackedScene" path="res://scenes/mobileUI.tscn" id="14_i6amu"]
 [ext_resource type="Script" uid="uid://f4kp6uffnpjw" path="res://scripts/ParallaxedSprite2D.gd" id="14_kmyen"]
 [ext_resource type="PackedScene" uid="uid://chwpqvvn2qen8" path="res://scenes/in_game_menu.tscn" id="18_yvj1e"]
 
@@ -288,6 +289,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="mobileUI" parent="CameraFollow" unique_id=145118504 instance=ExtResource("14_i6amu")]
 
 [node name="DeathPlane" type="Area2D" parent="." unique_id=20074737]
 position = Vector2(0, -143)

@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://mwl77uh3vdis"]
 
 [ext_resource type="PackedScene" uid="uid://s6jgpvyxe42i" path="res://scenes/levels/LevelBoilerplate.tscn" id="1_j2425"]
-[ext_resource type="PackedScene" uid="uid://1k0c1utudokr" path="res://scenes/mobileUI.tscn" id="2_g2h2n"]
 
 [node name="Level2" unique_id=1082980837 instance=ExtResource("1_j2425")]
 
@@ -18,8 +17,6 @@ unique_name_in_owner = true
 [node name="BackgroundStars" parent="CameraFollow" index="1" unique_id=1804315535]
 offset_top = -547.0
 offset_bottom = 219.0
-
-[node name="mobileUI" parent="CameraFollow" index="7" unique_id=145118504 instance=ExtResource("2_g2h2n")]
 
 [node name="BkParallaxLayer" parent="." index="5" unique_id=1000589127]
 position = Vector2(0, 40)
