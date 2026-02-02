@@ -18,6 +18,7 @@ offset_top = -10.0
 offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.8, 0.8)
 script = ExtResource("1_u001w")
 ui_mask_pos = Array[float]([-0.685, 27.315, 55.315])
 
