@@ -10,9 +10,11 @@ var ignore_first_focus := true
 func _ready() -> void:
 	start_button.grab_focus.call_deferred()
 	var is_mobile = OS.has_feature("web_ios") or OS.has_feature("web_android")
+	var is_web = OS.has_feature("web")
 	if is_mobile:
 		$menu/settingsbutton.visible = false
-	
+	if is_web or is_mobile:
+		$menu/quitbutton.visible = false
 
 
 func _on_startbutton_pressed() -> void:

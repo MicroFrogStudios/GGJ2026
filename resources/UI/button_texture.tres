@@ -1,9 +1,8 @@
 [gd_resource type="StyleBoxTexture" format=3 uid="uid://kwnck02bs6kc"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3nht0"]
-load_path = "res://.godot/imported/button_unselected.png-3103f9543bca6f789e2bd61d85cd90cb.ctex"
+[ext_resource type="Texture2D" uid="uid://bbgon7kavyf03" path="res://assets/sprites/ui/button_unselected_slim.png" id="1_w1nq6"]
 
 [resource]
 content_margin_left = 32.0
 content_margin_top = 1.0
-texture = SubResource("CompressedTexture2D_3nht0")
+texture = ExtResource("1_w1nq6")
