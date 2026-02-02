@@ -1,8 +1,8 @@
 extends Node
 
 
-@export var level_scenes :Array[PackedScene]
-@export var main_menu: PackedScene
+@export var level_scenes : Array[PackedScene]
+@export var main_menu : PackedScene
 
 var player : PlayerCharacter
 var camera: Camera2D

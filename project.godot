@@ -14,7 +14,6 @@ config/name="GGJ2026"
 run/main_scene="uid://8p60k8lsrg43"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/show_image=false
-config/icon="res://icon.svg"
 
 [audio]
 
@@ -38,6 +37,12 @@ window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/stretch/scale_mode="integer"
+
+[file_customization]
+
+folder_colors={
+"res://ui/": "green"
+}
 
 [importer_defaults]
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://8w7afaj0bia6"]
 
-[ext_resource type="StyleBox" uid="uid://ded5p2rkypovp" path="res://resources/UI/style_wacky.tres" id="1_g3w80"]
+[ext_resource type="StyleBox" uid="uid://ded5p2rkypovp" path="res://ui/common_styles/style_wacky.tres" id="1_g3w80"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ue4lf"]
 bg_color = Color(0.8777911, 0.8662518, 0.8478691, 1)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://1td4xexuhrpx"]
 
 [ext_resource type="Script" uid="uid://cgymwu5efhc8x" path="res://scripts/settings.gd" id="1_11g0c"]
-[ext_resource type="StyleBox" uid="uid://ded5p2rkypovp" path="res://resources/UI/style_wacky.tres" id="3_qmc1g"]
+[ext_resource type="StyleBox" uid="uid://ded5p2rkypovp" path="res://ui/common_styles/style_wacky.tres" id="3_qmc1g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alora"]
 bg_color = Color(0.93761474, 0.8472896, 0.8027698, 1)
