@@ -38,7 +38,7 @@ func load_next_scene():
 
 	
 func start_game():
-	game_start_time = Time.get_ticks_msec() / 1000.0
+	game_start_time = Time.get_ticks_msec()
 	load_scene_by_index(0)
 
 

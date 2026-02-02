@@ -406,11 +406,12 @@ offset_bottom = 31.0
 [node name="Timer" type="Label" parent="Control3" unique_id=757444346]
 layout_mode = 0
 offset_left = 29.0
-offset_top = 4.0
+offset_top = 5.0
 offset_right = 90.0
-offset_bottom = 27.0
+offset_bottom = 28.0
 theme_override_fonts/font = ExtResource("4_is8mj")
-text = "Time"
+theme_override_font_sizes/font_size = 15
+text = "1:37.148"
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Control3" unique_id=514149855]
