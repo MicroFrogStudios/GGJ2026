@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://dgcoayaa3hlp"]
 
 [ext_resource type="PackedScene" uid="uid://s6jgpvyxe42i" path="res://scenes/levels/LevelBoilerplate.tscn" id="1_yyq07"]
+[ext_resource type="PackedScene" uid="uid://1k0c1utudokr" path="res://scenes/mobileUI.tscn" id="2_0qepi"]
 [ext_resource type="Texture2D" uid="uid://q36ty3m2nmdf" path="res://assets/sprites/Nube02.png" id="2_44gv1"]
 [ext_resource type="PackedScene" uid="uid://b1lcbr0youxog" path="res://scenes/prefabs/cagePlataform.tscn" id="3_0ljxa"]
 
@@ -13,6 +14,8 @@ initial_mask = 1
 
 [node name="ExitDoor" parent="." index="2" unique_id=45997899]
 position = Vector2(285, -181)
+
+[node name="mobileUI" parent="CameraFollow" parent_id_path=PackedInt32Array(467601528) index="7" unique_id=145118504 instance=ExtResource("2_0qepi")]
 
 [node name="BkParallaxLayer" parent="." index="5" unique_id=1000589127]
 position = Vector2(0, 75)

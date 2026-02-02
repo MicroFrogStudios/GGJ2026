@@ -49,6 +49,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 2
+mouse_filter = 2
 script = ExtResource("1_bqqt6")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=1044005413]
@@ -56,6 +57,7 @@ top_level = true
 layout_mode = 0
 offset_right = 320.0
 offset_bottom = 180.0
+mouse_filter = 2
 border_color = Color(1, 1, 1, 1)
 
 [node name="background" type="Panel" parent="." unique_id=636931330]
@@ -72,6 +74,7 @@ grow_horizontal = 2
 grow_vertical = 2
 rotation = 0.25830874
 scale = Vector2(1.565, 1.565)
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_ekxnf")
 
 [node name="menu" type="Control" parent="." unique_id=535861192]
@@ -87,8 +90,10 @@ offset_right = -32.0
 offset_bottom = 63.0
 grow_horizontal = 0
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="startbutton" type="Button" parent="menu" unique_id=814977984 node_paths=PackedStringArray("shortcut_context")]
+clip_contents = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -120,6 +125,7 @@ alignment = 0
 
 [node name="quitbutton" type="Button" parent="menu" unique_id=1078697102]
 z_index = 1
+clip_contents = true
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -192,6 +198,7 @@ offset_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 2
+mouse_filter = 2
 theme = SubResource("Theme_81rgk")
 script = ExtResource("6_7rblo")
 
@@ -301,6 +308,7 @@ offset_right = -52.0
 offset_bottom = -34.0
 grow_horizontal = 0
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="titleUi" unique_id=3396774]
 layout_mode = 0
@@ -373,6 +381,7 @@ volume_db = 18.0
 bus = &"Music"
 
 [connection signal="focus_entered" from="menu/startbutton" to="." method="_on_focus_entered"]
+[connection signal="gui_input" from="menu/startbutton" to="." method="_on_startbutton_gui_input"]
 [connection signal="pressed" from="menu/startbutton" to="." method="_on_startbutton_pressed"]
 [connection signal="focus_entered" from="menu/quitbutton" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="menu/quitbutton" to="." method="_on_quitbutton_pressed"]

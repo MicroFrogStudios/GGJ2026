@@ -9,6 +9,9 @@ var ignore_first_focus := true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	start_button.grab_focus.call_deferred()
+	var is_mobile = OS.has_feature("mobile")
+	if is_mobile:
+		$menu/settingsbutton.visible = false
 	
 
 
