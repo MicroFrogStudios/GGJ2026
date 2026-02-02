@@ -1,29 +1,29 @@
-[gd_scene format=3 uid="uid://c316m6ovwsluh"]
+[gd_scene format=3 uid="uid://cafco6h1f0x38"]
 
-[ext_resource type="Script" uid="uid://cjt67v6p6myp7" path="res://scripts/main_menu.gd" id="1_bqqt6"]
-[ext_resource type="Shader" path="res://shaders/mainmenubg.gdshader" id="2_4oe1x"]
-[ext_resource type="Texture2D" uid="uid://w1m7nig1pxpr" path="res://assets/sprites/ui/ticke_background_main.png" id="2_7rblo"]
-[ext_resource type="StyleBox" uid="uid://kwnck02bs6kc" path="res://resources/UI/button_texture.tres" id="3_orblh"]
-[ext_resource type="FontFile" uid="uid://b7v3dl24ymbhe" path="res://assets/fonts/PixelifySans-Regular.ttf" id="3_u4trl"]
-[ext_resource type="StyleBox" uid="uid://cpve10neqqcwg" path="res://resources/UI/button_hover_texture.tres" id="4_u4trl"]
-[ext_resource type="Script" uid="uid://cgymwu5efhc8x" path="res://scripts/settings.gd" id="6_7rblo"]
-[ext_resource type="Texture2D" uid="uid://415ws56bm4n4" path="res://assets/sprites/ui/zanni_logo_circle.png" id="6_81rgk"]
-[ext_resource type="FontFile" uid="uid://c4g6ehyj6nv4k" path="res://assets/fonts/PixelifySans-Medium.ttf" id="6_ov3pg"]
-[ext_resource type="SpriteFrames" uid="uid://5ug0cmtd2htl" path="res://resources/animations/zanni_animations.tres" id="7_a6001"]
-[ext_resource type="Texture2D" uid="uid://e0hfqpx5pxvf" path="res://assets/sprites/ui/zanni_logo_band.png" id="8_orblh"]
-[ext_resource type="Texture2D" uid="uid://c7yy16lrd7app" path="res://assets/sprites/ui/ticket_shade.png" id="12_4oe1x"]
-[ext_resource type="Texture2D" uid="uid://css1qblbva2in" path="res://assets/sprites/ui/ticket.png" id="13_rm5il"]
-[ext_resource type="AudioStream" uid="uid://bn5v1oeifgel4" path="res://assets/sounds/Menu change maybe.mp3" id="14_rm5il"]
+[ext_resource type="Script" uid="uid://cjt67v6p6myp7" path="res://scripts/main_menu.gd" id="1_u3j80"]
+[ext_resource type="Shader" path="res://shaders/mainmenubg.gdshader" id="2_1lq2u"]
+[ext_resource type="Texture2D" uid="uid://w1m7nig1pxpr" path="res://assets/sprites/ui/ticke_background_main.png" id="3_lbr30"]
+[ext_resource type="FontFile" uid="uid://b7v3dl24ymbhe" path="res://assets/fonts/PixelifySans-Regular.ttf" id="4_acd6r"]
+[ext_resource type="StyleBox" uid="uid://kwnck02bs6kc" path="res://resources/UI/button_texture.tres" id="5_gjr0m"]
+[ext_resource type="StyleBox" uid="uid://cpve10neqqcwg" path="res://resources/UI/button_hover_texture.tres" id="6_dyptl"]
+[ext_resource type="FontFile" uid="uid://c4g6ehyj6nv4k" path="res://assets/fonts/PixelifySans-Medium.ttf" id="7_sd15a"]
+[ext_resource type="Script" uid="uid://cgymwu5efhc8x" path="res://scripts/settings.gd" id="8_5m5qi"]
+[ext_resource type="Texture2D" uid="uid://415ws56bm4n4" path="res://assets/sprites/ui/zanni_logo_circle.png" id="9_po1a2"]
+[ext_resource type="SpriteFrames" uid="uid://5ug0cmtd2htl" path="res://resources/animations/zanni_animations.tres" id="10_x65qc"]
+[ext_resource type="Texture2D" uid="uid://e0hfqpx5pxvf" path="res://assets/sprites/ui/zanni_logo_band.png" id="11_nqxqs"]
+[ext_resource type="Texture2D" uid="uid://c7yy16lrd7app" path="res://assets/sprites/ui/ticket_shade.png" id="12_d5u56"]
+[ext_resource type="Texture2D" uid="uid://css1qblbva2in" path="res://assets/sprites/ui/ticket.png" id="13_2amfk"]
+[ext_resource type="AudioStream" uid="uid://bn5v1oeifgel4" path="res://assets/sounds/Menu change maybe.mp3" id="14_aul1s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rm5il"]
-shader = ExtResource("2_4oe1x")
+shader = ExtResource("2_1lq2u")
 shader_parameter/scroll_speed = Vector2(0.1, 0)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekxnf"]
-texture = ExtResource("2_7rblo")
+texture = ExtResource("3_lbr30")
 
 [sub_resource type="Theme" id="Theme_81rgk"]
-default_font = ExtResource("6_ov3pg")
+default_font = ExtResource("7_sd15a")
 
 [sub_resource type="DPITexture" id="DPITexture_5ywnx"]
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\" fill-opacity=\".75\"/></svg>
@@ -50,7 +50,7 @@ grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 2
 mouse_filter = 2
-script = ExtResource("1_bqqt6")
+script = ExtResource("1_u3j80")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=1044005413]
 top_level = true
@@ -114,12 +114,12 @@ focus_neighbor_bottom = NodePath("../settingsbutton")
 shortcut_context = NodePath(".")
 theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_u4trl")
+theme_override_fonts/font = ExtResource("4_acd6r")
 theme_override_font_sizes/font_size = 12
-theme_override_styles/normal = ExtResource("3_orblh")
-theme_override_styles/pressed = ExtResource("4_u4trl")
-theme_override_styles/hover = ExtResource("4_u4trl")
-theme_override_styles/focus = ExtResource("4_u4trl")
+theme_override_styles/normal = ExtResource("5_gjr0m")
+theme_override_styles/pressed = ExtResource("6_dyptl")
+theme_override_styles/hover = ExtResource("6_dyptl")
+theme_override_styles/focus = ExtResource("6_dyptl")
 text = "START"
 alignment = 0
 
@@ -146,12 +146,12 @@ focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../startbutton")
 theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_u4trl")
+theme_override_fonts/font = ExtResource("4_acd6r")
 theme_override_font_sizes/font_size = 12
-theme_override_styles/normal = ExtResource("3_orblh")
-theme_override_styles/pressed = ExtResource("4_u4trl")
-theme_override_styles/hover = ExtResource("4_u4trl")
-theme_override_styles/focus = ExtResource("4_u4trl")
+theme_override_styles/normal = ExtResource("5_gjr0m")
+theme_override_styles/pressed = ExtResource("6_dyptl")
+theme_override_styles/hover = ExtResource("6_dyptl")
+theme_override_styles/focus = ExtResource("6_dyptl")
 text = "QUIT"
 alignment = 0
 
@@ -176,12 +176,12 @@ focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../startbutton")
 theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_u4trl")
+theme_override_fonts/font = ExtResource("4_acd6r")
 theme_override_font_sizes/font_size = 12
-theme_override_styles/normal = ExtResource("3_orblh")
-theme_override_styles/pressed = ExtResource("4_u4trl")
-theme_override_styles/hover = ExtResource("4_u4trl")
-theme_override_styles/focus = ExtResource("4_u4trl")
+theme_override_styles/normal = ExtResource("5_gjr0m")
+theme_override_styles/pressed = ExtResource("6_dyptl")
+theme_override_styles/hover = ExtResource("6_dyptl")
+theme_override_styles/focus = ExtResource("6_dyptl")
 text = "SETTINGS"
 alignment = 0
 
@@ -201,7 +201,7 @@ grow_vertical = 2
 focus_mode = 2
 mouse_filter = 2
 theme = SubResource("Theme_81rgk")
-script = ExtResource("6_7rblo")
+script = ExtResource("8_5m5qi")
 
 [node name="quitbutton" type="Button" parent="Settings" unique_id=1658256264]
 z_index = 1
@@ -227,10 +227,10 @@ theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.00
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 10
-theme_override_styles/normal = ExtResource("3_orblh")
-theme_override_styles/pressed = ExtResource("4_u4trl")
-theme_override_styles/hover = ExtResource("4_u4trl")
-theme_override_styles/focus = ExtResource("4_u4trl")
+theme_override_styles/normal = ExtResource("5_gjr0m")
+theme_override_styles/pressed = ExtResource("6_dyptl")
+theme_override_styles/hover = ExtResource("6_dyptl")
+theme_override_styles/focus = ExtResource("6_dyptl")
 action_mode = 0
 text = "BACK"
 alignment = 0
@@ -317,13 +317,13 @@ offset_left = -8.0
 offset_right = 116.0
 offset_bottom = 96.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_81rgk")
+texture = ExtResource("9_po1a2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="titleUi" unique_id=121649651]
 position = Vector2(22, 16)
 rotation = 3.1415927
 scale = Vector2(2.1, -2.1)
-sprite_frames = ExtResource("7_a6001")
+sprite_frames = ExtResource("10_x65qc")
 animation = &"idle"
 autoplay = "idle"
 
@@ -334,7 +334,7 @@ offset_top = 24.0
 offset_right = 160.0
 offset_bottom = 78.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("8_orblh")
+texture = ExtResource("11_nqxqs")
 
 [node name="ticket2shadow" type="TextureRect" parent="." unique_id=275843282]
 modulate = Color(1, 1, 1, 0.56078434)
@@ -345,7 +345,7 @@ offset_right = 398.45
 offset_bottom = 261.0
 rotation = 0.5235988
 scale = Vector2(0.29, 0.29)
-texture = ExtResource("12_4oe1x")
+texture = ExtResource("12_d5u56")
 
 [node name="ticket2" type="TextureRect" parent="." unique_id=377322007]
 layout_mode = 0
@@ -355,7 +355,7 @@ offset_right = 398.45
 offset_bottom = 260.0
 rotation = 0.5235988
 scale = Vector2(0.29, 0.29)
-texture = ExtResource("13_rm5il")
+texture = ExtResource("13_2amfk")
 
 [node name="ticketshadow" type="TextureRect" parent="." unique_id=1031389623]
 modulate = Color(1, 1, 1, 0.6627451)
@@ -365,7 +365,7 @@ offset_top = 58.5
 offset_right = 406.45
 offset_bottom = 268.5
 scale = Vector2(0.29, 0.29)
-texture = ExtResource("12_4oe1x")
+texture = ExtResource("12_d5u56")
 
 [node name="ticket" type="TextureRect" parent="." unique_id=619283797]
 layout_mode = 0
@@ -374,10 +374,10 @@ offset_top = 58.0
 offset_right = 406.45
 offset_bottom = 268.0
 scale = Vector2(0.29, 0.29)
-texture = ExtResource("13_rm5il")
+texture = ExtResource("13_2amfk")
 
 [node name="ChangeOptionPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1576629998]
-stream = ExtResource("14_rm5il")
+stream = ExtResource("14_aul1s")
 volume_db = 18.0
 bus = &"Music"
 
