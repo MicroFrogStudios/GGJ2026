@@ -1,0 +1,38 @@
+[gd_scene format=4 uid="uid://br2krxjtxj6yf"]
+
+[ext_resource type="TileSet" uid="uid://d2courmo8ldu5" path="res://levels/tilesets/level_main_tileset.tres" id="1_cy6x6"]
+[ext_resource type="Script" uid="uid://cgsw3ray67tj" path="res://entities/falling_platform/falling_platform.gd" id="1_kksu8"]
+[ext_resource type="Script" uid="uid://cqfbx47wt6d28" path="res://levels/scripts/masked_layer.gd" id="2_kksu8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5sx4"]
+size = Vector2(56, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kksu8"]
+size = Vector2(56, 7)
+
+[node name="FallingPlatform" type="Node2D" unique_id=1737989580]
+script = ExtResource("1_kksu8")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=101487640]
+platform_on_leave = 2
+
+[node name="MaskedTileMapLayer" type="TileMapLayer" parent="CharacterBody2D" unique_id=121199145]
+position = Vector2(0, 15)
+tile_map_data = PackedByteArray("AAD8//7/FwAAAAEAAAD8////FwAAAAIAAAD9//7/FwABAAEAAAD9////FwABAAIAAAD+//7/FwACAAEAAAD+////FwACAAIAAAD///7/FwADAAEAAAD/////FwADAAIAAAAAAP7/FwAEAAEAAAAAAP//FwAEAAIAAAABAP7/FwAFAAEAAAABAP//FwAFAAIAAAACAP7/FwAGAAEAAAACAP//FwAGAAIAAAADAP7/FwAHAAEAAAADAP//FwAHAAIAAAA=")
+tile_set = ExtResource("1_cy6x6")
+collision_enabled = false
+script = ExtResource("2_kksu8")
+metadata/_custom_type_script = "uid://cqfbx47wt6d28"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1354902181]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_b5sx4")
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D" unique_id=860411637]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D" unique_id=1398727515]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_kksu8")
+
+[connection signal="body_entered" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_body_exited"]

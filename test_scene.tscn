@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://c2mqu2eewf8j"]
 
-[ext_resource type="PackedScene" uid="uid://s6jgpvyxe42i" path="res://scenes/levels/LevelBoilerplate.tscn" id="1_coq8p"]
-[ext_resource type="Script" uid="uid://dvmkjcuu4vlvu" path="res://scripts/multimaskedtilemap.gd" id="2_2nij2"]
-[ext_resource type="TileSet" uid="uid://0ri8qrel1dpj" path="res://resources/tilesets/testtileset.tres" id="3_7cbxl"]
-[ext_resource type="Script" uid="uid://cqfbx47wt6d28" path="res://scripts/masked_layer.gd" id="4_8pr8v"]
+[ext_resource type="PackedScene" uid="uid://s6jgpvyxe42i" path="res://levels/level_boilerplate.tscn" id="1_coq8p"]
+[ext_resource type="Script" uid="uid://dvmkjcuu4vlvu" path="res://levels/scripts/multimaskedtilemap.gd" id="2_2nij2"]
+[ext_resource type="TileSet" path="res://resources/tilesets/testtileset.tres" id="3_7cbxl"]
+[ext_resource type="Script" uid="uid://cqfbx47wt6d28" path="res://levels/scripts/masked_layer.gd" id="4_8pr8v"]
 
 [node name="Node2D" type="Node2D" unique_id=2059743683]
 

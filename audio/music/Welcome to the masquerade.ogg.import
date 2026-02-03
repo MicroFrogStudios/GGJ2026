@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cppi78i753tfd"
+path="res://.godot/imported/Welcome to the masquerade.ogg-b187cad38765a1ddc3c8db86264990c9.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/music/Welcome to the masquerade.ogg"
+dest_files=["res://.godot/imported/Welcome to the masquerade.ogg-b187cad38765a1ddc3c8db86264990c9.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

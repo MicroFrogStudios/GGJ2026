@@ -1,0 +1,397 @@
+[gd_scene format=3 uid="uid://c316m6ovwsluh"]
+
+[ext_resource type="Script" uid="uid://cjt67v6p6myp7" path="res://ui/main_menu/main_menu.gd" id="1_mxi6j"]
+[ext_resource type="Shader" uid="uid://b143h52c056mq" path="res://ui/mainmenubg.gdshader" id="2_ri52i"]
+[ext_resource type="Texture2D" uid="uid://w1m7nig1pxpr" path="res://ui/common_sprites/ticke_background_main.png" id="3_41v8r"]
+[ext_resource type="FontFile" uid="uid://b7v3dl24ymbhe" path="res://ui/common_styles/fonts/PixelifySans-Regular.ttf" id="4_rpuge"]
+[ext_resource type="StyleBox" uid="uid://kwnck02bs6kc" path="res://ui/common_styles/button_texture.tres" id="5_g6byf"]
+[ext_resource type="StyleBox" uid="uid://cpve10neqqcwg" path="res://ui/common_styles/button_hover_texture.tres" id="6_mtbbs"]
+[ext_resource type="FontFile" uid="uid://c4g6ehyj6nv4k" path="res://ui/common_styles/fonts/PixelifySans-Medium.ttf" id="7_8gpns"]
+[ext_resource type="Script" uid="uid://cgymwu5efhc8x" path="res://ui/common_scripts/settings.gd" id="8_7666j"]
+[ext_resource type="Texture2D" uid="uid://415ws56bm4n4" path="res://ui/common_sprites/zanni_logo_circle.png" id="9_a8fpu"]
+[ext_resource type="SpriteFrames" uid="uid://5ug0cmtd2htl" path="res://entities/zanni/animations/zanni_animations.tres" id="10_q14ff"]
+[ext_resource type="Texture2D" uid="uid://e0hfqpx5pxvf" path="res://ui/common_sprites/zanni_logo_band.png" id="11_6xukp"]
+[ext_resource type="Texture2D" uid="uid://c7yy16lrd7app" path="res://ui/common_sprites/ticket_shade.png" id="12_vo4u1"]
+[ext_resource type="Texture2D" uid="uid://css1qblbva2in" path="res://ui/common_sprites/ticket.png" id="13_a2q1h"]
+[ext_resource type="AudioStream" uid="uid://bn5v1oeifgel4" path="res://audio/sounds/Menu change maybe.mp3" id="14_6md5t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rm5il"]
+shader = ExtResource("2_ri52i")
+shader_parameter/scroll_speed = Vector2(0.1, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekxnf"]
+texture = ExtResource("3_41v8r")
+
+[sub_resource type="Theme" id="Theme_81rgk"]
+default_font = ExtResource("7_8gpns")
+
+[sub_resource type="DPITexture" id="DPITexture_5ywnx"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\" fill-opacity=\".75\"/></svg>
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4oe1x"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 1
+
+[node name="MainMenu" type="Control" unique_id=1798618166]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+mouse_filter = 2
+script = ExtResource("1_mxi6j")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=1044005413]
+top_level = true
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+mouse_filter = 2
+border_color = Color(1, 1, 1, 1)
+
+[node name="background" type="Panel" parent="." unique_id=636931330]
+material = SubResource("ShaderMaterial_rm5il")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -31.999998
+offset_top = -112.0
+offset_right = -32.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.25830874
+scale = Vector2(1.565, 1.565)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ekxnf")
+
+[node name="menu" type="Control" parent="." unique_id=535861192]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = 23.0
+offset_right = -32.0
+offset_bottom = 63.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="startbutton" type="Button" parent="menu" unique_id=814977984 node_paths=PackedStringArray("shortcut_context")]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -63.0
+offset_right = 32.0
+offset_bottom = -29.7
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../settingsbutton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../settingsbutton")
+shortcut_context = NodePath(".")
+theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_rpuge")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = ExtResource("5_g6byf")
+theme_override_styles/pressed = ExtResource("6_mtbbs")
+theme_override_styles/hover = ExtResource("6_mtbbs")
+theme_override_styles/focus = ExtResource("6_mtbbs")
+text = "START"
+alignment = 0
+
+[node name="quitbutton" type="Button" parent="menu" unique_id=1078697102]
+z_index = 1
+clip_contents = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -68.0
+offset_top = -19.0
+offset_right = 32.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../settingsbutton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../startbutton")
+theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_rpuge")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = ExtResource("5_g6byf")
+theme_override_styles/pressed = ExtResource("6_mtbbs")
+theme_override_styles/hover = ExtResource("6_mtbbs")
+theme_override_styles/focus = ExtResource("6_mtbbs")
+text = "QUIT"
+alignment = 0
+
+[node name="settingsbutton" type="Button" parent="menu" unique_id=444169655]
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -68.0
+offset_top = -51.0
+offset_right = 32.0
+offset_bottom = -17.7
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../startbutton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../startbutton")
+theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_rpuge")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = ExtResource("5_g6byf")
+theme_override_styles/pressed = ExtResource("6_mtbbs")
+theme_override_styles/hover = ExtResource("6_mtbbs")
+theme_override_styles/focus = ExtResource("6_mtbbs")
+text = "SETTINGS"
+alignment = 0
+
+[node name="Settings" type="Control" parent="." unique_id=1589153331]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -90.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+mouse_filter = 2
+theme = SubResource("Theme_81rgk")
+script = ExtResource("8_7666j")
+
+[node name="quitbutton" type="Button" parent="Settings" unique_id=1658256264]
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 43.0
+offset_top = -37.0
+offset_right = 143.0
+offset_bottom = -3.699997
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../resolution/CheckBox")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../volume/HSlider")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.0051989057, 0.005198906, 0.0051989057, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = ExtResource("5_g6byf")
+theme_override_styles/pressed = ExtResource("6_mtbbs")
+theme_override_styles/hover = ExtResource("6_mtbbs")
+theme_override_styles/focus = ExtResource("6_mtbbs")
+action_mode = 0
+text = "BACK"
+alignment = 0
+
+[node name="volume" type="BoxContainer" parent="Settings" unique_id=1076168030]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 220.0
+offset_top = 72.0
+offset_right = 14.285675
+offset_bottom = -64.99999
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.595, 0.595)
+
+[node name="Label" type="Label" parent="Settings/volume" unique_id=1547593861]
+layout_mode = 2
+text = "Volume"
+
+[node name="HSlider" type="HSlider" parent="Settings/volume" unique_id=582861036]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../quitbutton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../../resolution/OptionButton")
+theme_override_icons/grabber = SubResource("DPITexture_5ywnx")
+theme_override_styles/slider = SubResource("StyleBoxFlat_4oe1x")
+step = 10.0
+value = 40.0
+ticks_on_borders = true
+
+[node name="resolution" type="BoxContainer" parent="Settings" unique_id=1344724774]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 95.0
+offset_right = 336.0
+offset_bottom = 177.0
+scale = Vector2(0.6, 0.6)
+alignment = 1
+vertical = true
+
+[node name="resolution_label" type="Label" parent="Settings/resolution" unique_id=867502084]
+layout_mode = 2
+text = "Resolution"
+
+[node name="OptionButton" type="OptionButton" parent="Settings/resolution" unique_id=1452380222]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../volume/HSlider")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../CheckBox")
+
+[node name="CheckBox" type="CheckBox" parent="Settings/resolution" unique_id=1489560551]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../OptionButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../../quitbutton")
+button_pressed = true
+text = "Windowed"
+
+[node name="titleUi" type="Control" parent="." unique_id=360951835]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = -74.0
+offset_right = -52.0
+offset_bottom = -34.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="titleUi" unique_id=3396774]
+layout_mode = 0
+offset_left = -8.0
+offset_right = 116.0
+offset_bottom = 96.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_a8fpu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="titleUi" unique_id=121649651]
+position = Vector2(22, 16)
+rotation = 3.1415927
+scale = Vector2(2.1, -2.1)
+sprite_frames = ExtResource("10_q14ff")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="title" type="TextureRect" parent="titleUi" unique_id=1491564161]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 24.0
+offset_right = 160.0
+offset_bottom = 78.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_6xukp")
+
+[node name="ticket2shadow" type="TextureRect" parent="." unique_id=275843282]
+modulate = Color(1, 1, 1, 0.56078434)
+layout_mode = 0
+offset_left = 62.449997
+offset_top = 51.0
+offset_right = 398.45
+offset_bottom = 261.0
+rotation = 0.5235988
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("12_vo4u1")
+
+[node name="ticket2" type="TextureRect" parent="." unique_id=377322007]
+layout_mode = 0
+offset_left = 62.449997
+offset_top = 50.0
+offset_right = 398.45
+offset_bottom = 260.0
+rotation = 0.5235988
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("13_a2q1h")
+
+[node name="ticketshadow" type="TextureRect" parent="." unique_id=1031389623]
+modulate = Color(1, 1, 1, 0.6627451)
+layout_mode = 0
+offset_left = 70.45
+offset_top = 58.5
+offset_right = 406.45
+offset_bottom = 268.5
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("12_vo4u1")
+
+[node name="ticket" type="TextureRect" parent="." unique_id=619283797]
+layout_mode = 0
+offset_left = 70.45
+offset_top = 58.0
+offset_right = 406.45
+offset_bottom = 268.0
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("13_a2q1h")
+
+[node name="ChangeOptionPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1576629998]
+stream = ExtResource("14_6md5t")
+volume_db = 18.0
+bus = &"Music"
+
+[connection signal="focus_entered" from="menu/startbutton" to="." method="_on_focus_entered"]
+[connection signal="gui_input" from="menu/startbutton" to="." method="_on_startbutton_gui_input"]
+[connection signal="pressed" from="menu/startbutton" to="." method="_on_startbutton_pressed"]
+[connection signal="focus_entered" from="menu/quitbutton" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="menu/quitbutton" to="." method="_on_quitbutton_pressed"]
+[connection signal="focus_entered" from="menu/settingsbutton" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="menu/settingsbutton" to="." method="_on_settingsbutton_pressed"]
+[connection signal="focus_entered" from="Settings/quitbutton" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="Settings/quitbutton" to="." method="_on_quit_settings_button_pressed"]
+[connection signal="focus_entered" from="Settings/volume/HSlider" to="." method="_on_focus_entered"]
+[connection signal="value_changed" from="Settings/volume/HSlider" to="Settings" method="_on_h_slider_value_changed"]
+[connection signal="focus_entered" from="Settings/resolution/OptionButton" to="." method="_on_focus_entered"]
+[connection signal="item_selected" from="Settings/resolution/OptionButton" to="Settings" method="_on_OptionButton_item_selected"]
+[connection signal="focus_entered" from="Settings/resolution/CheckBox" to="." method="_on_focus_entered"]
+[connection signal="toggled" from="Settings/resolution/CheckBox" to="Settings" method="_on_check_box_toggled"]

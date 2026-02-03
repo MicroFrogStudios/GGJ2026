@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://bri3rb8p8qge8" path="res://ui/mobile_controls_buttons/mobile_ui.gd" id="1_801x6"]
 [ext_resource type="Texture2D" uid="uid://bivubwxjde2at" path="res://ui/common_sprites/button_unselected.png" id="1_gavpe"]
 [ext_resource type="Texture2D" uid="uid://brwoqqoa67b8i" path="res://ui/common_sprites/button_selected.png" id="2_dww2o"]
-[ext_resource type="Texture2D" uid="uid://ca2t7ns6220hf" path="res://assets/sprites/props/mano2.png" id="3_dww2o"]
-[ext_resource type="Texture2D" uid="uid://br5bglpvs2al6" path="res://assets/sprites/props/mano3.png" id="4_ho8u3"]
-[ext_resource type="FontFile" uid="uid://b7v3dl24ymbhe" path="res://assets/fonts/PixelifySans-Regular.ttf" id="5_npmr2"]
+[ext_resource type="Texture2D" uid="uid://ca2t7ns6220hf" path="res://levels/sprites/props/mano2.png" id="3_dww2o"]
+[ext_resource type="Texture2D" uid="uid://br5bglpvs2al6" path="res://levels/sprites/props/mano3.png" id="4_ho8u3"]
+[ext_resource type="FontFile" uid="uid://b7v3dl24ymbhe" path="res://ui/common_styles/fonts/PixelifySans-Regular.ttf" id="5_npmr2"]
 
 [node name="mobileUI" type="CanvasLayer" unique_id=145118504]
 script = ExtResource("1_801x6")

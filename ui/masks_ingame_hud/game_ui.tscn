@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://4aghjpy7mbvk"]
 
-[ext_resource type="Texture2D" uid="uid://5rgt04odieiv" path="res://assets/sprites/mask_placeholder.png" id="1_rns2u"]
-[ext_resource type="Script" uid="uid://ddpj14k1f6tku" path="res://scripts/game_ui.gd" id="1_u001w"]
+[ext_resource type="Texture2D" uid="uid://5rgt04odieiv" path="res://ui/masks_ingame_hud/mask_placeholder.png" id="1_rns2u"]
+[ext_resource type="Script" uid="uid://ddpj14k1f6tku" path="res://ui/game_ui.gd" id="1_u001w"]
 [ext_resource type="Texture2D" uid="uid://dsnwkrsgkyrih" path="res://ui/masks_ingame_hud/mask_hud.png" id="2_e0pfi"]
-[ext_resource type="Script" uid="uid://b4k5qjcktxfvh" path="res://scripts/ui_mask.gd" id="2_u001w"]
+[ext_resource type="Script" uid="uid://b4k5qjcktxfvh" path="res://ui/masks_ingame_hud/ui_mask.gd" id="2_u001w"]
 [ext_resource type="Texture2D" uid="uid://cbptwer0rm2jr" path="res://ui/masks_ingame_hud/mask_hud_selector.png" id="3_o3bws"]
 [ext_resource type="Texture2D" uid="uid://dmt8qv2hqf0x0" path="res://ui/masks_ingame_hud/arlecchino_UI.png" id="4_djwj0"]
 [ext_resource type="Texture2D" uid="uid://ur46slv8x2d6" path="res://ui/masks_ingame_hud/pantaloon_ui.png" id="5_e0pfi"]

@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://ckmw8vdbylbty"]
+
+[ext_resource type="Texture2D" uid="uid://dmjh6dnag5ldf" path="res://levels/sprites/pole_anims.png" id="1_at3gf"]
+[ext_resource type="Script" uid="uid://bfg5bhjv2yiy" path="res://entities/giratronchos_pole/giratronchos.gd" id="1_s8khh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e18e5"]
+atlas = ExtResource("1_at3gf")
+region = Rect2(0, 0, 16, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5qie"]
+atlas = ExtResource("1_at3gf")
+region = Rect2(16, 0, 16, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kydov"]
+atlas = ExtResource("1_at3gf")
+region = Rect2(32, 0, 16, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwlxl"]
+atlas = ExtResource("1_at3gf")
+region = Rect2(48, 0, 16, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wfvb"]
+atlas = ExtResource("1_at3gf")
+region = Rect2(64, 0, 16, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqv5a"]
+atlas = ExtResource("1_at3gf")
+region = Rect2(80, 0, 16, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppjov"]
+atlas = ExtResource("1_at3gf")
+region = Rect2(96, 0, 16, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pafwe"]
+atlas = ExtResource("1_at3gf")
+region = Rect2(112, 0, 16, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s8khh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e18e5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5qie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kydov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwlxl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wfvb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqv5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppjov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pafwe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_at3gf"]
+size = Vector2(6, 180)
+
+[node name="Giratronchos" type="Node2D" unique_id=12882964]
+script = ExtResource("1_s8khh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1307585456]
+sprite_frames = SubResource("SpriteFrames_s8khh")
+autoplay = "default"
+frame = 1
+frame_progress = 0.11857084
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1304271798]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=817977556]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_at3gf")

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://pysk2b504qjr"]
 
-[ext_resource type="Script" uid="uid://4qv00u66n8ne" path="res://scripts/mask_message.gd" id="1_8afvg"]
+[ext_resource type="Script" uid="uid://4qv00u66n8ne" path="res://ui/mask_pickup_popup/mask_message.gd" id="1_8afvg"]
 [ext_resource type="Texture2D" uid="uid://cpqsf676koj24" path="res://ui/common_sprites/menu_box1.png" id="1_ccwuy"]
 [ext_resource type="Texture2D" uid="uid://dmt8qv2hqf0x0" path="res://ui/masks_ingame_hud/arlecchino_UI.png" id="2_tk13p"]
-[ext_resource type="FontFile" uid="uid://f5p44atdrh28" path="res://assets/fonts/PixelifySans-Bold.ttf" id="3_b85bk"]
+[ext_resource type="FontFile" uid="uid://f5p44atdrh28" path="res://ui/common_styles/fonts/PixelifySans-Bold.ttf" id="3_b85bk"]
 [ext_resource type="Texture2D" uid="uid://ur46slv8x2d6" path="res://ui/masks_ingame_hud/pantaloon_ui.png" id="3_ntkir"]
 [ext_resource type="Texture2D" uid="uid://clb34ncy0y127" path="res://ui/masks_ingame_hud/spavento_ui.png" id="4_mfk27"]
 

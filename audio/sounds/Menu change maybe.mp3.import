@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bn5v1oeifgel4"
+path="res://.godot/imported/Menu change maybe.mp3-cf2b714c3f81951e4e74c35b46d8a77c.mp3str"
+
+[deps]
+
+source_file="res://audio/sounds/Menu change maybe.mp3"
+dest_files=["res://.godot/imported/Menu change maybe.mp3-cf2b714c3f81951e4e74c35b46d8a77c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://chwpqvvn2qen8"]
 
-[ext_resource type="Script" uid="uid://c5pb26ftarrse" path="res://scripts/in_game_menu.gd" id="1_kfnvw"]
-[ext_resource type="Texture2D" uid="uid://c2tj0mn2oc8u7" path="res://assets/sprites/pause_menu.png" id="2_uqusm"]
-[ext_resource type="FontFile" uid="uid://b7v3dl24ymbhe" path="res://assets/fonts/PixelifySans-Regular.ttf" id="3_v8uva"]
+[ext_resource type="Script" uid="uid://c5pb26ftarrse" path="res://ui/in_game_menu/in_game_menu.gd" id="1_kfnvw"]
+[ext_resource type="Texture2D" uid="uid://c2tj0mn2oc8u7" path="res://levels/sprites/pause_menu.png" id="2_uqusm"]
+[ext_resource type="FontFile" uid="uid://b7v3dl24ymbhe" path="res://ui/common_styles/fonts/PixelifySans-Regular.ttf" id="3_v8uva"]
 [ext_resource type="StyleBox" uid="uid://kwnck02bs6kc" path="res://ui/common_styles/button_texture.tres" id="4_vg5oa"]
 [ext_resource type="StyleBox" uid="uid://cpve10neqqcwg" path="res://ui/common_styles/button_hover_texture.tres" id="5_fr7dv"]
-[ext_resource type="Script" uid="uid://cgymwu5efhc8x" path="res://scripts/settings.gd" id="6_83jrl"]
-[ext_resource type="AudioStream" uid="uid://bn5v1oeifgel4" path="res://assets/sounds/Menu change maybe.mp3" id="7_1sr22"]
+[ext_resource type="Script" uid="uid://cgymwu5efhc8x" path="res://ui/common_scripts/settings.gd" id="6_83jrl"]
+[ext_resource type="AudioStream" uid="uid://bn5v1oeifgel4" path="res://audio/sounds/Menu change maybe.mp3" id="7_1sr22"]
 
 [sub_resource type="Theme" id="Theme_igyd0"]
 default_font = ExtResource("3_v8uva")

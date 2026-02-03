@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://dw8udwgqo5y5a"]
+
+[ext_resource type="Script" uid="uid://c28tuc458pf84" path="res://entities/mask_pickups/mask_fragment.gd" id="1_lwc8p"]
+[ext_resource type="Texture2D" uid="uid://br0qgxm6g7hvp" path="res://entities/mask_pickups/sprites/pantaloon_item.png" id="2_xppft"]
+[ext_resource type="AudioStream" uid="uid://dolbcjfhcht6w" path="res://audio/sounds/Mask obtained.mp3" id="3_wp63b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h72c2"]
+
+[sub_resource type="Animation" id="Animation_wp63b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D/SpriteAura:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/SpriteAura:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.41960785)]
+}
+
+[sub_resource type="Animation" id="Animation_lwc8p"]
+resource_name = "mask_pulse"
+length = 1.0333333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D/SpriteAura:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.30778685, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.715, 1.715)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/SpriteAura:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.13333334, 1),
+"transitions": PackedFloat32Array(0.36602166, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.41960785), Color(0.53698593, 0.24392474, 0.061923124, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wp63b"]
+_data = {
+&"RESET": SubResource("Animation_wp63b"),
+&"mask_pulse": SubResource("Animation_lwc8p")
+}
+
+[node name="MaskPickup" type="Node2D" unique_id=678487700]
+script = ExtResource("1_lwc8p")
+mask_texture = ExtResource("2_xppft")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=177090069]
+texture = ExtResource("2_xppft")
+
+[node name="SpriteAura" type="Sprite2D" parent="Sprite2D" unique_id=846190085]
+self_modulate = Color(1, 1, 1, 0.41960785)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("2_xppft")
+
+[node name="MaskArea2D" type="Area2D" parent="." unique_id=1839701969]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MaskArea2D" unique_id=134209605]
+shape = SubResource("CircleShape2D_h72c2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=141413038]
+libraries/ = SubResource("AnimationLibrary_wp63b")
+autoplay = &"mask_pulse"
+
+[node name="MaskPickupPlayer" type="AudioStreamPlayer2D" parent="." unique_id=673430754]
+stream = ExtResource("3_wp63b")
+bus = &"Music"
+
+[connection signal="body_entered" from="MaskArea2D" to="." method="_on_mask_area_2d_body_entered"]
