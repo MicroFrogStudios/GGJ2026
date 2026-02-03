@@ -39,9 +39,18 @@ var prev_mask := 0
 var previous_positions := [] # Position for past 5 frames
 var previous_velocities := [] # Velocity for past 5 frames
 var previous_pos := Vector2.ZERO
-var min_displacement := 1.0
-var death_toll := 0
 var pausing_enabled = true
+
+
+### Spawning logic & physics ###
+
+func _ready() -> void:
+	spawn_position = position
+	change_mask.emit(mask)
+	num_masks = initial_num_masks
+	spawn()
+	gc.player = self
+
 
 func spawn() -> void:
 	position = spawn_position
@@ -53,22 +62,121 @@ func spawn() -> void:
 	change_mask.emit(mask)
 	EffectsAnimator.play("RESET") # Clear any possible effects
 	EffectsAnimator.play("spotlight_spawn")
-	
 
 
-func _ready() -> void:
-	spawn_position = position
-	change_mask.emit(mask)
-	num_masks = initial_num_masks
-	spawn()
-	anim.animation_finished.connect(on_animation_finish)
-	gc.player = self
+func _physics_process(delta: float) -> void:
+	# Checks
+	if visible == false or Engine.time_scale == 0.0:
+		return
+	if _should_crush():
+		die()
+		return
+
+	# Add the gravity & process jump
+	if not is_on_floor():
+		velocity += get_gravity() * delta 
+		velocity.y += 10 if velocity.y > 0 else 0 
+	else: is_jumping = false
+
+	if Input. is_action_just_released("jump"):
+		just_jumped = false
+		if is_jumping and velocity.y < 0:
+			velocity.y = clamp(velocity.y + jump_deccel, jump_velocity, 0) 
+			is_jumping = false
+		
+	# Sideways movement
+	var direction_x := Input.get_axis("move_left", "move_right")
+	if direction_x and not control_disabled:
+		velocity.x = move_toward(velocity.x,direction_x * speed, start_accel)
+		anim.flip_h = velocity.x < 0
+
+	else:
+		velocity.x = move_toward(velocity.x,0, braking_speed)
+
+	# Update past frames info
+	previous_pos = position
+	previous_positions.append(position)
+	previous_velocities.append(velocity)
+	if previous_positions.size() > 5:
+		previous_positions.pop_front()
+		previous_velocities.pop_front()
+	move_and_slide()
+
+  # Box push logic, TODO upgrade
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody2D:
+			print('C ', c.get_normal(), c.get_collider())
+			c.get_collider().apply_central_impulse(-c.get_normal() * 5000.0)
 
 
-func on_animation_finish():
-	pass
+### Events & interactions ###
+func _on_mask_pickup_got_mask(mask_number: int) -> void:
+	if mask_number > num_masks:
+		num_masks = mask_number
+		mask_acquired.emit(mask_number)
+		print("Increased num_masks to ", num_masks)
 
 
+func _on_exit_door_player_reached_exit() -> void:
+	control_disabled = true
+	state_machine.on_state_transition(BowState.Name())
+	VictoryPlayer.play()
+
+
+### Death ###
+
+# On death play spotlight anim & respawn
+func die() -> void:
+	control_disabled = true
+	visible = false
+	velocity = Vector2.ZERO
+	previous_positions.clear()
+	previous_velocities.clear()
+	DeathPlayer.play()
+	death.emit()
+
+
+func _on_death_plane_body_entered(body: Node2D) -> void:
+	if body.name == "PlayerCharacter":
+		die()
+
+
+var min_displacement := 1.0
+var death_toll := 0
+
+func _should_crush() -> bool:
+	if is_on_floor():
+		return false
+	# We check if we have great velocity but aren't moving
+	# Manu method
+	if previous_pos.distance_to(position) < min_displacement:
+		death_toll += 1
+	else:
+		death_toll = 0
+	if death_toll > 10:
+		print('manu death')
+		return true
+		
+	# Marah method
+	if previous_positions.size() < 5:
+		return false
+	if velocity.y < 200:
+		# Not falling fast enough
+		return false
+	# Falling fast
+	for index in previous_velocities.size():
+		if previous_velocities[index].y <= 150:
+			# Not fast enough
+			return false
+	for index in previous_positions.size():
+		if previous_positions[index].y <= position.y - 5:
+			return false
+	print('marah death')
+	return true
+
+
+### Input management & mask changes ###
 func _input(event: InputEvent) -> void:
 	# Process mask related inputs
 	
@@ -115,108 +223,9 @@ func finish_mask_change() -> void:
 	prev_mask = mask
 
 
-func _should_crush(prev_pos: Array, curr_pos: Vector2, prev_vel: Array, vel: Vector2) -> bool:
-	if prev_pos.size() < 5:
-		return false
-	if vel.y < 200:
-		# Not falling fast enough
-		return false
-
-	if vel.y > 200:
-		# Falling fast
-		for index in prev_vel.size():
-			if prev_vel[index].y <= 150:
-				# Not fast enough
-				return false
-		for index in prev_pos.size():
-			if prev_pos[index].y <= curr_pos.y - 5:
-				return false
-	return true
-
 func jump_action():
 	var jumping := Input.is_action_pressed("jump") and is_on_floor() and not control_disabled and not just_jumped
 	if jumping: 
 		just_jumped = true
 		print("should_jump ", Time.get_ticks_msec())
 	return jumping
-
-
-func _physics_process(delta: float) -> void:
-	if visible == false or Engine.time_scale == 0.0:
-		return
-	# We check if it's moving fast in a direction and still not moving much (Manu's method)
-	if previous_pos.distance_to(position) < min_displacement and not is_on_floor():
-		death_toll+=1
-	else:
-		death_toll = 0
-	if death_toll > 10:
-		print('manu death')
-		die()
-		return
-		
-	previous_pos = position
-	# Check crushes (Marah's method)
-	if not is_on_floor() and _should_crush(previous_positions, position, previous_velocities, velocity):
-		die()
-		print('marah death')
-		return
-
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta 
-		velocity.y += 10 if velocity.y > 0 else 0 
-	else: is_jumping = false
-
-		
-	if Input. is_action_just_released("jump"):
-		just_jumped = false
-		if is_jumping and velocity.y < 0:
-			velocity.y = clamp(velocity.y + jump_deccel,jump_velocity,0) 
-			is_jumping = false
-		
-		
-	## Sideways movement
-	var direction_x := Input.get_axis("move_left", "move_right")
-	if direction_x and not control_disabled:
-		velocity.x = move_toward(velocity.x,direction_x * speed, start_accel)
-		anim.flip_h = velocity.x < 0
-
-	else:
-		velocity.x = move_toward(velocity.x,0, braking_speed)
-
-	previous_positions.append(position)
-	previous_velocities.append(velocity)
-	if previous_positions.size() > 5:
-		previous_positions.pop_front()
-		previous_velocities.pop_front()
-	move_and_slide()
-
-
-func _on_mask_pickup_got_mask(mask_number: int) -> void:
-	if mask_number > num_masks:
-		num_masks = mask_number
-		mask_acquired.emit(mask_number)
-		print("Increased num_masks to ", num_masks)
-
-
-func die() -> void:
-	control_disabled = true
-	visible = false
-	velocity = Vector2.ZERO
-	previous_positions.clear()
-	previous_velocities.clear()
-	DeathPlayer.play()
-	death.emit()
-
-
-func _on_death_plane_body_entered(body: Node2D) -> void:
-	if body.name != "PlayerCharacter":
-		return
-	die()
-
-
-func _on_exit_door_player_reached_exit() -> void:
-	control_disabled = true
-	state_machine.on_state_transition(BowState.Name())
-	VictoryPlayer.play()
-	
