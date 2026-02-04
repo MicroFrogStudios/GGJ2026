@@ -17,16 +17,16 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="JumpButton" type="TouchScreenButton" parent="mobileUI" unique_id=1511110635]
-position = Vector2(242, 130)
-scale = Vector2(1.3749998, 1.3333331)
+position = Vector2(253.00002, 144)
+scale = Vector2(1.3749998, 1.3749999)
 texture_normal = ExtResource("1_gavpe")
 texture_pressed = ExtResource("2_dww2o")
 action = "jump"
 visibility_mode = 1
 
 [node name="SwitchMaskButton" type="TouchScreenButton" parent="mobileUI" unique_id=1943147152]
-position = Vector2(170.00002, 130)
-scale = Vector2(1.385, 1.347)
+position = Vector2(183, 144)
+scale = Vector2(1.3749998, 1.3749999)
 texture_normal = ExtResource("1_gavpe")
 texture_pressed = ExtResource("2_dww2o")
 action = "next_mask"
@@ -41,7 +41,8 @@ action = "move_left"
 visibility_mode = 1
 
 [node name="MoveRightButton" type="TouchScreenButton" parent="mobileUI" unique_id=619188146]
-position = Vector2(73, 135)
+position = Vector2(73, 133)
+scale = Vector2(1.1071429, 1.09375)
 texture_normal = ExtResource("4_ho8u3")
 passby_press = true
 action = "move_right"
@@ -49,20 +50,20 @@ visibility_mode = 1
 
 [node name="SwitchText" type="Label" parent="mobileUI" unique_id=612777132]
 layout_mode = 0
-offset_left = 190.0
-offset_top = 157.0
-offset_right = 250.0
-offset_bottom = 173.0
+offset_left = 204.0
+offset_top = 149.0
+offset_right = 264.0
+offset_bottom = 165.0
 theme_override_fonts/font = ExtResource("5_npmr2")
 theme_override_font_sizes/font_size = 9
 text = "SWITCH"
 
 [node name="JumpText" type="Label" parent="mobileUI" unique_id=1477291295]
 layout_mode = 0
-offset_left = 267.0
-offset_top = 157.0
-offset_right = 327.0
-offset_bottom = 173.0
+offset_left = 278.0
+offset_top = 149.0
+offset_right = 338.0
+offset_bottom = 165.0
 theme_override_fonts/font = ExtResource("5_npmr2")
 theme_override_font_sizes/font_size = 9
 text = "JUMP"
