@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends RigidBody2D
 
 
 @export var mask := 0
@@ -7,9 +7,10 @@ extends CharacterBody2D
 @onready var death_plane : Area2D = %DeathPlane
 @onready var raycast_left : RayCast2D = $RayCastLeft
 @onready var raycast_right : RayCast2D = $RayCastRight
-@onready var raycast_up : RayCast2D = $RayCastUp
+# @onready var raycast_up : RayCast2D = $RayCastUp
 
-@onready var collision_shape : CollisionShape2D = $CollisionShape2D
+@onready var rect_collision : CollisionShape2D = $RectangleCollision
+@onready var floor_collision : CollisionShape2D = $FloorCollision
 @onready var hurtbox : Area2D = $Hurtbox
 
 
@@ -50,41 +51,16 @@ func _on_mask_change(new_mask: int) -> void:
 		if something_in_hurtbox:
 			respawn()
 		visible = (new_mask == mask)
-		collision_shape.disabled = not visible
+		floor_collision.disabled = not visible
+		rect_collision.disabled = not visible
+		freeze = not visible
 
 
 func respawn() -> void:
 	position = initial_position
-	velocity = Vector2.ZERO
 
 
-func get_next_velocity_x() -> float:
-	if raycast_left.is_colliding() and raycast_left.get_collider() == player:
-		if Input.is_action_pressed("move_right"):
-			return player.speed
-	if raycast_right.is_colliding() and raycast_right.get_collider() == player:
-		if Input.is_action_pressed("move_left"):
-			return -player.speed
-	return 0
-
-func _physics_process(delta: float) -> void:
-	if collision_shape.disabled or Engine.time_scale == 0.0:
-		return
-
-	# Add the gravity & process jump
-	if not is_on_floor():
-		velocity += get_gravity() * delta 
-		velocity.y += 10 if velocity.y > 0 else 0 
-
-	velocity.x = get_next_velocity_x()
-	if velocity.x != 0:
-		print('Pushing box with velocity: ', velocity.x)
-		player.velocity.x = velocity.x
+func _process(_delta: float) -> void:
+	# Limit velocity
+	if abs(linear_velocity.x) > 0:
 		player.is_pushing_box = true
-	else:
-		player.is_pushing_box = false
-
-	# Move boxes on top
-	position.x += velocity.x * delta
-	velocity.x = 0
-	move_and_slide()

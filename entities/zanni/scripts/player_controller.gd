@@ -15,10 +15,12 @@ extends CharacterBody2D
 @export var jump_velocity = -300.0
 @export var jump_deccel := 100.0
 @export var braking_speed = 30
-@export var start_accel = 10
+@export var start_accel = 50
 @export var initial_mask : int = 0
 @export var initial_num_masks := 2
 @export var mask_radius := 100.0 # Radius around player where layers are visible
+@export var push_force := 50
+@export var max_velocity_pusing := 80.0
 
 
 signal change_mask(new_mask_number: int)
@@ -88,7 +90,10 @@ func _physics_process(delta: float) -> void:
 	# Sideways movement
 	var direction_x := Input.get_axis("move_left", "move_right")
 	if direction_x and not control_disabled:
-		velocity.x = move_toward(velocity.x, direction_x * speed, start_accel)
+		if is_pushing_box:
+			velocity.x = direction_x * speed
+		else:
+			velocity.x = move_toward(velocity.x, direction_x * speed, start_accel)
 		anim.flip_h = velocity.x < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, braking_speed)
@@ -101,9 +106,17 @@ func _physics_process(delta: float) -> void:
 		previous_positions.pop_front()
 		previous_velocities.pop_front()
 
+	# Box push logic
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider().name == "BoxRigid" or c.get_collider().name == "BoxRigid2":
+			var box = c.get_collider() as RigidBody2D
+			if abs(box.get_linear_velocity().x) < max_velocity_pusing:
+				box.apply_central_impulse(c.get_normal() * -push_force)
+
 	move_and_slide()
 
-	# Check collisions
+	# Post move collisions
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
 		if _check_collision_damaging(c):

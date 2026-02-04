@@ -48,6 +48,10 @@ folder_colors={
 "res://ui/": "green"
 }
 
+[global_group]
+
+boxes="Pushable boxes"
+
 [importer_defaults]
 
 animation_library={
