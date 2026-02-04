@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://b4yly6dmp6sfc"]
 
 [ext_resource type="PackedScene" uid="uid://s6jgpvyxe42i" path="res://levels/level_boilerplate.tscn" id="1_o6o6r"]
-[ext_resource type="PackedScene" uid="uid://b6iiohd1uhxf6" path="res://entities/box/box_rigid.tscn" id="3_xbusq"]
+[ext_resource type="PackedScene" uid="uid://b6iiohd1uhxf6" path="res://entities/box/box.tscn" id="3_xbusq"]
 
 [node name="LevelC1" unique_id=1082980837 instance=ExtResource("1_o6o6r")]
 
@@ -20,8 +20,8 @@ tile_map_data = PackedByteArray("AAD5//z/AQADAAQAAAD5//v/AQAKAAEAAAD5//r/AQAKAAE
 tile_map_data = PackedByteArray("AAAJAOb/AQABAAAAAAAJAOf/AQABAAEAAAAKAOb/AQACAAAAAAAKAOf/AQACAAEAAAALAOb/AQADAAAAAAALAOf/AQADAAEAAAAMAOb/AQAEAAAAAAAMAOf/AQAEAAEAAAANAOb/AQAFAAAAAAANAOf/AQAFAAEAAAAOAOb/AQAGAAAAAAAOAOf/AQAGAAEAAAAPAOb/AQAHAAAAAAAPAOf/AQAHAAEAAAA=")
 
 [node name="BoxRigid" parent="." index="12" unique_id=1395735207 instance=ExtResource("3_xbusq")]
-position = Vector2(75, -104)
+position = Vector2(-62, -96)
 mask = 1
 
 [node name="BoxRigid2" parent="." index="13" unique_id=1933299085 instance=ExtResource("3_xbusq")]
-position = Vector2(136, -134)
+position = Vector2(99, -98)

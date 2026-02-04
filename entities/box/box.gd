@@ -28,7 +28,7 @@ func _ready() -> void:
 	# Respawn if you touch the death plane
 	death_plane.body_entered.connect(func(body):
 		if body == self:
-			respawn()
+			call_deferred('respawn')
 	)
 
 	# Hurtbox logic
@@ -57,7 +57,10 @@ func _on_mask_change(new_mask: int) -> void:
 
 
 func respawn() -> void:
+	freeze = true
+	print('respawning', initial_position)
 	position = initial_position
+	freeze = false
 
 
 func _process(_delta: float) -> void:
