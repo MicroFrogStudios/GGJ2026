@@ -294,7 +294,10 @@ size_flags_vertical = 4
 [node name="mobileUI" parent="CameraFollow" unique_id=145118504 instance=ExtResource("14_ykbh6")]
 
 [node name="DeathPlane" type="Area2D" parent="." unique_id=20074737]
+unique_name_in_owner = true
 position = Vector2(0, -143)
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPlane" unique_id=917751410]
 shape = SubResource("WorldBoundaryShape2D_6v23s")

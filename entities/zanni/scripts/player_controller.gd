@@ -13,11 +13,11 @@ extends CharacterBody2D
 
 @export var speed := 150.0
 @export var jump_velocity = -300.0
-@export var initial_num_masks := 3
 @export var jump_deccel := 100.0
 @export var braking_speed = 30
 @export var start_accel = 10
 @export var initial_mask : int = 0
+@export var initial_num_masks := 2
 @export var mask_radius := 100.0 # Radius around player where layers are visible
 
 
@@ -40,6 +40,7 @@ var previous_positions := [] # Position for past 5 frames
 var previous_velocities := [] # Velocity for past 5 frames
 var previous_pos := Vector2.ZERO
 var pausing_enabled = true
+var is_pushing_box := false
 
 
 ### Spawning logic & physics ###
@@ -87,11 +88,10 @@ func _physics_process(delta: float) -> void:
 	# Sideways movement
 	var direction_x := Input.get_axis("move_left", "move_right")
 	if direction_x and not control_disabled:
-		velocity.x = move_toward(velocity.x,direction_x * speed, start_accel)
+		velocity.x = move_toward(velocity.x, direction_x * speed, start_accel)
 		anim.flip_h = velocity.x < 0
-
 	else:
-		velocity.x = move_toward(velocity.x,0, braking_speed)
+		velocity.x = move_toward(velocity.x, 0, braking_speed)
 
 	# Update past frames info
 	previous_pos = position
@@ -100,31 +100,15 @@ func _physics_process(delta: float) -> void:
 	if previous_positions.size() > 5:
 		previous_positions.pop_front()
 		previous_velocities.pop_front()
+
 	move_and_slide()
 
-  # Box push logic, TODO upgrade
+	# Check collisions
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
-		if c.get_collider() is RigidBody2D:
-			print('C ', c.get_normal(), c.get_collider())
-			c.get_collider().apply_central_impulse(-c.get_normal() * 5000.0)
-		
-		# Detect collision with tilemap and read custom_data	
-		_tile_map_collision_handler(c)
+		if _check_collision_damaging(c):
+			die()
 
-
-func _tile_map_collision_handler(c : KinematicCollision2D):
-	if c.get_collider() is TileMapLayer:
-			var tile_collided := c.get_collider() as TileMapLayer
-			var local_pos := tile_collided.to_local(c.get_position())
-			var tile_data = tile_collided.get_cell_tile_data(tile_collided.local_to_map(local_pos))
-			if not tile_data:
-				return
-			
-			if tile_data.get_custom_data("damaging"):
-				print("spiked")
-				die()
-	
 
 ### Events & interactions ###
 func _on_mask_pickup_got_mask(mask_number: int) -> void:
@@ -190,6 +174,17 @@ func _should_crush() -> bool:
 			return false
 	print('marah death')
 	return true
+
+
+func _check_collision_damaging(c : KinematicCollision2D) -> bool:
+	if c.get_collider() is TileMapLayer:
+		var tile_collided := c.get_collider() as TileMapLayer
+		var local_pos := tile_collided.to_local(c.get_position())
+		var tile_data = tile_collided.get_cell_tile_data(tile_collided.local_to_map(local_pos))
+		if tile_data and tile_data.get_custom_data("damaging"):
+			print("spiked")
+			return true
+	return false
 
 
 ### Input management & mask changes ###

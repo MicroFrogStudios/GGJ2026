@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bvhno74leve4g"]
+
+[ext_resource type="Texture2D" uid="uid://c28l6x46br6d5" path="res://levels/sprites/marco3.png" id="1_josro"]
+[ext_resource type="Script" uid="uid://mkojt0puiyqu" path="res://entities/box/box.gd" id="1_pihpk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_josro"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pihpk"]
+size = Vector2(18, 18)
+
+[node name="Box" type="CharacterBody2D" unique_id=235196659]
+collision_layer = 4
+collision_mask = 6
+slide_on_ceiling = false
+script = ExtResource("1_pihpk")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1669668732]
+texture = ExtResource("1_josro")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1825188801]
+shape = SubResource("RectangleShape2D_josro")
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=974344328]
+target_position = Vector2(-16, 0)
+collision_mask = 6
+hit_from_inside = true
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=1975553358]
+target_position = Vector2(16, 0)
+collision_mask = 6
+hit_from_inside = true
+
+[node name="RayCastUp" type="RayCast2D" parent="." unique_id=1500868262]
+target_position = Vector2(0, -16)
+collision_mask = 6
+hit_from_inside = true
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1887074006]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=598586936]
+shape = SubResource("RectangleShape2D_pihpk")
+debug_color = Color(0.91455936, 0.095996924, 0.6722313, 0.41960785)
