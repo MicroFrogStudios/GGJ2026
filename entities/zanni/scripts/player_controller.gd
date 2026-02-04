@@ -125,6 +125,7 @@ func _tile_map_collision_handler(c : KinematicCollision2D):
 				print("spiked")
 				die()
 	
+
 ### Events & interactions ###
 func _on_mask_pickup_got_mask(mask_number: int) -> void:
 	if mask_number > num_masks:
