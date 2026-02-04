@@ -108,8 +108,23 @@ func _physics_process(delta: float) -> void:
 		if c.get_collider() is RigidBody2D:
 			print('C ', c.get_normal(), c.get_collider())
 			c.get_collider().apply_central_impulse(-c.get_normal() * 5000.0)
+		
+		# Detect collision with tilemap and read custom_data	
+		_tile_map_collision_handler(c)
 
 
+func _tile_map_collision_handler(c : KinematicCollision2D):
+	if c.get_collider() is TileMapLayer:
+			var tile_collided := c.get_collider() as TileMapLayer
+			var local_pos := tile_collided.to_local(c.get_position())
+			var tile_data = tile_collided.get_cell_tile_data(tile_collided.local_to_map(local_pos))
+			if not tile_data:
+				return
+			
+			if tile_data.get_custom_data("damaging"):
+				print("spiked")
+				die()
+	
 ### Events & interactions ###
 func _on_mask_pickup_got_mask(mask_number: int) -> void:
 	if mask_number > num_masks:
