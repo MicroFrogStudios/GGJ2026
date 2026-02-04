@@ -57,13 +57,13 @@ func _on_mask_change(new_mask: int) -> void:
 
 
 func respawn() -> void:
-	freeze = true
+	freeze = true # Need to freeze to avoid physics when changing position
 	print('respawning', initial_position)
 	position = initial_position
 	freeze = false
 
 
 func _process(_delta: float) -> void:
-	# Limit velocity
-	if abs(linear_velocity.x) > 0:
-		player.is_pushing_box = true
+	if raycast_left.is_colliding() and Input.is_action_pressed("move_right") \
+		or raycast_right.is_colliding() and Input.is_action_pressed("move_right"):
+			player.is_pushing_box = true

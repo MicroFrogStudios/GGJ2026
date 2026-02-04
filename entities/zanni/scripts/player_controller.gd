@@ -111,7 +111,7 @@ func _physics_process(delta: float) -> void:
 		var c = get_slide_collision(i)
 		if c.get_collider().name == "BoxRigid" or c.get_collider().name == "BoxRigid2":
 			var box = c.get_collider() as RigidBody2D
-			if abs(box.get_linear_velocity().x) < max_velocity_pusing:
+			if abs(box.get_linear_velocity().x) < max_velocity_pusing and is_pushing_box:
 				box.apply_central_impulse(c.get_normal() * -push_force)
 
 	move_and_slide()
