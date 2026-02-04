@@ -3,11 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://c28l6x46br6d5" path="res://levels/sprites/marco3.png" id="1_josro"]
 [ext_resource type="Script" uid="uid://b7idkbs8q10l1" path="res://entities/box/box.gd" id="1_pihpk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_grghx"]
-size = Vector2(24, 14)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_grghx"]
 radius = 12.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_grghx"]
+size = Vector2(24, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lqtri"]
 
@@ -20,12 +20,12 @@ script = ExtResource("1_pihpk")
 [node name="Sprite" type="Sprite2D" parent="." unique_id=168679385]
 texture = ExtResource("1_josro")
 
-[node name="RectangleCollision" type="CollisionShape2D" parent="." unique_id=1870093259]
-position = Vector2(0, -5)
-shape = SubResource("RectangleShape2D_grghx")
-
 [node name="FloorCollision" type="CollisionShape2D" parent="." unique_id=482100502]
 shape = SubResource("CircleShape2D_grghx")
+
+[node name="RectangleCollision" type="CollisionShape2D" parent="." unique_id=1870093259]
+position = Vector2(0, -5.5)
+shape = SubResource("RectangleShape2D_grghx")
 
 [node name="RayCastLeft" type="RayCast2D" parent="." unique_id=230526216]
 target_position = Vector2(-17, 0)

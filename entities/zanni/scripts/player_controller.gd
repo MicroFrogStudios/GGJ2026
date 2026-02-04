@@ -9,6 +9,8 @@ extends CharacterBody2D
 @onready var DeathPlayer = $DeathPlayer
 @onready var MaskChangePlayer = $MaskChangePlayer
 @onready var state_machine: StateMachine = $State_Machine
+@onready var raycast_left : RayCast2D = $RayCastLeft
+@onready var raycast_right : RayCast2D = $RayCastRight
 
 
 @export var speed := 150.0
@@ -65,6 +67,16 @@ func spawn() -> void:
 	change_mask.emit(mask)
 	EffectsAnimator.play("RESET") # Clear any possible effects
 	EffectsAnimator.play("spotlight_spawn")
+
+
+func _process(_delta: float) -> void:
+	# Check if pushing box
+	if is_on_floor() and (
+		raycast_left.is_colliding() and Input.is_action_pressed("move_left") \
+			or raycast_right.is_colliding() and Input.is_action_pressed("move_right")):
+				is_pushing_box = true
+	else:
+		is_pushing_box = false
 
 
 func _physics_process(delta: float) -> void:

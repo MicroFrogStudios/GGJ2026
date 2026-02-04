@@ -5,9 +5,6 @@ extends RigidBody2D
 
 @onready var player = gc.player
 @onready var death_plane : Area2D = %DeathPlane
-@onready var raycast_left : RayCast2D = $RayCastLeft
-@onready var raycast_right : RayCast2D = $RayCastRight
-# @onready var raycast_up : RayCast2D = $RayCastUp
 
 @onready var rect_collision : CollisionShape2D = $RectangleCollision
 @onready var floor_collision : CollisionShape2D = $FloorCollision
@@ -61,9 +58,3 @@ func respawn() -> void:
 	print('respawning', initial_position)
 	position = initial_position
 	freeze = false
-
-
-func _process(_delta: float) -> void:
-	if raycast_left.is_colliding() and Input.is_action_pressed("move_right") \
-		or raycast_right.is_colliding() and Input.is_action_pressed("move_right"):
-			player.is_pushing_box = true
