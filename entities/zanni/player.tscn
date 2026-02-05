@@ -27,9 +27,6 @@
 radius = 3.0
 height = 18.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ok4up"]
-radius = 3.0
-
 [sub_resource type="Animation" id="Animation_ok4up"]
 length = 0.001
 tracks/0/type = "value"
@@ -266,12 +263,6 @@ sprite_frames = ExtResource("2_tou0u")
 animation = &"bow"
 autoplay = "idle"
 
-[node name="CrushHitbox" type="Area2D" parent="." unique_id=1686012330]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CrushHitbox" unique_id=1043633815]
-position = Vector2(0, 4)
-shape = SubResource("CircleShape2D_ok4up")
-
 [node name="PlayerAnimations" type="AnimationPlayer" parent="." unique_id=1271726712]
 libraries/ = SubResource("AnimationLibrary_dnu5j")
 
@@ -305,5 +296,9 @@ target_position = Vector2(7, 2)
 collision_mask = 4
 hit_from_inside = true
 
-[connection signal="body_entered" from="CrushHitbox" to="." method="_on_crush_hitbox_body_entered"]
+[node name="RayCastUp" type="RayCast2D" parent="." unique_id=2111527169]
+target_position = Vector2(0, -11)
+collision_mask = 4
+hit_from_inside = true
+
 [connection signal="animation_finished" from="PlayerAnimations" to="." method="_on_player_animations_animation_finished"]

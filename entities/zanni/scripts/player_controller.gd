@@ -11,6 +11,8 @@ extends CharacterBody2D
 @onready var state_machine: StateMachine = $State_Machine
 @onready var raycast_left : RayCast2D = $RayCastLeft
 @onready var raycast_right : RayCast2D = $RayCastRight
+@onready var raycast_up : RayCast2D = $RayCastUp
+@onready var collision : CollisionShape2D = $CollisionShape2D
 
 
 @export var speed := 150.0
@@ -59,6 +61,7 @@ func _ready() -> void:
 
 func spawn() -> void:
 	position = spawn_position
+	collision.disabled = false
 	control_disabled = false
 	visible = true
 	mask = initial_mask
@@ -77,6 +80,11 @@ func _process(_delta: float) -> void:
 				is_pushing_box = true
 	else:
 		is_pushing_box = false
+
+	# Check if crushed by box
+	if _check_crushed_by_box():
+		collision.disabled = true
+		die()
 
 
 func _physics_process(delta: float) -> void:
@@ -121,7 +129,7 @@ func _physics_process(delta: float) -> void:
 	# Box push logic
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
-		if c.get_collider().name == "BoxRigid" or c.get_collider().name == "BoxRigid2":
+		if c.get_collider().is_in_group("boxes"):
 			var box = c.get_collider() as RigidBody2D
 			if abs(box.get_linear_velocity().x) < max_velocity_pusing and is_pushing_box:
 				box.apply_central_impulse(c.get_normal() * -push_force)
@@ -208,6 +216,15 @@ func _check_collision_damaging(c : KinematicCollision2D) -> bool:
 		var tile_data = tile_collided.get_cell_tile_data(tile_collided.local_to_map(local_pos))
 		if tile_data and tile_data.get_custom_data("damaging"):
 			print("spiked")
+			return true
+	return false
+
+
+func _check_crushed_by_box() -> bool:
+	if raycast_up.is_colliding():
+		var collider := raycast_up.get_collider()
+		if collider.is_in_group("boxes") and collider.get_linear_velocity().y > 0:
+			print("crushed by box")
 			return true
 	return false
 
