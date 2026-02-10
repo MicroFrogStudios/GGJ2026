@@ -6,11 +6,13 @@
 [ext_resource type="Script" uid="uid://bidl02ph1kjag" path="res://entities/zanni/scripts/animation_states/run_state.gd" id="4_6o77n"]
 [ext_resource type="Script" uid="uid://b5yb4buqnvbhp" path="res://entities/zanni/scripts/animation_states/idle_state.gd" id="4_56dyf"]
 [ext_resource type="Script" uid="uid://c0uoxcnvkmi8j" path="res://entities/zanni/scripts/animation_states/fall_state.gd" id="5_6o77n"]
+[ext_resource type="Script" uid="uid://dp23wau2xf8cr" path="res://entities/zanni/scripts/animation_states/push_state.gd" id="5_03647"]
 [ext_resource type="Script" uid="uid://dewund8rpfgtb" path="res://entities/zanni/scripts/animation_states/land_state.gd" id="6_jybep"]
 [ext_resource type="Script" uid="uid://berep5kp3fknt" path="res://entities/zanni/scripts/animation_states/turn_state.gd" id="7_50rl7"]
 [ext_resource type="Script" uid="uid://bd0mlvbn2uc4j" path="res://entities/zanni/scripts/animation_states/look_up_state.gd" id="8_gx6q2"]
 [ext_resource type="Script" uid="uid://b6mrerfusb52y" path="res://entities/zanni/scripts/animation_states/jump_state.gd" id="8_oqq3r"]
 [ext_resource type="Script" uid="uid://c4a8536ly6b4n" path="res://entities/zanni/scripts/animation_states/bow_state.gd" id="9_mgyw5"]
+[ext_resource type="Script" uid="uid://b17wkxakwoluj" path="res://entities/zanni/scripts/animation_states/look_down_state.gd" id="9_nkvaq"]
 [ext_resource type="AudioStream" uid="uid://xa6gidqhxsb5" path="res://audio/sounds/victory.mp3" id="10_50rl7"]
 [ext_resource type="AudioStream" uid="uid://bsrsnh8a4ladg" path="res://audio/sounds/lose.mp3" id="11_oqq3r"]
 [ext_resource type="AudioStream" uid="uid://dmpk02mcfojmh" path="res://audio/sounds/mask change 1.mp3" id="12_1a8bf"]
@@ -226,6 +228,10 @@ metadata/_custom_type_script = "uid://vy31el0p8pfe"
 script = ExtResource("4_6o77n")
 metadata/_custom_type_script = "uid://vy31el0p8pfe"
 
+[node name="push" type="Node" parent="State_Machine" unique_id=1768309318]
+script = ExtResource("5_03647")
+metadata/_custom_type_script = "uid://vy31el0p8pfe"
+
 [node name="fall" type="Node" parent="State_Machine" unique_id=1555250357]
 script = ExtResource("5_6o77n")
 metadata/_custom_type_script = "uid://vy31el0p8pfe"
@@ -240,6 +246,10 @@ metadata/_custom_type_script = "uid://vy31el0p8pfe"
 
 [node name="look_up" type="Node" parent="State_Machine" unique_id=13162350]
 script = ExtResource("8_gx6q2")
+metadata/_custom_type_script = "uid://vy31el0p8pfe"
+
+[node name="look_down" type="Node" parent="State_Machine" unique_id=913175222]
+script = ExtResource("9_nkvaq")
 metadata/_custom_type_script = "uid://vy31el0p8pfe"
 
 [node name="bow" type="Node" parent="State_Machine" unique_id=825803056]
@@ -261,8 +271,9 @@ shape = SubResource("CapsuleShape2D_8cdkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=810608017]
 sprite_frames = ExtResource("2_tou0u")
-animation = &"bow"
+animation = &"push"
 autoplay = "idle"
+frame_progress = 0.32589743
 
 [node name="PlayerAnimations" type="AnimationPlayer" parent="." unique_id=1271726712]
 libraries/ = SubResource("AnimationLibrary_dnu5j")

@@ -19,6 +19,9 @@ func Update(_delta: float):
 
 
 func Physics_Update(_delta: float):
+	
+
+		
 	if not player.going_into_door:
 		player.anim.speed_scale = player.velocity.x/100
 	else:
@@ -30,7 +33,10 @@ func Physics_Update(_delta: float):
 		transitioned.emit(FallState.Name())
 	if player.velocity.x == 0 and not player.going_into_door:
 		transitioned.emit(IdleState.Name())
-	
+	if player.is_pushing_box:
+		transitioned.emit(PushState.Name())
+		return
+		
 	var direction_x :=Input.get_axis("move_left", "move_right")
 	if direction_x * player.velocity.x < 0:
 		transitioned.emit((TurnState.Name()))

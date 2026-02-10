@@ -26,9 +26,17 @@ func Physics_Update(_delta: float):
 	if player.velocity.x != 0:
 		transitioned.emit(RunState.Name())
 		return
+		
+	if player.is_pushing_box:
+		transitioned.emit(PushState.Name())
+		return
+		
 	var direction_y :=Input.get_axis("ui_up", "ui_down")
-	if direction_y != 0:
+	if direction_y < 0:
 		transitioned.emit(LookUpState.Name())
+		return
+	if direction_y > 0:
+		transitioned.emit(LookDownState.Name())	
 		return
 	if not player.is_on_floor():
 		transitioned.emit(FallState.Name())

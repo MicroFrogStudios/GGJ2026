@@ -1,16 +1,16 @@
 extends State
-class_name LookUpState
+class_name LookDownState
 
 
 var delay = 500.0
 var start_state := 0.0
 
 static func Name() -> String:
-	return "look_up"
+	return "look_down"
 
 
 func Enter():
-	player.anim.play("look_up")
+	player.anim.play("look_down")
 	
 	start_state = Time.get_ticks_msec()
 func Exit():
@@ -24,11 +24,13 @@ func Physics_Update(_delta: float):
 		transitioned.emit(JumpState.Name())
 		return
 	
+		
+	
 	var direction_y :=Input.get_axis("ui_up", "ui_down")
-	if direction_y > 0:
-		transitioned.emit(LookDownState.Name())
+	if direction_y < 0:
+		transitioned.emit(LookUpState.Name())
 		return
-	elif direction_y < 0 and Time.get_ticks_msec() -start_state > delay:
+	elif direction_y > 0 and Time.get_ticks_msec() -start_state > delay:
 		gc.camera.look_offset = -direction_y * 70
 	elif direction_y == 0:
 		transitioned.emit(IdleState.Name())
