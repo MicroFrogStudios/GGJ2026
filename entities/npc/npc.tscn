@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://iep7mde8c2sj"]
+
+[ext_resource type="Script" uid="uid://dj8sf84jm6a53" path="res://entities/npc/npc.gd" id="1_e3lg2"]
+[ext_resource type="Texture2D" uid="uid://dgsom5awr3yow" path="res://entities/npc/npc1.png" id="1_gwous"]
+[ext_resource type="Script" uid="uid://c6s4dyxu05tva" path="res://entities/npc/npc_dialogue.gd" id="3_7bf1a"]
+[ext_resource type="Texture2D" uid="uid://c0dkxttffo6an" path="res://ui/credits/clock.png" id="4_wfxk4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3lg2"]
+atlas = ExtResource("1_gwous")
+region = Rect2(0, 0, 770, 772)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7bf1a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3lg2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmo1d"]
+size = Vector2(21, 17)
+
+[node name="Npc" type="Node2D" unique_id=894999881 node_paths=PackedStringArray("dialogues")]
+script = ExtResource("1_e3lg2")
+dialogues = [NodePath("NodeDialogueContainer/NpcDialogue1")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1641095260]
+scale = Vector2(0.02207792, 0.02396373)
+sprite_frames = SubResource("SpriteFrames_7bf1a")
+
+[node name="TalkHitbox" type="Area2D" parent="." unique_id=1318983788]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TalkHitbox" unique_id=1340699700]
+position = Vector2(2.5, 0.5)
+shape = SubResource("RectangleShape2D_dmo1d")
+
+[node name="NodeDialogueContainer" type="Node" parent="." unique_id=1822061845]
+
+[node name="NpcDialogue1" type="Node" parent="NodeDialogueContainer" unique_id=1850127613]
+script = ExtResource("3_7bf1a")
+text = "boilerplate"
+portrait = ExtResource("4_wfxk4")

@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cd416ch8l76ky"]
+
+[ext_resource type="Texture2D" uid="uid://ck53328b3i8m" path="res://ui/dialogue/dialoguebox.png" id="1_8q5o4"]
+[ext_resource type="Script" uid="uid://bod8jndk7o1de" path="res://ui/dialogue/dialogue.gd" id="1_m4qfh"]
+[ext_resource type="Texture2D" uid="uid://bnb6vw43387in" path="res://entities/npc/pantaloon/face.png" id="2_h4lfh"]
+
+[node name="DialogueUI" type="Control" unique_id=1693998598]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m4qfh")
+
+[node name="DialogueBox" type="TextureRect" parent="." unique_id=456048511]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -117.5
+offset_top = -85.0
+offset_right = 117.5
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_8q5o4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NpcPortrait" type="TextureRect" parent="DialogueBox" unique_id=1727589206]
+layout_mode = 0
+offset_left = 10.5
+offset_top = 13.0
+offset_right = 64.5177
+offset_bottom = 64.0
+texture = ExtResource("2_h4lfh")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="NpcNameLabel" type="Label" parent="DialogueBox" unique_id=331913153]
+layout_mode = 0
+offset_left = 58.5
+offset_top = 2.0
+offset_right = 142.5
+offset_bottom = 25.0
+text = "NPC NAME"
+
+[node name="TextLabel" type="Label" parent="DialogueBox" unique_id=500914256]
+layout_mode = 0
+offset_left = 72.5
+offset_top = 27.0
+offset_right = 210.5
+offset_bottom = 61.0
+text = "This is the dialogue"

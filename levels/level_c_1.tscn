@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://b4yly6dmp6sfc"]
 
 [ext_resource type="PackedScene" uid="uid://s6jgpvyxe42i" path="res://levels/level_boilerplate.tscn" id="1_o6o6r"]
+[ext_resource type="PackedScene" uid="uid://iep7mde8c2sj" path="res://entities/npc/npc.tscn" id="3_7aycl"]
 [ext_resource type="PackedScene" uid="uid://b6iiohd1uhxf6" path="res://entities/box/box.tscn" id="3_xbusq"]
 
 [node name="LevelC1" unique_id=1082980837 instance=ExtResource("1_o6o6r")]
@@ -36,7 +37,10 @@ position = Vector2(-102, -166)
 position = Vector2(-25, -86)
 
 [node name="BoxRigid3" parent="." index="14" unique_id=1091993967 instance=ExtResource("3_xbusq")]
-position = Vector2(293, -85)
+position = Vector2(249, -85)
 
 [node name="BoxRigid4" parent="." index="15" unique_id=881303763 instance=ExtResource("3_xbusq")]
 position = Vector2(32, -181)
+
+[node name="Npc" parent="." index="16" unique_id=894999881 instance=ExtResource("3_7aycl")]
+position = Vector2(304, -84)

@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://v0bxw5r7bav0" path="res://entities/camera/camera.tscn" id="4_7gbb6"]
 [ext_resource type="Shader" uid="uid://fv4s56mmwbu0" path="res://levels/shaders/background.gdshader" id="5_fw5g4"]
 [ext_resource type="Texture2D" uid="uid://ds1qav1ujcvw5" path="res://levels/sprites/stars.png" id="6_7bc8a"]
+[ext_resource type="PackedScene" uid="uid://cd416ch8l76ky" path="res://ui/dialogue/dialogue.tscn" id="7_4lsjy"]
 [ext_resource type="PackedScene" uid="uid://4aghjpy7mbvk" path="res://ui/masks_ingame_hud/game_ui.tscn" id="7_kcp2n"]
 [ext_resource type="Shader" uid="uid://g2kx26x1mj7r" path="res://levels/shaders/spotlight.gdshader" id="8_2navt"]
 [ext_resource type="Script" uid="uid://b7qtr6cokots2" path="res://levels/scripts/death_spotlight.gd" id="9_ibjs4"]
@@ -248,6 +249,10 @@ root_node = NodePath("../SpotlightLayer/DeathSpotlight")
 libraries/ = SubResource("AnimationLibrary_nendb")
 
 [node name="SpotlightLayer" type="CanvasLayer" parent="CameraFollow" unique_id=1087320890]
+
+[node name="DialogueUI" parent="CameraFollow/SpotlightLayer" unique_id=1693998598 instance=ExtResource("7_4lsjy")]
+unique_name_in_owner = true
+visible = false
 
 [node name="GameUi" parent="CameraFollow/SpotlightLayer" unique_id=1129233128 node_paths=PackedStringArray("player_character") instance=ExtResource("7_kcp2n")]
 player_character = NodePath("../../../PlayerCharacter")

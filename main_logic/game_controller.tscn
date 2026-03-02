@@ -18,5 +18,5 @@
 
 [node name="GameController" type="Node" unique_id=2034097526]
 script = ExtResource("1_0i6ms")
-level_scenes = Array[PackedScene]([ExtResource("2_eswa6"), ExtResource("12_4cfg3"), ExtResource("2_h3a3e"), ExtResource("2_4cfg3"), ExtResource("4_eswa6"), ExtResource("5_5gf7d"), ExtResource("6_oxwsf"), ExtResource("7_nvtsa"), ExtResource("8_4fi28"), ExtResource("9_e2gq8"), ExtResource("10_36aoa"), ExtResource("11_se4oe"), ExtResource("3_h3a3e")])
+level_scenes = Array[PackedScene]([ExtResource("12_4cfg3"), ExtResource("2_eswa6"), ExtResource("2_h3a3e"), ExtResource("2_4cfg3"), ExtResource("4_eswa6"), ExtResource("5_5gf7d"), ExtResource("6_oxwsf"), ExtResource("7_nvtsa"), ExtResource("8_4fi28"), ExtResource("9_e2gq8"), ExtResource("10_36aoa"), ExtResource("11_se4oe"), ExtResource("3_h3a3e")])
 main_menu = ExtResource("12_djudp")
