@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://c7yy16lrd7app" path="res://ui/common_sprites/ticket_shade.png" id="12_vo4u1"]
 [ext_resource type="Texture2D" uid="uid://css1qblbva2in" path="res://ui/common_sprites/ticket.png" id="13_a2q1h"]
 [ext_resource type="AudioStream" uid="uid://bn5v1oeifgel4" path="res://audio/sounds/Menu change maybe.mp3" id="14_6md5t"]
-[ext_resource type="PackedScene" uid="uid://bjpekka5mqsha" path="res://ui/buttons/pixel_button.tscn" id="15_ri52i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rm5il"]
 shader = ExtResource("2_ri52i")
@@ -184,15 +183,6 @@ theme_override_styles/hover = ExtResource("6_mtbbs")
 theme_override_styles/focus = ExtResource("6_mtbbs")
 text = "SETTINGS"
 alignment = 0
-
-[node name="PixelButton" parent="menu" unique_id=1917816133 instance=ExtResource("15_ri52i")]
-layout_mode = 1
-offset_left = -189.0
-offset_top = -121.0
-offset_right = -93.0
-offset_bottom = -89.0
-text = ""
-font_size = 0
 
 [node name="Settings" type="Control" parent="." unique_id=1589153331]
 visible = false
