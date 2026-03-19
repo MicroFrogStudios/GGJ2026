@@ -103,8 +103,8 @@ func _physics_process(delta: float) -> void:
 
 	if Input. is_action_just_released("jump"):
 		just_jumped = false
-		if is_jumping and velocity.y < 0:
-			velocity.y = clamp(velocity.y + jump_deccel, jump_velocity, 0) 
+		if is_jumping and velocity.y < 0 and not control_disabled:
+			velocity.y = clamp(velocity.y + jump_deccel, jump_velocity, 0)
 			is_jumping = false
 		
 	# Sideways movement

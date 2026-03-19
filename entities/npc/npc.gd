@@ -10,6 +10,7 @@ extends Node2D
 
 
 var has_player_inside: bool = false
+var current_dialogue_index: int = -1  # -1 = not in dialogue
 
 
 func _ready() -> void:
@@ -17,12 +18,32 @@ func _ready() -> void:
 	talk_hitbox.body_exited.connect(_on_TalkHitbox_body_exited)
 
 
-# If player inside hitbox and presses the talk button, start dialogue
 func _process(_delta: float) -> void:
-	if has_player_inside and Input.is_action_just_pressed("talk"):
-		dialogue_ui.visible = true
-		dialogue_ui.change_dialogue(dialogues[0])
-		# TODO lock zani etc etc
+	if not Input.is_action_just_pressed("talk"):
+		return
+
+	if current_dialogue_index >= 0:
+		# Already in dialogue — advance or close
+		current_dialogue_index += 1
+		if current_dialogue_index < dialogues.size():
+			dialogue_ui.change_dialogue(dialogues[current_dialogue_index])
+		else:
+			_end_dialogue()
+	elif has_player_inside and dialogues.size() > 0:
+		_start_dialogue()
+
+
+func _start_dialogue() -> void:
+	current_dialogue_index = 0
+	gc.player.control_disabled = true
+	dialogue_ui.visible = true
+	dialogue_ui.change_dialogue(dialogues[0])
+
+
+func _end_dialogue() -> void:
+	current_dialogue_index = -1
+	dialogue_ui.visible = false
+	gc.player.control_disabled = false
 
 
 func _on_TalkHitbox_body_entered(body: Node) -> void:
@@ -32,3 +53,5 @@ func _on_TalkHitbox_body_entered(body: Node) -> void:
 func _on_TalkHitbox_body_exited(body: Node) -> void:
 	if body == gc.player:
 		has_player_inside = false
+		if current_dialogue_index >= 0:
+			_end_dialogue()  # Cancel dialogue if player walks away
