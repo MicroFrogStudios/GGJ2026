@@ -40,6 +40,7 @@ func _process(_delta: float) -> void:
 func _start_dialogue() -> void:
 	current_dialogue_index = 0
 	gc.player.control_disabled = true
+	gc.camera.start_dialogue_view(global_position)
 	dialogue_ui.visible = true
 	dialogue_ui.change_dialogue(dialogues[0])
 
@@ -48,6 +49,7 @@ func _end_dialogue() -> void:
 	current_dialogue_index = -1
 	dialogue_ui.visible = false
 	gc.player.control_disabled = false
+	gc.camera.end_dialogue_view()
 
 
 func _on_TalkHitbox_body_entered(body: Node) -> void:

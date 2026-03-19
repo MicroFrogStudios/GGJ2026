@@ -43,10 +43,12 @@ stretch_mode = 5
 
 [node name="NpcNameLabel" type="Label" parent="DialogueBox" unique_id=331913153]
 layout_mode = 0
-offset_left = 58.5
-offset_top = 2.0
-offset_right = 142.5
-offset_bottom = 25.0
+offset_left = 75.5
+offset_top = 11.0
+offset_right = 159.5
+offset_bottom = 34.0
+theme_override_fonts/font = ExtResource("4_r2qx3")
+theme_override_font_sizes/font_size = 6
 text = "NPC NAME"
 
 [node name="TextLabel" type="Label" parent="DialogueBox" unique_id=500914256]
