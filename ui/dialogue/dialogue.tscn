@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ck53328b3i8m" path="res://ui/dialogue/dialoguebox.png" id="1_8q5o4"]
 [ext_resource type="Script" uid="uid://bod8jndk7o1de" path="res://ui/dialogue/dialogue.gd" id="1_m4qfh"]
 [ext_resource type="Texture2D" uid="uid://bnb6vw43387in" path="res://entities/npc/pantaloon/face.png" id="2_h4lfh"]
+[ext_resource type="FontFile" uid="uid://bt0v0itnb1qof" path="res://ui/common_styles/fonts/PixelOperator8.ttf" id="4_r2qx3"]
 
 [node name="DialogueUI" type="Control" unique_id=1693998598]
 layout_mode = 3
@@ -50,8 +51,11 @@ text = "NPC NAME"
 
 [node name="TextLabel" type="Label" parent="DialogueBox" unique_id=500914256]
 layout_mode = 0
-offset_left = 72.5
-offset_top = 27.0
+offset_left = 71.5
+offset_top = 26.0
 offset_right = 210.5
 offset_bottom = 61.0
+theme_override_fonts/font = ExtResource("4_r2qx3")
+theme_override_font_sizes/font_size = 8
 text = "This is the dialogue"
+autowrap_mode = 3

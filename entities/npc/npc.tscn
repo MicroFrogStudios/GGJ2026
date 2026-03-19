@@ -42,5 +42,5 @@ shape = SubResource("RectangleShape2D_dmo1d")
 
 [node name="NpcDialogue1" type="Node" parent="NodeDialogueContainer" unique_id=1850127613]
 script = ExtResource("3_7bf1a")
-text = "boilerplate"
+text = "this is some sample text! hi :)"
 portrait = ExtResource("4_wfxk4")

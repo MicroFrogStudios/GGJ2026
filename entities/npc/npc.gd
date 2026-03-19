@@ -23,12 +23,16 @@ func _process(_delta: float) -> void:
 		return
 
 	if current_dialogue_index >= 0:
-		# Already in dialogue — advance or close
-		current_dialogue_index += 1
-		if current_dialogue_index < dialogues.size():
-			dialogue_ui.change_dialogue(dialogues[current_dialogue_index])
+		if dialogue_ui.is_typing:
+			# Reveal full text immediately
+			dialogue_ui.finish_typing()
 		else:
-			_end_dialogue()
+			# Advance to next line or close
+			current_dialogue_index += 1
+			if current_dialogue_index < dialogues.size():
+				dialogue_ui.change_dialogue(dialogues[current_dialogue_index])
+			else:
+				_end_dialogue()
 	elif has_player_inside and dialogues.size() > 0:
 		_start_dialogue()
 
