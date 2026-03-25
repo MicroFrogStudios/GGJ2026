@@ -3,10 +3,12 @@ extends Node2D
 # Dialogue is an array of objects, one of them a string
 # { text: "Hello there!", portrait: some_texture, callback }
 @export var dialogues : Array[NpcDialogue]
+@export var sprite_frames : SpriteFrames
 
 
 @onready var talk_hitbox : Area2D = $TalkHitbox
 @onready var dialogue_ui : DialogueUI = %DialogueUI
+@onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 
 var has_player_inside: bool = false
@@ -14,6 +16,8 @@ var current_dialogue_index: int = -1  # -1 = not in dialogue
 
 
 func _ready() -> void:
+	if sprite_frames:
+		animated_sprite.sprite_frames = sprite_frames
 	talk_hitbox.body_entered.connect(_on_TalkHitbox_body_entered)
 	talk_hitbox.body_exited.connect(_on_TalkHitbox_body_exited)
 
