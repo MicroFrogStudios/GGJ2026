@@ -43,4 +43,4 @@ position = Vector2(249, -85)
 position = Vector2(32, -181)
 
 [node name="Npc" parent="." index="16" unique_id=894999881 instance=ExtResource("3_7aycl")]
-position = Vector2(304, -84)
+position = Vector2(304, -90)
